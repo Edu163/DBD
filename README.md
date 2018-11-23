@@ -2,7 +2,6 @@ Copia de datos útiles de .env
 
 APP_NAME=nombreEmpresa
 APP_ENV=local
-APP_KEY=base64:4cBVAsSdkOY/LyJW9dzCoScSgtuU2o6mk5c4WJ2rB4c=
 APP_DEBUG=true
 APP_URL=http://localhost
 
