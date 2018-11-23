@@ -16,7 +16,7 @@ DB_USERNAME=homestead
 DB_PASSWORD=secret
 
 
-además se recuerda que en este proyecto se instaló angularJS con el comando:
+Se recuerda que en este proyecto se instaló angularJS con el comando:
 
 npm install angular@1.7.5
 
