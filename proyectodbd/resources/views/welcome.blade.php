@@ -4,84 +4,79 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>NombreAereolinea</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
 
-            .full-height {
-                height: 100vh;
-            }
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <a class="navbar-brand links" href="{{ url('/') }}">LogoEmpresa</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mr-auto mt-2 mt-lg-0 nav-item nav-link links">
+                    <a href="{{ url('/') }}">Inicio <span class="sr-only">(current)</span></a>
                 </div>
-            @endif
+                <div class="nav-item nav-link links">
+                    @if (Route::has('login'))
+                        @auth
+                        <a href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
+                        @else
+                        <a href="{{ route('login') }}">Iniciar sesión</a>
+                            @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Registrarse</a>
+                            @endif
+                        @endauth
+                    @endif
+                </div>
+            </div>
+        </nav>
 
+        <div id="carruselInicio" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carruselInicio" data-slide-to="0" class="active"></li>
+                <li data-target="#carruselInicio" data-slide-to="1"></li>
+                <li data-target="#carruselInicio" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{ asset('img/2.jpg')}}" alt="Primera slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('img/3.jpg')}}" alt="Segunda slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('img/5.jpg')}}" alt="Tercera slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carruselInicio" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carruselInicio" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+
+        <div class="flex-center position-ref full-height">            
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    @auth
+                    ¡Bienvenido {{ Auth::user()->name }}!
+                    @else
+                    ¡Bienvenido!
+                    @endauth
                 </div>
 
                 <div class="links">
