@@ -5,8 +5,6 @@ APP_ENV=local
 APP_DEBUG=true
 APP_URL=http://localhost
 
-LOG_CHANNEL=stack
-
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
