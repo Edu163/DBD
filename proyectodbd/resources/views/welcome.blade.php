@@ -73,7 +73,7 @@
             <div class="content">
                 <div class="title m-b-md">
                     @auth
-                    ¡Bienvenido {{ Auth::user()->name }}!
+                    ¡Bienvenido {{ Auth::user()->nombre }}!
                     @else
                     ¡Bienvenido!
                     @endauth

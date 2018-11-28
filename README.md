@@ -2,11 +2,8 @@ Copia de datos útiles de .env
 
 APP_NAME=nombreEmpresa
 APP_ENV=local
-APP_KEY=base64:4cBVAsSdkOY/LyJW9dzCoScSgtuU2o6mk5c4WJ2rB4c=
 APP_DEBUG=true
 APP_URL=http://localhost
-
-LOG_CHANNEL=stack
 
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
@@ -15,15 +12,11 @@ DB_DATABASE=proyectodbd
 DB_USERNAME=homestead
 DB_PASSWORD=secret
 
-
-Se recuerda que en este proyecto se instaló angularJS con el comando:
-
-npm install angular@1.7.5
-
 Además se aconseja utilizar Valentina Studio para el manejo de la base de datos de PostgreSQL.
+
 Se ha dejado el link de descarga al final del documento, es un software gratuito, pero pide registrarse para adquirir la serial de licencia gratuita.
 
-La base de datos se inicia con los siguientes datos:
+La base de datos, desde la interfaz gráfica (Valentina Studio) se inicia con los siguientes datos:
 
 Host: localhost
 User: homestead
