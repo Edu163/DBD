@@ -15,12 +15,14 @@ class CreateDetalleReservaAutoTable extends Migration
     {
         Schema::create('detalle_reserva_auto', function (Blueprint $table) {
             $table->increments('id_det_res_auto');
+            $table->integer('id_res_auto');
+            $table->string('patente');
             $table->foreign('id_res_auto')
                 ->references('id_res_auto')
-                ->on('res_auto');
+                ->on('reserva_auto');
             $table->foreign('patente')
                     ->references('patente')
-                    ->on('auto');
+                    ->on('automovil');
             $table->datetime('fecha_retiro');
             $table->datetime('fecha_regreso');
             $table->float('precio_reserva');

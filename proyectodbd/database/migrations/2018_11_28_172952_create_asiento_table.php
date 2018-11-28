@@ -15,6 +15,7 @@ class CreateAsientoTable extends Migration
     {
         Schema::create('asiento', function (Blueprint $table) {
             $table->increments('id_asiento');
+            $table->integer('id_avion');
             $table->foreign('id_avion')
                 ->references('id_avion')
                 ->on('avion');

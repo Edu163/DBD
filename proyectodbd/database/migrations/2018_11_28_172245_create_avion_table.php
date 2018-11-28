@@ -15,6 +15,7 @@ class CreateAvionTable extends Migration
     {
         Schema::create('avion', function (Blueprint $table) {
             $table->increments('id_avion');
+            $table->integer('id_compania');
             $table->foreign('id_compania')
                 ->references('id_compania')
                 ->on('compania');

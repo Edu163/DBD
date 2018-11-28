@@ -15,9 +15,10 @@ class CreateCalendarioVueloTable extends Migration
     {
         Schema::create('calendario_vuelo', function (Blueprint $table) {
             $table->increments('id_calendario_vuelo');
+            $table->integer('id_usuario');
             $table->foreign('id_usuario')
-                ->references('id')
-                ->on('users');
+                ->references('id_Usuario')
+                ->on('Usuario');
             $table->integer('año');
             $table->integer('mes');
             $table->integer('dia');

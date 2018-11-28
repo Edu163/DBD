@@ -14,7 +14,7 @@ class CreateCalendarioVehiculoTable extends Migration
     public function up()
     {
         Schema::create('calendario_vehiculo', function (Blueprint $table) {
-            $table->increments('id_calendario_vehi');
+            $table->increments('id_calendario_vehiculo');
             $table->integer('año');
             $table->integer('mes');
             $table->integer('dia');
