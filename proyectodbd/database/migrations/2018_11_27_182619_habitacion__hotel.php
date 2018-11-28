@@ -16,8 +16,8 @@ class HabitacionHotel extends Migration
         Schema::create('Habitacion_Hotel', function (Blueprint $table) {
             $table->increments('Id_Habita_Hotel');
 
-            $table->integer('Id_Hotel2');
-            $table->foreign('Id_Hotel2')
+            $table->integer('Id_Hotel');
+            $table->foreign('Id_Hotel')
                 ->references('Id_Hotel')
                 ->on('Hotel');
 
