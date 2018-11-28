@@ -15,9 +15,10 @@ class CreateReservaAutoTable extends Migration
     {
         Schema::create('reserva_auto', function (Blueprint $table) {
             $table->increments('id_res_auto');
+            $table->integer('id_venta');
             $table->foreign('id_venta')
-                  ->references('id_venta')
-                  ->on('venta');
+                  ->references('id_Venta')
+                  ->on('Venta');
             $table->datetime('fecha');
             $table->float('monto_total');
         });
