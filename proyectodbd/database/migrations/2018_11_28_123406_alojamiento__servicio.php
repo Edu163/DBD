@@ -13,15 +13,15 @@ class AlojamientoServicio extends Migration
      */
     public function up()
     {
-        Schema::create('Alojamiento_Servicio', function (Blueprint $table) {
-            $table->integer('id_Servicio_Alojamiento');
-            $table->foreign('id_Servicio_Alojamiento')
-                ->references('id_Servicio_Alojamiento')
-                ->on('Servicio_Alojamiento');
-            $table->integer('id_Alojamiento_Privado');
-            $table->foreign('id_Alojamiento_Privado')
-                ->references('id_Alojamiento_Privado')
-                ->on('Alojamiento_Privado');
+        Schema::create('alojamiento_servicio', function (Blueprint $table) {
+            $table->integer('id_servicio_alojamiento');
+            $table->foreign('id_servicio_alojamiento')
+                ->references('id_servicio_alojamiento')
+                ->on('servicio_alojamiento');
+            $table->integer('id_alojamiento_privado');
+            $table->foreign('id_alojamiento_privado')
+                ->references('id_alojamiento_privado')
+                ->on('alojamiento_privado');
         });
     }
 

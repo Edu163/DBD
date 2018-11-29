@@ -13,12 +13,12 @@ class AlojamientoPrivado extends Migration
      */
     public function up()
     {
-        Schema::create('Alojamiento_Privado', function (Blueprint $table) {
-            $table->increments('id_Alojamiento_Privado');
-            $table->integer('id_Calendario_Alojamiento');
-            $table->foreign('id_Calendario_Alojamiento')
-                ->references('id_Calendario_Alojamiento')
-                ->on('Calendario_Alojamiento');
+        Schema::create('alojamiento_privado', function (Blueprint $table) {
+            $table->increments('id_alojamiento_privado');
+            $table->integer('id_calendario_alojamiento');
+            $table->foreign('id_calendario_alojamiento')
+                ->references('id_calendario_alojamiento')
+                ->on('calendario_alojamiento');
             $table->integer('capacidad');
             $table->string('direccion');
             $table->float('nombre');

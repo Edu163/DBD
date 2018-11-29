@@ -13,12 +13,12 @@ class ServicioAlojamiento extends Migration
      */
     public function up()
     {
-        Schema::create('Servicio_Alojamiento', function (Blueprint $table) {
-            $table->increments('id_Servicio_Alojamiento');
-            $table->integer('id_Hotel');
-            $table->foreign('id_Hotel')
-                ->references('id_Hotel')
-                ->on('Hotel');
+        Schema::create('servicio_alojamiento', function (Blueprint $table) {
+            $table->increments('id_servicio_alojamiento');
+            $table->integer('id_hotel');
+            $table->foreign('id_hotel')
+                ->references('id_hotel')
+                ->on('hotel');
             $table->string('nombre');
             $table->float('precio');
             $table->string('descripcion');

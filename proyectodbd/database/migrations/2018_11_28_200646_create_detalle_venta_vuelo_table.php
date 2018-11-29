@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ReservaHotel extends Migration
+class CreateDetalleVentaVueloTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,19 @@ class ReservaHotel extends Migration
      */
     public function up()
     {
-        Schema::create('reserva_hotel', function (Blueprint $table) {
-            $table->increments('id_reserva_hotel');
+        Schema::create('detalle_venta_vuelo', function (Blueprint $table) {
+            $table->increments('id_detalle_venta_vuelo');
             $table->integer('id_venta');
             $table->foreign('id_venta')
                 ->references('id_venta')
                 ->on('venta');
             $table->float('precio');
-            $table->date('fecha');
-            $table->integer('cantidad');
-            $table->float('monto_total');
             $table->float('descuento');
+            $table->float('monto_total');
+            $table->datetime('fecha');
+            $table->string('tipo');
+            $table->integer('cantidad');
+            $table->timestamps();
         });
     }
 
@@ -34,6 +36,6 @@ class ReservaHotel extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('detalle_venta_vuelo');
     }
 }

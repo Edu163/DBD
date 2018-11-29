@@ -13,18 +13,18 @@ class Venta extends Migration
      */
     public function up()
     {
-        Schema::create('Venta', function (Blueprint $table) {
-            $table->increments('id_Venta');
-            $table->integer('id_Usuario');
-            $table->foreign('id_Usuario')
-                ->references('id_Usuario')
-                ->on('Usuario');
-            $table->integer('monto_Total');
+        Schema::create('venta', function (Blueprint $table) {
+            $table->increments('id_venta');
+            $table->integer('id_usuario');
+            $table->foreign('id_usuario')
+                ->references('id_usuario')
+                ->on('usuario');
+            $table->integer('monto_total');
             $table->date('fecha');
             $table->float('impuesto');
-            $table->string('tipo_Comprobante');
-            $table->string('metodo_Pago');
-            $table->integer('n_Cuotas');
+            $table->string('tipo_comprobante');
+            $table->string('metodo_pago');
+            $table->integer('n_cuotas');
             $table->float('descuento');
         });
     }
