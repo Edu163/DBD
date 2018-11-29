@@ -15,10 +15,10 @@ class Venta extends Migration
     {
         Schema::create('venta', function (Blueprint $table) {
             $table->increments('id_venta');
-            $table->integer('id_usuario');
-            $table->foreign('id_usuario')
-                ->references('id_usuario')
-                ->on('usuario');
+            $table->integer('id_users');
+            $table->foreign('id_users')
+                ->references('id')
+                ->on('users');
             $table->integer('monto_total');
             $table->date('fecha');
             $table->float('impuesto');

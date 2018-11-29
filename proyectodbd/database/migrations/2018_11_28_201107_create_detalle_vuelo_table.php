@@ -16,25 +16,15 @@ class CreateDetalleVueloTable extends Migration
         Schema::create('detalle_vuelo', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_vuelo');
-<<<<<<< HEAD
-            $table->integer('id_usuario');
-=======
-            $table->integer('id_Usuario');
->>>>>>> development
+            $table->integer('id_users');
             $table->integer('id_avion');
             $table->integer('id_calendario_vuelo');
             $table->foreign('id_vuelo')
                 ->references('id_vuelo')
                 ->on('vuelo');
-<<<<<<< HEAD
-            $table->foreign('id_usuario')
-                ->references('id_usuario')
-                ->on('usuario');
-=======
-            $table->foreign('id_Usuario')
-                ->references('id_Usuario')
-                ->on('Usuario');
->>>>>>> development
+            $table->foreign('id_users')
+                ->references('id')
+                ->on('users');
             $table->foreign('id_avion')
                 ->references('id_avion')
                 ->on('avion');
