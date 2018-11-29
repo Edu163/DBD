@@ -13,8 +13,8 @@ class Hotel extends Migration
      */
      public function up()
     {
-        Schema::create('Hotel', function (Blueprint $table) {
-            $table->increments('id_Hotel');
+        Schema::create('hotel', function (Blueprint $table) {
+            $table->increments('id_hotel');
             $table->string('nombre');
             $table->string('pais');
             $table->string('direccion');

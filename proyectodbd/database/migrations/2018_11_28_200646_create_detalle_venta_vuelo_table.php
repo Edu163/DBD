@@ -17,8 +17,8 @@ class CreateDetalleVentaVueloTable extends Migration
             $table->increments('id_detalle_venta_vuelo');
             $table->integer('id_venta');
             $table->foreign('id_venta')
-                ->references('id_Venta')
-                ->on('Venta');
+                ->references('id_venta')
+                ->on('venta');
             $table->float('precio');
             $table->float('descuento');
             $table->float('monto_total');

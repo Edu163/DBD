@@ -13,16 +13,16 @@ class ReservaHotel extends Migration
      */
     public function up()
     {
-        Schema::create('Reserva_Hotel', function (Blueprint $table) {
-            $table->increments('id_Reserva_Hotel');
-            $table->integer('id_Venta');
-            $table->foreign('id_Venta')
-                ->references('id_Venta')
-                ->on('Venta');
+        Schema::create('reserva_hotel', function (Blueprint $table) {
+            $table->increments('id_reserva_hotel');
+            $table->integer('id_venta');
+            $table->foreign('id_venta')
+                ->references('id_venta')
+                ->on('venta');
             $table->float('precio');
             $table->date('fecha');
             $table->integer('cantidad');
-            $table->float('monto_Total');
+            $table->float('monto_total');
             $table->float('descuento');
         });
     }

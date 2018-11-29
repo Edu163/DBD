@@ -15,10 +15,10 @@ class CreateAccionTable extends Migration
     {
         Schema::create('accion', function (Blueprint $table) {
             $table->increments('id_accion');
-            $table->integer('id_usuario');
-            $table->foreign('id_usuario')
-                ->references('id_Usuario')
-                ->on('Usuario');
+            $table->integer('id_users');
+            $table->foreign('id_users')
+                ->references('id')
+                ->on('users');
             $table->datetime('fecha');
             $table->string('accion');
             $table->timestamps();

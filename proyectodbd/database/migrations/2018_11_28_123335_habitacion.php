@@ -13,15 +13,15 @@ class Habitacion extends Migration
      */
     public function up()
     {
-        Schema::create('Habitacion', function (Blueprint $table) {
-            $table->increments('id_Habitacion');
-            $table->integer('id_Alojamiento_Privado');
-            $table->foreign('id_Alojamiento_Privado')
-                ->references('id_Alojamiento_Privado')
-                ->on('Alojamiento_Privado');
-            $table->integer('Piso');
-            $table->integer('Numero');
-            $table->integer('Camas');
+        Schema::create('habitacion', function (Blueprint $table) {
+            $table->increments('id_habitacion');
+            $table->integer('id_alojamiento_privado');
+            $table->foreign('id_alojamiento_privado')
+                ->references('id_alojamiento_privado')
+                ->on('alojamiento_privado');
+            $table->integer('piso');
+            $table->integer('numero');
+            $table->integer('camas');
         });
     }
 

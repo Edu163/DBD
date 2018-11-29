@@ -17,8 +17,8 @@ class CreateReservaAutoTable extends Migration
             $table->increments('id_res_auto');
             $table->integer('id_venta');
             $table->foreign('id_venta')
-                  ->references('id_Venta')
-                  ->on('Venta');
+                  ->references('id_venta')
+                  ->on('venta');
             $table->datetime('fecha');
             $table->float('monto_total');
         });
