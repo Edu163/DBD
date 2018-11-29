@@ -17,8 +17,13 @@ class CreateAccionTable extends Migration
             $table->increments('id_accion');
             $table->integer('id_usuario');
             $table->foreign('id_usuario')
+<<<<<<< HEAD
                 ->references('id_usuario')
                 ->on('usuario');
+=======
+                ->references('id_Usuario')
+                ->on('Usuario');
+>>>>>>> development
             $table->datetime('fecha');
             $table->string('accion');
             $table->timestamps();
