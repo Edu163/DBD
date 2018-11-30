@@ -30,7 +30,7 @@
                 <div class="nav-item nav-link links">
                     @if (Route::has('login'))
                         @auth
-                        <a href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
+                        <a href="{{ url('/home') }}">{{ Auth::user()->nombre }}</a>
                         @else
                         <a href="{{ route('login') }}">Iniciar sesión</a>
                             @if (Route::has('register'))
