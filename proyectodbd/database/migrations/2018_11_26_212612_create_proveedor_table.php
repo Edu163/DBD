@@ -15,13 +15,9 @@ class CreateProveedorTable extends Migration
     {
         Schema::create('proveedor', function (Blueprint $table) {
             $table->increments('id_proveedor');
-            $table->foreign('id_automovil')
-                ->references('id_automovil')
-                ->on('automovil');
             $table->string('politica_combus');
             $table->string('documentacion_necesaria');
             $table->string('franquicis_daños');
-            $table->string('politica_combus');
             $table->float('calificacion');
             $table->float('deposito_seguridad');
             $table->integer('kilometraje');

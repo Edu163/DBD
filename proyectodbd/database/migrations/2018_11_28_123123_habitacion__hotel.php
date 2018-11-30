@@ -13,18 +13,18 @@ class HabitacionHotel extends Migration
      */
     public function up()
     {
-        Schema::create('Habitacion_Hotel', function (Blueprint $table) {
-            $table->increments('id_Habitacion_Hotel');
+        Schema::create('habitacion_hotel', function (Blueprint $table) {
+            $table->increments('id_habitacion_hotel');
 
-            $table->integer('id_Hotel');
-            $table->foreign('id_Hotel')
-                ->references('id_Hotel')
-                ->on('Hotel');
+            $table->integer('id_hotel');
+            $table->foreign('id_hotel')
+                ->references('id_hotel')
+                ->on('hotel');
 
-            $table->integer('id_Calendario_Alojamiento');
-             $table->foreign('id_Calendario_Alojamiento')
-                ->references('id_Calendario_Alojamiento')
-                ->on('Calendario_Alojamiento');
+            $table->integer('id_calendario_alojamiento');
+             $table->foreign('id_calendario_alojamiento')
+                ->references('id_calendario_alojamiento')
+                ->on('calendario_alojamiento');
             
             $table->integer('capacidad');
             $table->integer('camas');

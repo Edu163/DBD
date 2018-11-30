@@ -15,8 +15,11 @@ class CreateAutomovilTable extends Migration
     {
         Schema::create('automovil', function (Blueprint $table) {
             $table->string('patente')->unique();
-            $table->foreign('id_cal_vehi')
-                ->references('id_cal_vehi')
+            $table->integer('id_calendario_vehiculo');
+            $table->integer('id_proveedor');
+            $table->integer('id_zona');
+            $table->foreign('id_calendario_vehiculo')
+                ->references('id_calendario_vehiculo')
                 ->on('calendario_vehiculo');
             $table->foreign('id_proveedor')
                 ->references('id_proveedor')

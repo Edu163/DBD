@@ -13,8 +13,8 @@ class Aeropuerto extends Migration
      */
     public function up()
     {
-        Schema::create('Aeropuerto', function (Blueprint $table) {
-            $table->increments('id_Aeropuerto');
+        Schema::create('aeropuerto', function (Blueprint $table) {
+            $table->increments('id_aeropuerto');
             $table->string('pais');
             $table->string('ciudad');
             $table->string('direccion');

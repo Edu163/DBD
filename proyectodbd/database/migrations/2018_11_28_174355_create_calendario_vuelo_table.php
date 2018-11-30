@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCalendarioVehiculoTable extends Migration
+class CreateCalendarioVueloTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateCalendarioVehiculoTable extends Migration
      */
     public function up()
     {
-        Schema::create('calendario_vehiculo', function (Blueprint $table) {
-            $table->increments('id_calendario_vehi');
+        Schema::create('calendario_vuelo', function (Blueprint $table) {
+            $table->increments('id_calendario_vuelo');
+            $table->integer('id_users');
+            $table->foreign('id_users')
+                ->references('id')
+                ->on('users');
             $table->integer('año');
             $table->integer('mes');
             $table->integer('dia');
@@ -29,6 +33,6 @@ class CreateCalendarioVehiculoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calendario_vehiculo');
+        Schema::dropIfExists('calendario_vuelo');
     }
 }

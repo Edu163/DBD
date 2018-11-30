@@ -14,6 +14,8 @@ class CreateServicioProveedorTable extends Migration
     public function up()
     {
         Schema::create('servicio_proveedor', function (Blueprint $table) {
+            $table->integer('id_servicio');
+            $table->integer('id_proveedor');
             $table->foreign('id_servicio')
                 ->references('id_servicio')
                 ->on('servicio_de_vehiculo');

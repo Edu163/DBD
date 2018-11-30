@@ -47,9 +47,10 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {
+    {   
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'nombre' => ['required', 'string', 'max:255'],
+            'apellido' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
@@ -62,11 +63,23 @@ class RegisterController extends Controller
      * @return \projectodbd\User
      */
     protected function create(array $data)
+
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'nombre' => request('nombre'),
+            'apellido' => request('apellido'),
+            'email' => request('email'),
+            'password' => Hash::make(request('password')),
+            'acceso' => 'usuario',
+            'n_documento' => null,
+            'tipo_documento' => null,
+            'pais' => request('pais'),
+            'puntos' => null,
+            'millas' => null,
+            'millas_elite' => null,
+            'telefono' => request('telefono'),
+            'categoria' => 'normal',
+            'fecha_nac' => request('fecha'),
         ]);
     }
 }
