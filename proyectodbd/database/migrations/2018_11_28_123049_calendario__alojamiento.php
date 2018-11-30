@@ -13,8 +13,8 @@ class CalendarioAlojamiento extends Migration
      */
     public function up()
     {
-        Schema::create('Calendario_Alojamiento', function (Blueprint $table) {
-            $table->increments('id_Calendario_Alojamiento');
+        Schema::create('calendario_alojamiento', function (Blueprint $table) {
+            $table->increments('id_calendario_alojamiento');
             $table->integer('año');
             $table->integer('mes');
             $table->integer('dia');

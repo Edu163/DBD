@@ -13,16 +13,16 @@ class HabitacionServicio extends Migration
      */
     public function up()
     {
-        Schema::create('Habitacion_Servicio', function (Blueprint $table) {
+        Schema::create('habitacion_servicio', function (Blueprint $table) {
             
-            $table->integer('id_Servicio_Alojamiento');
-            $table->foreign('id_Servicio_Alojamiento')
-                ->references('id_Servicio_Alojamiento')
-                ->on('Servicio_Alojamiento');
-            $table->integer('id_Aeropuerto');
-             $table->foreign('id_Aeropuerto')
-                ->references('id_Aeropuerto')
-                ->on('Aeropuerto');
+            $table->integer('id_servicio_alojamiento');
+            $table->foreign('id_servicio_alojamiento')
+                ->references('id_servicio_alojamiento')
+                ->on('servicio_alojamiento');
+            $table->integer('id_aeropuerto');
+             $table->foreign('id_aeropuerto')
+                ->references('id_aeropuerto')
+                ->on('aeropuerto');
         });
     }
 
