@@ -4,23 +4,22 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Hotel extends Migration
+class CreateAeropuertosTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-     public function up()
+    public function up()
     {
-        Schema::create('hotel', function (Blueprint $table) {
-            $table->increments('id_hotel');
-            $table->string('nombre');
+        Schema::create('aeropuertos', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('pais');
+            $table->string('ciudad');
             $table->string('direccion');
-            $table->float('estrellas');
-            $table->date('valoracion');
-            $table->integer('capacidad');
+            $table->string('nombre');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +30,6 @@ class Hotel extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('aeropuertos');
     }
 }

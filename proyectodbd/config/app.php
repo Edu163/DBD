@@ -54,6 +54,8 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'asset_url' => env('ASSET_URL', null),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -167,11 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
-        projectodbd\Providers\AppServiceProvider::class,
-        projectodbd\Providers\AuthServiceProvider::class,
-        // projectodbd\Providers\BroadcastServiceProvider::class,
-        projectodbd\Providers\EventServiceProvider::class,
-        projectodbd\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
     ],
 

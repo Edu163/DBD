@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReservaAutoTable extends Migration
+class CreateReservasAutosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateReservaAutoTable extends Migration
      */
     public function up()
     {
-        Schema::create('reserva_auto', function (Blueprint $table) {
-            $table->increments('id_res_auto');
+        Schema::create('reservas_autos', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('id_venta');
             $table->foreign('id_venta')
-                  ->references('id_venta')
-                  ->on('venta');
+                  ->references('id')
+                  ->on('ventas');
             $table->datetime('fecha');
             $table->float('monto_total');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +32,6 @@ class CreateReservaAutoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reserva_auto');
+        Schema::dropIfExists('reservas_autos');
     }
 }

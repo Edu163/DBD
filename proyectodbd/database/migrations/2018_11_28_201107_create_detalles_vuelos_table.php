@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDetalleVueloTable extends Migration
+class CreateDetallesVuelosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,24 @@ class CreateDetalleVueloTable extends Migration
      */
     public function up()
     {
-        Schema::create('detalle_vuelo', function (Blueprint $table) {
+        Schema::create('detalles_vuelos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_vuelo');
-            $table->integer('id_users');
-            $table->integer('id_avion');
-            $table->integer('id_calendario_vuelo');
             $table->foreign('id_vuelo')
-                ->references('id_vuelo')
-                ->on('vuelo');
+                ->references('id')
+                ->on('vuelos');
+            $table->integer('id_users');
             $table->foreign('id_users')
                 ->references('id')
                 ->on('users');
+            $table->integer('id_avion');
             $table->foreign('id_avion')
-                ->references('id_avion')
-                ->on('avion');
+                ->references('id')
+                ->on('aviones');
+            $table->integer('id_calendario_vuelo');
             $table->foreign('id_calendario_vuelo')
-                ->references('id_calendario_vuelo')
-                ->on('calendario_vuelo');
+                ->references('id')
+                ->on('calendarios_vuelos');
             $table->timestamps();
         });
     }
@@ -42,6 +42,6 @@ class CreateDetalleVueloTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalle_vuelo');
+        Schema::dropIfExists('detalles_vuelos');
     }
 }
