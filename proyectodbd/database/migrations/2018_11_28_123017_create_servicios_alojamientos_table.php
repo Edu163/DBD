@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ServicioAlojamiento extends Migration
+class CreateServiciosAlojamientosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class ServicioAlojamiento extends Migration
      */
     public function up()
     {
-        Schema::create('servicio_alojamiento', function (Blueprint $table) {
-            $table->increments('id_servicio_alojamiento');
+        Schema::create('servicios_alojamientos', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('id_hotel');
             $table->foreign('id_hotel')
-                ->references('id_hotel')
-                ->on('hotel');
+                ->references('id')
+                ->on('hoteles');
             $table->string('nombre');
             $table->float('precio');
             $table->string('descripcion');
+            $table->timestamps();
         });
     }
 
@@ -32,6 +33,6 @@ class ServicioAlojamiento extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('servicios_alojamientos');
     }
 }

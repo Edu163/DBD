@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Aeropuerto extends Migration
+class CreateCalendariosVehiculosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class Aeropuerto extends Migration
      */
     public function up()
     {
-        Schema::create('aeropuerto', function (Blueprint $table) {
-            $table->increments('id_aeropuerto');
-            $table->string('pais');
-            $table->string('ciudad');
-            $table->string('direccion');
-            $table->string('nombre');
+        Schema::create('calendarios_vehiculos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('año');
+            $table->integer('mes');
+            $table->integer('dia');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +29,6 @@ class Aeropuerto extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('calendarios_vehiculos');
     }
 }

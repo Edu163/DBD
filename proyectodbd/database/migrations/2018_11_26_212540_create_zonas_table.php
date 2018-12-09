@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCalendarioVehiculoTable extends Migration
+class CreateZonasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCalendarioVehiculoTable extends Migration
      */
     public function up()
     {
-        Schema::create('calendario_vehiculo', function (Blueprint $table) {
-            $table->increments('id_calendario_vehiculo');
-            $table->integer('año');
-            $table->integer('mes');
-            $table->integer('dia');
+        Schema::create('zonas', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nombre');
+            $table->string('direccion');
+            $table->string('coordenadas');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateCalendarioVehiculoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calendario_vehiculo');
+        Schema::dropIfExists('zonas');
     }
 }

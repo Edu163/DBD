@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CalendarioAlojamiento extends Migration
+class CreateCalendariosAlojamientosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CalendarioAlojamiento extends Migration
      */
     public function up()
     {
-        Schema::create('calendario_alojamiento', function (Blueprint $table) {
-            $table->increments('id_calendario_alojamiento');
+        Schema::create('calendarios_alojamientos', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('año');
             $table->integer('mes');
             $table->integer('dia');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +29,6 @@ class CalendarioAlojamiento extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('calendarios_alojamientos');
     }
 }

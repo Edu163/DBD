@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAsientoTable extends Migration
+class CreateAsientosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateAsientoTable extends Migration
      */
     public function up()
     {
-        Schema::create('asiento', function (Blueprint $table) {
-            $table->increments('id_asiento');
+        Schema::create('asientos', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('id_avion');
             $table->foreign('id_avion')
-                ->references('id_avion')
-                ->on('avion');
+                ->references('id')
+                ->on('aviones');
             $table->integer('numero');
             $table->string('letra');
             $table->string('tipo'); 
@@ -35,6 +35,6 @@ class CreateAsientoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asiento');
+        Schema::dropIfExists('asientos');
     }
 }
