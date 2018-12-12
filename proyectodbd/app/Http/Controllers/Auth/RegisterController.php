@@ -1,9 +1,9 @@
 <?php
 
-namespace projectodbd\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
-use projectodbd\User;
-use projectodbd\Http\Controllers\Controller;
+use App\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -49,7 +49,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'nombre' => ['required', 'string', 'max:255'],
+            'apellido' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
@@ -59,14 +60,25 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \projectodbd\User
+     * @return \App\User
      */
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'nombre' => request('nombre'),
+            'apellido' => request('apellido'),
+            'email' => request('email'),
+            'password' => Hash::make(request('password')),
+            'acceso' => 'usuario',
+            'n_documento' => null,
+            'tipo_documento' => null,
+            'pais' => request('pais'),
+            'puntos' => null,
+            'millas' => null,
+            'millas_elite' => null,
+            'telefono' => request('telefono'),
+            'categoria' => 'normal',
+            'fecha_nac' => request('fecha'),
         ]);
     }
 }

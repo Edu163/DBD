@@ -1,6 +1,6 @@
 <?php
 
-namespace projectodbd\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

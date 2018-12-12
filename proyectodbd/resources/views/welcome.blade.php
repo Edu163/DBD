@@ -30,7 +30,7 @@
                 <div class="nav-item nav-link links">
                     @if (Route::has('login'))
                         @auth
-                        <a href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
+                        <a href="{{ url('/home') }}">{{ Auth::user()->nombre }}</a>
                         @else
                         <a href="{{ route('login') }}">Iniciar sesión</a>
                             @if (Route::has('register'))
@@ -73,7 +73,7 @@
             <div class="content">
                 <div class="title m-b-md">
                     @auth
-                    ¡Bienvenido {{ Auth::user()->name }}!
+                    ¡Bienvenido {{ Auth::user()->nombre }}!
                     @else
                     ¡Bienvenido!
                     @endauth
