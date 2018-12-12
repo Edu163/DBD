@@ -2,6 +2,7 @@
 
 use Faker\Generator as Faker;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 $factory->define(Model::class, function (Faker $faker) {
     return [
@@ -11,8 +12,10 @@ $factory->define(Model::class, function (Faker $faker) {
     	'nombre' =>  $faker->company, 	   //
 =======
 use App\Aeropuerto;
+=======
+>>>>>>> master
 
-$factory->define(Aeropuerto::class, function (Faker $faker) {
+$factory->define(App\Aeropuerto::class, function (Faker $faker) {
     return [
         'pais' => $faker->country,
     	'ciudad' => $faker->city,
