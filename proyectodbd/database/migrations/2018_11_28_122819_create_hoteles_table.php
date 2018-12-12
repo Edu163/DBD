@@ -4,20 +4,23 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateZonaTable extends Migration
+class CreateHotelesTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
+     public function up()
     {
-        Schema::create('zona', function (Blueprint $table) {
-            $table->increments('id_zona');
+        Schema::create('hoteles', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('nombre');
+            $table->string('pais');
             $table->string('direccion');
-            $table->string('coordenadas');
+            $table->float('estrellas');
+            $table->date('valoracion');
+            $table->integer('capacidad');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateZonaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zona');
+        Schema::dropIfExists('hoteles');
     }
 }

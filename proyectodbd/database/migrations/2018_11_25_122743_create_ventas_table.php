@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Venta extends Migration
+class CreateVentasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class Venta extends Migration
      */
     public function up()
     {
-        Schema::create('venta', function (Blueprint $table) {
-            $table->increments('id_venta');
+        Schema::create('ventas', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('id_users');
             $table->foreign('id_users')
                 ->references('id')
@@ -26,6 +26,7 @@ class Venta extends Migration
             $table->string('metodo_pago');
             $table->integer('n_cuotas');
             $table->float('descuento');
+            $table->timestamps();
         });
     }
 
@@ -36,6 +37,6 @@ class Venta extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('ventas');
     }
 }

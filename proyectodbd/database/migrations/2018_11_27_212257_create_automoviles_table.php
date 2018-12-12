@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAutomovilTable extends Migration
+class CreateAutomovilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,20 @@ class CreateAutomovilTable extends Migration
      */
     public function up()
     {
-        Schema::create('automovil', function (Blueprint $table) {
+        Schema::create('automoviles', function (Blueprint $table) {
             $table->string('patente')->unique();
             $table->integer('id_calendario_vehiculo');
-            $table->integer('id_proveedor');
-            $table->integer('id_zona');
             $table->foreign('id_calendario_vehiculo')
-                ->references('id_calendario_vehiculo')
-                ->on('calendario_vehiculo');
+                ->references('id')
+                ->on('calendarios_vehiculos');
+            $table->integer('id_proveedor');
             $table->foreign('id_proveedor')
-                ->references('id_proveedor')
-                ->on('proveedor');
+                ->references('id')
+                ->on('proveedores');
+            $table->integer('id_zona');
             $table->foreign('id_zona')
-                ->references('id_zona')
-                ->on('zona');
+                ->references('id')
+                ->on('zonas');
             $table->string('marca');
             $table->string('tipo');
             $table->string('gamma');
@@ -50,6 +50,6 @@ class CreateAutomovilTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('automovil');
+        Schema::dropIfExists('automoviles');
     }
 }

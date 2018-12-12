@@ -1,9 +1,9 @@
 <?php
 
-namespace projectodbd\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
-use projectodbd\User;
-use projectodbd\Http\Controllers\Controller;
+use App\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -47,7 +47,7 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {   
+    {
         return Validator::make($data, [
             'nombre' => ['required', 'string', 'max:255'],
             'apellido' => ['required', 'string', 'max:255'],
@@ -60,10 +60,9 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \projectodbd\User
+     * @return \App\User
      */
     protected function create(array $data)
-
     {
         return User::create([
             'nombre' => request('nombre'),
