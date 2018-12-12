@@ -14,8 +14,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             /* General */
             UsersSeeder::class,
+            VentasSeeder::class,
 
             /* Autos */
+            ReservasAutosSeeder::class,
+            DetallesReservasAutosSeeder::class,
+            AutomovilesSeeder::class,
 
             /* Hoteles */
 
