@@ -11,7 +11,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
         // $this->call(UsersTableSeeder::class);
         
+=======
+        $this->call([
+            /* General */
+            UsersSeeder::class,
+
+            /* Autos */
+
+            /* Hoteles */
+
+            /* Vuelos */
+            AeropuertosSeeder::class,
+
+            /* Reservas */
+
+            /* Paquetes */
+
+        ]);
+>>>>>>> master
     }
 }

@@ -122,36 +122,6 @@
                             <div class="col-md-6"> 
                                     <input type="date" id="fecha" name="fecha" class="form-control">
                             </div>
-
-
-                            <!--
-
-                            <div class="col col-lg-2">
-                                    <input type="number" id="dia" name="dia" required max="31" maxlength="2" min="1" placeholder="Día" class="form-control" data-msg-required="Por favor introduce un día válido del mes." data-msg-number="Por favor introduce un día válido del mes." data-msg-min="Por favor introduce un día válido del mes." data-msg-max="Por favor introduce un día válido del mes." data-msg-maxlength="Por favor introduce un día válido del mes.">
-                            </div>
-                            <div class="col-md-auto">
-                                    <select id="mes" name="mes" required="required" class="form-control" data-msg-required="Por favor introduce tu mes de nacimiento.">
-                                        <option value="" selected disabled>Mes</option>
-                                        <option value="01">Enero</option>
-                                        <option value="02">Febrero</option>
-                                        <option value="03">Marzo</option>
-                                        <option value="04">Abril</option>
-                                        <option value="05">Mayo</option>
-                                        <option value="06">Junio</option>
-                                        <option value="07">Julio</option>
-                                        <option value="08">Agosto</option>
-                                        <option value="09">Septiembre</option>
-                                        <option value="10">Octubre</option>
-                                        <option value="11">Noviembre</option>
-                                        <option value="12">Diciembre</option>
-                                    </select>
-                            </div>
-                            <div class="col col-lg-2">
-                                    <input type="number" id="año" name="año" required max="2018" maxlength="4"
-                                    minlength="4" min="1900" placeholder="Año" class="form-control" data-msg-required="Por favor introduce un año válido." data-msg-number="Por favor introduce un año válido." data-msg-min="Por favor introduce un año válido." data-msg-max="Por favor introduce un año." data-msg-maxlength="Por favor introduce un año válido.">
-                            </div>
-                        -->
-
                          </div>
 
                         <div class="form-group row mb-0">
