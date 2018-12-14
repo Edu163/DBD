@@ -20,7 +20,6 @@ class CreateVuelosTable extends Migration
                 ->references('id')
                 ->on('detalles_ventas_vuelos');
             $table->float('precio');
-            $table->integer('duracion');
             $table->timestamps();
         });
     }

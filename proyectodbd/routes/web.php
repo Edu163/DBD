@@ -1,5 +1,5 @@
 <?php
-
+use App\Vuelo;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/Vuelos', function () {
+	$vuelos = Vuelo::all();
+    return View('vuelos')->with('vuelos',$vuelos);
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

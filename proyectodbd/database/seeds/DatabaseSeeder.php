@@ -21,7 +21,13 @@ class DatabaseSeeder extends Seeder
 
             /* Vuelos */
             AeropuertosSeeder::class,
-
+            //AvionesSeeder::class,
+            CompaniasSeeder::class,
+            AvionesSeeder::class,
+            AsientosSeeder::class,
+            DetallesVentasVuelosSeeder::class,
+            VuelosSeeder::class,
+            DetallesVuelosSeeder::class,
             /* Reservas */
 
             /* Paquetes */
