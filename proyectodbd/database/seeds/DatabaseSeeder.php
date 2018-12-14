@@ -18,7 +18,16 @@ class DatabaseSeeder extends Seeder
             /* Autos */
 
             /* Hoteles */
-
+            HotelesSeeder::class,
+            ReservasHotelesSeeder::class,
+            ServiciosAlojamientosSeeder::class,
+            CalendariosAlojamientosSeeder::class,
+            HabitacionesHotelesSeeder::class,
+            AlojamientosPrivadosSeeder::class,
+            DetallesReservasHotelesSeeder::class,
+            HabitacionesSeeder::class,
+            AlojamientosServiciosSeeder::class,
+            HabitacionesServiciosSeeder::class,
             /* Vuelos */
             AeropuertosSeeder::class,
 

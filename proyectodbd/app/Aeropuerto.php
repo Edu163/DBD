@@ -1,21 +1,12 @@
 <?php
 
-<<<<<<< HEAD
-namespace projectodbd;
-=======
+//namespace projectodbd;
 namespace App;
->>>>>>> development
 
 use Illuminate\Database\Eloquent\Model;
 
 class Aeropuerto extends Model
 {
-<<<<<<< HEAD
-    protected $table 'aeropuerto';
-    protected $timestamps = false;
-    protected $filleable[
-    	'pais','ciudad','direccion','nombre'
-=======
     protected $table = 'aeropuertos';
 
     protected $filleable = [
@@ -23,6 +14,5 @@ class Aeropuerto extends Model
         'ciudad',
         'direccion',
         'nombre'
->>>>>>> development
     ];
 }
