@@ -12,6 +12,6 @@ class DetallesVentasVuelosSeeder extends Seeder
     public function run()
     {
         //
-        factory(DetalleVentaVuelo::class, 10)->create();
+        factory(DetalleVentaVuelo::class, 20)->create();
     }
 }

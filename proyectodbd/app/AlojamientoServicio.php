@@ -9,8 +9,7 @@ class AlojamientoServicio extends Model
     protected $table = 'alojamientos_servicios';
 
     protected $filleable = [
-    	'id',
 	    'id_servicio_alojamiento',
-	    'id_alojamiento_privado'
+	    'id_alojamiento_privado',
     ];
 }

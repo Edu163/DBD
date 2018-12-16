@@ -3,9 +3,11 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\HabitacionHotel::class, function (Faker $faker) {
+
 	//Llaves foráneas
     $id_hotel = DB::table('hoteles')->select('id')->get();
-    $id_calendario_alojamiento = DB::table('calendarios_alojamientos')->select('id')->get();
+	$id_calendario_alojamiento = DB::table('calendarios_alojamientos')->select('id')->get();
+	
     return [
     	'id_hotel' => $id_hotel->random()->id,
     	'id_calendario_alojamiento' => $id_calendario_alojamiento->random()->id,

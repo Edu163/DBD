@@ -12,6 +12,6 @@ class HabitacionesSeeder extends Seeder
      */
     public function run()
     {
-        factory(Habitacion::class, 10)->create();
+        factory(Habitacion::class, 20)->create();
     }
 }

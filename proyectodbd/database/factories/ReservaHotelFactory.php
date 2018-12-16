@@ -9,7 +9,7 @@ $factory->define(App\ReservaHotel::class, function (Faker $faker) {
     	'id_venta' => $id_venta->random()->id,
     	'precio' => $faker->numberBetween($min = 1000, $max = 999999),
     	'fecha' => $faker->dateTime($max = 'now', $timezone = null),
-    	'cantidad' => $faker->seed(10),
+    	'cantidad' =>$faker->numberBetween($min = 1, $max = 10),
     	'monto_total' => $faker->numberBetween($min = 1000, $max = 999999),
     	'descuento' => $faker->numberBetween($min = 1000, $max = 999999),
     ];

@@ -13,6 +13,6 @@ class CompaniasSeeder extends Seeder
     public function run()
     {
         //
-        factory(Compania::class, 10)->create();
+        factory(Compania::class, 20)->create();
     }
 }

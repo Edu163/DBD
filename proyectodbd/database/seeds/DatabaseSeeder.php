@@ -34,25 +34,19 @@ class DatabaseSeeder extends Seeder
             CalendariosAlojamientosSeeder::class,
             HabitacionesHotelesSeeder::class,
             AlojamientosPrivadosSeeder::class,
-            DetallesReservasHotelesSeeder::class,
             HabitacionesSeeder::class,
             AlojamientosServiciosSeeder::class,
             HabitacionesServiciosSeeder::class,
+            DetallesReservasHotelesSeeder::class,
+
             /* Vuelos */
             AeropuertosSeeder::class,
-<<<<<<< HEAD
-
-            
-=======
-            //AvionesSeeder::class,
             CompaniasSeeder::class,
             AvionesSeeder::class,
             AsientosSeeder::class,
             DetallesVentasVuelosSeeder::class,
             VuelosSeeder::class,
             DetallesVuelosSeeder::class,
-            /* Reservas */
->>>>>>> eduardo2
 
             /* Paquetes */
 

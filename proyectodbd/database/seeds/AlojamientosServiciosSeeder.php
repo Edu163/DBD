@@ -12,6 +12,6 @@ class AlojamientosServiciosSeeder extends Seeder
      */
     public function run()
     {
-        factory(AlojamientoServicio::class, 5)->create();
+        factory(AlojamientoServicio::class, 20)->create();
     }
 }

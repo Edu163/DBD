@@ -12,6 +12,6 @@ class HabitacionesHotelesSeeder extends Seeder
      */
     public function run()
     {
-        factory(HabitacionHotel::class, 10)->create();
+        factory(HabitacionHotel::class, 20)->create();
     }
 }

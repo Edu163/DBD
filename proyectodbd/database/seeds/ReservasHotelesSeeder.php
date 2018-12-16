@@ -12,6 +12,6 @@ class ReservasHotelesSeeder extends Seeder
      */
     public function run()
     {
-        factory(ReservaHotel::class, 10)->create();
+        factory(ReservaHotel::class, 20)->create();
     }
 }

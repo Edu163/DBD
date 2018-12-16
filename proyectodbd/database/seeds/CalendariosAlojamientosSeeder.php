@@ -12,6 +12,6 @@ class CalendariosAlojamientosSeeder extends Seeder
      */
     public function run()
     {
-        factory(CalendarioAlojamiento::class, 10)->create();
+        factory(CalendarioAlojamiento::class, 20)->create();
     }
 }

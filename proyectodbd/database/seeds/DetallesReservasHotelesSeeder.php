@@ -3,7 +3,7 @@
 use App\DetalleReservaHotel;
 use Illuminate\Database\Seeder;
 
-class DetallesReservasHotelesPrivadosSeeder extends Seeder
+class DetallesReservasHotelesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class DetallesReservasHotelesPrivadosSeeder extends Seeder
      */
     public function run()
     {
-        factory(DetalleReservaHotel::class, 10)->create();
+        factory(DetalleReservaHotel::class, 20)->create();
     }
 }

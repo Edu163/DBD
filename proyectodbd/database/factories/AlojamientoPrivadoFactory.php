@@ -9,9 +9,9 @@ $factory->define(App\AlojamientoPrivado::class, function (Faker $faker) {
     	'id_calendario_alojamiento' => $id_calendario_alojamiento->random()->id,
     	'capacidad' => $faker->numberBetween($min = 1000, $max = 999999),
     	'direccion' => $faker->address,
-	    'nombre' => firstName($gender = null|'male'|'female'),
-	    'estrella'=> $faker->seed(5),
-	    'valoracion'=> $faker->seed(5),
+	    'nombre' => $faker->name,
+	    'estrella'=> $faker->numberBetween($min = 0, $max = 5),
+	    'valoracion'=> $faker->numberBetween($min = 0, $max = 5),
 	    'pais'=> $faker->country,
     ];
 });

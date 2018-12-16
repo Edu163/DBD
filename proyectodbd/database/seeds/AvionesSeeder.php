@@ -12,6 +12,6 @@ class AvionesSeeder extends Seeder
     public function run()
     {
         //
-        factory(Avion::class, 10)->create();
+        factory(Avion::class, 20)->create();
     }
 }

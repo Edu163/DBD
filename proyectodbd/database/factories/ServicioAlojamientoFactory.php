@@ -3,7 +3,10 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\ServicioAlojamiento::class, function (Faker $faker) {
+
+	/* Llaves foráneas */
 	$id_hotel = DB::table('hoteles')->select('id')->get();
+	
     return [
     	'id_hotel' => $id_hotel->random()->id,
         'nombre' => $faker->name,

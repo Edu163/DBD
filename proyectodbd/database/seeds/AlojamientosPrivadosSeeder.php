@@ -12,6 +12,6 @@ class AlojamientosPrivadosSeeder extends Seeder
      */
     public function run()
     {
-        factory(AlojamientoPrivado::class, 10)->create();
+        factory(AlojamientoPrivado::class, 20)->create();
     }
 }
