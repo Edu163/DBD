@@ -18,15 +18,21 @@ class DatabaseSeeder extends Seeder
 
             /* Autos */
             ReservasAutosSeeder::class,
-            DetallesReservasAutosSeeder::class,
+            CalendariosVehiculosSeeder::class,
+            ZonasSeeder::class,
+            ProveedoresSeeder::class,
             AutomovilesSeeder::class,
+            DetallesReservasAutosSeeder::class,
+            ServiciosDeVehiculosSeeder::class,
+            ServiciosYVehiculosSeeder::class,
+            ServiciosProveedoresSeeder::class,
 
             /* Hoteles */
 
             /* Vuelos */
             AeropuertosSeeder::class,
 
-            /* Reservas */
+            
 
             /* Paquetes */
 

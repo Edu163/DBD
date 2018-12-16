@@ -41,4 +41,6 @@ Comandos de utilidad
 
 composer dump-autoload                  -> Usar cada vez que se cambian las rutas originales.
 php artisan migrate:fresh -- seed       -> Usar cada vez que se quiera recargar la base de datos.
+
+
 composer require mattwells/faker-vehicle     -> Instala la dependencia necesaria para el uso de faker para automóviles

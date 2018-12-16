@@ -18,7 +18,7 @@ $factory->define(Automovil::class, function (Faker $faker) {
         'id_proveedor' => $id_proveedor->random()->id,
         'id_zona' => $id_zona->random()->id,
         'marca' => $faker->vehicleMake,
-        'tipo' => $faker->randomElement(['Miniban','Automovil común','Camioneta']),
+        'tipo' => $faker->randomElement(['Minivan','Automovil común','Camioneta']),
         'gamma' => $faker->randomElement(['Baja','Media', 'Alta']),
         'transmision' => $faker->randomElement(['Manual','Automática']),
         'combustible' => $faker->randomElement(['Vencina','Petróleo']),
