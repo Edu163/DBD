@@ -40,8 +40,19 @@ class DatabaseSeeder extends Seeder
             HabitacionesServiciosSeeder::class,
             /* Vuelos */
             AeropuertosSeeder::class,
+<<<<<<< HEAD
 
             
+=======
+            //AvionesSeeder::class,
+            CompaniasSeeder::class,
+            AvionesSeeder::class,
+            AsientosSeeder::class,
+            DetallesVentasVuelosSeeder::class,
+            VuelosSeeder::class,
+            DetallesVuelosSeeder::class,
+            /* Reservas */
+>>>>>>> eduardo2
 
             /* Paquetes */
 

@@ -15,10 +15,10 @@ class CreateDetallesVentasVuelosTable extends Migration
     {
         Schema::create('detalles_ventas_vuelos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_venta');
+            /*$table->integer('id_venta');
             $table->foreign('id_venta')
                 ->references('id')
-                ->on('ventas');
+                ->on('ventas');*/
             $table->float('precio');
             $table->float('descuento');
             $table->float('monto_total');
