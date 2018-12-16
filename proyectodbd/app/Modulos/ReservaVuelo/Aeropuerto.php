@@ -8,10 +8,21 @@ class Aeropuerto extends Model
 {
     protected $table = 'aeropuertos';
 
+    protected $pais;
+    protected $ciudad;
+    protected $direccion;
+    protected $nombre;
+
     protected $filleable = [
         'pais',
         'ciudad',
         'direccion',
         'nombre'
     ];
+
+    /* Relaciones */
+
+	public function origen_destino(){
+    	return $this->hasMany(OrigenDestino::class);
+	}
 }
