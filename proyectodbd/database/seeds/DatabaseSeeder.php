@@ -14,8 +14,18 @@ class DatabaseSeeder extends Seeder
         $this->call([
             /* General */
             UsersSeeder::class,
+            VentasSeeder::class,
 
             /* Autos */
+            ReservasAutosSeeder::class,
+            CalendariosVehiculosSeeder::class,
+            ZonasSeeder::class,
+            ProveedoresSeeder::class,
+            AutomovilesSeeder::class,
+            DetallesReservasAutosSeeder::class,
+            ServiciosDeVehiculosSeeder::class,
+            ServiciosYVehiculosSeeder::class,
+            ServiciosProveedoresSeeder::class,
 
             /* Hoteles */
             HotelesSeeder::class,
@@ -31,7 +41,7 @@ class DatabaseSeeder extends Seeder
             /* Vuelos */
             AeropuertosSeeder::class,
 
-            /* Reservas */
+            
 
             /* Paquetes */
 
