@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class DetalleReservaHotel extends Model
 {
     protected $table = 'detalles_reservas_hoteles';
-
+    protected $primaryKey = 'id';
     protected $filleable = [
     	'id',
 	    'id_reserva_hotel',
