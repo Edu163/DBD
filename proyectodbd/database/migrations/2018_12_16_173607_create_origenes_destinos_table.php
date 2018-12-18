@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHabitacionesServiciosTable extends Migration
+class CreateOrigenesDestinosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateHabitacionesServiciosTable extends Migration
      */
     public function up()
     {
-        Schema::create('habitaciones_servicios', function (Blueprint $table) {
+        Schema::create('origenes_destinos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_servicio_alojamiento');
-            $table->foreign('id_servicio_alojamiento')
+            $table->integer('id_detalle_vuelo');
+            $table->foreign('id_detalle_vuelo')
                 ->references('id')
-                ->on('servicios_alojamientos');
-            $table->integer('id_habitacion_hotel');
-            $table->foreign('id_habitacion_hotel')
+                ->on('detalles_vuelos');
+            $table->integer('id_aeropuerto');
+            $table->foreign('id_aeropuerto')
                 ->references('id')
-                ->on('habitaciones_hoteles');
+                ->on('aeropuertos');
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ class CreateHabitacionesServiciosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('habitaciones_servicios');
+        Schema::dropIfExists('origenes_destinos');
     }
 }
