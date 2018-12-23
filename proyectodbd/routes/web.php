@@ -19,6 +19,7 @@ Route::get('/Vuelos', function () {
 	$aviones = Avion::all();
     return View('aviones')->with('aviones',$aviones);
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
