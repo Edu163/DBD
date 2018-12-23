@@ -1,6 +1,7 @@
 --
 -- Eliminar tablas
 --
+
 DROP TABLE IF EXISTS acciones CASCADE;
 DROP TABLE IF EXISTS aeropuertos CASCADE;
 DROP TABLE IF EXISTS alojamientos_privados CASCADE;
@@ -43,9 +44,9 @@ DROP TABLE IF EXISTS zonas CASCADE;
 
 CREATE TABLE IF NOT EXISTS acciones (
     id serial NOT NULL,
-    id_users serial NOT NULL,
-    fecha timestamp NOT NULL,
+    id_user serial NOT NULL,
     accion character varying(255) NOT NULL,
+    fecha timestamp NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
@@ -54,8 +55,8 @@ CREATE TABLE IF NOT EXISTS aeropuertos (
     id serial NOT NULL,
     pais character varying(255) NOT NULL,
     ciudad character varying(255) NOT NULL,
-    direccion character varying(255) NOT NULL,
     nombre character varying(255) NOT NULL,
+    direccion character varying(255) NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
@@ -63,51 +64,101 @@ CREATE TABLE IF NOT EXISTS aeropuertos (
 CREATE TABLE IF NOT EXISTS alojamientos_privados (
     id serial NOT NULL,
     id_calendario_alojamiento serial NOT NULL,
-    capacidad integer NOT NULL,
     direccion character varying(255) NOT NULL,
+    nombre character varying(255) NOT NULL,
+    pais character varying(255) NOT NULL,
+    valoracion double precision NOT NULL,
     estrella double precision NOT NULL,
+    capacidad integer NOT NULL,
+    created_at timestamp,
+    updated_at timestamp
+);
+
+CREATE TABLE IF NOT EXISTS alojamientos_servicios (
+    id serial NOT NULL,
+    id_alojamiento_privado serial NOT NULL,
+    id_servicio_alojamiento serial NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
 CREATE TABLE IF NOT EXISTS asientos (
     id serial NOT NULL,
-    codigo character varying(255) NOT NULL,
-    tipo_asiento_id serial NOT NULL,
+    id_avion serial NOT NULL,
+    clase character varying(255) NOT NULL,
+    letra character varying(255) NOT NULL,
+    tipo character varying(255) NOT NULL,
+    disponible boolean NOT NULL,
+    numero integer NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
-CREATE TABLE IF NOT EXISTS autos (
+CREATE TABLE IF NOT EXISTS automoviles (
     id serial NOT NULL,
+    id_zona serial NOT NULL,
+    id_proveedor serial NOT NULL,
+    id_calendario_vehiculo serial NOT NULL,
+    combustible character varying(255) NOT NULL,
+    transmision character varying(255) NOT NULL,
     patente character varying(255) NOT NULL,
-    descripcion character varying(255) NOT NULL,
-    precio_hora integer NOT NULL,
-    capacidad integer NOT NULL,
-    sucursal_id serial NOT NULL,
+    marca character varying(255) NOT NULL, 
+    gamma character varying(255) NOT NULL,
+    tipo character varying(255) NOT NULL,
+    aire_acondicionado boolean NOT NULL,
+    precio_hora double precision NOT NULL,
+    n_kilometraje integer NOT NULL,
+    n_pasajeros integer NOT NULL,
+    equipaje_g integer NOT NULL,
+    equipaje_p integer NOT NULL,
+    n_puertas integer NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
 CREATE TABLE IF NOT EXISTS aviones (
     id serial NOT NULL,
-    descripcion character varying(255) NOT NULL,
-    aerolinea_id serial NOT NULL,
+    id_compania serial NOT NULL,
+    color character varying(255) NOT NULL,
+    modelo character varying(255) NOT NULL,
+    motores integer NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
-CREATE TABLE IF NOT EXISTS bancos (
+CREATE TABLE IF NOT EXISTS calendarios_alojamientos (
     id serial NOT NULL,
-    nombre character varying(255) NOT NULL,
+    año integer NOT NULL,
+    mes character varying(255) NOT NULL,
+    dia integer NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
-CREATE TABLE IF NOT EXISTS ciudades (
+CREATE TABLE IF NOT EXISTS calendarios_vehiculos (
     id serial NOT NULL,
-    nombre character varying(255) NOT NULL,
-    pais_id serial NOT NULL,
+    año integer NOT NULL,
+    mes character varying(255) NOT NULL,
+    dia integer NOT NULL,
+    created_at timestamp,
+    updated_at timestamp
+);
+
+CREATE TABLE IF NOT EXISTS calendarios_vuelos (
+    id serial NOT NULL,
+    año integer NOT NULL,
+    mes character varying(255) NOT NULL,
+    dia integer NOT NULL,
+    created_at timestamp,
+    updated_at timestamp
+);
+
+CREATE TABLE IF NOT EXISTS checks_in (
+    id serial NOT NULL,
+    id_user serial NOT NULL,
+    id_asiento serial NOT NULL,
+    estado character varying(255) NOT NULL,
+    fecha date NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
@@ -115,38 +166,97 @@ CREATE TABLE IF NOT EXISTS ciudades (
 CREATE TABLE IF NOT EXISTS companias (
     id serial NOT NULL,
     nombre character varying(255) NOT NULL,
+    direccion character varying(255) NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
-CREATE TABLE IF NOT EXISTS cuentas (
+CREATE TABLE IF NOT EXISTS detalles_reservas_autos (
     id serial NOT NULL,
-    numero_cuenta character varying(255) NOT NULL,
-    saldo integer NOT NULL,
-    tipo_cuenta_id serial NOT NULL,
-    banco_id serial NOT NULL,
-    user_id serial NOT NULL,
+    id_res_auto serial NOT NULL,
+    patente character varying(255) NOT NULL,
+    cantidad integer NOT NULL,
+    descuento double precision NOT NULL,
+    precio_reserva double precision NOT NULL,
+    fecha_retiro timestamp,
+    fecha_regreso timestamp,
+    created_at timestamp,
+    updated_at timestamp
+);
+
+CREATE TABLE IF NOT EXISTS detalles_reservas_hoteles (
+    id serial NOT NULL,
+    id_reserva_hotel serial NOT NULL,
+    id_habitacion_hotel serial NOT NULL,
+    id_alojamiento_privado serial NOT NULL,
+    fecha_egreso date NOT NULL,
+    fecha_ingreso date NOT NULL,
+    precio double precision NOT NULL,
+    tipo character varying(255) NOT NULL,
+    created_at timestamp,
+    updated_at timestamp
+);
+
+CREATE TABLE IF NOT EXISTS detalles_ventas_vuelos (
+    id serial NOT NULL,
+    id_venta serial NOT NULL,
+    cantidad integer NOT NULL,
+    precio double precision NOT NULL,
+    descuento double precision NOT NULL,
+    monto_total double precision NOT NULL,
+    tipo character varying(255) NOT NULL,
+    fecha timestamp,
+    created_at timestamp,
+    updated_at timestamp
+);
+
+CREATE TABLE IF NOT EXISTS detalles_vuelos (
+    id serial NOT NULL,
+    id_avion serial NOT NULL,
+    id_vuelo serial NOT NULL,
+    fecha_aterrizaje timestamp,
+    fecha_despegue timestamp,
     created_at timestamp,
     updated_at timestamp
 );
 
 CREATE TABLE IF NOT EXISTS habitaciones (
     id serial NOT NULL,
-    capacidad_nino integer NOT NULL,
-    capacidad_adulto integer NOT NULL,
-    precio_por_noche integer NOT NULL,
-    descripcion character varying(255) NOT NULL,
-    hotel_id serial NOT NULL,
+    id_alojamiento_privado serial NOT NULL,
+    piso integer NOT NULL,
+    camas integer NOT NULL,
+    numero integer NOT NULL,
+    created_at timestamp,
+    updated_at timestamp
+);
+
+CREATE TABLE IF NOT EXISTS habitaciones_hoteles (
+    id serial NOT NULL,
+    id_hotel serial NOT NULL,
+    id_calendario_alojamiento serial NOT NULL,
+    camas integer NOT NULL,
+    numero integer NOT NULL,
+    capacidad integer NOT NULL,
+    created_at timestamp,
+    updated_at timestamp
+);
+
+CREATE TABLE IF NOT EXISTS habitaciones_servicios (
+    id serial NOT NULL,
+    id_habitacion_hotel serial NOT NULL,
+    id_servicio_alojamiento serial NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
 CREATE TABLE IF NOT EXISTS hoteles (
     id serial NOT NULL,
-    estrellas integer NOT NULL,
+    capacidad integer NOT NULL,
+    estrellas double precision NOT NULL,
+    pais character varying(255) NOT NULL,
     nombre character varying(255) NOT NULL,
-    descripcion character varying(255) NOT NULL,
-    ciudad_id serial NOT NULL,
+    direccion character varying(255) NOT NULL,
+    valoracion date NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
@@ -157,48 +267,10 @@ CREATE TABLE IF NOT EXISTS migrations (
     batch integer NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS orden_compras (
+CREATE TABLE IF NOT EXISTS origenes_destinos (
     id serial NOT NULL,
-    costo_total integer NOT NULL,
-    fecha_generado timestamp NOT NULL,
-    detalle character varying(255) NOT NULL,
-    user_id serial NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS paises (
-    id serial NOT NULL,
-    nombre character varying(255) NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS paquete_vuelo_autos (
-    id serial NOT NULL,
-    descripcion character varying(255) NOT NULL,
-    descuento double precision NOT NULL,
-    reserva_auto_id serial NOT NULL,
-    orden_compra_id serial NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS paquete_vuelo_hoteles (
-    id serial NOT NULL,
-    descripcion character varying(255) NOT NULL,
-    descuento double precision NOT NULL,
-    reserva_habitacion_id serial NOT NULL,
-    orden_compra_id serial NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS pasajeros (
-    id serial NOT NULL,
-    nombre character varying(255) NOT NULL,
-    rut character varying(255) NOT NULL,
-    reserva_boleto_id serial NOT NULL,
+    id_aeropuerto serial NOT NULL,
+    id_detalle_vuelo serial NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
@@ -209,240 +281,210 @@ CREATE TABLE IF NOT EXISTS password_resets (
     created_at timestamp
 );
 
-CREATE TABLE IF NOT EXISTS permisos (
+
+CREATE TABLE IF NOT EXISTS proveedores (
     id serial NOT NULL,
-    descripcion character varying(255) NOT NULL,
+    kilometraje integer NOT NULL,
+    franquicia_daños character varying(255) NOT NULL,
+    politica_combustible character varying(255) NOT NULL,
+    documentacion_necesaria character varying(255) NOT NULL,
+    calificacion double precision NOT NULL,
+    deposito_seguridad double precision NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
-CREATE TABLE IF NOT EXISTS reserva_actividades (
+CREATE TABLE IF NOT EXISTS reservas_autos (
     id serial NOT NULL,
-    fecha_reserva timestamp NOT NULL,
-    capacidad_ninos integer NOT NULL,
-    capacidad_adultos integer NOT NULL,
+    id_venta serial NOT NULL,
+    monto_total double precision NOT NULL,
+    fecha timestamp NOT NULL,
+    created_at timestamp,
+    updated_at timestamp
+);
+
+CREATE TABLE IF NOT EXISTS reservas_hoteles (
+    id serial NOT NULL,
+    id_venta serial NOT NULL,
+    precio double precision NOT NULL,
     descuento double precision NOT NULL,
-    actividad_id serial NOT NULL,
-    orden_compra_id serial NOT NULL,
+    monto_total double precision NOT NULL,
+    cantidad integer NOT NULL,
+    fecha date NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
-CREATE TABLE IF NOT EXISTS reserva_autos (
+CREATE TABLE IF NOT EXISTS servicios_alojamientos (
     id serial NOT NULL,
-    fecha_inicio timestamp NOT NULL,
-    fecha_termino timestamp NOT NULL,
-    fecha_reserva timestamp NOT NULL,
-    costo integer NOT NULL,
-    descuento double precision NOT NULL,
-    auto_id serial NOT NULL,
-    orden_compra_id serial NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS reserva_boletos (
-    id serial NOT NULL,
-    fecha_reserva timestamp NOT NULL,
-    descuento double precision NOT NULL,
-    costo integer NOT NULL,
-    asiento_avion_id serial NOT NULL,
-    tramo_id serial NOT NULL,
-    orden_compra_id serial NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS reserva_habitaciones (
-    id serial NOT NULL,
-    fecha_inicio timestamp NOT NULL,
-    fecha_termino timestamp NOT NULL,
-    fecha_reserva timestamp NOT NULL,
-    costo integer NOT NULL,
-    descuento double precision NOT NULL,
-    habitacion_id serial NOT NULL,
-    orden_compra_id serial NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS reserva_paquete_vuelo_autos (
-    paquete_vuelo_auto_id serial NOT NULL,
-    reserva_boleto_id serial NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS reserva_paquete_vuelo_hoteles (
-    paquete_vuelo_hotel_id serial NOT NULL,
-    reserva_boleto_id serial NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS reserva_traslados (
-    id serial NOT NULL,
-    cantidad_pasajeros integer NOT NULL,
-    fecha_reserva timestamp NOT NULL,
-    costo integer NOT NULL,
-    descuento double precision NOT NULL,
-    traslado_id serial NOT NULL,
-    orden_compra_id serial NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS rol_permiso (
-    id serial NOT NULL,
-    permiso_id serial NOT NULL,
-    rol_id serial NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS roles (
-    id serial NOT NULL,
+    id_hotel serial NOT NULL,
+    precio double precision NOT NULL,
     nombre character varying(255) NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS sucursales (
-    id serial NOT NULL,
-    compania_id serial NOT NULL,
-    ciudad_id serial NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS tipo_asientos (
-    id serial NOT NULL,
-    factor_costo double precision NOT NULL,
     descripcion character varying(255) NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
-CREATE TABLE IF NOT EXISTS tipo_cuentas (
+CREATE TABLE IF NOT EXISTS servicios_de_vehiculos (
     id serial NOT NULL,
-    descripcion character varying(255) NOT NULL,
+    duracion integer NOT NULL,
+    nombre_servicio character varying(255) NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
-CREATE TABLE IF NOT EXISTS tramos (
+CREATE TABLE IF NOT EXISTS servicios_proveedores (
     id serial NOT NULL,
-    codigo character varying(255) NOT NULL,
-    fecha_partida timestamp NOT NULL,
-    fecha_llegada timestamp NOT NULL,
-    avion_id serial NOT NULL,
-    origen_id serial NOT NULL,
-    destino_id serial NOT NULL,
+    id_servicio serial NOT NULL,
+    id_proveedor serial NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
-CREATE TABLE IF NOT EXISTS traslados (
+CREATE TABLE IF NOT EXISTS servicios_y_vehiculos (
     id serial NOT NULL,
-    tipo integer NOT NULL,
-    fecha_inicio timestamp NOT NULL,
-    fecha_termino timestamp NOT NULL,
-    aeropuerto_id serial NOT NULL,
-    hotel_id serial NOT NULL,
-    created_at timestamp,
-    updated_at timestamp
-);
-
-CREATE TABLE IF NOT EXISTS user_rol (
-    id serial NOT NULL,
-    user_id serial NOT NULL,
-    rol_id serial NOT NULL,
+    id_servicio serial NOT NULL,
+    patente character varying(255) NOT NULL,
+    precio double precision NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
 CREATE TABLE IF NOT EXISTS users (
     id serial NOT NULL,
+    acceso character varying(255) NOT NULL,
     nombre character varying(255) NOT NULL,
-    rut character varying(255) NOT NULL,
+    apellido character varying(255) NOT NULL,
+    pais character varying(255) NOT NULL,
     email character varying(255) NOT NULL,
     password character varying(255) NOT NULL,
+    telefono character varying(255) NOT NULL,
+    categoria character varying(255) NOT NULL,
+    n_documento character varying(255),
+    tipo_documento character varying(255),
+    puntos integer,
+    millas integer,
+    millas_elite integer,
+    fecha_nac date NOT NULL,
     remember_token character varying(100),
+    email_verified_at timestamp,
     created_at timestamp,
     updated_at timestamp
 );
 
+CREATE TABLE IF NOT EXISTS ventas (
+    id serial NOT NULL,
+    id_user serial NOT NULL,
+    n_cuotas integer NOT NULL,
+    monto_total integer NOT NULL,
+    impuesto double precision NOT NULL,
+    descuento double precision NOT NULL,
+    metodo_pago character varying(255) NOT NULL,
+    tipo_comprobante character varying(255) NOT NULL,
+    fecha date NOT NULL,
+    created_at timestamp,
+    updated_at timestamp
+);
+
+CREATE TABLE IF NOT EXISTS vuelos (
+    id serial NOT NULL,
+    id_detalle_venta_vuelo serial NOT NULL,
+    duracion_vuelo time NOT NULL,
+    precio double precision NOT NULL,
+    created_at timestamp,
+    updated_at timestamp
+);
+
+CREATE TABLE IF NOT EXISTS zonas (
+    id serial NOT NULL,
+    nombre character varying(255) NOT NULL,
+    direccion character varying(255) NOT NULL,
+    created_at timestamp,
+    updated_at timestamp
+);
 
 --
--- PRIMARY KEYS & UNIQUE
+-- Llaves primarias y propiedad único.
 --
 
-ALTER TABLE actividades
-    ADD CONSTRAINT actividades_pkey
+ALTER TABLE acciones
+    ADD CONSTRAINT acciones_pkey
     PRIMARY KEY (id);
-
-ALTER TABLE aerolineas
-    ADD CONSTRAINT aerolineas_pkey
-    PRIMARY KEY (id);
-
-ALTER TABLE aeropuertos
-    ADD CONSTRAINT aeropuertos_codigo_unique
-    UNIQUE (codigo);
 
 ALTER TABLE aeropuertos
     ADD CONSTRAINT aeropuertos_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE asiento_avion
-    ADD CONSTRAINT asiento_avion_pkey
+ALTER TABLE alojamientos_privados
+    ADD CONSTRAINT alojamientos_privados_pkey
+    PRIMARY KEY (id);
+
+ALTER TABLE alojamientos_servicios
+    ADD CONSTRAINT alojamientos_servicios_pkey
     PRIMARY KEY (id);
 
 ALTER TABLE asientos
     ADD CONSTRAINT asientos_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE autos
-    ADD CONSTRAINT autos_patente_unique
-    UNIQUE (patente);
-
-ALTER TABLE autos
-    ADD CONSTRAINT autos_pkey
+ALTER TABLE automoviles
+    ADD CONSTRAINT automoviles_pkey
     PRIMARY KEY (id);
+
+ALTER TABLE automoviles
+    ADD CONSTRAINT patente_unique
+    UNIQUE (patente);
 
 ALTER TABLE aviones
     ADD CONSTRAINT aviones_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE bancos
-    ADD CONSTRAINT bancos_nombre_unique
-    UNIQUE (nombre);
-
-ALTER TABLE bancos
-    ADD CONSTRAINT bancos_pkey
+ALTER TABLE calendarios_alojamientos
+    ADD CONSTRAINT calendarios_alojamientos_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE ciudades
-    ADD CONSTRAINT ciudades_pkey
+ALTER TABLE calendarios_vehiculos
+    ADD CONSTRAINT calendarios_vehiculos_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE companias
-    ADD CONSTRAINT companias_nombre_unique
-    UNIQUE (nombre);
+ALTER TABLE calendarios_vuelos
+    ADD CONSTRAINT calendarios_vuelos_pkey
+    PRIMARY KEY (id);
+
+ALTER TABLE checks_in
+    ADD CONSTRAINT checks_in_pkey
+    PRIMARY KEY (id);
 
 ALTER TABLE companias
     ADD CONSTRAINT companias_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE cuentas
-    ADD CONSTRAINT cuentas_numero_cuenta_unique
-    UNIQUE (numero_cuenta);
+ALTER TABLE detalles_reservas_autos
+    ADD CONSTRAINT detalles_reservas_autos_pkey
+    PRIMARY KEY (id);
 
-ALTER TABLE cuentas
-    ADD CONSTRAINT cuentas_pkey
+ALTER TABLE detalles_reservas_hoteles
+    ADD CONSTRAINT detalles_reservas_hoteles_pkey
+    PRIMARY KEY (id);
+
+ALTER TABLE detalles_ventas_vuelos
+    ADD CONSTRAINT detalles_ventas_vuelos_pkey
+    PRIMARY KEY (id);
+
+ALTER TABLE detalles_vuelos
+    ADD CONSTRAINT detalles_vuelos_pkey
     PRIMARY KEY (id);
 
 ALTER TABLE habitaciones
     ADD CONSTRAINT habitaciones_pkey
+    PRIMARY KEY (id);
+
+ALTER TABLE habitaciones_hoteles
+    ADD CONSTRAINT habitaciones_hoteles_pkey
+    PRIMARY KEY (id);
+
+ALTER TABLE habitaciones_servicios
+    ADD CONSTRAINT habitaciones_servicios_pkey
     PRIMARY KEY (id);
 
 ALTER TABLE hoteles
@@ -453,297 +495,223 @@ ALTER TABLE migrations
     ADD CONSTRAINT migrations_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE orden_compras
-    ADD CONSTRAINT orden_compras_pkey
+ALTER TABLE origenes_destinos
+    ADD CONSTRAINT origenes_destinos_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE paises
-    ADD CONSTRAINT paises_pkey
+ALTER TABLE proveedores
+    ADD CONSTRAINT proveedores_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE paquete_vuelo_autos
-    ADD CONSTRAINT paquete_vuelo_autos_pkey
+ALTER TABLE reservas_autos
+    ADD CONSTRAINT reservas_autos_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE paquete_vuelo_hoteles
-    ADD CONSTRAINT paquete_vuelo_hoteles_pkey
+ALTER TABLE reservas_hoteles
+    ADD CONSTRAINT reservas_hoteles_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE pasajeros
-    ADD CONSTRAINT pasajeros_pkey
+ALTER TABLE servicios_alojamientos
+    ADD CONSTRAINT servicios_alojamientos_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE permisos
-    ADD CONSTRAINT permisos_pkey
+ALTER TABLE servicios_de_vehiculos
+    ADD CONSTRAINT servicios_de_vehiculos_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE reserva_actividades
-    ADD CONSTRAINT reserva_actividades_pkey
+ALTER TABLE servicios_proveedores
+    ADD CONSTRAINT servicios_proveedores_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE reserva_autos
-    ADD CONSTRAINT reserva_autos_pkey
+ALTER TABLE servicios_y_vehiculos
+    ADD CONSTRAINT servicios_y_vehiculos_pkey
     PRIMARY KEY (id);
-
-ALTER TABLE reserva_boletos
-    ADD CONSTRAINT reserva_boletos_pkey
-    PRIMARY KEY (id);
-
-ALTER TABLE reserva_habitaciones
-    ADD CONSTRAINT reserva_habitaciones_pkey
-    PRIMARY KEY (id);
-
-ALTER TABLE reserva_traslados
-    ADD CONSTRAINT reserva_traslados_pkey
-    PRIMARY KEY (id);
-
-ALTER TABLE rol_permiso
-    ADD CONSTRAINT rol_permiso_pkey
-    PRIMARY KEY (id);
-
-ALTER TABLE roles
-    ADD CONSTRAINT roles_pkey
-    PRIMARY KEY (id);
-
-ALTER TABLE sucursales
-    ADD CONSTRAINT sucursales_pkey
-    PRIMARY KEY (id);
-
-ALTER TABLE tipo_asientos
-    ADD CONSTRAINT tipo_asientos_pkey
-    PRIMARY KEY (id);
-
-ALTER TABLE tipo_cuentas
-    ADD CONSTRAINT tipo_cuentas_descripcion_unique
-    UNIQUE (descripcion);
-
-ALTER TABLE tipo_cuentas
-    ADD CONSTRAINT tipo_cuentas_pkey
-    PRIMARY KEY (id);
-
-ALTER TABLE tramos
-    ADD CONSTRAINT tramos_codigo_unique
-    UNIQUE (codigo);
-
-ALTER TABLE tramos
-    ADD CONSTRAINT tramos_pkey
-    PRIMARY KEY (id);
-
-ALTER TABLE traslados
-    ADD CONSTRAINT traslados_pkey
-    PRIMARY KEY (id);
-
-ALTER TABLE user_rol
-    ADD CONSTRAINT user_rol_pkey
-    PRIMARY KEY (id);
-
-ALTER TABLE users
-    ADD CONSTRAINT users_email_unique
-    UNIQUE (email);
 
 ALTER TABLE users
     ADD CONSTRAINT users_pkey
+    PRIMARY KEY (id);
+
+ALTER TABLE users
+    ADD CONSTRAINT email_unique
+    UNIQUE (email);
+
+ALTER TABLE ventas
+    ADD CONSTRAINT ventas_pkey
+    PRIMARY KEY (id);
+
+ALTER TABLE vuelos
+    ADD CONSTRAINT vuelos_pkey
+    PRIMARY KEY (id);
+
+ALTER TABLE zonas
+    ADD CONSTRAINT zonas_pkey
     PRIMARY KEY (id);
 
 --
 -- CLAVES FORANEAS
 --
 
-ALTER TABLE actividades
-    ADD CONSTRAINT actividades_ciudad_id_foreign
-    FOREIGN KEY (ciudad_id)
-    REFERENCES ciudades(id);
+ALTER TABLE acciones
+    ADD CONSTRAINT acciones_user_id_foreign
+    FOREIGN KEY (id_user)
+    REFERENCES users(id);
 
-ALTER TABLE aeropuertos
-    ADD CONSTRAINT aeropuertos_ciudad_id_foreign
-    FOREIGN KEY (ciudad_id)
-    REFERENCES ciudades(id);
+ALTER TABLE alojamientos_privados
+    ADD CONSTRAINT alojamientos_privados_calendario_alojamiento_id_foreign
+    FOREIGN KEY (id_calendario_alojamiento)
+    REFERENCES calendarios_alojamientos(id);
 
-ALTER TABLE asiento_avion
-    ADD CONSTRAINT asiento_avion_asiento_id_foreign
-    FOREIGN KEY (asiento_id)
-    REFERENCES asientos(id);
+ALTER TABLE alojamientos_servicios
+    ADD CONSTRAINT alojamientos_servicios_alojamiento_privado_id_foreign
+    FOREIGN KEY (id_alojamiento_privado)
+    REFERENCES alojamientos_privados(id);
 
-ALTER TABLE asiento_avion
-    ADD CONSTRAINT asiento_avion_avion_id_foreign
-    FOREIGN KEY (avion_id)
-    REFERENCES aviones(id);
+ALTER TABLE alojamientos_servicios
+    ADD CONSTRAINT alojamientos_servicios_servicio_alojamiento_id_foreign
+    FOREIGN KEY (id_servicio_alojamiento)
+    REFERENCES servicios_alojamientos(id);
 
 ALTER TABLE asientos
-    ADD CONSTRAINT asientos_tipo_asiento_id_foreign
-    FOREIGN KEY (tipo_asiento_id)
-    REFERENCES tipo_asientos(id);
-
-ALTER TABLE autos
-    ADD CONSTRAINT autos_sucursal_id_foreign
-    FOREIGN KEY (sucursal_id)
-    REFERENCES sucursales(id);
-
-ALTER TABLE aviones
-    ADD CONSTRAINT aviones_aerolinea_id_foreign
-    FOREIGN KEY (aerolinea_id)
-    REFERENCES aerolineas(id);
-
-ALTER TABLE ciudades
-    ADD CONSTRAINT ciudades_pais_id_foreign
-    FOREIGN KEY (pais_id)
-    REFERENCES paises(id);
-
-ALTER TABLE cuentas
-    ADD CONSTRAINT cuentas_banco_id_foreign
-    FOREIGN KEY (banco_id)
-    REFERENCES bancos(id);
-
-ALTER TABLE cuentas
-    ADD CONSTRAINT cuentas_tipo_cuenta_id_foreign
-    FOREIGN KEY (tipo_cuenta_id)
-    REFERENCES tipo_cuentas(id);
-
-ALTER TABLE cuentas
-    ADD CONSTRAINT cuentas_user_id_foreign
-    FOREIGN KEY (user_id)
-    REFERENCES users(id);
-
-ALTER TABLE habitaciones
-    ADD CONSTRAINT habitaciones_hotel_id_foreign
-    FOREIGN KEY (hotel_id)
-    REFERENCES hoteles(id);
-
-ALTER TABLE hoteles
-    ADD CONSTRAINT hoteles_ciudad_id_foreign
-    FOREIGN KEY (ciudad_id)
-    REFERENCES ciudades(id);
-
-ALTER TABLE orden_compras
-    ADD CONSTRAINT orden_compras_user_id_foreign
-    FOREIGN KEY (user_id)
-    REFERENCES users(id);
-
-ALTER TABLE paquete_vuelo_autos
-    ADD CONSTRAINT paquete_vuelo_autos_reserva_auto_id_foreign
-    FOREIGN KEY (reserva_auto_id)
-    REFERENCES reserva_autos(id);
-
-ALTER TABLE paquete_vuelo_hoteles
-    ADD CONSTRAINT paquete_vuelo_hoteles_reserva_habitacion_id_foreign
-    FOREIGN KEY (reserva_habitacion_id)
-    REFERENCES reserva_habitaciones(id);
-
-ALTER TABLE pasajeros
-    ADD CONSTRAINT pasajeros_reserva_boleto_id_foreign
-    FOREIGN KEY (reserva_boleto_id)
-    REFERENCES reserva_boletos(id);
-
-ALTER TABLE reserva_actividades
-    ADD CONSTRAINT reserva_actividades_actividad_id_foreign
-    FOREIGN KEY (actividad_id)
-    REFERENCES actividades(id);
-
-ALTER TABLE reserva_autos
-    ADD CONSTRAINT reserva_autos_auto_id_foreign
-    FOREIGN KEY (auto_id)
-    REFERENCES autos(id);
-
-ALTER TABLE reserva_boletos
-    ADD CONSTRAINT reserva_boletos_asiento_avion_id_foreign
-    FOREIGN KEY (asiento_avion_id)
-    REFERENCES asiento_avion(id);
-
-ALTER TABLE reserva_boletos
-    ADD CONSTRAINT reserva_boletos_tramo_id_foreign
-    FOREIGN KEY (tramo_id)
-    REFERENCES tramos(id);
-
-ALTER TABLE reserva_habitaciones
-    ADD CONSTRAINT reserva_habitaciones_habitacion_id_foreign
-    FOREIGN KEY (habitacion_id)
-    REFERENCES habitaciones(id);
---
-
-ALTER TABLE reserva_paquete_vuelo_autos
-    ADD CONSTRAINT reserva_paquete_vuelo_autos_paquete_vuelo_auto_id_foreign
-    FOREIGN KEY (paquete_vuelo_auto_id)
-    REFERENCES paquete_vuelo_autos(id);
---
-
-ALTER TABLE reserva_paquete_vuelo_autos
-    ADD CONSTRAINT reserva_paquete_vuelo_autos_reserva_boleto_id_foreign
-    FOREIGN KEY (reserva_boleto_id)
-    REFERENCES reserva_boletos(id);
---
-
-ALTER TABLE reserva_paquete_vuelo_hoteles
-    ADD CONSTRAINT reserva_paquete_vuelo_hoteles_paquete_vuelo_hotel_id_foreign
-    FOREIGN KEY (paquete_vuelo_hotel_id)
-    REFERENCES paquete_vuelo_hoteles(id);
---
-
-ALTER TABLE reserva_paquete_vuelo_hoteles
-    ADD CONSTRAINT reserva_paquete_vuelo_hoteles_reserva_boleto_id_foreign
-    FOREIGN KEY (reserva_boleto_id)
-    REFERENCES reserva_boletos(id);
-
-ALTER TABLE reserva_traslados
-    ADD CONSTRAINT reserva_traslados_orden_compra_id_foreign
-    FOREIGN KEY (orden_compra_id)
-    REFERENCES orden_compras(id);
-
-ALTER TABLE reserva_traslados
-    ADD CONSTRAINT reserva_traslados_traslado_id_foreign
-    FOREIGN KEY (traslado_id)
-    REFERENCES traslados(id);
-
-ALTER TABLE rol_permiso
-    ADD CONSTRAINT rol_permiso_permiso_id_foreign
-    FOREIGN KEY (permiso_id)
-    REFERENCES permisos(id);
-
-ALTER TABLE rol_permiso
-    ADD CONSTRAINT rol_permiso_rol_id_foreign
-    FOREIGN KEY (rol_id)
-    REFERENCES roles(id);
-
-ALTER TABLE sucursales
-    ADD CONSTRAINT sucursales_ciudad_id_foreign
-    FOREIGN KEY (ciudad_id)
-    REFERENCES ciudades(id);
-
-ALTER TABLE sucursales
-    ADD CONSTRAINT sucursales_compania_id_foreign
-    FOREIGN KEY (compania_id)
-    REFERENCES companias(id);
-
-ALTER TABLE tramos
-    ADD CONSTRAINT tramos_avion_id_foreign
-    FOREIGN KEY (avion_id)
+    ADD CONSTRAINT asientos_avion_id_foreign
+    FOREIGN KEY (id_avion)
     REFERENCES aviones(id);
 
-ALTER TABLE tramos
-    ADD CONSTRAINT tramos_destino_id_foreign
-    FOREIGN KEY (destino_id)
-    REFERENCES aeropuertos(id);
+ALTER TABLE automoviles
+    ADD CONSTRAINT automoviles_zona_id_foreign
+    FOREIGN KEY (id_zona)
+    REFERENCES zonas(id);
 
-ALTER TABLE tramos
-    ADD CONSTRAINT tramos_origen_id_foreign
-    FOREIGN KEY (origen_id)
-    REFERENCES aeropuertos(id);
+ALTER TABLE automoviles
+    ADD CONSTRAINT automoviles_proveedor_id_foreign
+    FOREIGN KEY (id_proveedor)
+    REFERENCES proveedores(id);
 
-ALTER TABLE traslados
-    ADD CONSTRAINT traslados_aeropuerto_id_foreign
-    FOREIGN KEY (aeropuerto_id)
-    REFERENCES aeropuertos(id);
+ALTER TABLE automoviles
+    ADD CONSTRAINT automoviles_calendario_vehiculo_id_foreign
+    FOREIGN KEY (id_calendario_vehiculo)
+    REFERENCES calendarios_vehiculos(id);
 
-ALTER TABLE traslados
-    ADD CONSTRAINT traslados_hotel_id_foreign
-    FOREIGN KEY (hotel_id)
+ALTER TABLE aviones
+    ADD CONSTRAINT aviones_compania_id_foreign
+    FOREIGN KEY (id_compania)
+    REFERENCES companias(id);
+
+ALTER TABLE checks_in
+    ADD CONSTRAINT checks_in_user_id_foreign
+    FOREIGN KEY (id_user)
+    REFERENCES users(id);
+
+ALTER TABLE checks_in
+    ADD CONSTRAINT checks_in_asiento_id_foreign
+    FOREIGN KEY (id_asiento)
+    REFERENCES asientos(id);
+
+ALTER TABLE detalles_reservas_autos
+    ADD CONSTRAINT detalles_reservas_autos_res_auto_id_foreign
+    FOREIGN KEY (id_res_auto)
+    REFERENCES reservas_autos(id);
+
+ALTER TABLE detalles_reservas_hoteles
+    ADD CONSTRAINT detalles_reservas_hoteles_reserva_hotel_id_foreign
+    FOREIGN KEY (id_reserva_hotel)
+    REFERENCES reservas_hoteles(id);
+
+ALTER TABLE detalles_reservas_hoteles
+    ADD CONSTRAINT detalles_reservas_hoteles_habitacion_hotel_id_foreign
+    FOREIGN KEY (id_habitacion_hotel)
+    REFERENCES habitaciones_hoteles(id);
+
+ALTER TABLE detalles_reservas_hoteles
+    ADD CONSTRAINT detalles_reservas_hoteles_alojamiento_privado_id_foreign
+    FOREIGN KEY (id_alojamiento_privado)
+    REFERENCES alojamientos_privados(id);
+
+ALTER TABLE detalles_ventas_vuelos
+    ADD CONSTRAINT detalles_ventas_vuelos_venta_id_foreign
+    FOREIGN KEY (id_venta)
+    REFERENCES ventas(id);
+
+ALTER TABLE detalles_vuelos
+    ADD CONSTRAINT detalles_vuelos_reserva_avion_id_foreign
+    FOREIGN KEY (id_avion)
+    REFERENCES aviones(id);
+
+ALTER TABLE detalles_vuelos
+    ADD CONSTRAINT detalles_vuelos_vuelo_id_foreign
+    FOREIGN KEY (id_vuelo)
+    REFERENCES vuelos(id);
+
+ALTER TABLE habitaciones
+    ADD CONSTRAINT habitaciones_alojamiento_privado_id_foreign
+    FOREIGN KEY (id_alojamiento_privado)
+    REFERENCES alojamientos_privados(id);
+
+ALTER TABLE habitaciones_hoteles
+    ADD CONSTRAINT habitaciones_hoteles_hotel_id_foreign
+    FOREIGN KEY (id_hotel)
     REFERENCES hoteles(id);
 
-ALTER TABLE user_rol
-    ADD CONSTRAINT user_rol_rol_id_foreign
-    FOREIGN KEY (rol_id)
-    REFERENCES roles(id);
+ALTER TABLE habitaciones_servicios
+    ADD CONSTRAINT habitaciones_servicios_habitacion_hotel_id_foreign
+    FOREIGN KEY (id_habitacion_hotel)
+    REFERENCES habitaciones_hoteles(id);
 
-ALTER TABLE user_rol
-    ADD CONSTRAINT user_rol_user_id_foreign
-    FOREIGN KEY (user_id)
+ALTER TABLE habitaciones_servicios
+    ADD CONSTRAINT habitaciones_servicios_servicio_alojamiento_id_foreign
+    FOREIGN KEY (id_servicio_alojamiento)
+    REFERENCES servicios_alojamientos(id);
+
+ALTER TABLE origenes_destinos
+    ADD CONSTRAINT origenes_destinos_aeropuerto_id_foreign
+    FOREIGN KEY (id_aeropuerto)
+    REFERENCES aeropuertos(id);
+
+ALTER TABLE origenes_destinos
+    ADD CONSTRAINT origenes_destinos_detalle_vuelo_id_foreign
+    FOREIGN KEY (id_detalle_vuelo)
+    REFERENCES detalles_vuelos(id);
+
+ALTER TABLE reservas_autos
+    ADD CONSTRAINT reservas_autos__venta_id_foreign
+    FOREIGN KEY (id_venta)
+    REFERENCES ventas(id);
+
+ALTER TABLE reservas_hoteles
+    ADD CONSTRAINT reservas_hoteles__venta_id_foreign
+    FOREIGN KEY (id_venta)
+    REFERENCES ventas(id);
+
+ALTER TABLE servicios_alojamientos
+    ADD CONSTRAINT servicios_alojamientos_hotel_id_foreign
+    FOREIGN KEY (id_hotel)
+    REFERENCES hoteles(id);
+
+ALTER TABLE servicios_proveedores
+    ADD CONSTRAINT servicios_proveedores_servicio_id_foreign
+    FOREIGN KEY (id_servicio)
+    REFERENCES servicios_de_vehiculos(id);
+
+ALTER TABLE servicios_proveedores
+    ADD CONSTRAINT servicios_proveedores_proveedor_id_foreign
+    FOREIGN KEY (id_proveedor)
+    REFERENCES proveedores(id);
+
+ALTER TABLE servicios_y_vehiculos
+    ADD CONSTRAINT servicios_y_vehiculos_servicio_id_foreign
+    FOREIGN KEY (id_servicio)
+    REFERENCES servicios_de_vehiculos(id);
+
+ALTER TABLE servicios_y_vehiculos
+    ADD CONSTRAINT servicios_y_vehiculos_patente_id_foreign
+    FOREIGN KEY (patente)
+    REFERENCES automoviles(patente);
+
+ALTER TABLE ventas
+    ADD CONSTRAINT ventas_user_id_foreign
+    FOREIGN KEY (id_user)
     REFERENCES users(id);
+
+ALTER TABLE vuelos
+    ADD CONSTRAINT vuelos_detalle_venta_vuelo_id_foreign
+    FOREIGN KEY (id_detalle_venta_vuelo)
+    REFERENCES detalles_ventas_vuelos(id);
