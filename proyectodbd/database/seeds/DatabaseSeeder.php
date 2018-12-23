@@ -14,21 +14,41 @@ class DatabaseSeeder extends Seeder
         $this->call([
             /* General */
             UsersSeeder::class,
+            VentasSeeder::class,
 
             /* Autos */
+            ReservasAutosSeeder::class,
+            CalendariosVehiculosSeeder::class,
+            ZonasSeeder::class,
+            ProveedoresSeeder::class,
+            AutomovilesSeeder::class,
+            DetallesReservasAutosSeeder::class,
+            ServiciosDeVehiculosSeeder::class,
+            ServiciosYVehiculosSeeder::class,
+            ServiciosProveedoresSeeder::class,
 
             /* Hoteles */
+            HotelesSeeder::class,
+            ReservasHotelesSeeder::class,
+            ServiciosAlojamientosSeeder::class,
+            CalendariosAlojamientosSeeder::class,
+            HabitacionesHotelesSeeder::class,
+            AlojamientosPrivadosSeeder::class,
+            HabitacionesSeeder::class,
+            AlojamientosServiciosSeeder::class,
+            HabitacionesServiciosSeeder::class,
+            DetallesReservasHotelesSeeder::class,
 
             /* Vuelos */
             AeropuertosSeeder::class,
-            //AvionesSeeder::class,
             CompaniasSeeder::class,
             AvionesSeeder::class,
             AsientosSeeder::class,
             DetallesVentasVuelosSeeder::class,
             VuelosSeeder::class,
             DetallesVuelosSeeder::class,
-            /* Reservas */
+            ChecksInSeeder::class,
+            OrigenesDestinosSeeder::class,
 
             /* Paquetes */
 

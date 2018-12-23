@@ -21,7 +21,7 @@ class CreateAlojamientosPrivadosTable extends Migration
                 ->on('calendarios_alojamientos');
             $table->integer('capacidad');
             $table->string('direccion');
-            $table->float('nombre');
+            $table->string('nombre');
             $table->float('estrella');
             $table->float('valoracion');
             $table->string('pais');
