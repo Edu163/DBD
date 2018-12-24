@@ -19,10 +19,9 @@ class CreateAvionesTable extends Migration
             $table->foreign('id_compania')
                 ->references('id')
                 ->on('companias');
-            $table->float('precio');
-            $table->integer('duracion_vuelo');
-            $table->datetime('fecha_despegue');
-            $table->datetime('fecha_aterrizaje');
+            $table->Integer('motores');
+            $table->string('modelo');
+            $table->string('color');
             $table->timestamps();
         });
     }
