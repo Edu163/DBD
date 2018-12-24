@@ -13,7 +13,7 @@ class CheckIn extends Model
     protected $fecha;
     protected $estado;
 
-    protected $filleable = [
+    protected $fillable = [
         'id_asiento',
         'id_user',
         'fecha',

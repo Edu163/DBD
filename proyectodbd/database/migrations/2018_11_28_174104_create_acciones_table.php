@@ -18,7 +18,8 @@ class CreateAccionesTable extends Migration
             $table->integer('id_users');
             $table->foreign('id_users')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
             $table->datetime('fecha');
             $table->string('accion');
             $table->timestamps();

@@ -13,7 +13,7 @@ class Aeropuerto extends Model
     protected $direccion;
     protected $nombre;
 
-    protected $filleable = [
+    protected $fillable = [
         'pais',
         'ciudad',
         'direccion',

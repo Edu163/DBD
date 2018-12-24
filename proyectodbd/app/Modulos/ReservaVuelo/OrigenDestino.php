@@ -11,7 +11,7 @@ class OrigenDestino extends Model
     protected $id_detalle_vuelo;
     protected $id_aeropuerto;
 
-    protected $filleable = [
+    protected $fillable = [
         'id_detalle_vuelo',
         'id_aeropuerto',
     ];
