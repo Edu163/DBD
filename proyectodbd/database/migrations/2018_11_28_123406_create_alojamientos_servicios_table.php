@@ -14,7 +14,6 @@ class CreateAlojamientosServiciosTable extends Migration
     public function up()
     {
         Schema::create('alojamientos_servicios', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('id_servicio_alojamiento');
             $table->foreign('id_servicio_alojamiento')
                 ->references('id')

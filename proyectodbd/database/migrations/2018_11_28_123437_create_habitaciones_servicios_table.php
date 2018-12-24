@@ -14,15 +14,14 @@ class CreateHabitacionesServiciosTable extends Migration
     public function up()
     {
         Schema::create('habitaciones_servicios', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('id_servicio_alojamiento');
             $table->foreign('id_servicio_alojamiento')
                 ->references('id')
                 ->on('servicios_alojamientos');
-            $table->integer('id_habitacion_hotel');
-            $table->foreign('id_habitacion_hotel')
+            $table->integer('id_aeropuerto');
+            $table->foreign('id_aeropuerto')
                 ->references('id')
-                ->on('habitaciones_hoteles');
+                ->on('aeropuertos');
             $table->timestamps();
         });
     }

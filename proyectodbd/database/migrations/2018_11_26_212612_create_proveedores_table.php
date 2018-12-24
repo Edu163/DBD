@@ -17,7 +17,7 @@ class CreateProveedoresTable extends Migration
             $table->increments('id');
             $table->string('politica_combustible');
             $table->string('documentacion_necesaria');
-            $table->string('franquicia_daños');
+            $table->string('franquicia_danos');
             $table->float('calificacion');
             $table->float('deposito_seguridad');
             $table->integer('kilometraje');

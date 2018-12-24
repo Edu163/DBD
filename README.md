@@ -33,14 +33,3 @@ Links de utilidad:
     AngularJS: https://angularjs.org/
     Valentina Studio: https://valentina-db.com/en/studio/download/current
     LATAM: https://www.latam.com/es_cl/
-
-Documentación necesaria:
-https://github.com/mattwells/faker-vehicle
-
-Comandos de utilidad 
-
-composer dump-autoload                  -> Usar cada vez que se cambian las rutas originales.
-php artisan migrate:fresh -- seed       -> Usar cada vez que se quiera recargar la base de datos.
-
-
-composer require mattwells/faker-vehicle     -> Instala la dependencia necesaria para el uso de faker para automóviles

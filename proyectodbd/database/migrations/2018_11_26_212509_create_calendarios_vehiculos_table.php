@@ -16,7 +16,7 @@ class CreateCalendariosVehiculosTable extends Migration
         Schema::create('calendarios_vehiculos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('año');
-            $table->string('mes');
+            $table->integer('mes');
             $table->integer('dia');
             $table->timestamps();
         });

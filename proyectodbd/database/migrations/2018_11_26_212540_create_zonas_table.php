@@ -17,6 +17,7 @@ class CreateZonasTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('direccion');
+            $table->string('coordenadas');
             $table->timestamps();
         });
     }
