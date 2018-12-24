@@ -19,18 +19,20 @@ class CreateDetallesVuelosTable extends Migration
             $table->foreign('id_vuelo')
                 ->references('id')
                 ->on('vuelos');
-            $table->integer('id_users');
+            /*$table->integer('id_users');
             $table->foreign('id_users')
                 ->references('id')
-                ->on('users');
+                ->on('users');*/
             $table->integer('id_avion');
             $table->foreign('id_avion')
                 ->references('id')
                 ->on('aviones');
-            $table->integer('id_calendario_vuelo');
+            /*$table->integer('id_calendario_vuelo');
             $table->foreign('id_calendario_vuelo')
                 ->references('id')
-                ->on('calendarios_vuelos');
+                ->on('calendarios_vuelos');*/
+            $table->datetime('fecha_despegue');
+            $table->datetime('fecha_aterrizaje');
             $table->timestamps();
         });
     }

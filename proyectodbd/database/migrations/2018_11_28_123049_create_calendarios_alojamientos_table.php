@@ -16,7 +16,7 @@ class CreateCalendariosAlojamientosTable extends Migration
         Schema::create('calendarios_alojamientos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('año');
-            $table->integer('mes');
+            $table->string('mes');
             $table->integer('dia');
             $table->timestamps();
         });
