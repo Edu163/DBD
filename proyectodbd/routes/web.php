@@ -1,5 +1,5 @@
 <?php
-use App\Avion;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,11 +13,6 @@ use App\Avion;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/Vuelos', function () {
-	$aviones = Avion::all();
-    return View('aviones')->with('aviones',$aviones);
 });
 
 Auth::routes();

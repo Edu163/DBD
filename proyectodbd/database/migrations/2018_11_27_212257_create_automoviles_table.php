@@ -14,7 +14,6 @@ class CreateAutomovilesTable extends Migration
     public function up()
     {
         Schema::create('automoviles', function (Blueprint $table) {
-            $table->increments('id');
             $table->string('patente')->unique();
             $table->integer('id_calendario_vehiculo');
             $table->foreign('id_calendario_vehiculo')
