@@ -11,7 +11,7 @@ class ServicioDeVehiculo extends Model
     protected $nombre_servicio;
     protected $duracion;
 
-    protected $filleable = [
+    protected $fillable = [
         'nombre_servicio',
         'duracion',
     ];

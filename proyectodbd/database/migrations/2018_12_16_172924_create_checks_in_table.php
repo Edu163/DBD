@@ -22,7 +22,8 @@ class CreateChecksInTable extends Migration
             $table->integer('id_user');
             $table->foreign('id_user')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
             $table->date('fecha');
             $table->string('estado');
             $table->timestamps();

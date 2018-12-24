@@ -16,7 +16,7 @@ class DetalleReservaAuto extends Model
     protected $descuento;
     protected $cantidad;
 
-    protected $filleable = [
+    protected $fillable = [
         'id_res_auto',
         'patente',
         'fecha_retiro',

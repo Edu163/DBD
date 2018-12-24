@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaAutoControllers;
 
 use App\Modulos\ReservaAuto\ServicioYVehiculo;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ServicioYVehiculoController extends Controller
@@ -14,7 +15,7 @@ class ServicioYVehiculoController extends Controller
      */
     public function index()
     {
-        //
+        return ServicioYVehiculo::all();
     }
 
     /**
@@ -35,7 +36,7 @@ class ServicioYVehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return ServicioYVehiculo::create($request->all());
     }
 
     /**
@@ -44,9 +45,9 @@ class ServicioYVehiculoController extends Controller
      * @param  \App\Modulos\ReservaAuto\ServicioYVehiculo  $servicioYVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function show(ServicioYVehiculo $servicioYVehiculo)
+    public function show($id)
     {
-        //
+        return ServicioYVehiculo::find($id);
     }
 
     /**
@@ -67,9 +68,16 @@ class ServicioYVehiculoController extends Controller
      * @param  \App\Modulos\ReservaAuto\ServicioYVehiculo  $servicioYVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ServicioYVehiculo $servicioYVehiculo)
+    public function update(Request $request, $id)
     {
-        //
+        $servicioYVehiculo = ServicioYVehiculo::find($id);
+        $servicioYVehiculo->fill($this->validate($request, [
+            'id_servicio' => 'required',
+            'patente' => 'required',
+            'precio' => 'required',
+        ]))->save();
+
+        return "Me he acutalizado correctamente! :D!";
     }
 
     /**
@@ -78,8 +86,10 @@ class ServicioYVehiculoController extends Controller
      * @param  \App\Modulos\ReservaAuto\ServicioYVehiculo  $servicioYVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServicioYVehiculo $servicioYVehiculo)
+    public function destroy($id)
     {
-        //
+        $servicioYVehiculo = ServicioYVehiculo::find($id);
+        $servicioYVehiculo->delete();
+        return "lo eliminé";
     }
 }

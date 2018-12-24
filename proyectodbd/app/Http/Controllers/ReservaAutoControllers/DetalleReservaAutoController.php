@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaAutoControllers;
 
 use App\Modulos\ReservaAuto\DetalleReservaAuto;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class DetalleReservaAutoController extends Controller
@@ -14,7 +15,7 @@ class DetalleReservaAutoController extends Controller
      */
     public function index()
     {
-        //
+        return DetalleReservaAuto::all();
     }
 
     /**
@@ -35,7 +36,7 @@ class DetalleReservaAutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return DetalleReservaAuto::create($request->all());
     }
 
     /**
@@ -44,9 +45,9 @@ class DetalleReservaAutoController extends Controller
      * @param  \App\Modulos\ReservaAuto\DetalleReservaAuto  $detalleReservaAuto
      * @return \Illuminate\Http\Response
      */
-    public function show(DetalleReservaAuto $detalleReservaAuto)
+    public function show($id)
     {
-        //
+        return DetalleReservaAuto::find($id);
     }
 
     /**
@@ -67,9 +68,20 @@ class DetalleReservaAutoController extends Controller
      * @param  \App\Modulos\ReservaAuto\DetalleReservaAuto  $detalleReservaAuto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DetalleReservaAuto $detalleReservaAuto)
+    public function update(Request $request, $id)
     {
-        //
+        $detalleReservaAuto = DetalleReservaAuto::find($id);
+        $detalleReservaAuto->fill($this->validate($request, [
+            'id_res_auto' => 'required',
+            'patente' => 'required',
+            'fecha_retiro' => 'required',
+            'fecha_regreso' => 'required',
+            'precio_reserva' => 'required',
+            'descuento' => 'required',
+            'cantidad' => 'required',
+        ]))->save();
+
+        return "Me he acutalizado correctamente! :D!";
     }
 
     /**
@@ -78,8 +90,10 @@ class DetalleReservaAutoController extends Controller
      * @param  \App\Modulos\ReservaAuto\DetalleReservaAuto  $detalleReservaAuto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DetalleReservaAuto $detalleReservaAuto)
+    public function destroy($id)
     {
-        //
+        $detalleReservaAuto = DetalleReservaAuto::find($id);
+        $detalleReservaAuto->delete();
+        return "lo eliminé";
     }
 }
