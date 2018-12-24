@@ -18,7 +18,8 @@ class CreateReservasAutosTable extends Migration
             $table->integer('id_venta');
             $table->foreign('id_venta')
                   ->references('id')
-                  ->on('ventas');
+                  ->on('ventas')
+                  ->onDelete('cascade');
             $table->datetime('fecha');
             $table->float('monto_total');
             $table->timestamps();

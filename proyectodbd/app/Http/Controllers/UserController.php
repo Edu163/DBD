@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return User::all();
     }
 
     /**
@@ -35,7 +35,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Automovil::create($request->all());
     }
 
     /**
@@ -44,9 +44,9 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        return User::find($id);
     }
 
     /**
@@ -67,9 +67,26 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->fill($this->validate($request, [
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'password' => 'required',
+            'acceso' => 'required',
+            'n_documento' => 'required',
+            'tipo_documento' => 'required',
+            'pais' => 'required',
+            'puntos' => 'required',
+            'millas' => 'required',
+            'millas_elite' => 'required',
+            'telefono' => 'required',
+            'categoria' => 'required',
+            'fecha_nac' => 'required',
+        ]))->save();
+
+        return "Me he acutalizado correctamente! :D!";
     }
 
     /**
@@ -78,8 +95,10 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return "lo eliminé";
     }
 }

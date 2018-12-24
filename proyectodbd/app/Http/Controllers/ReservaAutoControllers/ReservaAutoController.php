@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaAutoControllers;
 
 use App\Modulos\ReservaAuto\ReservaAuto;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ReservaAutoController extends Controller
@@ -14,7 +15,7 @@ class ReservaAutoController extends Controller
      */
     public function index()
     {
-        //
+        return ReservaAuto::all();
     }
 
     /**
@@ -35,7 +36,7 @@ class ReservaAutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return ReservaAuto::create($request->all());
     }
 
     /**
@@ -44,9 +45,9 @@ class ReservaAutoController extends Controller
      * @param  \App\Modulos\ReservaAuto\ReservaAuto  $reservaAuto
      * @return \Illuminate\Http\Response
      */
-    public function show(ReservaAuto $reservaAuto)
+    public function show($id)
     {
-        //
+        return ReservaAuto::find($id);
     }
 
     /**
@@ -67,9 +68,16 @@ class ReservaAutoController extends Controller
      * @param  \App\Modulos\ReservaAuto\ReservaAuto  $reservaAuto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ReservaAuto $reservaAuto)
+    public function update(Request $request, $id)
     {
-        //
+        $reservaAuto = ReservaAuto::find($id);
+        $reservaAuto->fill($this->validate($request, [
+            'id_venta' => 'required',
+            'fecha' => 'required',
+            'monto_total' => 'required',
+        ]))->save();
+
+        return "Me he acutalizado correctamente! :D!";
     }
 
     /**
@@ -78,8 +86,10 @@ class ReservaAutoController extends Controller
      * @param  \App\Modulos\ReservaAuto\ReservaAuto  $reservaAuto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ReservaAuto $reservaAuto)
+    public function destroy($id)
     {
-        //
+        $reservaAuto = ReservaAuto::find($id);
+        $reservaAuto->delete();
+        return "lo eliminé";
     }
 }
