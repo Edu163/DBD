@@ -31,55 +31,55 @@ Route::get('/companias/all', 'ReservaVueloControllers\CompaniaController@index')
 Route::get('/companias/show/{id}', 'ReservaVueloControllers\CompaniaController@show');
 Route::get('/companias/destroy/{id}', 'ReservaVueloControllers\CompaniaController@destroy');
 Route::get('/companias/store', 'ReservaVueloControllers\CompaniaController@store');
-Route::get('/companias/update/{id}', 'ReservaAutoControllers\CompaniaController@update');
+Route::get('/companias/update/{id}', 'ReservaVueloControllers\CompaniaController@update');
 /* Avion */
 Route::get('/aviones/all', 'ReservaVueloControllers\AvionController@index');
 Route::get('/aviones/show/{id}', 'ReservaVueloControllers\AvionController@show');
 Route::get('/aviones/destroy/{id}', 'ReservaVueloControllers\AvionController@destroy');
 Route::get('/aviones/store', 'ReservaVueloControllers\AvionController@store');
-Route::get('/aviones/update/{id}', 'ReservaAutoControllers\AvionController@update');
+Route::get('/aviones/update/{id}', 'ReservaVueloControllers\AvionController@update');
 /* Asiento */
 Route::get('/asientos/all', 'ReservaVueloControllers\AsientoController@index');
 Route::get('/asientos/show/{id}', 'ReservaVueloControllers\AsientoController@show');
 Route::get('/asientos/destroy/{id}', 'ReservaVueloControllers\AsientoController@destroy');
 Route::get('/asientos/store', 'ReservaVueloControllers\AsientoController@store');
-Route::get('/asientos/update/{id}', 'ReservaAutoControllers\AsientoController@update');
+Route::get('/asientos/update/{id}', 'ReservaVueloControllers\AsientoController@update');
 /* Asiento */
 Route::get('/aeropuertos/all', 'ReservaVueloControllers\AeropuertoController@index');
 Route::get('/aeropuertos/show/{id}', 'ReservaVueloControllers\AeropuertoController@show');
 Route::get('/aeropuertos/destroy/{id}', 'ReservaVueloControllers\AeropuertoController@destroy');
 Route::get('/aeropuertos/store', 'ReservaVueloControllers\AeropuertoController@store');
-Route::get('/aeropuertos/update/{id}', 'ReservaAutoControllers\AeropuertoController@update');
+Route::get('/aeropuertos/update/{id}', 'ReservaVueloControllers\AeropuertoController@update');
 /* CheckIn */
 Route::get('/checkins/all', 'ReservaVueloControllers\CheckInController@index');
 Route::get('/checkins/show/{id}', 'ReservaVueloControllers\CheckInController@show');
 Route::get('/checkins/destroy/{id}', 'ReservaVueloControllers\CheckInController@destroy');
 Route::get('/checkins/store', 'ReservaVueloControllers\CheckInController@store');
-Route::get('/checkins/update/{id}', 'ReservaAutoControllers\CheckInController@update');
+Route::get('/checkins/update/{id}', 'ReservaVueloControllers\CheckInController@update');
 /* detalleVentaVuelo */
 Route::get('/detallesVentasVuelos/all', 'ReservaVueloControllers\DetalleVentaVueloController@index');
 Route::get('/detallesVentasVuelos/show/{id}', 'ReservaVueloControllers\DetalleVentaVueloController@show');
 Route::get('/detallesVentasVuelos/destroy/{id}', 'ReservaVueloControllers\DetalleVentaVueloController@destroy');
 Route::get('/detallesVentasVuelos/store', 'ReservaVueloControllers\DetalleVentaVueloController@store');
-Route::get('/detallesVentasVuelos/update/{id}', 'ReservaAutoControllers\DetalleVentaVueloController@update');
+Route::get('/detallesVentasVuelos/update/{id}', 'ReservaVueloControllers\DetalleVentaVueloController@update');
 /* detalleVuelo */
 Route::get('/detallesVuelos/all', 'ReservaVueloControllers\DetalleVueloController@index');
 Route::get('/detallesVuelos/show/{id}', 'ReservaVueloControllers\DetalleVueloController@show');
 Route::get('/detallesVuelos/destroy/{id}', 'ReservaVueloControllers\DetalleVueloController@destroy');
 Route::get('/detallesVuelos/store', 'ReservaVueloControllers\DetalleVueloController@store');
-Route::get('/detallesVuelos/update/{id}', 'ReservaAutoControllers\DetalleVueloController@update');
+Route::get('/detallesVuelos/update/{id}', 'ReservaVueloControllers\DetalleVueloController@update');
 /* Vuelo */
 Route::get('/vuelos/all', 'ReservaVueloControllers\VueloController@index');
 Route::get('/vuelos/show/{id}', 'ReservaVueloControllers\VueloController@show');
 Route::get('/vuelos/destroy/{id}', 'ReservaVueloControllers\VueloController@destroy');
 Route::get('/vuelos/store', 'ReservaVueloControllers\VueloController@store');
-Route::get('/vuelos/update/{id}', 'ReservaAutoControllers\VueloController@update');
+Route::get('/vuelos/update/{id}', 'ReservaVueloControllers\VueloController@update');
 /* Origen_Destino */
 Route::get('/origenesDestinos/all', 'ReservaVueloControllers\OrigenDestinoController@index');
 Route::get('/origenesDestinos/show/{id}', 'ReservaVueloControllers\OrigenDestinoController@show');
 Route::get('/origenesDestinos/destroy/{id}', 'ReservaVueloControllers\OrigenDestinoController@destroy');
 Route::get('/origenesDestinos/store', 'ReservaVueloControllers\OrigenDestinoController@store');
-Route::get('/origenesDestinos/update/{id}', 'ReservaAutoControllers\OrigenDestinoController@update');
+Route::get('/origenesDestinos/update/{id}', 'ReservaVueloControllers\OrigenDestinoController@update');
 
 
 
