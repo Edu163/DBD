@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaAutoControllers;
 
 use App\Modulos\ReservaAuto\Zona;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ZonaController extends Controller
@@ -14,7 +15,7 @@ class ZonaController extends Controller
      */
     public function index()
     {
-        //
+        return Zona::all();
     }
 
     /**
@@ -35,7 +36,7 @@ class ZonaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Zona::create($request->all());
     }
 
     /**
@@ -44,9 +45,9 @@ class ZonaController extends Controller
      * @param  \App\Modulos\ReservaAuto\Zona  $zona
      * @return \Illuminate\Http\Response
      */
-    public function show(Zona $zona)
+    public function show($id)
     {
-        //
+        return Zona::find($id);
     }
 
     /**
@@ -67,9 +68,15 @@ class ZonaController extends Controller
      * @param  \App\Modulos\ReservaAuto\Zona  $zona
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Zona $zona)
+    public function update(Request $request, $id)
     {
-        //
+        $zona = Zona::find($id);
+        $zona->fill($this->validate($request, [
+            'nombre' => 'required',
+            'direccion' => 'required',
+        ]))->save();
+
+        return "Me he acutalizado correctamente! :D!";
     }
 
     /**
@@ -78,8 +85,10 @@ class ZonaController extends Controller
      * @param  \App\Modulos\ReservaAuto\Zona  $zona
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Zona $zona)
+    public function destroy($id)
     {
-        //
+        $zona = Zona::find($id);
+        $zona->delete();
+        return "lo eliminé";
     }
 }

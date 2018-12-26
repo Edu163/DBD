@@ -14,7 +14,7 @@ class VentaController extends Controller
      */
     public function index()
     {
-        //
+        return Venta::all();
     }
 
     /**
@@ -35,7 +35,7 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Venta::create($request->all());
     }
 
     /**
@@ -44,9 +44,9 @@ class VentaController extends Controller
      * @param  \App\Venta  $venta
      * @return \Illuminate\Http\Response
      */
-    public function show(Venta $venta)
+    public function show($id)
     {
-        //
+        return Venta::find($id);
     }
 
     /**
@@ -67,9 +67,21 @@ class VentaController extends Controller
      * @param  \App\Venta  $venta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Venta $venta)
+    public function update(Request $request, $id)
     {
-        //
+        $venta = Venta::find($id);
+        $venta->fill($this->validate($request, [
+            'id_user' => 'required',
+            'monto_total' => 'required',
+            'fecha' => 'required',
+            'impuesto' => 'required',
+            'tipo_comprobante' => 'required',
+            'metodo_pago' => 'required',
+            'n_cuotas' => 'required',
+            'descuento' => 'required',
+        ]))->save();
+
+        return "Me he acutalizado correctamente! :D!";
     }
 
     /**
@@ -78,8 +90,10 @@ class VentaController extends Controller
      * @param  \App\Venta  $venta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Venta $venta)
+    public function destroy($id)
     {
-        //
+        $venta = Venta::find($id);
+        $venta->delete();
+        return "lo eliminé";
     }
 }

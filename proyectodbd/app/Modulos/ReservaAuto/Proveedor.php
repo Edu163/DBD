@@ -15,7 +15,7 @@ class Proveedor extends Model
     protected $franquicia_daños;
     protected $deposito_seguridad;
 
-    protected $filleable = [
+    protected $fillable = [
         'politica_combustible',
         'calificacion',
         'kilometraje',

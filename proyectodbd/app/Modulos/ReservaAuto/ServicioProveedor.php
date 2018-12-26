@@ -11,7 +11,7 @@ class ServicioProveedor extends Model
     protected $id_servicio;
     protected $id_proveedor;
 
-    protected $filleable = [
+    protected $fillable = [
         'id_servicio',
         'id_proveedor',
     ];

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaAutoControllers;
 
 use App\Modulos\ReservaAuto\ServicioDeVehiculo;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ServicioDeVehiculoController extends Controller
@@ -14,7 +15,7 @@ class ServicioDeVehiculoController extends Controller
      */
     public function index()
     {
-        //
+        return ServicioDeVehiculo::all();
     }
 
     /**
@@ -35,7 +36,7 @@ class ServicioDeVehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return ServicioDeVehiculo::create($request->all());
     }
 
     /**
@@ -44,9 +45,9 @@ class ServicioDeVehiculoController extends Controller
      * @param  \App\Modulos\ReservaAuto\ServicioDeVehiculo  $servicioDeVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function show(ServicioDeVehiculo $servicioDeVehiculo)
+    public function show($id)
     {
-        //
+        return ServicioDeVehiculo::find($id);
     }
 
     /**
@@ -67,9 +68,15 @@ class ServicioDeVehiculoController extends Controller
      * @param  \App\Modulos\ReservaAuto\ServicioDeVehiculo  $servicioDeVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ServicioDeVehiculo $servicioDeVehiculo)
+    public function update(Request $request, $id)
     {
-        //
+        $servicioDeVehiculo = ServicioDeVehiculo::find($id);
+        $servicioDeVehiculo->fill($this->validate($request, [
+            'nombre_servicio' => 'required',
+            'duracion' => 'required',
+        ]))->save();
+
+        return "Me he acutalizado correctamente! :D!";
     }
 
     /**
@@ -78,8 +85,10 @@ class ServicioDeVehiculoController extends Controller
      * @param  \App\Modulos\ReservaAuto\ServicioDeVehiculo  $servicioDeVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServicioDeVehiculo $servicioDeVehiculo)
+    public function destroy($id)
     {
-        //
+        $servicioDeVehiculo = ServicioDeVehiculo::find($id);
+        $servicioDeVehiculo->delete();
+        return "lo eliminé";
     }
 }

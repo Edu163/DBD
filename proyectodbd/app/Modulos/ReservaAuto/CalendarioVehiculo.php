@@ -12,7 +12,7 @@ class CalendarioVehiculo extends Model
     protected $mes;
     protected $dia;
 
-    protected $filleable = [
+    protected $fillable = [
         'año',
         'mes',
         'dia',

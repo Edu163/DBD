@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaAutoControllers;
 
 use App\Modulos\ReservaAuto\CalendarioVehiculo;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CalendarioVehiculoController extends Controller
@@ -14,7 +15,7 @@ class CalendarioVehiculoController extends Controller
      */
     public function index()
     {
-        //
+        return CalendarioVehiculo::all();
     }
 
     /**
@@ -35,7 +36,7 @@ class CalendarioVehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return CalendarioVehiculo::create($request->all());
     }
 
     /**
@@ -44,9 +45,9 @@ class CalendarioVehiculoController extends Controller
      * @param  \App\Modulos\ReservaAuto\CalendarioVehiculo  $calendarioVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function show(CalendarioVehiculo $calendarioVehiculo)
+    public function show($id)
     {
-        //
+        return CalendarioVehiculo::find($id);
     }
 
     /**
@@ -67,9 +68,16 @@ class CalendarioVehiculoController extends Controller
      * @param  \App\Modulos\ReservaAuto\CalendarioVehiculo  $calendarioVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CalendarioVehiculo $calendarioVehiculo)
+    public function update(Request $request, $id)
     {
-        //
+        $calendarioVehiculo = CalendarioVehiculo::find($id);
+        $calendarioVehiculo->fill($this->validate($request, [
+            'año' => 'required',
+            'mes' => 'required',
+            'dia' => 'required',
+        ]))->save();
+
+        return "Me he acutalizado correctamente! :D!";
     }
 
     /**
@@ -78,8 +86,10 @@ class CalendarioVehiculoController extends Controller
      * @param  \App\Modulos\ReservaAuto\CalendarioVehiculo  $calendarioVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CalendarioVehiculo $calendarioVehiculo)
+    public function destroy($id)
     {
-        //
+        $calendarioVehiculo = CalendarioVehiculo::find($id);
+        $calendarioVehiculo->delete();
+        return "lo eliminé";
     }
 }
