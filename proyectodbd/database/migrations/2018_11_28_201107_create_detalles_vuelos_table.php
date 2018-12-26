@@ -18,7 +18,8 @@ class CreateDetallesVuelosTable extends Migration
             $table->integer('id_vuelo');
             $table->foreign('id_vuelo')
                 ->references('id')
-                ->on('vuelos');
+                ->on('vuelos')
+                ->onDelete('cascade');
             /*$table->integer('id_users');
             $table->foreign('id_users')
                 ->references('id')
@@ -26,7 +27,8 @@ class CreateDetallesVuelosTable extends Migration
             $table->integer('id_avion');
             $table->foreign('id_avion')
                 ->references('id')
-                ->on('aviones');
+                ->on('aviones')
+                ->onDelete('cascade');
             /*$table->integer('id_calendario_vuelo');
             $table->foreign('id_calendario_vuelo')
                 ->references('id')

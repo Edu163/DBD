@@ -15,7 +15,7 @@ class Asiento extends Model
     protected $disponible;
     protected $id_avion;
 
-    protected $filleable = [
+    protected $fillable = [
         'numero',
         'letra',
         'tipo',

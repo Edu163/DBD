@@ -18,11 +18,13 @@ class CreateChecksInTable extends Migration
             $table->integer('id_asiento');
             $table->foreign('id_asiento')
                 ->references('id')
-                ->on('asientos');
+                ->on('asientos')
+                ->onDelete('cascade');
             $table->integer('id_user');
             $table->foreign('id_user')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
             $table->date('fecha');
             $table->string('estado');
             $table->timestamps();

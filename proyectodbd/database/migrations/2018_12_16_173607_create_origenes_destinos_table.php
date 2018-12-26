@@ -18,11 +18,13 @@ class CreateOrigenesDestinosTable extends Migration
             $table->integer('id_detalle_vuelo');
             $table->foreign('id_detalle_vuelo')
                 ->references('id')
-                ->on('detalles_vuelos');
+                ->on('detalles_vuelos')
+                ->onDelete('cascade');
             $table->integer('id_aeropuerto');
             $table->foreign('id_aeropuerto')
                 ->references('id')
-                ->on('aeropuertos');
+                ->on('aeropuertos')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
