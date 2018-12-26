@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaAutoControllers;
 
 use App\Modulos\ReservaAuto\ServicioProveedor;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ServicioProveedorController extends Controller
@@ -14,7 +15,7 @@ class ServicioProveedorController extends Controller
      */
     public function index()
     {
-        //
+        return ServicioProveedor::all();
     }
 
     /**
@@ -35,7 +36,7 @@ class ServicioProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return ServicioProveedor::create($request->all());
     }
 
     /**
@@ -44,9 +45,9 @@ class ServicioProveedorController extends Controller
      * @param  \App\Modulos\ReservaAuto\ServicioProveedor  $servicioProveedor
      * @return \Illuminate\Http\Response
      */
-    public function show(ServicioProveedor $servicioProveedor)
+    public function show($id)
     {
-        //
+        return ServicioProveedor::find($id);
     }
 
     /**
@@ -67,9 +68,15 @@ class ServicioProveedorController extends Controller
      * @param  \App\Modulos\ReservaAuto\ServicioProveedor  $servicioProveedor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ServicioProveedor $servicioProveedor)
+    public function update(Request $request, $id)
     {
-        //
+        $servicioProveedor = ServicioProveedor::find($id);
+        $servicioProveedor->fill($this->validate($request, [
+            'id_servicio' => 'required',
+            'id_proveedor' => 'required',
+        ]))->save();
+
+        return "Me he acutalizado correctamente! :D!";
     }
 
     /**
@@ -78,8 +85,10 @@ class ServicioProveedorController extends Controller
      * @param  \App\Modulos\ReservaAuto\ServicioProveedor  $servicioProveedor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServicioProveedor $servicioProveedor)
+    public function destroy($id)
     {
-        //
+        $servicioProveedor = ServicioProveedor::find($id);
+        $servicioProveedor->delete();
+        return "lo eliminé";
     }
 }

@@ -18,7 +18,8 @@ class CreateAsientosTable extends Migration
             $table->integer('id_avion');
             $table->foreign('id_avion')
                 ->references('id')
-                ->on('aviones');
+                ->on('aviones')
+                ->onDelete('cascade');
             $table->integer('numero');
             $table->string('letra');
             $table->string('tipo'); 

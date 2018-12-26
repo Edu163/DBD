@@ -15,10 +15,12 @@ class Avion extends Model
     protected $id_compania;
 
     protected $fillable = [
+<<<<<<< HEAD
         'color',
+=======
+>>>>>>> development
         'modelo',
-        'motores',
-        'id_compania',
+        'compania_id',
     ];
 
     /* Relaciones */

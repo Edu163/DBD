@@ -18,7 +18,8 @@ class CreateVuelosTable extends Migration
             $table->integer('id_detalle_venta_vuelo');
             $table->foreign('id_detalle_venta_vuelo')
                 ->references('id')
-                ->on('detalles_ventas_vuelos');
+                ->on('detalles_ventas_vuelos')
+                ->onDelete('cascade');
             $table->float('precio');
             $table->time('duracion_vuelo');
             $table->timestamps();

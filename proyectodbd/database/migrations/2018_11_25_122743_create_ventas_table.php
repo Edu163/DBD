@@ -18,7 +18,8 @@ class CreateVentasTable extends Migration
             $table->integer('id_user');
             $table->foreign('id_user')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
             $table->integer('monto_total');
             $table->date('fecha');
             $table->float('impuesto');
