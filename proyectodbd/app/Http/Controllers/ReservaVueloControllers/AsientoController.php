@@ -88,6 +88,22 @@ class AsientoController extends Controller
     public function update(Request $request, Asiento $asiento)
     {
         //
+        $outcome = $asiento->fill($this->validate($request, [
+            'numero' => 'required',
+            'letra' => 'required',
+            'tipo' => 'required',
+            'clase' => 'required',
+            'disponible' => 'required',
+            'id_avion'=> 'required'
+          ]))->save();
+      
+          if ($outcome) {
+            $response = ['success' => 'Actualizado con éxito!'];
+          } else {
+            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
+          }
+      
+          return "se ha actualizado";
     }
 
     /**
@@ -101,6 +117,6 @@ class AsientoController extends Controller
         //
         $asiento = Asiento::findOrFail($id);
         $asiento->delete();
-        return "lo eliminé";
+        return "eliminado";
     }
 }

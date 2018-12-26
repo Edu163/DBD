@@ -88,6 +88,20 @@ class CheckInController extends Controller
     public function update(Request $request, CheckIn $checkIn)
     {
         //
+        $outcome = $checkIn->fill($this->validate($request, [
+            'id_asiento' => 'required',
+            'id_user' => 'required',
+            'fecha' => 'required',
+            'estado' => 'required'
+          ]))->save();
+      
+          if ($outcome) {
+            $response = ['success' => 'Actualizado con éxito!'];
+          } else {
+            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
+          }
+      
+          return "se ha actualizado";
     }
 
     /**

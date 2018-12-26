@@ -87,6 +87,20 @@ class DetalleVueloController extends Controller
     public function update(Request $request, DetalleVuelo $detalleVuelo)
     {
         //
+        $outcome = $detalleVuelo->fill($this->validate($request, [
+            'id_avion' => 'required',
+            'id_vuelo' => 'required',
+            'fecha_despegue' => 'required',
+            'fecha_aterrizaje' => 'required',
+          ]))->save();
+      
+          if ($outcome) {
+            $response = ['success' => 'Actualizado con éxito!'];
+          } else {
+            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
+          }
+      
+          return "se ha actualizado";
     }
 
     /**
@@ -101,6 +115,6 @@ class DetalleVueloController extends Controller
 
         $detalleVuelo = DetalleVuelo::findOrFail($id);
         $detalleVuelo->delete();
-        return "lo eliminé";
+        return "eliminado";
     }
 }

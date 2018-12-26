@@ -84,6 +84,18 @@ class AvionController extends Controller
     public function update(Request $request, Avion $avion)
     {
         //
+        $outcome = $avion->fill($this->validate($request, [
+            'modelo' => 'required',
+            'compania_id' => 'required'
+          ]))->save();
+      
+          if ($outcome) {
+            $response = ['success' => 'Actualizado con éxito!'];
+          } else {
+            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
+          }
+      
+          return "se ha actualizado";
     }
 
     /**
@@ -97,6 +109,6 @@ class AvionController extends Controller
         //
         $avion = Avion::findOrFail($id);
         $avion->delete();
-        return "lo eliminé";
+        return "eliminado";
     }
 }

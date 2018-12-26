@@ -90,6 +90,18 @@ class CompaniaController extends Controller
     public function update(Request $request, Compania $compania)
     {
         //
+        $outcome = $compania->fill($this->validate($request, [
+            'nombre' => 'required',
+            'direccion' => 'required'
+          ]))->save();
+      
+          if ($outcome) {
+            $response = ['success' => 'Actualizado con éxito!'];
+          } else {
+            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
+          }
+      
+          return "se ha actualizado";
     }
 
     /**
@@ -108,7 +120,7 @@ class CompaniaController extends Controller
             $avion->delete();
         }
         $compania->delete();
-        return $compania;
+        return "eliminado";
         
 
     }

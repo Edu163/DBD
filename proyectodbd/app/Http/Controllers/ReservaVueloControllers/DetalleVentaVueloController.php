@@ -89,6 +89,23 @@ class DetalleVentaVueloController extends Controller
     public function update(Request $request, DetalleVentaVuelo $detalleVentaVuelo)
     {
         //
+        $outcome = $detalleVentaVuelo->fill($this->validate($request, [
+            'id_venta' => 'required',
+            'precio' => 'required',
+            'descuento' => 'required',
+            'monto_total' => 'required',
+            'fecha' => 'required',
+            'tipo' => 'required',
+            'cantidad' => 'required'
+          ]))->save();
+      
+          if ($outcome) {
+            $response = ['success' => 'Actualizado con éxito!'];
+          } else {
+            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
+          }
+      
+          return "se ha actualizado";
     }
 
     /**
@@ -102,6 +119,6 @@ class DetalleVentaVueloController extends Controller
         //
         $detalleVentaVuelo = DetalleVentaVuelo::findOrFail($id);
         $detalleVentaVuelo->delete();
-        return "lo eliminé";
+        return "eliminado";
     }
 }

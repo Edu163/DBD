@@ -85,6 +85,18 @@ class OrigenDestinoController extends Controller
     public function update(Request $request, OrigenDestino $origenDestino)
     {
         //
+        $outcome = $origenDestino->fill($this->validate($request, [
+            'id_detalle_vuelo' => 'required',
+            'id_aeropuerto' => 'required'
+          ]))->save();
+      
+          if ($outcome) {
+            $response = ['success' => 'Actualizado con éxito!'];
+          } else {
+            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
+          }
+      
+          return "se ha actualizado";
     }
 
     /**
@@ -98,6 +110,6 @@ class OrigenDestinoController extends Controller
         //
         $OrigenDestino = OrigenDestino::findOrFail($id);
         $OrigenDestino->delete();
-        return "lo eliminé";
+        return "eliminado";
     }
 }

@@ -86,6 +86,20 @@ class AeropuertoController extends Controller
     public function update(Request $request, Aeropuerto $aeropuerto)
     {
         //
+        $outcome = $aeropuerto->fill($this->validate($request, [
+            'pais' => 'required',
+            'ciudad' => 'required',
+            'direccion' => 'required',
+            'nombre' => 'required'
+          ]))->save();
+      
+          if ($outcome) {
+            $response = ['success' => 'Actualizado con éxito!'];
+          } else {
+            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
+          }
+      
+          return "se ha actualizado";
     }
 
     /**
@@ -99,6 +113,6 @@ class AeropuertoController extends Controller
         //
         $aeropuerto = Aeropuerto::findOrFail($id);
         $aeropuerto->delete();
-        return "lo eliminé";
+        return "eliminado";
     }
 }
