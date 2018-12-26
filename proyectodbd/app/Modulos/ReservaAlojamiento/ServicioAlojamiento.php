@@ -13,7 +13,7 @@ class ServicioAlojamiento extends Model
     protected $precio;
     protected $descripcion;
 
-    protected $filleable = [
+    protected $fillable = [
     	'id_hotel',
     	'nombre',
     	'precio',

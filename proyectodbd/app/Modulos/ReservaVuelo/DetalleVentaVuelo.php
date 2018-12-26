@@ -16,7 +16,7 @@ class DetalleVentaVuelo extends Model
     protected $tipo;
     protected $cantidad;
 
-    protected $filleable = [
+    protected $fillable = [
         'precio',
         'descuento',
         'monto_total',

@@ -11,7 +11,7 @@ class Compania extends Model
     protected $direccion;
     protected $nombre;
 
-    protected $filleable = [
+    protected $fillable = [
         'direccion',
         'nombre',
     ];

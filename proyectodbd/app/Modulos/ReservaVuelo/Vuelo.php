@@ -12,7 +12,7 @@ class Vuelo extends Model
     protected $precio;
     protected $duracion_vuelo;
 
-    protected $filleable = [
+    protected $fillable = [
     	'id_detalle_venta_vuelo',
         'precio',
         'duracion_vuelo'

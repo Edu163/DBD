@@ -15,8 +15,9 @@ class DetalleReservaHotel extends Model
     protected $fecha_egreso;
 	protected $precio;
 	protected $tipo;
+	
 
-    protected $filleable = [
+    protected $fillable = [
 	    'id_reserva_hotel',
 	    'id_habitacion_hotel',
 	    'id_alojamiento_privado',

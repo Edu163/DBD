@@ -13,7 +13,7 @@ class DetalleVuelo extends Model
     protected $fecha_despegue;
     protected $fecha_aterrizaje;
 
-    protected $filleable = [
+    protected $fillable = [
         'id_avion',
         'id_vuelo',
         'fecha_despegue',

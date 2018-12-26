@@ -15,7 +15,7 @@ class ReservaHotel extends Model
     protected $monto_total;
     protected $descuento;
 
-    protected $filleable = [
+    protected $fillable = [
     	'id_venta',
     	'precio',
     	'fecha',

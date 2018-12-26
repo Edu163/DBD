@@ -11,7 +11,7 @@ class HabitacionServicio extends Model
     protected $id_servicio_alojamiento;
     protected $id_habitacion_hotel;
 
-    protected $filleable = [
+    protected $fillable = [
     	'id_servicio_alojamiento',
     	'id_habitacion_hotel',
     ];

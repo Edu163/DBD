@@ -16,7 +16,7 @@ class AlojamientoPrivado extends Model
     protected $valoracion;
     protected $pais;
 
-    protected $filleable = [
+    protected $fillable = [
 	    'id_calendario_alojamiento',
 	    'capacidad',
 	    'direccion',

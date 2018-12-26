@@ -11,8 +11,8 @@ class CalendarioAlojamiento extends Model
 	protected $año;
     protected $mes;
     protected $dia;
-
-    protected $filleable = [
+   
+    protected $fillable = [
     	'año',
     	'mes',
     	'dia'

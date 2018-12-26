@@ -14,7 +14,7 @@ class HabitacionHotel extends Model
     protected $camas;
     protected $numero;
 
-    protected $filleable = [
+    protected $fillable = [
     	'id_hotel',
     	'id_calendario_alojamiento',
     	'capacidad',

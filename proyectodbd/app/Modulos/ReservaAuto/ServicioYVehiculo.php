@@ -12,7 +12,7 @@ class ServicioYVehiculo extends Model
     protected $patente;
     protected $precio;
 
-    protected $filleable = [
+    protected $fillable = [
         'id_servicio',
         'patente',
         'precio',

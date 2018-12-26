@@ -16,7 +16,7 @@ class Hotel extends Model
     protected $valoracion;
     protected $capacidad;
 
-    protected $filleable = [
+    protected $fillable = [
     	'nombre',
     	'pais',
     	'direccion',

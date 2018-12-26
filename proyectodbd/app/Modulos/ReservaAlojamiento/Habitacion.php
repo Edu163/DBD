@@ -13,7 +13,7 @@ class Habitacion extends Model
     protected $numero;
     protected $camas;
 
-    protected $filleable = [
+    protected $fillable = [
     	'id_alojamiento_privado',
     	'piso',
     	'numero',

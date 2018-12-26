@@ -14,7 +14,7 @@ class Avion extends Model
     protected $motores;
     protected $id_compania;
 
-    protected $filleable = [
+    protected $fillable = [
         'color',
         'modelo',
         'motores',
