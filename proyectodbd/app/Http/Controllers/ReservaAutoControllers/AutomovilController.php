@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaAutoControllers;
 
 use App\Modulos\ReservaAuto\Automovil;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class AutomovilController extends Controller
@@ -14,7 +15,7 @@ class AutomovilController extends Controller
      */
     public function index()
     {
-        //
+        return Automovil::all();
     }
 
     /**
@@ -35,7 +36,7 @@ class AutomovilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Automovil::create($request->all());
     }
 
     /**
@@ -44,9 +45,9 @@ class AutomovilController extends Controller
      * @param  \App\Modulos\ReservaAuto\Automovil  $automovil
      * @return \Illuminate\Http\Response
      */
-    public function show(Automovil $automovil)
+    public function show($id)
     {
-        //
+        return Automovil::find($id);
     }
 
     /**
@@ -57,7 +58,7 @@ class AutomovilController extends Controller
      */
     public function edit(Automovil $automovil)
     {
-        //
+        
     }
 
     /**
@@ -67,9 +68,28 @@ class AutomovilController extends Controller
      * @param  \App\Modulos\ReservaAuto\Automovil  $automovil
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Automovil $automovil)
+    public function update(Request $request, $id)
     {
-        //
+        $automovil = Automovil::find($id);
+        $automovil->fill($this->validate($request, [
+            'id_calendario_vehiculo' => 'required',
+            'id_proveedor' => 'required',
+            'id_zona' => 'required',
+            'marca' => 'required',
+            'tipo' => 'required',
+            'gamma' => 'required',
+            'transmision' => 'required',
+            'combustible' => 'required',
+            'n_pasajeros' => 'required',
+            'equipaje_g' => 'required',
+            'equipaje_p' => 'required',
+            'n_puertas' => 'required',
+            'n_kilometraje' => 'required',
+            'precio_hora' => 'required',
+            'aire_acondicionado' => 'required',
+        ]))->save();
+
+        return "Me he acutalizado correctamente! :D!";
     }
 
     /**
@@ -78,8 +98,10 @@ class AutomovilController extends Controller
      * @param  \App\Modulos\ReservaAuto\Automovil  $automovil
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Automovil $automovil)
+    public function destroy($id)
     {
-        //
+        $automovil = Automovil::find($id);
+        $automovil->delete();
+        return "Me eliminé correctamente! :D!";
     }
 }

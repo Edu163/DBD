@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaAutoControllers;
 
 use App\Modulos\ReservaAuto\Proveedor;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ProveedorController extends Controller
@@ -14,7 +15,7 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        //
+        return Proveedor::all();
     }
 
     /**
@@ -35,7 +36,7 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Proveedor::create($request->all());
     }
 
     /**
@@ -44,9 +45,9 @@ class ProveedorController extends Controller
      * @param  \App\Modulos\ReservaAuto\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function show(Proveedor $proveedor)
+    public function show($id)
     {
-        //
+        return Proveedor::find($id);
     }
 
     /**
@@ -67,9 +68,19 @@ class ProveedorController extends Controller
      * @param  \App\Modulos\ReservaAuto\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Proveedor $proveedor)
+    public function update(Request $request, $id)
     {
-        //
+        $proveedor = Proveedor::find($id);
+        $proveedor->fill($this->validate($request, [
+            'politica_combustible' => 'required',
+            'documentacion_necesaria' => 'required',
+            'franquicia_daños' => 'required',
+            'calificacion' => 'required',
+            'deposito_seguridad' => 'required',
+            'kilometraje' => 'required',
+        ]))->save();
+
+        return "Me he acutalizado correctamente! :D!";
     }
 
     /**
@@ -78,8 +89,10 @@ class ProveedorController extends Controller
      * @param  \App\Modulos\ReservaAuto\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Proveedor $proveedor)
+    public function destroy($id)
     {
-        //
+        $proveedor = Proveedor::find($id);
+        $proveedor->delete();
+        return "lo eliminé";
     }
 }

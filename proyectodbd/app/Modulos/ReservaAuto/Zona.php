@@ -12,7 +12,7 @@ class Zona extends Model
     protected $direccion;
     protected $coordenadas;
 
-    protected $filleable = [
+    protected $fillable = [
         'nombre',
         'direccion',
     ];

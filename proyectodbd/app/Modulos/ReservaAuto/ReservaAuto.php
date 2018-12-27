@@ -12,7 +12,7 @@ class ReservaAuto extends Model
     protected $fecha;
     protected $monto_total;
 
-    protected $filleable = [
+    protected $fillable = [
         'id_venta',
         'fecha',
         'monto_total',

@@ -18,11 +18,13 @@ class CreateServiciosProveedoresTable extends Migration
             $table->integer('id_servicio');
             $table->foreign('id_servicio')
                 ->references('id')
-                ->on('servicios_de_vehiculos');
+                ->on('servicios_de_vehiculos')
+                ->onDelete('cascade');
             $table->integer('id_proveedor');
             $table->foreign('id_proveedor')
                 ->references('id')
-                ->on('proveedores');
+                ->on('proveedores')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
