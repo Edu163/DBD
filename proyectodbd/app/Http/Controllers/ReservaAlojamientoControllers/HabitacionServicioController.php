@@ -58,7 +58,7 @@ class HabitacionServicioController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\HabitacionServicio  $habitacionServicio
      * @return \Illuminate\Http\Response
      */
-    public function show(HabitacionServicio $id)
+    public function show($id)
     {
         return HabitacionServicio::findOrFail($id);
     }
@@ -86,29 +86,15 @@ class HabitacionServicioController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\HabitacionServicio  $habitacionServicio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HabitacionServicio $habitacionServicio)
+    public function update(Request $request, $id)
     {
-         $this->validate($request, [
+        $habitacionServicio = $HabitacionServicio::find($id);
+        $habitacionServicio->fill($this->validate($request, [
             'id_servicio_alojamiento' => 'required',
             'id_habitacion_hotel' => 'required',
-        ]);
-
-        $habitacionServicios->id_servicio_alojamiento = $request->get('id_servicio_alojamiento');
-        $habitacionServicios->id_habitacion_hotel = $request->get('id_habitacion_hotel');
+        ]))->save();
         
-
-        $dataUpdate = $habitacionServicios->save();
-
-        if ($dataUpdate) 
-        {
-            $response = ['success' => 'Actualizado con éxito!'];
-        } 
-        else 
-        {
-            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
-        }
-
-         return $response;
+            return 'Actualizado con éxito!';
     }
 
     /**
@@ -117,7 +103,7 @@ class HabitacionServicioController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\HabitacionServicio  $habitacionServicio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HabitacionServicio $id)
+    public function destroy($id)
     {
          $habitacionServicio = HabitacionServicio::findOrFail($id);
         $habitacionServicio->delete();

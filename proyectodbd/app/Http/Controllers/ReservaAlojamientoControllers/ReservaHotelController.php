@@ -62,7 +62,7 @@ class ReservaHotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\ReservaHotel  $reservaHotel
      * @return \Illuminate\Http\Response
      */
-    public function show(ReservaHotel $id)
+    public function show($id)
     {
         return ReservaHotel::findOrFail($id);
     }
@@ -90,37 +90,19 @@ class ReservaHotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\ReservaHotel  $reservaHotel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ReservaHotel $reservaHotel)
+    public function update(Request $request, $id)
     {
-         $this->validate($request, [
+        $reservaHotel = $ReservaHotel::find($id);
+        $reservaHotel->fill($this->validate($request, [
             'id_venta' => 'required',
             'precio' => 'required',
             'fecha' => 'required',
             'cantidad' => 'required',
             'monto_total' => 'required',
             'descuento' => 'required',
-        ]);
-
-        $reservaHotels->id_venta = $request->get('id_venta');
-        $reservaHotels->precio = $request->get('precio');
-        $reservaHotels->fecha = $request->get('fecha');
-        $reservaHotels->cantidad = $request->get('cantidad');
-        $reservaHotels->monto_total = $request->get('monto_total');
-        $reservaHotels->descuento = $request->get('descuento');
+        ]))->save();
         
-
-        $dataUpdate = $reservaHotels->save();
-
-        if ($dataUpdate) 
-        {
-            $response = ['success' => 'Actualizado con éxito!'];
-        } 
-        else 
-        {
-            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
-        }
-
-        return $response;
+            return 'Actualizado con éxito!';
     }
 
     /**
@@ -129,7 +111,7 @@ class ReservaHotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\ReservaHotel  $reservaHotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ReservaHotel $id)
+    public function destroy($id)
     {
          $reservaHotel = ReservaHotel::findOrFail($id);
         $reservaHotel->delete();

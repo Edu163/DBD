@@ -119,13 +119,7 @@ CREATE TABLE IF NOT EXISTS automoviles (
 CREATE TABLE IF NOT EXISTS aviones (
     id serial NOT NULL,
     id_compania serial NOT NULL,
-<<<<<<< HEAD
     modelo character varying(255) NOT NULL,
-=======
-    color character varying(255) NOT NULL,
-    modelo character varying(255) NOT NULL,
-    motores integer NOT NULL,
->>>>>>> guillermo
     created_at timestamp,
     updated_at timestamp
 );
@@ -718,13 +712,4 @@ ALTER TABLE ventas
 ALTER TABLE vuelos
     ADD CONSTRAINT vuelos_detalle_venta_vuelo_id_foreign
     FOREIGN KEY (id_detalle_venta_vuelo)
-<<<<<<< HEAD
     REFERENCES detalles_ventas_vuelos(id);
-
-
-
-
-
-=======
-    REFERENCES detalles_ventas_vuelos(id);
->>>>>>> guillermo

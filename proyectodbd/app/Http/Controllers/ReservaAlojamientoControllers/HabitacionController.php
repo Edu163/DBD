@@ -60,7 +60,7 @@ class HabitacionController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function show(Habitacion $id)
+    public function show($id)
     {
         return Habitacion::findOrFail($id);
     }
@@ -88,36 +88,17 @@ class HabitacionController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Habitacion $habitacion)
+    public function update(Request $request, $id)
     {
-         $this->validate($request, [
+        $habitacion = $Habitacion::find($id);
+        $habitacion->fill($this->validate($request, [
             'id_alojamiento_privado' => 'required',
             'piso' => 'required',
             'numero' => 'required',
             'camas' => 'required',
-        ]);
-
-        $habitacions->id_calendario_alojamiento = $request->get('id_calendario_alojamiento');
-        $habitacions->capacidad = $request->get('capacidad');
-        $habitacions->direccion = $request->get('direccion');
-        $habitacions->nombre = $request->get('nombre');
-        $habitacions->estrella = $request->get('estrella');
-        $habitacions->valoracion = $request->get('valoracion');
-        $habitacions->pais = $request->get('pais');
+        ]))->save();
         
-
-        $dataUpdate = $habitacions->save();
-
-        if ($dataUpdate) 
-        {
-            $response = ['success' => 'Actualizado con éxito!'];
-        } 
-        else 
-        {
-            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
-        }
-
-         return $response;
+            return 'Actualizado con éxito!';
     }
 
     /**
@@ -126,7 +107,7 @@ class HabitacionController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Habitacion $id)
+    public function destroy($id)
     {
          $habitacion = Habitacion::findOrFail($id);
         $habitacion->delete();

@@ -91,9 +91,10 @@ class AlojamientoPrivadoController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\AlojamientoPrivado  $alojamientoPrivado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AlojamientoPrivado $alojamientoPrivado)
+    public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $alojamientoPrivado = AlojamientoPrivado::find($id);
+        $alojamientoPrivado->fill($this->validate($request, [
             'id_calendario_alojamiento' => 'required',
             'capacidad' => 'required',
             'direccion' => 'required',
@@ -101,28 +102,9 @@ class AlojamientoPrivadoController extends Controller
             'estrella' => 'required',
             'valoracion' => 'required',
             'pais' => 'required',
-        ]);
-
-        $alojamientoPrivados->id_calendario_alojamiento = $request->get('id_calendario_alojamiento');
-        $alojamientoPrivados->capacidad = $request->get('capacidad');
-        $alojamientoPrivados->direccion = $request->get('direccion');
-        $alojamientoPrivados->nombre = $request->get('nombre');
-        $alojamientoPrivados->estrella = $request->get('estrella');
-        $alojamientoPrivados->valoracion = $request->get('valoracion');
-        $alojamientoPrivados->pais = $request->get('pais');
+        ]))->save();
         
-
-        $dataUpdate = $alojamientoPrivados->save();
-
-        if ($dataUpdate) 
-        {
-            $response = ['success' => 'Actualizado con éxito!'];
-        } 
-        else 
-        {
-            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
-        }
-        return $response;
+        return 'Actualizado con éxito!';
     }
 
     /**
@@ -131,7 +113,7 @@ class AlojamientoPrivadoController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\AlojamientoPrivado  $alojamientoPrivado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AlojamientoPrivado $id)
+    public function destroy($id)
     {
         $alojamientoPrivado = AlojamientoPrivado::findOrFail($id);
         $alojamientoPrivado->delete();

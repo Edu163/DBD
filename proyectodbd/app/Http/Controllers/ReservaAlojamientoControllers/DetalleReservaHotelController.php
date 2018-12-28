@@ -63,7 +63,7 @@ class DetalleReservaHotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\DetalleReservaHotel  $detalleReservaHotel
      * @return \Illuminate\Http\Response
      */
-    public function show(DetalleReservaHotel $id)
+    public function show($id)
     {
        return DetalleReservaHotel::findOrFail($id);
     }
@@ -91,9 +91,10 @@ class DetalleReservaHotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\DetalleReservaHotel  $detalleReservaHotel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DetalleReservaHotel $detalleReservaHotel)
+    public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $detalleReservaHotel = $DetalleReservaHotel::find($id);
+        $detalleReservaHotel->fill($this->validate($request, [
             'id_reserva_hotel' => 'required',
             'id_habitacion_hotel' => 'required',
             'id_alojamiento_privado' => 'required',
@@ -101,29 +102,9 @@ class DetalleReservaHotelController extends Controller
             'fecha_egreso' => 'required',
             'precio' => 'required',
             'tipo' => 'required',
-        ]);
-
-        $detalleReservaHotels->id_reserva_hotel = $request->get('id_reserva_hotel');
-        $detalleReservaHotels->id_habitacion_hotel = $request->get('id_habitacion_hotel');
-        $detalleReservaHotels->id_alojamiento_privado = $request->get('id_alojamiento_privado');
-        $detalleReservaHotels->fecha_ingreso = $request->get('fecha_ingreso');
-        $detalleReservaHotels->fecha_egreso = $request->get('fecha_egreso');
-        $detalleReservaHotels->precio = $request->get('precio');
-        $detalleReservaHotels->tipo = $request->get('tipo');
-
-
-        $dataUpdate = $detalleReservaHotels->save();
-
-        if ($dataUpdate) 
-        {
-            $response = ['success' => 'Actualizado con éxito!'];
-        } 
-        else 
-        {
-            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
-        }
-
-         return $response;
+        ]))->save();
+        
+            return 'Actualizado con éxito!';
     }
 
     /**
@@ -132,7 +113,7 @@ class DetalleReservaHotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\DetalleReservaHotel  $detalleReservaHotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DetalleReservaHotel $id)
+    public function destroy($id)
     {
         $detalleReservaHotel = DetalleReservaHotel::findOrFail($id);
         $detalleReservaHotel->delete();

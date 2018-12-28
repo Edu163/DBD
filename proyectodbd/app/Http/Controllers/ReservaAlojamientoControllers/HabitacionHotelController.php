@@ -61,7 +61,7 @@ class HabitacionHotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\HabitacionHotel  $habitacionHotel
      * @return \Illuminate\Http\Response
      */
-    public function show(HabitacionHotel $id)
+    public function show($id)
     {
          return HabitacionHotel::findOrFail($id);
     }
@@ -89,36 +89,18 @@ class HabitacionHotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\HabitacionHotel  $habitacionHotel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HabitacionHotel $habitacionHotel)
+    public function update(Request $request, $id)
     {
-         $this->validate($request, [
+        $habitacionHotel = $HabitacionHotel::find($id);
+        $habitacionHotel->fill($this->validate($request, [
             'id_hotel' => 'required',
             'id_calendario_alojamiento' => 'required',
             'capacidad' => 'required',
             'camas' => 'required',
             'numero' => 'required',
-        ]);
-
-     
-        $habitacionHotels->id_hotel = $request->get('id_hotel');
-        $habitacionHotels->id_calendario_alojamiento = $request->get('id_calendario_alojamiento');
-        $habitacionHotels->capacidad = $request->get('capacidad');
-        $habitacionHotels->camas = $request->get('camas');
-        $habitacionHotels->numero = $request->get('numero');
+        ]))->save();
         
-
-        $dataUpdate = $habitacionHotels->save();
-
-        if ($dataUpdate) 
-        {
-            $response = ['success' => 'Actualizado con éxito!'];
-        } 
-        else 
-        {
-            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
-        }
-
-         return $response;
+            return 'Actualizado con éxito!';
     }
 
     /**
@@ -127,7 +109,7 @@ class HabitacionHotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\HabitacionHotel  $habitacionHotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HabitacionHotel $id)
+    public function destroy($id)
     {
          $habitacionHotel = HabitacionHotel::findOrFail($id);
         $habitacionHotel->delete();

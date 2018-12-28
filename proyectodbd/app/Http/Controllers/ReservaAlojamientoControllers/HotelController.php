@@ -62,7 +62,7 @@ class HotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function show(Hotel $id)
+    public function show($id)
     {
         return Hotel::findOrFail($id);
     }
@@ -90,36 +90,19 @@ class HotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hotel $hotel)
+    public function update(Request $request, $id)
     {
-         $this->validate($request, [
+        $hotel = $Hotel::find($id);
+        $hotel->fill($this->validate($request, [
             'nombre' => 'required',
             'pais' => 'required',
             'direccion' => 'required',
             'estrellas' => 'required',
             'valoracion' => 'required',
             'capacidad' => 'required',
-        ]);
-        $hotels->nombre = $request->get('nombre');
-        $hotels->pais = $request->get('pais');
-        $hotels->direccion = $request->get('direccion');
-        $hotels->estrellas = $request->get('estrellas');
-        $hotels->valoracion = $request->get('valoracion');
-        $hotels->capacidad = $request->get('capacidad');
+        ]))->save();
         
-
-        $dataUpdate = $hotels->save();
-
-        if ($dataUpdate) 
-        {
-            $response = ['success' => 'Actualizado con éxito!'];
-        } 
-        else 
-        {
-            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
-        }
-
-         return $response;
+            return 'Actualizado con éxito!';
     }
 
     /**
@@ -128,7 +111,7 @@ class HotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hotel $id)
+    public function destroy($id)
     {
          $hotel = Hotel::findOrFail($id);
         $hotel->delete();

@@ -59,7 +59,7 @@ class CalendarioAlojamientoController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\CalendarioAlojamiento  $calendarioAlojamiento
      * @return \Illuminate\Http\Response
      */
-    public function show(CalendarioAlojamiento $id)
+    public function show($id)
     {
         return CalendarioAlojamiento::findOrFail($id);
     }
@@ -87,31 +87,16 @@ class CalendarioAlojamientoController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\CalendarioAlojamiento  $calendarioAlojamiento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CalendarioAlojamiento $calendarioAlojamiento)
+    public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $calendarioAlojamiento = $CalendarioAlojamiento::find($id);
+        $calendarioAlojamiento->fill($this->validate($request, [
             'año' => 'required',
             'mes' => 'required',
             'dia' => 'required',
-        ]);
-
-        $calendarioAlojamientos->año = $request->get('año');
-        $calendarioAlojamientos->mes = $request->get('mes');
-        $calendarioAlojamientos->dia = $request->get('dia');
-       
-
-        $dataUpdate = $calendarioAlojamientos->save();
-
-        if ($dataUpdate) 
-        {
-            $response = ['success' => 'Actualizado con éxito!'];
-        } 
-        else 
-        {
-            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
-        }
-
-         return $response;
+        ]))->save();
+        
+            return 'Actualizado con éxito!';
     }
 
     /**
@@ -120,7 +105,7 @@ class CalendarioAlojamientoController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\CalendarioAlojamiento  $calendarioAlojamiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CalendarioAlojamiento $id)
+    public function destroy($id)
     {
         $calendarioAlojamiento = CalendarioAlojamiento::findOrFail($id);
         $calendarioAlojamiento->delete();
