@@ -82,7 +82,7 @@ Route::get('/origenesDestinos/store', 'ReservaVueloControllers\OrigenDestinoCont
 Route::get('/origenesDestinos/update/{id}', 'ReservaVueloControllers\OrigenDestinoController@update');
 
 
-
+/* Reserva Auto */
 /* Automovil */
 Route::get('/automovil/all', 'ReservaAutoControllers\AutomovilController@index');
 Route::get('/automovil/show/{id}', 'ReservaAutoControllers\AutomovilController@show');

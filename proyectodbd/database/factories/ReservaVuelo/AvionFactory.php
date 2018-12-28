@@ -10,6 +10,6 @@ $factory->define(Avion::class, function (Faker $faker) {
     
     return [
         'modelo' => $faker->lastName,
-    	'compania_id' => $id_companias->random()->id
+    	'id_compania' => $id_companias->random()->id
     ];
 });
