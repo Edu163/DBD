@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateServiciosProveedoresTable extends Migration
+class CreateChecksInTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,20 @@ class CreateServiciosProveedoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('servicios_proveedores', function (Blueprint $table) {
-            $table->integer('id');
-            $table->integer('id_servicio');
-            $table->foreign('id_servicio')
+        Schema::create('checks_in', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('id_asiento');
+            $table->foreign('id_asiento')
                 ->references('id')
-                ->on('servicios_de_vehiculos')
+                ->on('asientos')
                 ->onDelete('cascade');
-            $table->integer('id_proveedor');
-            $table->foreign('id_proveedor')
+            $table->integer('id_user');
+            $table->foreign('id_user')
                 ->references('id')
-                ->on('proveedores')
+                ->on('users')
                 ->onDelete('cascade');
+            $table->date('fecha');
+            $table->string('estado');
             $table->timestamps();
         });
     }
@@ -36,6 +38,6 @@ class CreateServiciosProveedoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('servicios_proveedores');
+        Schema::dropIfExists('checks_in');
     }
 }

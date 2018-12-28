@@ -22,7 +22,8 @@ class CreateDetallesReservasAutosTable extends Migration
             $table->string('patente');
             $table->foreign('patente')
                 ->references('patente')
-                ->on('automoviles');
+                ->on('automoviles')
+                ->onDelete('cascade');
             $table->datetime('fecha_retiro');
             $table->datetime('fecha_regreso');
             $table->float('precio_reserva');

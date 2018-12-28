@@ -18,7 +18,8 @@ class CreateDetallesVentasVuelosTable extends Migration
             $table->integer('id_venta');
             $table->foreign('id_venta')
                 ->references('id')
-                ->on('ventas');
+                ->on('ventas')
+                ->onDelete('cascade');
             $table->float('precio');
             $table->float('descuento');
             $table->float('monto_total');
