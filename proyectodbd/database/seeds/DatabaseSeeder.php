@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             AutomovilesSeeder::class,
             DetallesReservasAutosSeeder::class,
             ServiciosDeVehiculosSeeder::class,
-            ServiciosYVehiculosSeeder::class,
+            //ServiciosYVehiculosSeeder::class,
             ServiciosProveedoresSeeder::class,
 
             /* Hoteles */

@@ -210,6 +210,7 @@ CREATE TABLE IF NOT EXISTS detalles_ventas_vuelos (
 
 CREATE TABLE IF NOT EXISTS detalles_vuelos (
     id serial NOT NULL,
+    id_user serial NOT NULL,
     id_avion serial NOT NULL,
     id_vuelo serial NOT NULL,
     id_user serial NOT NULL,
@@ -714,6 +715,7 @@ ALTER TABLE vuelos
     ADD CONSTRAINT vuelos_detalle_venta_vuelo_id_foreign
     FOREIGN KEY (id_detalle_venta_vuelo)
     REFERENCES detalles_ventas_vuelos(id);
+<<<<<<< Updated upstream
 
 -- PostgreSQL database dump
 --
@@ -1901,3 +1903,5 @@ SELECT pg_catalog.setval('public.zonas_id_seq', 20, true);
 -- PostgreSQL database dump complete
 --
 
+=======
+>>>>>>> Stashed changes
