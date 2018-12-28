@@ -68,6 +68,8 @@ Route::get('/detallesVuelos/show/{id}', 'ReservaVueloControllers\DetalleVueloCon
 Route::get('/detallesVuelos/destroy/{id}', 'ReservaVueloControllers\DetalleVueloController@destroy');
 Route::get('/detallesVuelos/store', 'ReservaVueloControllers\DetalleVueloController@store');
 Route::get('/detallesVuelos/update/{id}', 'ReservaVueloControllers\DetalleVueloController@update');
+Route::get('/detallesVuelos/origen/{id}', 'ReservaVueloControllers\DetalleVueloController@filtrarOrigen');
+Route::get('/detallesVuelos/destino/{id}', 'ReservaVueloControllers\DetalleVueloController@show');
 /* Vuelo */
 Route::get('/vuelos/all', 'ReservaVueloControllers\VueloController@index');
 Route::get('/vuelos/show/{id}', 'ReservaVueloControllers\VueloController@show');
@@ -159,6 +161,8 @@ Route::get('/user/show/{id}', 'UserController@show');
 Route::get('/user/destroy/{id}', 'UserController@destroy');
 Route::get('/user/store', 'UserController@store');
 Route::get('/user/update/{id}', 'UserController@update');
+Route::get('/user/filtrar/origen/{id1}/destino/{id2}', 'UserController@buy');
+Route::get('/user/buy/vuelo/{id}/', 'UserController@buy');
 
 
 /* CRUD Reserva de Automoviles */

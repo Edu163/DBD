@@ -21,14 +21,14 @@ class Asiento extends Model
         'tipo',
         'clase',
         'disponible',
-        'id_avion',
+        'id_detalle_vuelo',
     ];
 
     /* Relaciones */
 
-    public function avion()
+    public function detalle_vuelo()
     {
-        return $this->belongsTo(Avion::class);
+        return $this->belongsTo(DetalleVuelo::class);
     }
 
     public function check_in(){

@@ -64,6 +64,7 @@ class AeropuertoController extends Controller
         //
         return Aeropuerto::findOrFail($id);
     }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -115,4 +116,5 @@ class AeropuertoController extends Controller
         $aeropuerto->delete();
         return "eliminado";
     }
+    /* mostrar vuelos mediante aeropuertos */
 }

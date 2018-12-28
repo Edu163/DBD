@@ -25,9 +25,13 @@ class Avion extends Model
     {
         return $this->belongsTo(Compania::class);
     }
-    public function asiento()
+    public function detalle_vuelo()
+    {
+        return $this->hasMany(DetalleVuelo::class);
+    }
+    /*public function asiento()
     {
         return $this->hasMany(Asiento::class);
-    }
+    }*/
 
 }

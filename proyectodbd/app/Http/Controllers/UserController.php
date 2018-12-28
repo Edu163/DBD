@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-
+use App\Modulos\ReservaVuelo\DetalleVuelo;
+use App\Modulos\ReservaVuelo\Aeropuerto;
 class UserController extends Controller
 {
     /**
@@ -35,7 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return Automovil::create($request->all());
+        return User::create($request->all());
     }
 
     /**
@@ -100,5 +101,19 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
         return "lo eliminé";
+    }
+    public function filtrar($id_origen,$id_destino)
+    {
+        $detalle_vuelo = DetalleVuelo::where('id_destino','=',$id_destino)
+        ->where('id_origen','=',$id_origen)->get();
+        return $detalle_vuelo;
+        
+    }
+    public function buy($id_origen,$id_destino)
+    {
+        $detalle_vuelo = DetalleVuelo::where('id_destino','=',$id_destino)
+        ->where('id_origen','=',$id_origen)->get();
+        return $detalle_vuelo;
+        
     }
 }

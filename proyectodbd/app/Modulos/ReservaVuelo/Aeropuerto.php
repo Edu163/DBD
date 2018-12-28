@@ -24,5 +24,8 @@ class Aeropuerto extends Model
 
 	public function origen_destino(){
     	return $this->hasMany(OrigenDestino::class);
+    }
+    public function detalle_vuelo(){
+    	return $this->hasMany(DetalleVuelo::class);
 	}
 }

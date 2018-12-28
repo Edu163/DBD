@@ -94,7 +94,7 @@ class AsientoController extends Controller
             'tipo' => 'required',
             'clase' => 'required',
             'disponible' => 'required',
-            'id_avion'=> 'required'
+            'id_detalle_vuelo'=> 'required'
           ]))->save();
       
           if ($outcome) {

@@ -15,10 +15,10 @@ class CreateAsientosTable extends Migration
     {
         Schema::create('asientos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_avion');
-            $table->foreign('id_avion')
+            $table->integer('id_detalle_vuelo');
+            $table->foreign('id_detalle_vuelo')
                 ->references('id')
-                ->on('aviones')
+                ->on('detalles_vuelos')
                 ->onDelete('cascade');
             $table->integer('numero');
             $table->string('letra');

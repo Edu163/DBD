@@ -14,10 +14,14 @@ class DetalleVuelo extends Model
     protected $fecha_aterrizaje;
 
     protected $fillable = [
-        'id_avion',
+        'avion_id',
         'id_vuelo',
+        'aeropuerto_id',
+        'id_origen',
+        'id_destino',
         'fecha_despegue',
         'fecha_aterrizaje',
+        'precio',
     ];
 
     /* Relaciones */
@@ -40,5 +44,21 @@ class DetalleVuelo extends Model
     public function origen_destino()
     {
         return $this->hasMany(OrigenDestino::class);
+    }
+    /*public function aeropuerto()
+    {
+        return $this->belongsTo(Aeropuerto::class);
+    }*/
+    public function origen()
+    {
+        return $this->belongsTo(Aeropuerto::class, 'id_origen');
+    }
+    public function destino()
+    {
+        return $this->belongsTo(Aeropuerto::class, 'id_destino');
+    }
+    public function asiento()
+    {
+        return $this->hasMany(Asiento::class);
     }
 }
