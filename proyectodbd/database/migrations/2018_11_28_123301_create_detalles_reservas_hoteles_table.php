@@ -18,15 +18,18 @@ class CreateDetallesReservasHotelesTable extends Migration
             $table->integer('id_reserva_hotel');
             $table->foreign('id_reserva_hotel')
                 ->references('id')
-                ->on('reservas_hoteles');
+                ->on('reservas_hoteles')
+                ->onDelete('cascade');
             $table->integer('id_habitacion_hotel');
             $table->foreign('id_habitacion_hotel')
                 ->references('id')
-                ->on('habitaciones_hoteles');
+                ->on('habitaciones_hoteles')
+                ->onDelete('cascade');
             $table->integer('id_alojamiento_privado');
             $table->foreign('id_alojamiento_privado')
                 ->references('id')
-                ->on('alojamientos_privados');
+                ->on('alojamientos_privados')
+                ->onDelete('cascade');
             $table->date('fecha_ingreso');
             $table->date('fecha_egreso');
             $table->float('precio');

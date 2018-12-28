@@ -14,14 +14,17 @@ class CreateServiciosYVehiculosTable extends Migration
     public function up()
     {
         Schema::create('servicios_y_vehiculos', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('id_servicio');
             $table->foreign('id_servicio')
                 ->references('id')
-                ->on('servicios_de_vehiculos');
+                ->on('servicios_de_vehiculos')
+                ->onDelete('cascade');
             $table->string('patente');
             $table->foreign('patente')
                 ->references('patente')
-                ->on('automoviles');
+                ->on('automoviles')
+                ->onDelete('cascade');
             $table->float('precio');
             $table->timestamps();
         });

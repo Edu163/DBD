@@ -14,19 +14,23 @@ class CreateAutomovilesTable extends Migration
     public function up()
     {
         Schema::create('automoviles', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('patente')->unique();
             $table->integer('id_calendario_vehiculo');
             $table->foreign('id_calendario_vehiculo')
                 ->references('id')
-                ->on('calendarios_vehiculos');
+                ->on('calendarios_vehiculos')
+                ->onDelete('cascade');
             $table->integer('id_proveedor');
             $table->foreign('id_proveedor')
                 ->references('id')
-                ->on('proveedores');
+                ->on('proveedores')
+                ->onDelete('cascade');
             $table->integer('id_zona');
             $table->foreign('id_zona')
                 ->references('id')
-                ->on('zonas');
+                ->on('zonas')
+                ->onDelete('cascade');
             $table->string('marca');
             $table->string('tipo');
             $table->string('gamma');

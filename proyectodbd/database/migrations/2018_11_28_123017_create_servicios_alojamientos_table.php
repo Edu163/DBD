@@ -18,7 +18,8 @@ class CreateServiciosAlojamientosTable extends Migration
             $table->integer('id_hotel');
             $table->foreign('id_hotel')
                 ->references('id')
-                ->on('hoteles');
+                ->on('hoteles')
+                ->onDelete('cascade');
             $table->string('nombre');
             $table->float('precio');
             $table->string('descripcion');

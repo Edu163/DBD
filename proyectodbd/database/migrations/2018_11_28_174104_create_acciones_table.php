@@ -15,10 +15,11 @@ class CreateAccionesTable extends Migration
     {
         Schema::create('acciones', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_users');
-            $table->foreign('id_users')
+            $table->integer('id_user');
+            $table->foreign('id_user')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
             $table->datetime('fecha');
             $table->string('accion');
             $table->timestamps();
