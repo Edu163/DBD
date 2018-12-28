@@ -18,45 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Auth::routes();
-=======
-=======
->>>>>>> guillermo
 Route::get('/Vuelos', function () {
 	$aviones = Avion::all();
     return View('aviones')->with('aviones',$aviones);
 });
-<<<<<<< HEAD
->>>>>>> development
-=======
->>>>>>> guillermo
+
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-/* Automovil */
-//Route::get('/automovil/all', 'ReservaAutoControllers\AutomovilController@index');
-//Route::get('/automovil/show/{id}', 'ReservaAutoControllers\AutomovilController@show');
-//Route::get('/automovil/destroy/{id}/syv/{id}', 'ReservaAutoControllers\AutomovilController@destroy');
-//Route::get('/automovil/store', 'ReservaAutoControllers\AutomovilController@store');
-
-/* Calendario Vehiculo */
-
-/* Detalle Reserva Auto */
-
-/* Proveedor */
-
-/* Reserva Auto */
-
-/* Servicio de Vehiculo */
-
-/* Servicio Proveedor */
-
-/* Servicio y Vehiculo */
-
-/* Zona */
-
 
 
 /*Alojamiento+/
@@ -181,6 +149,7 @@ Route::get('/origenesDestinos/update/{id}', 'ReservaVueloControllers\OrigenDesti
 
 
 /* Reserva Auto */
+
 /* Automovil */
 Route::get('/automovil/all', 'ReservaAutoControllers\AutomovilController@index');
 Route::get('/automovil/show/{id}', 'ReservaAutoControllers\AutomovilController@show');
@@ -270,10 +239,6 @@ Route::resources([
     'servicios-y-vehiculos'     => 'ReservaAutoControllers\ServicioYVehiculoController',
     'zonas'                     => 'ReservaAutoControllers\ZonaController',
 
-  ]);
-
-    'ventas'                    => 'ReservaAutoControllers\VentaController'.
-    'users'                     => 'ReservaAutoControllers\UserController',
   ]);
 */
 
