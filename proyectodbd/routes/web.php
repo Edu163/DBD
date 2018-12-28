@@ -1,5 +1,6 @@
 <?php
-
+use App\Avion;
+use App\AlojamientoPrivado;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,15 +19,108 @@ Route::get('/', function () {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Auth::routes();
 =======
+=======
+>>>>>>> guillermo
 Route::get('/Vuelos', function () {
 	$aviones = Avion::all();
     return View('aviones')->with('aviones',$aviones);
 });
+<<<<<<< HEAD
 >>>>>>> development
+=======
+>>>>>>> guillermo
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/* Automovil */
+//Route::get('/automovil/all', 'ReservaAutoControllers\AutomovilController@index');
+//Route::get('/automovil/show/{id}', 'ReservaAutoControllers\AutomovilController@show');
+//Route::get('/automovil/destroy/{id}/syv/{id}', 'ReservaAutoControllers\AutomovilController@destroy');
+//Route::get('/automovil/store', 'ReservaAutoControllers\AutomovilController@store');
+
+/* Calendario Vehiculo */
+
+/* Detalle Reserva Auto */
+
+/* Proveedor */
+
+/* Reserva Auto */
+
+/* Servicio de Vehiculo */
+
+/* Servicio Proveedor */
+
+/* Servicio y Vehiculo */
+
+/* Zona */
+
+
+
+/*Alojamiento+/
+
+/*alojamientoPrivado*/
+Route::get('/alojamientoPrivado/all', 'ReservaAlojamientoControllers\AlojamientoPrivadoController@index');
+Route::get('/alojamientoPrivado/show/{id}', 'ReservaAlojamientoControllers\AlojamientoPrivadoController@show');
+Route::get('/alojamientoPrivado/destroy/{id}', 'ReservaAlojamientoControllers\AlojamientoPrivadoController@destroy');
+Route::get('/alojamientoPrivado/store', 'ReservaAlojamientoControllers\AlojamientoPrivadoController@store');
+Route::get('/alojamientoPrivado/update/{id}', 'ReservaAlojamientoControllers\AlojamientoPrivadoController@update');
+/*alojamientoServicio*/
+Route::get('/alojamientoServicio/all', 'ReservaAlojamientoControllers\AlojamientoServicioController@index');
+Route::get('/alojamientoServicio/show/{id}', 'ReservaAlojamientoControllers\AlojamientoServicioController@show');
+Route::get('/alojamientoServicio/destroy/{id}', 'ReservaAlojamientoControllers\AlojamientoServicioController@destroy');
+Route::get('/alojamientoServicio/store', 'ReservaAlojamientoControllers\AlojamientoServicioController@store');
+Route::get('/alojamientoServicio/update/{id}', 'ReservaAlojamientoControllers\AlojamientoServicioController@update');
+/*caledarioAlojamiento*/
+Route::get('/caledarioAlojamiento/all', 'ReservaAlojamientoControllers\CalendarioAlojamientoController@index');
+Route::get('/caledarioAlojamiento/show/{id}', 'ReservaAlojamientoControllers\CalendarioAlojamientoController@show');
+Route::get('/caledarioAlojamiento/destroy/{id}', 'ReservaAlojamientoControllers\CalendarioAlojamientoController@destroy');
+Route::get('/caledarioAlojamiento/store', 'ReservaAlojamientoControllers\CalendarioAlojamientoController@store');
+Route::get('/caledarioAlojamiento/update/{id}', 'ReservaAlojamientoControllers\CalendarioAlojamientoController@update');
+/*detalleReservaHotel*/
+Route::get('/detalleReservaHotel/all', 'ReservaAlojamientoControllers\DetalleReservaHotelController@index');
+Route::get('/detalleReservaHotel/show/{id}', 'ReservaAlojamientoControllers\DetalleReservaHotelController@show');
+Route::get('/detalleReservaHotel/destroy/{id}', 'ReservaAlojamientoControllers\DetalleReservaHotelController@destroy');
+Route::get('/detalleReservaHotel/store', 'ReservaAlojamientoControllers\DetalleReservaHotelController@store');
+Route::get('/detalleReservaHotel/update/{id}', 'ReservaAlojamientoControllers\DetalleReservaHotelController@update');
+/*habitacion*/
+Route::get('/habitacion/all', 'ReservaAlojamientoControllers\HabitacionController@index');
+Route::get('/habitacion/show/{id}', 'ReservaAlojamientoControllers\HabitacionController@show');
+Route::get('/habitacion/destroy/{id}', 'ReservaAlojamientoControllers\HabitacionController@destroy');
+Route::get('/habitacion/store', 'ReservaAlojamientoControllers\HabitacionController@store');
+Route::get('/habitacion/update/{id}', 'ReservaAlojamientoControllers\HabitacionController@update');
+/*habitacionHotel*/
+Route::get('/habitacionHotel/all', 'ReservaAlojamientoControllers\HabitacionHotelController@index');
+Route::get('/habitacionHotel/show/{id}', 'ReservaAlojamientoControllers\HabitacionHotelController@show');
+Route::get('/habitacionHotel/destroy/{id}', 'ReservaAlojamientoControllers\HabitacionHotelController@destroy');
+Route::get('/habitacionHotel/store', 'ReservaAlojamientoControllers\HabitacionHotelController@store');
+Route::get('/habitacionHotel/update/{id}', 'ReservaAlojamientoControllers\HabitacionHotelController@update');
+/*habitacionServicio*/
+Route::get('/habitacionServicio/all', 'ReservaAlojamientoControllers\HabitacionServicioController@index');
+Route::get('/habitacionServicio/show/{id}', 'ReservaAlojamientoControllers\HabitacionServicioController@show');
+Route::get('/habitacionServicio/destroy/{id}', 'ReservaAlojamientoControllers\HabitacionServicioController@destroy');
+Route::get('/habitacionServicio/store', 'ReservaAlojamientoControllers\HabitacionServicioController@store');
+Route::get('/habitacionServicio/update/{id}', 'ReservaAlojamientoControllers\HabitacionServicioController@update');
+/*hotel*/
+Route::get('/hotel/all', 'ReservaAlojamientoControllers\HotelController@index');
+Route::get('/hotel/show/{id}', 'ReservaAlojamientoControllers\HotelController@show');
+Route::get('/hotel/destroy/{id}', 'ReservaAlojamientoControllers\HotelController@destroy');
+Route::get('/hotel/store', 'ReservaAlojamientoControllers\HotelController@store');
+Route::get('/hotel/update/{id}', 'ReservaAlojamientoControllers\HotelController@update');
+/*reservaHotel*/
+Route::get('/reservaHotel/all', 'ReservaAlojamientoControllers\ReservaHotelController@index');
+Route::get('/reservaHotel/show/{id}', 'ReservaAlojamientoControllers\ReservaHotelController@show');
+Route::get('/reservaHotel/destroy/{id}', 'ReservaAlojamientoControllers\ReservaHotelController@destroy');
+Route::get('/reservaHotel/store', 'ReservaAlojamientoControllers\ReservaHotelController@store');
+Route::get('/reservaHotel/update/{id}', 'ReservaAlojamientoControllers\ReservaHotelController@update');
+/*servicioAlojamiento*/
+Route::get('/servicioAlojamiento/all', 'ReservaAlojamientoControllers\ServicioAlojamientoController@index');
+Route::get('/servicioAlojamiento/show/{id}', 'ReservaAlojamientoControllers\ServicioAlojamientoController@show');
+Route::get('/servicioAlojamiento/destroy/{id}', 'ReservaAlojamientoControllers\ServicioAlojamientoController@destroy');
+Route::get('/servicioAlojamiento/store', 'ReservaAlojamientoControllers\ServicioAlojamientoController@store');
+Route::get('/servicioAlojamiento/update/{id}', 'ReservaAlojamientoControllers\ServicioAlojamientoController@update');
 
 //VUELOS
 /* Compania */
@@ -175,6 +269,9 @@ Route::resources([
     'servicios-proveedores'     => 'ReservaAutoControllers\ServicioProveedorController',
     'servicios-y-vehiculos'     => 'ReservaAutoControllers\ServicioYVehiculoController',
     'zonas'                     => 'ReservaAutoControllers\ZonaController',
+
+  ]);
+
     'ventas'                    => 'ReservaAutoControllers\VentaController'.
     'users'                     => 'ReservaAutoControllers\UserController',
   ]);

@@ -19,6 +19,7 @@ class CreateAvionesTable extends Migration
             $table->foreign('id_compania')
                 ->references('id')
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ->on('companias');
             $table->float('precio');
             $table->integer('duracion_vuelo');
@@ -29,6 +30,11 @@ class CreateAvionesTable extends Migration
                 ->onDelete('cascade');
             $table->string('modelo');
 >>>>>>> development
+=======
+                ->on('companias')
+                ->onDelete('cascade');
+            $table->string('modelo');
+>>>>>>> guillermo
             $table->timestamps();
         });
     }

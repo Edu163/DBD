@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->integer('puntos')->nullable();
             $table->integer('millas')->nullable();
             $table->integer('millas_elite')->nullable();
-            $table->integer('telefono');
+            $table->string('telefono');
             $table->string('categoria');
             $table->date('fecha_nac');
             $table->rememberToken();

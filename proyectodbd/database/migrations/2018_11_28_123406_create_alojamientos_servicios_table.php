@@ -14,14 +14,17 @@ class CreateAlojamientosServiciosTable extends Migration
     public function up()
     {
         Schema::create('alojamientos_servicios', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('id_servicio_alojamiento');
             $table->foreign('id_servicio_alojamiento')
                 ->references('id')
-                ->on('servicios_alojamientos');
+                ->on('servicios_alojamientos')
+                ->onDelete('cascade');
             $table->integer('id_alojamiento_privado');
             $table->foreign('id_alojamiento_privado')
                 ->references('id')
-                ->on('alojamientos_privados');
+                ->on('alojamientos_privados')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

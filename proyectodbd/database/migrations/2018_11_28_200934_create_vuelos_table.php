@@ -21,7 +21,7 @@ class CreateVuelosTable extends Migration
                 ->on('detalles_ventas_vuelos')
                 ->onDelete('cascade');
             $table->float('precio');
-            $table->integer('duracion');
+            $table->time('duracion_vuelo');
             $table->timestamps();
         });
     }
