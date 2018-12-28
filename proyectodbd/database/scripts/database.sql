@@ -55,8 +55,8 @@ CREATE TABLE IF NOT EXISTS aeropuertos (
     id serial NOT NULL,
     pais character varying(255) NOT NULL,
     ciudad character varying(255) NOT NULL,
-    nombre character varying(255) NOT NULL,
     direccion character varying(255) NOT NULL,
+    nombre character varying(255) NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
@@ -163,8 +163,8 @@ CREATE TABLE IF NOT EXISTS checks_in (
 
 CREATE TABLE IF NOT EXISTS companias (
     id serial NOT NULL,
-    nombre character varying(255) NOT NULL,
     direccion character varying(255) NOT NULL,
+    nombre character varying(255) NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
@@ -223,8 +223,8 @@ CREATE TABLE IF NOT EXISTS habitaciones (
     id serial NOT NULL,
     id_alojamiento_privado serial NOT NULL,
     piso integer NOT NULL,
-    camas integer NOT NULL,
     numero integer NOT NULL,
+    camas integer NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
@@ -233,17 +233,17 @@ CREATE TABLE IF NOT EXISTS habitaciones_hoteles (
     id serial NOT NULL,
     id_hotel serial NOT NULL,
     id_calendario_alojamiento serial NOT NULL,
+    capacidad integer NOT NULL,
     camas integer NOT NULL,
     numero integer NOT NULL,
-    capacidad integer NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
 CREATE TABLE IF NOT EXISTS habitaciones_servicios (
     id serial NOT NULL,
-    id_habitacion_hotel serial NOT NULL,
     id_servicio_alojamiento serial NOT NULL,
+    id_habitacion_hotel serial NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
@@ -268,8 +268,8 @@ CREATE TABLE IF NOT EXISTS migrations (
 
 CREATE TABLE IF NOT EXISTS origenes_destinos (
     id serial NOT NULL,
-    id_aeropuerto serial NOT NULL,
     id_detalle_vuelo serial NOT NULL,
+    id_aeropuerto serial NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
