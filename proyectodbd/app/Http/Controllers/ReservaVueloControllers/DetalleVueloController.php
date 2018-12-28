@@ -122,14 +122,10 @@ class DetalleVueloController extends Controller
         $detalleVuelo->delete();
         return "eliminado";
     }
-    public function filtrarOrigen($id)
+    public function origen($id)
     {
-        //$aeropuerto = Aeropuerto::findOrFail($id);
-        //$det_vuelos = DetalleVuelo::where('id_origen','=',$id)
-        //->join('aeropuertos','aeropuertos.id','=',$id)->get();
-        /*$det_vuelos = DetalleVuelo::where('id_destino','=',$id)
-        ->join('aeropuertos','aeropuertos.id', '=', 'detalles_vuelos.id_destino')->get();*/
-        $det_vuelos = DetalleVuelo::where('id_destino','=',$id)->with(['avion'])->get();
+
+        $det_vuelos = DetalleVuelo::where('id_origen','=',$id)->get();
        //$asientos = $det_vuelos[0]->asiento()->get();
         //return $det_vuelos;
         /*$det_vuelos = DB::table('detalles_vuelos')
@@ -139,15 +135,11 @@ class DetalleVueloController extends Controller
         ->join('companias','companias.id','=','aviones.compania_id')
         ->select('aeropuertos.nombre as Destino','companias.nombre as Aerolinea', 'aviones.modelo as Avion')
         ->get();*/
-        foreach($det_vuelos as $vuelo)
-        {
-            dd($vuelo->avion);
-        }
         return $det_vuelos;
     }
-    public function filtrarDestino()
+    public function destino($id)
     {
-        //
-        return DetalleVuelo::findOrFail($id);
+        $det_vuelos = DetalleVuelo::where('id_destino','=',$id)->get();
+        return $det_vuelos;
     }
 }
