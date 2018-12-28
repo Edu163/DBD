@@ -15,8 +15,7 @@ class ServicioAlojamientoController extends Controller
      */
     public function index()
     {
-        $servicioAlojamientos = ServicioAlojamiento::all();
-        return view('modulos.ReservaAlojamiento.servicioAlojamiento.index', compact('servicioAlojamientos'));
+        return ServicioAlojamiento::all();
     }
 
     /**
@@ -26,7 +25,7 @@ class ServicioAlojamientoController extends Controller
      */
     public function create()
     {
-        return view('modulos.ReservaAlojamiento.servicioAlojamiento.create');
+        
     }
 
     /**
@@ -52,7 +51,7 @@ class ServicioAlojamientoController extends Controller
           $response = ['error' => 'No se ha podido crear!'];
         }
 
-        return redirect('/servicioAlojamientos')->with($response);
+        return $response;
     }
 
     /**
@@ -61,14 +60,9 @@ class ServicioAlojamientoController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\ServicioAlojamiento  $servicioAlojamiento
      * @return \Illuminate\Http\Response
      */
-    public function show(ServicioAlojamiento $servicioAlojamiento)
+    public function show(ServicioAlojamiento $id)
     {
-        if ($servicioAlojamiento->exists()) {
-            return view('modulos.ReservaAlojamiento.servicioAlojamiento.show', compact('servicioAlojamiento'));
-        } else {
-            $response = ['error' => 'No existe la id solicitada'];
-            return redirect('/servicioAlojamientos')->with($response);
-        }
+        return ServicioAlojamiento::findOrFail($id);
     }
 
     /**
@@ -120,7 +114,7 @@ class ServicioAlojamientoController extends Controller
             $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
         }
 
-        return redirect('/servicioAlojamientos/'.$servicioAlojamiento->id.'/edit')->with($response);
+         return $response;
     }
 
     /**
@@ -129,16 +123,10 @@ class ServicioAlojamientoController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\ServicioAlojamiento  $servicioAlojamiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServicioAlojamiento $servicioAlojamiento)
+    public function destroy(ServicioAlojamiento $id)
     {
-         $response = [];
-        try {
-          $servicioAlojamiento->delete();
-          $response = ['success' => 'Eliminado con éxito!'];
-        } catch (\Exception $e) {
-          $response = ['error' => 'Error al eliminar el registro!'];
-        }
-
-        return redirect('/servicioAlojamientos')->with($response);
+         $servicioAlojamiento = ServicioAlojamiento::findOrFail($id);
+        $servicioAlojamiento->delete();
+        return "eliminado";
     }
 }

@@ -18,11 +18,13 @@ class CreateHabitacionesHotelesTable extends Migration
             $table->integer('id_hotel');
             $table->foreign('id_hotel')
                 ->references('id')
-                ->on('hoteles');
+                ->on('hoteles')
+                ->onDelete('cascade');
             $table->integer('id_calendario_alojamiento');
             $table->foreign('id_calendario_alojamiento')
                 ->references('id')
-                ->on('calendarios_alojamientos');
+                ->on('calendarios_alojamientos')
+                ->onDelete('cascade');
             $table->integer('capacidad');
             $table->integer('camas');
             $table->integer('numero');

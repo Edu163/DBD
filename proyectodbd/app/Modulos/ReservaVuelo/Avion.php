@@ -15,10 +15,7 @@ class Avion extends Model
     protected $id_compania;
 
     protected $fillable = [
-<<<<<<< HEAD
         'color',
-=======
->>>>>>> development
         'modelo',
         'compania_id',
     ];

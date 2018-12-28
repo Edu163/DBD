@@ -15,8 +15,7 @@ class HabitacionHotelController extends Controller
      */
     public function index()
     {
-        $habitacionHotels = HabitacionHotel::all();
-        return view('modulos.ReservaAlojamiento.habitacionHotel.index', compact('habitacionHotels'));
+        return HabitacionHotel::all();
     }
 
     /**
@@ -26,7 +25,7 @@ class HabitacionHotelController extends Controller
      */
     public function create()
     {
-        return view('modulos.ReservaAlojamiento.habitacionHotel.create');
+       
     }
 
     /**
@@ -53,7 +52,7 @@ class HabitacionHotelController extends Controller
           $response = ['error' => 'No se ha podido crear!'];
         }
 
-        return redirect('/habitacionHotels')->with($response);
+         return $response;
     }
 
     /**
@@ -62,14 +61,9 @@ class HabitacionHotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\HabitacionHotel  $habitacionHotel
      * @return \Illuminate\Http\Response
      */
-    public function show(HabitacionHotel $habitacionHotel)
+    public function show(HabitacionHotel $id)
     {
-         if ($habitacionHotel->exists()) {
-            return view('modulos.ReservaAlojamiento.habitacionHotel.show', compact('habitacionHotel'));
-        } else {
-            $response = ['error' => 'No existe la id solicitada'];
-            return redirect('/habitacionHotels')->with($response);
-        }
+         return HabitacionHotel::findOrFail($id);
     }
 
     /**
@@ -124,7 +118,7 @@ class HabitacionHotelController extends Controller
             $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
         }
 
-        return redirect('/habitacionHotels/'.$habitacionHotel->id.'/edit')->with($response);
+         return $response;
     }
 
     /**
@@ -133,16 +127,10 @@ class HabitacionHotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\HabitacionHotel  $habitacionHotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HabitacionHotel $habitacionHotel)
+    public function destroy(HabitacionHotel $id)
     {
-         $response = [];
-        try {
-          $habitacionHotel->delete();
-          $response = ['success' => 'Eliminado con éxito!'];
-        } catch (\Exception $e) {
-          $response = ['error' => 'Error al eliminar el registro!'];
-        }
-
-        return redirect('/habitacionHotels')->with($response);
+         $habitacionHotel = HabitacionHotel::findOrFail($id);
+        $habitacionHotel->delete();
+        return "eliminado";
     }
 }

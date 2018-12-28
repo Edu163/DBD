@@ -15,8 +15,7 @@ class CalendarioAlojamientoController extends Controller
      */
     public function index()
     {
-        $calendarioAlojamientos = CalendarioAlojamiento::all();
-        return view('modulos.ReservaAlojamiento.calendarioAlojamiento.index', compact('calendarioAlojamientos'));
+        return CalendarioAlojamiento::all();
     }
 
     /**
@@ -26,7 +25,7 @@ class CalendarioAlojamientoController extends Controller
      */
     public function create()
     {
-        return view('modulos.ReservaAlojamiento.calendarioAlojamiento.create');
+       
     }
 
     /**
@@ -51,7 +50,7 @@ class CalendarioAlojamientoController extends Controller
           $response = ['error' => 'No se ha podido crear!'];
         }
 
-        return redirect('/calendarioAlojamientos')->with($response);
+         return $response;
     }
 
     /**
@@ -60,14 +59,9 @@ class CalendarioAlojamientoController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\CalendarioAlojamiento  $calendarioAlojamiento
      * @return \Illuminate\Http\Response
      */
-    public function show(CalendarioAlojamiento $calendarioAlojamiento)
+    public function show(CalendarioAlojamiento $id)
     {
-        if ($calendarioAlojamiento->exists()) {
-            return view('modulos.ReservaAlojamiento.calendarioAlojamiento.show', compact('calendarioAlojamiento'));
-        } else {
-            $response = ['error' => 'No existe la id solicitada'];
-            return redirect('/calendarioAlojamientos')->with($response);
-        }
+        return CalendarioAlojamiento::findOrFail($id);
     }
 
     /**
@@ -117,7 +111,7 @@ class CalendarioAlojamientoController extends Controller
             $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
         }
 
-        return redirect('/calendarioAlojamientos/'.$calendarioAlojamiento->id.'/edit')->with($response);
+         return $response;
     }
 
     /**
@@ -126,16 +120,10 @@ class CalendarioAlojamientoController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\CalendarioAlojamiento  $calendarioAlojamiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CalendarioAlojamiento $calendarioAlojamiento)
+    public function destroy(CalendarioAlojamiento $id)
     {
-        $response = [];
-        try {
-          $calendarioAlojamiento->delete();
-          $response = ['success' => 'Eliminado con éxito!'];
-        } catch (\Exception $e) {
-          $response = ['error' => 'Error al eliminar el registro!'];
-        }
-
-        return redirect('/calendarioAlojamientos')->with($response);
+        $calendarioAlojamiento = CalendarioAlojamiento::findOrFail($id);
+        $calendarioAlojamiento->delete();
+        return "eliminado";
     }
 }

@@ -15,8 +15,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotels = Hotel::all();
-        return view('modulos.ReservaAlojamiento.hotel.index', compact('hotels'));
+       return Hotel::all();
     }
 
     /**
@@ -26,7 +25,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        return view('modulos.ReservaAlojamiento.hotel.create');
+        
     }
 
     /**
@@ -54,7 +53,7 @@ class HotelController extends Controller
           $response = ['error' => 'No se ha podido crear!'];
         }
 
-        return redirect('/hotels')->with($response);
+         return $response;
     }
 
     /**
@@ -63,14 +62,9 @@ class HotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function show(Hotel $hotel)
+    public function show(Hotel $id)
     {
-        if ($hotel->exists()) {
-            return view('modulos.ReservaAlojamiento.hotel.show', compact('hotel'));
-        } else {
-            $response = ['error' => 'No existe la id solicitada'];
-            return redirect('/hotels')->with($response);
-        }
+        return Hotel::findOrFail($id);
     }
 
     /**
@@ -125,7 +119,7 @@ class HotelController extends Controller
             $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
         }
 
-        return redirect('/hotels/'.$hotel->id.'/edit')->with($response);
+         return $response;
     }
 
     /**
@@ -134,16 +128,10 @@ class HotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hotel $hotel)
+    public function destroy(Hotel $id)
     {
-         $response = [];
-        try {
-          $hotel->delete();
-          $response = ['success' => 'Eliminado con éxito!'];
-        } catch (\Exception $e) {
-          $response = ['error' => 'Error al eliminar el registro!'];
-        }
-
-        return redirect('/hotels')->with($response);
+         $hotel = Hotel::findOrFail($id);
+        $hotel->delete();
+        return "eliminado";
     }
 }

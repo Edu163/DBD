@@ -18,7 +18,8 @@ class CreateAlojamientosPrivadosTable extends Migration
             $table->integer('id_calendario_alojamiento');
             $table->foreign('id_calendario_alojamiento')
                 ->references('id')
-                ->on('calendarios_alojamientos');
+                ->on('calendarios_alojamientos')
+                ->onDelete('cascade');
             $table->integer('capacidad');
             $table->string('direccion');
             $table->string('nombre');

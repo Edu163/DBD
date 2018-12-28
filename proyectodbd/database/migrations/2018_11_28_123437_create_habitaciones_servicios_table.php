@@ -18,11 +18,13 @@ class CreateHabitacionesServiciosTable extends Migration
             $table->integer('id_servicio_alojamiento');
             $table->foreign('id_servicio_alojamiento')
                 ->references('id')
-                ->on('servicios_alojamientos');
+                ->on('servicios_alojamientos')
+                ->onDelete('cascade');
             $table->integer('id_habitacion_hotel');
             $table->foreign('id_habitacion_hotel')
                 ->references('id')
-                ->on('habitaciones_hoteles');
+                ->on('habitaciones_hoteles')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

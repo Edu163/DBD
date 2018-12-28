@@ -16,9 +16,6 @@ class AlojamientoPrivadoController extends Controller
     public function index()
     {
         return AlojamientoPrivado::all();
-        //$alojamientoPrivados = AlojamientoPrivado::all();
-        //return $alojamientoPrivados;
-        //return view('modulos.ReservaAlojamiento.alojamientoPrivado.index', compact('alojamientoPrivados'));
     }
 
     /**
@@ -28,7 +25,6 @@ class AlojamientoPrivadoController extends Controller
      */
     public function create()
     {
-        //return view('modulos.ReservaAlojamiento.alojamientoPrivado.create');
     }
 
     /**
@@ -58,8 +54,6 @@ class AlojamientoPrivadoController extends Controller
         }
 
         return $response;
-
-        //return redirect('/alojamientoPrivados')->with($response);
     }
 
     /**
@@ -71,12 +65,7 @@ class AlojamientoPrivadoController extends Controller
     public function show($id)
     {
         return AlojamientoPrivado::findOrFail($id);
-        /*if ($alojamientoPrivado->exists()) {
-            //return view('modulos.ReservaAlojamiento.alojamientoPrivado.show', compact('alojamientoPrivado'));
-        } else {
-            $response = ['error' => 'No existe la id solicitada'];
-            //return redirect('/alojamientoPrivados')->with($response);
-        }*/
+       
     }
 
     /**
@@ -134,7 +123,6 @@ class AlojamientoPrivadoController extends Controller
             $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
         }
         return $response;
-        //return redirect('/alojamientoPrivados/'.$alojamientoPrivado->id.'/edit')->with($response);
     }
 
     /**
@@ -143,17 +131,11 @@ class AlojamientoPrivadoController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\AlojamientoPrivado  $alojamientoPrivado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AlojamientoPrivado $alojamientoPrivado)
+    public function destroy(AlojamientoPrivado $id)
     {
-        /*$response = [];
-        try {
-          $alojamientoPrivado->delete();
-          $response = ['success' => 'Eliminado con éxito!'];
-        } catch (\Exception $e) {
-          $response = ['error' => 'Error al eliminar el registro!'];
-        }
-        return $response;
-        //return redirect('/alojamientoPrivados')->with($response);
-    }*/
+        $alojamientoPrivado = AlojamientoPrivado::findOrFail($id);
+        $alojamientoPrivado->delete();
+        return "eliminado";
+    }
     
 }

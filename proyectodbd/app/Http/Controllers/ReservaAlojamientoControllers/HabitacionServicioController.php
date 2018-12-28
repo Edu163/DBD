@@ -15,8 +15,7 @@ class HabitacionServicioController extends Controller
      */
     public function index()
     {
-        $habitacionServicios = HabitacionServicio::all();
-        return view('modulos.ReservaAlojamiento.habitacionServicio.index', compact('habitacionServicios'));
+       return HabitacionServicio::all();
     }
 
     /**
@@ -26,7 +25,7 @@ class HabitacionServicioController extends Controller
      */
     public function create()
     {
-        return view('modulos.ReservaAlojamiento.habitacionServicio.create');
+        
     }
 
     /**
@@ -50,7 +49,7 @@ class HabitacionServicioController extends Controller
           $response = ['error' => 'No se ha podido crear!'];
         }
 
-        return redirect('/habitacionServicios')->with($response);
+        return $response;
     }
 
     /**
@@ -59,14 +58,9 @@ class HabitacionServicioController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\HabitacionServicio  $habitacionServicio
      * @return \Illuminate\Http\Response
      */
-    public function show(HabitacionServicio $habitacionServicio)
+    public function show(HabitacionServicio $id)
     {
-        if ($habitacionServicio->exists()) {
-            return view('modulos.ReservaAlojamiento.habitacionServicio.show', compact('habitacionServicio'));
-        } else {
-            $response = ['error' => 'No existe la id solicitada'];
-            return redirect('/habitacionServicios')->with($response);
-        }
+        return HabitacionServicio::findOrFail($id);
     }
 
     /**
@@ -114,7 +108,7 @@ class HabitacionServicioController extends Controller
             $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
         }
 
-        return redirect('/habitacionServicios/'.$habitacionServicio->id.'/edit')->with($response);
+         return $response;
     }
 
     /**
@@ -123,16 +117,10 @@ class HabitacionServicioController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\HabitacionServicio  $habitacionServicio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HabitacionServicio $habitacionServicio)
+    public function destroy(HabitacionServicio $id)
     {
-         $response = [];
-        try {
-          $habitacionServicio->delete();
-          $response = ['success' => 'Eliminado con éxito!'];
-        } catch (\Exception $e) {
-          $response = ['error' => 'Error al eliminar el registro!'];
-        }
-
-        return redirect('/habitacionServicios')->with($response);
+         $habitacionServicio = HabitacionServicio::findOrFail($id);
+        $habitacionServicio->delete();
+        return "eliminado";
     }
 }

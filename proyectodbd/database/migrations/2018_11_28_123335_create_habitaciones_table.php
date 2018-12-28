@@ -18,7 +18,8 @@ class CreateHabitacionesTable extends Migration
             $table->integer('id_alojamiento_privado');
             $table->foreign('id_alojamiento_privado')
                 ->references('id')
-                ->on('alojamientos_privados');
+                ->on('alojamientos_privados')
+                ->onDelete('cascade');
             $table->integer('piso');
             $table->integer('numero');
             $table->integer('camas');

@@ -15,8 +15,7 @@ class DetalleReservaHotelController extends Controller
      */
     public function index()
     {
-        $detalleReservaHotels = DetalleReservaHotel::all();
-        return view('modulos.ReservaAlojamiento.detalleReservaHotel.index', compact('detalleReservaHotels'));
+        return DetalleReservaHotel::all();
     }
 
     /**
@@ -26,7 +25,7 @@ class DetalleReservaHotelController extends Controller
      */
     public function create()
     {
-        return view('modulos.ReservaAlojamiento.detalleReservaHotel.create');
+        
     }
 
     /**
@@ -55,7 +54,7 @@ class DetalleReservaHotelController extends Controller
           $response = ['error' => 'No se ha podido crear!'];
         }
 
-        return redirect('/detalleReservaHotels')->with($response);
+         return $response;
     }
 
     /**
@@ -64,14 +63,9 @@ class DetalleReservaHotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\DetalleReservaHotel  $detalleReservaHotel
      * @return \Illuminate\Http\Response
      */
-    public function show(DetalleReservaHotel $detalleReservaHotel)
+    public function show(DetalleReservaHotel $id)
     {
-        if ($detalleReservaHotel->exists()) {
-            return view('modulos.ReservaAlojamiento.detalleReservaHotel.show', compact('detalleReservaHotel'));
-        } else {
-            $response = ['error' => 'No existe la id solicitada'];
-            return redirect('/detalleReservaHotels')->with($response);
-        }
+       return DetalleReservaHotel::findOrFail($id);
     }
 
     /**
@@ -129,7 +123,7 @@ class DetalleReservaHotelController extends Controller
             $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
         }
 
-        return redirect('/detalleReservaHotels/'.$detalleReservaHotel->id.'/edit')->with($response);
+         return $response;
     }
 
     /**
@@ -138,16 +132,10 @@ class DetalleReservaHotelController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\DetalleReservaHotel  $detalleReservaHotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DetalleReservaHotel $detalleReservaHotel)
+    public function destroy(DetalleReservaHotel $id)
     {
-        $response = [];
-        try {
-          $detalleReservaHotel->delete();
-          $response = ['success' => 'Eliminado con éxito!'];
-        } catch (\Exception $e) {
-          $response = ['error' => 'Error al eliminar el registro!'];
-        }
-
-        return redirect('/detalleReservaHotels')->with($response);
+        $detalleReservaHotel = DetalleReservaHotel::findOrFail($id);
+        $detalleReservaHotel->delete();
+        return "eliminado";
     }
 }
