@@ -37,7 +37,7 @@ Route::get('/aviones/all', 'ReservaVueloControllers\AvionController@index');
 Route::get('/aviones/show/{id}', 'ReservaVueloControllers\AvionController@show');
 Route::get('/aviones/destroy/{id}', 'ReservaVueloControllers\AvionController@destroy');
 Route::get('/aviones/store', 'ReservaVueloControllers\AvionController@store');
-Route::get('/aviones/update/{id}', 'ReservaVueloControllers\AvionController@update');
+Route::get('/aviones/update/{avion}', 'ReservaVueloControllers\AvionController@update');
 /* Asiento */
 Route::get('/asientos/all', 'ReservaVueloControllers\AsientoController@index');
 Route::get('/asientos/show/{id}', 'ReservaVueloControllers\AsientoController@show');
@@ -68,8 +68,8 @@ Route::get('/detallesVuelos/show/{id}', 'ReservaVueloControllers\DetalleVueloCon
 Route::get('/detallesVuelos/destroy/{id}', 'ReservaVueloControllers\DetalleVueloController@destroy');
 Route::get('/detallesVuelos/store', 'ReservaVueloControllers\DetalleVueloController@store');
 Route::get('/detallesVuelos/update/{id}', 'ReservaVueloControllers\DetalleVueloController@update');
-Route::get('/detallesVuelos/origen/{id}', 'ReservaVueloControllers\DetalleVueloController@filtrarOrigen');
-Route::get('/detallesVuelos/destino/{id}', 'ReservaVueloControllers\DetalleVueloController@show');
+Route::get('/detallesVuelos/origen/{id}', 'ReservaVueloControllers\DetalleVueloController@origen');
+Route::get('/detallesVuelos/destino/{id}', 'ReservaVueloControllers\DetalleVueloController@destino');
 /* Vuelo */
 Route::get('/vuelos/all', 'ReservaVueloControllers\VueloController@index');
 Route::get('/vuelos/show/{id}', 'ReservaVueloControllers\VueloController@show');
