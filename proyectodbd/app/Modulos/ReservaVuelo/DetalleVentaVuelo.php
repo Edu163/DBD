@@ -17,7 +17,6 @@ class DetalleVentaVuelo extends Model
     protected $cantidad;
 
     protected $fillable = [
-
         'id_venta',
         'precio',
         'descuento',

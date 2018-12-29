@@ -58,7 +58,7 @@ class AlojamientoServicioController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\AlojamientoServicio  $alojamientoServicio
      * @return \Illuminate\Http\Response
      */
-    public function show(AlojamientoServicio $id)
+    public function show($id)
     {
          return AlojamientoServicio::findOrFail($id);
     }
@@ -86,29 +86,15 @@ class AlojamientoServicioController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\AlojamientoServicio  $alojamientoServicio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AlojamientoServicio $alojamientoServicio)
+    public function update(Request $request, $id)
     {
-         $this->validate($request, [
+        $alojamientoServicio = $AlojamientoServicio::find($id);
+        $alojamientoServicio->fill($this->validate($request, [
             'id_servicio_alojamiento' => 'required',
             'id_alojamiento_privado' => 'required',
-        ]);
-
-        $alojamientoServicios->id_servicio_alojamiento = $request->get('id_servicio_alojamiento');
-        $alojamientoServicios->id_alojamiento_privado = $request->get('id_alojamiento_privado');
+        ]))->save();
         
-
-        $dataUpdate = $alojamientoServicios->save();
-
-        if ($dataUpdate) 
-        {
-            $response = ['success' => 'Actualizado con éxito!'];
-        } 
-        else 
-        {
-            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
-        }
-
-         return $response;
+            return 'Actualizado con éxito!';
     }
 
     /**
@@ -117,7 +103,7 @@ class AlojamientoServicioController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\AlojamientoServicio  $alojamientoServicio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AlojamientoServicio $id)
+    public function destroy($id)
     {
          $alojamientoServicio = AlojamientoServicio::findOrFail($id);
         $alojamientoServicio->delete();

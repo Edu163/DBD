@@ -15,8 +15,8 @@ class CreateAvionesTable extends Migration
     {
         Schema::create('aviones', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('compania_id');
-            $table->foreign('compania_id')
+            $table->integer('id_compania');
+            $table->foreign('id_compania')
                 ->references('id')
                 ->on('companias')
                 ->onDelete('cascade');

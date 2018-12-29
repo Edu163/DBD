@@ -60,7 +60,7 @@ class ServicioAlojamientoController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\ServicioAlojamiento  $servicioAlojamiento
      * @return \Illuminate\Http\Response
      */
-    public function show(ServicioAlojamiento $id)
+    public function show($id)
     {
         return ServicioAlojamiento::findOrFail($id);
     }
@@ -88,33 +88,17 @@ class ServicioAlojamientoController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\ServicioAlojamiento  $servicioAlojamiento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ServicioAlojamiento $servicioAlojamiento)
+    public function update(Request $request, $id)
     {
-         $this->validate($request, [
+        $servicioAlojamiento = $ServicioAlojamiento::find($id);
+        $servicioAlojamiento->fill($this->validate($request, [
             'id_hotel' => 'required',
             'nombre' => 'required',
             'precio' => 'required',
             'descripcion' => 'required',
-        ]);
-
-        $servicioAlojamientos->id_hotel = $request->get('id_hotel');
-        $servicioAlojamientos->nombre = $request->get('nombre');
-        $servicioAlojamientos->precio = $request->get('precio');
-        $servicioAlojamientos->descripcion = $request->get('descripcion');
+        ]))->save();
         
-
-        $dataUpdate = $servicioAlojamientos->save();
-
-        if ($dataUpdate) 
-        {
-            $response = ['success' => 'Actualizado con éxito!'];
-        } 
-        else 
-        {
-            $response = ['error' => 'Ha ocurrido un error en la Base de Datos al actualizar!'];
-        }
-
-         return $response;
+            return 'Actualizado con éxito!';
     }
 
     /**
@@ -123,7 +107,7 @@ class ServicioAlojamientoController extends Controller
      * @param  \App\Modulos\ReservaAlojamiento\ServicioAlojamiento  $servicioAlojamiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServicioAlojamiento $id)
+    public function destroy($id)
     {
          $servicioAlojamiento = ServicioAlojamiento::findOrFail($id);
         $servicioAlojamiento->delete();
