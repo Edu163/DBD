@@ -6,11 +6,11 @@ use App\Modulos\ReservaAlojamiento\HabitacionServicio;
 $factory->define(HabitacionServicio::class, function (Faker $faker) {
     
     /* Llaves foráneas */
-    $id_servicio_alojamiento = DB::table('servicios_alojamientos')->select('id')->get();
-    $id_habitacion_hotel = DB::table('habitaciones_hoteles')->select('id')->get();
+    $servicio_alojamiento_id = DB::table('servicios_alojamientos')->select('id')->get();
+    $habitacion_hotel_id = DB::table('habitaciones_hoteles')->select('id')->get();
 
     return [
-    	'id_servicio_alojamiento' => $id_servicio_alojamiento->random()->id,
-    	'id_habitacion_hotel' => $id_habitacion_hotel->random()->id,
+    	'servicio_alojamiento_id' => $servicio_alojamiento_id->random()->id,
+    	'habitacion_hotel_id' => $habitacion_hotel_id->random()->id,
     ];
 });

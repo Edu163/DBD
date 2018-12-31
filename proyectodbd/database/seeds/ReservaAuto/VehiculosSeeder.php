@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Modulos\ReservaAuto\Automovil;
+use App\Modulos\ReservaVehiculo\Vehiculo;
 
-class AutomovilesSeeder extends Seeder
+class VehiculosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class AutomovilesSeeder extends Seeder
      */
     public function run()
     {
-        factory(Automovil::class, 20)->create();
+        factory(Vehiculo::class, 20)->create();
     }
 }

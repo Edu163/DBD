@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Modulos\ReservaAuto\CalendarioVehiculo;
+use App\Modulos\ReservaVehiculo\CalendarioVehiculo;
 
 class CalendariosVehiculosSeeder extends Seeder
 {

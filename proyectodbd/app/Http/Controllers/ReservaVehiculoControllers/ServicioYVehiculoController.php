@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\ReservaAutoControllers;
+namespace App\Http\Controllers\ReservaVehiculoControllers;
 
-use App\Modulos\ReservaAuto\ServicioYVehiculo;
+use App\Modulos\ReservaVehiculo\ServicioYVehiculo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -42,7 +42,7 @@ class ServicioYVehiculoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Modulos\ReservaAuto\ServicioYVehiculo  $servicioYVehiculo
+     * @param  \App\Modulos\ReservaVehiculo\ServicioYVehiculo  $servicioYVehiculo
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -53,7 +53,7 @@ class ServicioYVehiculoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Modulos\ReservaAuto\ServicioYVehiculo  $servicioYVehiculo
+     * @param  \App\Modulos\ReservaVehiculo\ServicioYVehiculo  $servicioYVehiculo
      * @return \Illuminate\Http\Response
      */
     public function edit(ServicioYVehiculo $servicioYVehiculo)
@@ -65,14 +65,14 @@ class ServicioYVehiculoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Modulos\ReservaAuto\ServicioYVehiculo  $servicioYVehiculo
+     * @param  \App\Modulos\ReservaVehiculo\ServicioYVehiculo  $servicioYVehiculo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $servicioYVehiculo = ServicioYVehiculo::find($id);
         $servicioYVehiculo->fill($this->validate($request, [
-            'id_servicio' => 'required',
+            'servicio_id' => 'required',
             'patente' => 'required',
             'precio' => 'required',
         ]))->save();
@@ -83,7 +83,7 @@ class ServicioYVehiculoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Modulos\ReservaAuto\ServicioYVehiculo  $servicioYVehiculo
+     * @param  \App\Modulos\ReservaVehiculo\ServicioYVehiculo  $servicioYVehiculo
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

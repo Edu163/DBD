@@ -15,8 +15,8 @@ class CreateHabitacionesTable extends Migration
     {
         Schema::create('habitaciones', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_alojamiento_privado');
-            $table->foreign('id_alojamiento_privado')
+            $table->integer('alojamiento_privado_id');
+            $table->foreign('alojamiento_privado_id')
                 ->references('id')
                 ->on('alojamientos_privados')
                 ->onDelete('cascade');

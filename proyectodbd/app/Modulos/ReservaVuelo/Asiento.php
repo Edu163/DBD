@@ -8,20 +8,22 @@ class Asiento extends Model
 {
     protected $table = 'asientos';
 
+    protected $avion_id;
     protected $numero;
     protected $letra;
     protected $tipo;
     protected $clase;
     protected $disponible;
-    protected $id_avion;
+    
 
     protected $fillable = [
+        'avion_id',
         'numero',
         'letra',
         'tipo',
         'clase',
         'disponible',
-        'id_avion',
+        
     ];
 
     /* Relaciones */

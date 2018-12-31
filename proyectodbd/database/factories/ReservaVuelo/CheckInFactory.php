@@ -6,12 +6,12 @@ use App\Modulos\ReservaVuelo\CheckIn;
 $factory->define(CheckIn::class, function (Faker $faker) {
     
     /* Llaves foráneas */
-    $id_asiento = DB::table('asientos')->select('id')->get();
-    $id_user = DB::table('users')->select('id')->get();
+    $asiento_id = DB::table('asientos')->select('id')->get();
+    $user_id = DB::table('users')->select('id')->get();
 
     return [
-        'id_asiento' => $id_asiento->random()->id,
-        'id_user' => $id_user->random()->id,
+        'asiento_id' => $asiento_id->random()->id,
+        'user_id' => $user_id->random()->id,
         'fecha' => $faker->date,
         'estado' => $faker->randomElement($array = array ('Confirmado','Pendiente')),
     ];

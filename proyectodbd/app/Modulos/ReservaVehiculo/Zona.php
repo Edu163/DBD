@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modulos\ReservaAuto;
+namespace App\Modulos\ReservaVehiculo;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,12 +15,13 @@ class Zona extends Model
     protected $fillable = [
         'nombre',
         'direccion',
+        'coordenadas',
     ];
 
     /* Relaciones */
 
-    public function reserva_auto(){
-    	return $this->hasMany(ReservaAuto::class);
+    public function reserva_vehiculo(){
+    	return $this->hasMany(ReservaVehiculo::class);
     }
 
 }

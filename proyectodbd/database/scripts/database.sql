@@ -7,14 +7,14 @@ DROP TABLE IF EXISTS aeropuertos CASCADE;
 DROP TABLE IF EXISTS alojamientos_privados CASCADE;
 DROP TABLE IF EXISTS alojamientos_servicios CASCADE;
 DROP TABLE IF EXISTS asientos CASCADE;
-DROP TABLE IF EXISTS automoviles CASCADE;
+DROP TABLE IF EXISTS vehiculos CASCADE;
 DROP TABLE IF EXISTS aviones CASCADE;
 DROP TABLE IF EXISTS calendarios_alojamientos CASCADE;
 DROP TABLE IF EXISTS calendarios_vehiculos CASCADE;
 DROP TABLE IF EXISTS calendarios_vuelos CASCADE;
 DROP TABLE IF EXISTS checks_in CASCADE;
 DROP TABLE IF EXISTS companias CASCADE;
-DROP TABLE IF EXISTS detalles_reservas_autos CASCADE;
+DROP TABLE IF EXISTS detalles_reservas_vehiculos CASCADE;
 DROP TABLE IF EXISTS detalles_reservas_hoteles CASCADE;
 DROP TABLE IF EXISTS detalles_reservas_vuelos CASCADE;
 DROP TABLE IF EXISTS detalles_ventas_vuelos CASCADE;
@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS migrations CASCADE;
 DROP TABLE IF EXISTS origenes_destinos CASCADE;
 DROP TABLE IF EXISTS password_resets CASCADE;
 DROP TABLE IF EXISTS proveedores CASCADE;
-DROP TABLE IF EXISTS reservas_autos CASCADE;
+DROP TABLE IF EXISTS reservas_vehiculos CASCADE;
 DROP TABLE IF EXISTS reservas_hoteles CASCADE;
 DROP TABLE IF EXISTS servicios_alojamientos CASCADE;
 DROP TABLE IF EXISTS servicios_de_vehiculos CASCADE;
@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS zonas CASCADE;
 
 CREATE TABLE IF NOT EXISTS acciones (
     id serial NOT NULL,
-    id_user serial NOT NULL,
+    user_id serial NOT NULL,
     accion character varying(255) NOT NULL,
     fecha timestamp NOT NULL,
     created_at timestamp,
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS aeropuertos (
 
 CREATE TABLE IF NOT EXISTS alojamientos_privados (
     id serial NOT NULL,
-    id_calendario_alojamiento serial NOT NULL,
+    calendario_alojamiento_id serial NOT NULL,
     capacidad integer NOT NULL,
     direccion character varying(255) NOT NULL,
     nombre character varying(255) NOT NULL,
@@ -76,15 +76,15 @@ CREATE TABLE IF NOT EXISTS alojamientos_privados (
 
 CREATE TABLE IF NOT EXISTS alojamientos_servicios (
     id serial NOT NULL,
-    id_servicio_alojamiento serial NOT NULL,
-    id_alojamiento_privado serial NOT NULL,
+    servicio_alojamiento_id serial NOT NULL,
+    alojamiento_privado_id serial NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
 CREATE TABLE IF NOT EXISTS asientos (
     id serial NOT NULL,
-    id_avion serial NOT NULL,
+    avion_id serial NOT NULL,
     numero integer NOT NULL,
     letra character varying(255) NOT NULL,
     tipo character varying(255) NOT NULL,
@@ -94,12 +94,12 @@ CREATE TABLE IF NOT EXISTS asientos (
     updated_at timestamp
 );
 
-CREATE TABLE IF NOT EXISTS automoviles (
+CREATE TABLE IF NOT EXISTS vehiculos (
     id serial NOT NULL,
     patente character varying(255) NOT NULL,
-    id_calendario_vehiculo serial NOT NULL,
-    id_proveedor serial NOT NULL,
-    id_zona serial NOT NULL,
+    calendario_vehiculo_id serial NOT NULL,
+    proveedor_id serial NOT NULL,
+    zona_id serial NOT NULL,
     marca character varying(255) NOT NULL, 
     tipo character varying(255) NOT NULL,
     gamma character varying(255) NOT NULL,
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS automoviles (
 
 CREATE TABLE IF NOT EXISTS aviones (
     id serial NOT NULL,
-    id_compania serial NOT NULL,
+    compania_id serial NOT NULL,
     modelo character varying(255) NOT NULL,
     created_at timestamp,
     updated_at timestamp
@@ -153,8 +153,8 @@ CREATE TABLE IF NOT EXISTS calendarios_vuelos (
 
 CREATE TABLE IF NOT EXISTS checks_in (
     id serial NOT NULL,
-    id_asiento serial NOT NULL,
-    id_user serial NOT NULL,
+    asiento_id serial NOT NULL,
+    user_id serial NOT NULL,
     fecha date NOT NULL,
     estado character varying(255) NOT NULL,
     created_at timestamp,
@@ -169,9 +169,9 @@ CREATE TABLE IF NOT EXISTS companias (
     updated_at timestamp
 );
 
-CREATE TABLE IF NOT EXISTS detalles_reservas_autos (
+CREATE TABLE IF NOT EXISTS detalles_reservas_vehiculos (
     id serial NOT NULL,
-    id_res_auto serial NOT NULL,
+    reserva_vehiculo_id serial NOT NULL,
     patente character varying(255) NOT NULL,
     fecha_retiro timestamp,
     fecha_regreso timestamp,
@@ -184,9 +184,9 @@ CREATE TABLE IF NOT EXISTS detalles_reservas_autos (
 
 CREATE TABLE IF NOT EXISTS detalles_reservas_hoteles (
     id serial NOT NULL,
-    id_reserva_hotel serial NOT NULL,
-    id_habitacion_hotel serial NOT NULL,
-    id_alojamiento_privado serial NOT NULL,
+    reserva_hotel_id serial NOT NULL,
+    habitacion_hotel_id serial NOT NULL,
+    alojamiento_privado_id serial NOT NULL,
     fecha_egreso date NOT NULL,
     fecha_ingreso date NOT NULL,
     precio double precision NOT NULL,
@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS detalles_reservas_hoteles (
 
 CREATE TABLE IF NOT EXISTS detalles_ventas_vuelos (
     id serial NOT NULL,
-    id_venta serial NOT NULL,
+    venta_id serial NOT NULL,
     precio double precision NOT NULL,
     descuento double precision NOT NULL,
     monto_total double precision NOT NULL,
@@ -210,10 +210,9 @@ CREATE TABLE IF NOT EXISTS detalles_ventas_vuelos (
 
 CREATE TABLE IF NOT EXISTS detalles_vuelos (
     id serial NOT NULL,
-    id_user serial NOT NULL,
-    id_avion serial NOT NULL,
-    id_vuelo serial NOT NULL,
-    id_user serial NOT NULL,
+    user_id serial NOT NULL,
+    avion_id serial NOT NULL,
+    vuelo_id serial NOT NULL,
     fecha_despegue timestamp,
     fecha_aterrizaje timestamp,
     created_at timestamp,
@@ -222,7 +221,7 @@ CREATE TABLE IF NOT EXISTS detalles_vuelos (
 
 CREATE TABLE IF NOT EXISTS habitaciones (
     id serial NOT NULL,
-    id_alojamiento_privado serial NOT NULL,
+    alojamiento_privado_id serial NOT NULL,
     piso integer NOT NULL,
     numero integer NOT NULL,
     camas integer NOT NULL,
@@ -232,8 +231,8 @@ CREATE TABLE IF NOT EXISTS habitaciones (
 
 CREATE TABLE IF NOT EXISTS habitaciones_hoteles (
     id serial NOT NULL,
-    id_hotel serial NOT NULL,
-    id_calendario_alojamiento serial NOT NULL,
+    hotel_id serial NOT NULL,
+    calendario_alojamiento_id serial NOT NULL,
     capacidad integer NOT NULL,
     camas integer NOT NULL,
     numero integer NOT NULL,
@@ -243,8 +242,8 @@ CREATE TABLE IF NOT EXISTS habitaciones_hoteles (
 
 CREATE TABLE IF NOT EXISTS habitaciones_servicios (
     id serial NOT NULL,
-    id_servicio_alojamiento serial NOT NULL,
-    id_habitacion_hotel serial NOT NULL,
+    servicio_alojamiento_id serial NOT NULL,
+    habitacion_hotel_id serial NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
@@ -269,8 +268,8 @@ CREATE TABLE IF NOT EXISTS migrations (
 
 CREATE TABLE IF NOT EXISTS origenes_destinos (
     id serial NOT NULL,
-    id_detalle_vuelo serial NOT NULL,
-    id_aeropuerto serial NOT NULL,
+    detalle_vuelo_id serial NOT NULL,
+    aeropuerto_id serial NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
@@ -294,9 +293,9 @@ CREATE TABLE IF NOT EXISTS proveedores (
     updated_at timestamp
 );
 
-CREATE TABLE IF NOT EXISTS reservas_autos (
+CREATE TABLE IF NOT EXISTS reservas_vehiculos (
     id serial NOT NULL,
-    id_venta serial NOT NULL,
+    venta_id serial NOT NULL,
     fecha timestamp NOT NULL,
     monto_total double precision NOT NULL,
     created_at timestamp,
@@ -305,7 +304,7 @@ CREATE TABLE IF NOT EXISTS reservas_autos (
 
 CREATE TABLE IF NOT EXISTS reservas_hoteles (
     id serial NOT NULL,
-    id_venta serial NOT NULL,
+    venta_id serial NOT NULL,
     precio double precision NOT NULL,
     fecha date NOT NULL,
     cantidad integer NOT NULL,
@@ -317,7 +316,7 @@ CREATE TABLE IF NOT EXISTS reservas_hoteles (
 
 CREATE TABLE IF NOT EXISTS servicios_alojamientos (
     id serial NOT NULL,
-    id_hotel serial NOT NULL,
+    hotel_id serial NOT NULL,
     nombre character varying(255) NOT NULL,
     precio double precision NOT NULL,
     descripcion character varying(255) NOT NULL,
@@ -335,15 +334,15 @@ CREATE TABLE IF NOT EXISTS servicios_de_vehiculos (
 
 CREATE TABLE IF NOT EXISTS servicios_proveedores (
     id serial NOT NULL,
-    id_servicio serial NOT NULL,
-    id_proveedor serial NOT NULL,
+    servicio_id serial NOT NULL,
+    proveedor_id serial NOT NULL,
     created_at timestamp,
     updated_at timestamp
 );
 
 CREATE TABLE IF NOT EXISTS servicios_y_vehiculos (
     id serial NOT NULL,
-    id_servicio serial NOT NULL,
+    servicio_id serial NOT NULL,
     patente character varying(255) NOT NULL,
     precio double precision NOT NULL,
     created_at timestamp,
@@ -374,7 +373,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS ventas (
     id serial NOT NULL,
-    id_user serial NOT NULL,
+    user_id serial NOT NULL,
     monto_total integer NOT NULL,
     fecha date NOT NULL,
     impuesto double precision NOT NULL,
@@ -388,7 +387,7 @@ CREATE TABLE IF NOT EXISTS ventas (
 
 CREATE TABLE IF NOT EXISTS vuelos (
     id serial NOT NULL,
-    id_detalle_venta_vuelo serial NOT NULL,
+    detalle_venta_vuelo_id serial NOT NULL,
     precio double precision NOT NULL,
     duracion_vuelo time NOT NULL,
     created_at timestamp,
@@ -427,11 +426,11 @@ ALTER TABLE asientos
     ADD CONSTRAINT asientos_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE automoviles
-    ADD CONSTRAINT automoviles_pkey
+ALTER TABLE vehiculos
+    ADD CONSTRAINT vehiculos_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE automoviles
+ALTER TABLE vehiculos
     ADD CONSTRAINT patente_unique
     UNIQUE (patente);
 
@@ -459,8 +458,8 @@ ALTER TABLE companias
     ADD CONSTRAINT companias_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE detalles_reservas_autos
-    ADD CONSTRAINT detalles_reservas_autos_pkey
+ALTER TABLE detalles_reservas_vehiculos
+    ADD CONSTRAINT detalles_reservas_vehiculos_pkey
     PRIMARY KEY (id);
 
 ALTER TABLE detalles_reservas_hoteles
@@ -503,8 +502,8 @@ ALTER TABLE proveedores
     ADD CONSTRAINT proveedores_pkey
     PRIMARY KEY (id);
 
-ALTER TABLE reservas_autos
-    ADD CONSTRAINT reservas_autos_pkey
+ALTER TABLE reservas_vehiculos
+    ADD CONSTRAINT reservas_vehiculos_pkey
     PRIMARY KEY (id);
 
 ALTER TABLE reservas_hoteles
@@ -553,169 +552,168 @@ ALTER TABLE zonas
 
 ALTER TABLE acciones
     ADD CONSTRAINT acciones_user_id_foreign
-    FOREIGN KEY (id_user)
+    FOREIGN KEY (user_id)
     REFERENCES users(id);
 
 ALTER TABLE alojamientos_privados
     ADD CONSTRAINT alojamientos_privados_calendario_alojamiento_id_foreign
-    FOREIGN KEY (id_calendario_alojamiento)
+    FOREIGN KEY (calendario_alojamiento_id)
     REFERENCES calendarios_alojamientos(id);
 
 ALTER TABLE alojamientos_servicios
     ADD CONSTRAINT alojamientos_servicios_alojamiento_privado_id_foreign
-    FOREIGN KEY (id_alojamiento_privado)
+    FOREIGN KEY (alojamiento_privado_id)
     REFERENCES alojamientos_privados(id);
 
 ALTER TABLE alojamientos_servicios
     ADD CONSTRAINT alojamientos_servicios_servicio_alojamiento_id_foreign
-    FOREIGN KEY (id_servicio_alojamiento)
+    FOREIGN KEY (servicio_alojamiento_id)
     REFERENCES servicios_alojamientos(id);
 
 ALTER TABLE asientos
     ADD CONSTRAINT asientos_avion_id_foreign
-    FOREIGN KEY (id_avion)
+    FOREIGN KEY (avion_id)
     REFERENCES aviones(id);
 
-ALTER TABLE automoviles
-    ADD CONSTRAINT automoviles_zona_id_foreign
-    FOREIGN KEY (id_zona)
+ALTER TABLE vehiculos
+    ADD CONSTRAINT vehiculos_zona_id_foreign
+    FOREIGN KEY (zona_id)
     REFERENCES zonas(id);
 
-ALTER TABLE automoviles
-    ADD CONSTRAINT automoviles_proveedor_id_foreign
-    FOREIGN KEY (id_proveedor)
+ALTER TABLE vehiculos
+    ADD CONSTRAINT vehiculos_proveedor_id_foreign
+    FOREIGN KEY (proveedor_id)
     REFERENCES proveedores(id);
 
-ALTER TABLE automoviles
-    ADD CONSTRAINT automoviles_calendario_vehiculo_id_foreign
-    FOREIGN KEY (id_calendario_vehiculo)
+ALTER TABLE vehiculos
+    ADD CONSTRAINT vehiculos_calendario_vehiculo_id_foreign
+    FOREIGN KEY (calendario_vehiculo_id)
     REFERENCES calendarios_vehiculos(id);
 
 ALTER TABLE aviones
     ADD CONSTRAINT aviones_compania_id_foreign
-    FOREIGN KEY (id_compania)
+    FOREIGN KEY (compania_id)
     REFERENCES companias(id);
 
 ALTER TABLE checks_in
     ADD CONSTRAINT checks_in_user_id_foreign
-    FOREIGN KEY (id_user)
+    FOREIGN KEY (user_id)
     REFERENCES users(id);
 
 ALTER TABLE checks_in
     ADD CONSTRAINT checks_in_asiento_id_foreign
-    FOREIGN KEY (id_asiento)
+    FOREIGN KEY (asiento_id)
     REFERENCES asientos(id);
 
-ALTER TABLE detalles_reservas_autos
-    ADD CONSTRAINT detalles_reservas_autos_res_auto_id_foreign
-    FOREIGN KEY (id_res_auto)
-    REFERENCES reservas_autos(id);
+ALTER TABLE detalles_reservas_vehiculos
+    ADD CONSTRAINT detalles_reservas_vehiculos_reserva_vehiculo_id_foreign
+    FOREIGN KEY (reserva_vehiculo_id)
+    REFERENCES reservas_vehiculos(id);
 
 ALTER TABLE detalles_reservas_hoteles
     ADD CONSTRAINT detalles_reservas_hoteles_reserva_hotel_id_foreign
-    FOREIGN KEY (id_reserva_hotel)
+    FOREIGN KEY (reserva_hotel_id)
     REFERENCES reservas_hoteles(id);
 
 ALTER TABLE detalles_reservas_hoteles
     ADD CONSTRAINT detalles_reservas_hoteles_habitacion_hotel_id_foreign
-    FOREIGN KEY (id_habitacion_hotel)
+    FOREIGN KEY (habitacion_hotel_id)
     REFERENCES habitaciones_hoteles(id);
 
 ALTER TABLE detalles_reservas_hoteles
     ADD CONSTRAINT detalles_reservas_hoteles_alojamiento_privado_id_foreign
-    FOREIGN KEY (id_alojamiento_privado)
+    FOREIGN KEY (alojamiento_privado_id)
     REFERENCES alojamientos_privados(id);
 
 ALTER TABLE detalles_ventas_vuelos
     ADD CONSTRAINT detalles_ventas_vuelos_venta_id_foreign
-    FOREIGN KEY (id_venta)
+    FOREIGN KEY (venta_id)
     REFERENCES ventas(id);
 
 ALTER TABLE detalles_vuelos
     ADD CONSTRAINT detalles_vuelos_reserva_avion_id_foreign
-    FOREIGN KEY (id_avion)
+    FOREIGN KEY (avion_id)
     REFERENCES aviones(id);
 
 ALTER TABLE detalles_vuelos
     ADD CONSTRAINT detalles_vuelos_vuelo_id_foreign
-    FOREIGN KEY (id_vuelo)
+    FOREIGN KEY (vuelo_id)
     REFERENCES vuelos(id);
 
 ALTER TABLE habitaciones
     ADD CONSTRAINT habitaciones_alojamiento_privado_id_foreign
-    FOREIGN KEY (id_alojamiento_privado)
+    FOREIGN KEY (alojamiento_privado_id)
     REFERENCES alojamientos_privados(id);
 
 ALTER TABLE habitaciones_hoteles
     ADD CONSTRAINT habitaciones_hoteles_hotel_id_foreign
-    FOREIGN KEY (id_hotel)
+    FOREIGN KEY (hotel_id)
     REFERENCES hoteles(id);
 
 ALTER TABLE habitaciones_servicios
     ADD CONSTRAINT habitaciones_servicios_habitacion_hotel_id_foreign
-    FOREIGN KEY (id_habitacion_hotel)
+    FOREIGN KEY (habitacion_hotel_id)
     REFERENCES habitaciones_hoteles(id);
 
 ALTER TABLE habitaciones_servicios
     ADD CONSTRAINT habitaciones_servicios_servicio_alojamiento_id_foreign
-    FOREIGN KEY (id_servicio_alojamiento)
+    FOREIGN KEY (servicio_alojamiento_id)
     REFERENCES servicios_alojamientos(id);
 
 ALTER TABLE origenes_destinos
     ADD CONSTRAINT origenes_destinos_aeropuerto_id_foreign
-    FOREIGN KEY (id_aeropuerto)
+    FOREIGN KEY (aeropuerto_id)
     REFERENCES aeropuertos(id);
 
 ALTER TABLE origenes_destinos
     ADD CONSTRAINT origenes_destinos_detalle_vuelo_id_foreign
-    FOREIGN KEY (id_detalle_vuelo)
+    FOREIGN KEY (detalle_vuelo_id)
     REFERENCES detalles_vuelos(id);
 
-ALTER TABLE reservas_autos
-    ADD CONSTRAINT reservas_autos__venta_id_foreign
-    FOREIGN KEY (id_venta)
+ALTER TABLE reservas_vehiculos
+    ADD CONSTRAINT reservas_vehiculos__venta_id_foreign
+    FOREIGN KEY (venta_id)
     REFERENCES ventas(id);
 
 ALTER TABLE reservas_hoteles
     ADD CONSTRAINT reservas_hoteles__venta_id_foreign
-    FOREIGN KEY (id_venta)
+    FOREIGN KEY (venta_id)
     REFERENCES ventas(id);
 
 ALTER TABLE servicios_alojamientos
     ADD CONSTRAINT servicios_alojamientos_hotel_id_foreign
-    FOREIGN KEY (id_hotel)
+    FOREIGN KEY (hotel_id)
     REFERENCES hoteles(id);
 
 ALTER TABLE servicios_proveedores
     ADD CONSTRAINT servicios_proveedores_servicio_id_foreign
-    FOREIGN KEY (id_servicio)
+    FOREIGN KEY (servicio_id)
     REFERENCES servicios_de_vehiculos(id);
 
 ALTER TABLE servicios_proveedores
     ADD CONSTRAINT servicios_proveedores_proveedor_id_foreign
-    FOREIGN KEY (id_proveedor)
+    FOREIGN KEY (proveedor_id)
     REFERENCES proveedores(id);
 
 ALTER TABLE servicios_y_vehiculos
     ADD CONSTRAINT servicios_y_vehiculos_servicio_id_foreign
-    FOREIGN KEY (id_servicio)
+    FOREIGN KEY (servicio_id)
     REFERENCES servicios_de_vehiculos(id);
 
 ALTER TABLE servicios_y_vehiculos
     ADD CONSTRAINT servicios_y_vehiculos_patente_id_foreign
     FOREIGN KEY (patente)
-    REFERENCES automoviles(patente);
+    REFERENCES vehiculos(patente);
 
 ALTER TABLE ventas
     ADD CONSTRAINT ventas_user_id_foreign
-    FOREIGN KEY (id_user)
+    FOREIGN KEY (user_id)
     REFERENCES users(id);
 
 ALTER TABLE vuelos
     ADD CONSTRAINT vuelos_detalle_venta_vuelo_id_foreign
-    FOREIGN KEY (id_detalle_venta_vuelo)
+    FOREIGN KEY (detalle_venta_vuelo_id)
     REFERENCES detalles_ventas_vuelos(id);
-<<<<<<< Updated upstream
 
 -- PostgreSQL database dump
 --
@@ -1177,29 +1175,29 @@ Reyesbury, CO 30664', '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 
 
 --
--- Data for Name: automoviles; Type: TABLE DATA; Schema: public; Owner: guillermo
+-- Data for Name: vehiculos; Type: TABLE DATA; Schema: public; Owner: guillermo
 --
 
-INSERT INTO public.automoviles VALUES (1, 'NJ02 JRL', 6, 15, 14, 'Mercedes', 'Minivan', 'Media', 'Automática', 'Petróleo', 2, 4, 4, 4, 29688, 77933, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (2, 'RC07 WUZ', 1, 7, 7, 'Peugeot', 'Camioneta', 'Baja', 'Manual', 'Bencina', 2, 3, 4, 4, 86126, 14973, true, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (3, 'MV14 LYK', 8, 16, 3, 'Peugeot', 'Camioneta', 'Alta', 'Manual', 'Bencina', 2, 3, 4, 4, 35286, 68448, true, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (4, 'BK06 LHK', 15, 3, 5, 'Peugeot', 'Camioneta', 'Alta', 'Manual', 'Bencina', 3, 2, 5, 4, 77082, 72968, true, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (5, 'NX04 PLJ', 18, 12, 20, 'Nissan', 'Automovil', 'Media', 'Manual', 'Bencina', 1, 1, 5, 4, 39059, 47211, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (6, 'YL04 XZO', 4, 16, 7, 'Citroen', 'Automovil', 'Baja', 'Automática', 'Petróleo', 1, 3, 2, 4, 59099, 59242, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (7, 'HG09 TXA', 8, 8, 2, 'Nissan', 'Automovil', 'Alta', 'Automática', 'Bencina', 1, 5, 3, 4, 32932, 63865, true, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (8, 'MD08 NMW', 18, 9, 5, 'Citroen', 'Camioneta', 'Media', 'Automática', 'Petróleo', 3, 5, 3, 4, 11384, 23005, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (9, 'KJ06 KWJ', 9, 3, 5, 'Renault', 'Automovil', 'Media', 'Manual', 'Bencina', 2, 2, 5, 4, 24179, 12823, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (10, 'FM17 AOV', 13, 5, 13, 'Honda', 'Minivan', 'Baja', 'Manual', 'Petróleo', 2, 2, 3, 4, 13882, 39227, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (11, 'RF06 CAY', 9, 13, 5, 'Mini', 'Camioneta', 'Baja', 'Manual', 'Petróleo', 1, 3, 2, 4, 38286, 64836, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (12, 'DL14 OQS', 13, 7, 4, 'Mini', 'Minivan', 'Media', 'Manual', 'Petróleo', 4, 4, 2, 4, 89237, 99007, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (13, 'RW06 XNI', 13, 20, 8, 'BMW', 'Automovil', 'Baja', 'Manual', 'Petróleo', 4, 1, 4, 4, 54651, 82447, true, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (14, 'WV06 HLF', 16, 18, 11, 'Ford', 'Minivan', 'Baja', 'Manual', 'Bencina', 2, 2, 1, 4, 78088, 65168, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (15, 'KH17 JEF', 17, 8, 9, 'Toyota', 'Camioneta', 'Media', 'Automática', 'Bencina', 2, 4, 3, 4, 94820, 21369, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (16, 'CF16 FCW', 19, 7, 5, 'Honda', 'Minivan', 'Alta', 'Manual', 'Bencina', 2, 2, 2, 4, 84672, 20935, true, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (17, 'GJ10 UZQ', 5, 13, 10, 'Fiat', 'Automovil', 'Media', 'Manual', 'Petróleo', 3, 1, 5, 4, 28195, 35020, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (18, 'VF15 KPN', 17, 14, 8, 'Honda', 'Minivan', 'Alta', 'Manual', 'Petróleo', 2, 2, 3, 4, 96144, 12686, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (19, 'PU17 WJX', 4, 18, 18, 'Nissan', 'Camioneta', 'Media', 'Automática', 'Bencina', 2, 2, 1, 4, 39619, 21382, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.automoviles VALUES (20, 'PH01 CLB', 20, 3, 1, 'Vauxhall', 'Automovil', 'Alta', 'Manual', 'Bencina', 3, 2, 2, 4, 91083, 64624, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (1, 'NJ02 JRL', 6, 15, 14, 'Mercedes', 'Minivan', 'Media', 'Automática', 'Petróleo', 2, 4, 4, 4, 29688, 77933, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (2, 'RC07 WUZ', 1, 7, 7, 'Peugeot', 'Camioneta', 'Baja', 'Manual', 'Bencina', 2, 3, 4, 4, 86126, 14973, true, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (3, 'MV14 LYK', 8, 16, 3, 'Peugeot', 'Camioneta', 'Alta', 'Manual', 'Bencina', 2, 3, 4, 4, 35286, 68448, true, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (4, 'BK06 LHK', 15, 3, 5, 'Peugeot', 'Camioneta', 'Alta', 'Manual', 'Bencina', 3, 2, 5, 4, 77082, 72968, true, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (5, 'NX04 PLJ', 18, 12, 20, 'Nissan', 'Automovil', 'Media', 'Manual', 'Bencina', 1, 1, 5, 4, 39059, 47211, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (6, 'YL04 XZO', 4, 16, 7, 'Citroen', 'Automovil', 'Baja', 'Automática', 'Petróleo', 1, 3, 2, 4, 59099, 59242, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (7, 'HG09 TXA', 8, 8, 2, 'Nissan', 'Automovil', 'Alta', 'Automática', 'Bencina', 1, 5, 3, 4, 32932, 63865, true, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (8, 'MD08 NMW', 18, 9, 5, 'Citroen', 'Camioneta', 'Media', 'Automática', 'Petróleo', 3, 5, 3, 4, 11384, 23005, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (9, 'KJ06 KWJ', 9, 3, 5, 'Renault', 'Automovil', 'Media', 'Manual', 'Bencina', 2, 2, 5, 4, 24179, 12823, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (10, 'FM17 AOV', 13, 5, 13, 'Honda', 'Minivan', 'Baja', 'Manual', 'Petróleo', 2, 2, 3, 4, 13882, 39227, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (11, 'RF06 CAY', 9, 13, 5, 'Mini', 'Camioneta', 'Baja', 'Manual', 'Petróleo', 1, 3, 2, 4, 38286, 64836, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (12, 'DL14 OQS', 13, 7, 4, 'Mini', 'Minivan', 'Media', 'Manual', 'Petróleo', 4, 4, 2, 4, 89237, 99007, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (13, 'RW06 XNI', 13, 20, 8, 'BMW', 'Automovil', 'Baja', 'Manual', 'Petróleo', 4, 1, 4, 4, 54651, 82447, true, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (14, 'WV06 HLF', 16, 18, 11, 'Ford', 'Minivan', 'Baja', 'Manual', 'Bencina', 2, 2, 1, 4, 78088, 65168, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (15, 'KH17 JEF', 17, 8, 9, 'Toyota', 'Camioneta', 'Media', 'Automática', 'Bencina', 2, 4, 3, 4, 94820, 21369, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (16, 'CF16 FCW', 19, 7, 5, 'Honda', 'Minivan', 'Alta', 'Manual', 'Bencina', 2, 2, 2, 4, 84672, 20935, true, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (17, 'GJ10 UZQ', 5, 13, 10, 'Fiat', 'Automovil', 'Media', 'Manual', 'Petróleo', 3, 1, 5, 4, 28195, 35020, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (18, 'VF15 KPN', 17, 14, 8, 'Honda', 'Minivan', 'Alta', 'Manual', 'Petróleo', 2, 2, 3, 4, 96144, 12686, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (19, 'PU17 WJX', 4, 18, 18, 'Nissan', 'Camioneta', 'Media', 'Automática', 'Bencina', 2, 2, 1, 4, 39619, 21382, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.vehiculos VALUES (20, 'PH01 CLB', 20, 3, 1, 'Vauxhall', 'Automovil', 'Alta', 'Manual', 'Bencina', 3, 2, 2, 4, 91083, 64624, false, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 
 
 --
@@ -1261,55 +1259,55 @@ INSERT INTO public.ventas VALUES (20, 10, 12279, '2008-10-06', 0.190000000000000
 
 
 --
--- Data for Name: reservas_autos; Type: TABLE DATA; Schema: public; Owner: guillermo
+-- Data for Name: reservas_vehiculos; Type: TABLE DATA; Schema: public; Owner: guillermo
 --
 
-INSERT INTO public.reservas_autos VALUES (1, 18, '1988-05-05 00:00:00', 86982, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (2, 10, '1990-06-09 00:00:00', 84949, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (3, 6, '1983-04-08 00:00:00', 74148, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (4, 16, '1975-06-05 00:00:00', 69665, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (5, 1, '1973-05-07 00:00:00', 66516, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (6, 14, '2014-12-11 00:00:00', 38939, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (7, 3, '1990-09-29 00:00:00', 25342, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (8, 7, '2007-10-31 00:00:00', 49374, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (9, 3, '1997-04-05 00:00:00', 71567, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (10, 6, '2000-12-06 00:00:00', 63638, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (11, 16, '1973-05-13 00:00:00', 78317, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (12, 18, '1978-04-05 00:00:00', 83929, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (13, 11, '2000-11-25 00:00:00', 92743, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (14, 13, '1987-11-20 00:00:00', 45188, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (15, 7, '1983-08-29 00:00:00', 39415, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (16, 5, '2017-11-17 00:00:00', 79260, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (17, 19, '1994-04-02 00:00:00', 94139, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (18, 19, '1990-10-10 00:00:00', 24548, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (19, 17, '1992-10-24 00:00:00', 71199, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
-INSERT INTO public.reservas_autos VALUES (20, 17, '1998-02-08 00:00:00', 24096, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (1, 18, '1988-05-05 00:00:00', 86982, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (2, 10, '1990-06-09 00:00:00', 84949, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (3, 6, '1983-04-08 00:00:00', 74148, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (4, 16, '1975-06-05 00:00:00', 69665, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (5, 1, '1973-05-07 00:00:00', 66516, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (6, 14, '2014-12-11 00:00:00', 38939, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (7, 3, '1990-09-29 00:00:00', 25342, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (8, 7, '2007-10-31 00:00:00', 49374, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (9, 3, '1997-04-05 00:00:00', 71567, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (10, 6, '2000-12-06 00:00:00', 63638, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (11, 16, '1973-05-13 00:00:00', 78317, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (12, 18, '1978-04-05 00:00:00', 83929, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (13, 11, '2000-11-25 00:00:00', 92743, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (14, 13, '1987-11-20 00:00:00', 45188, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (15, 7, '1983-08-29 00:00:00', 39415, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (16, 5, '2017-11-17 00:00:00', 79260, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (17, 19, '1994-04-02 00:00:00', 94139, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (18, 19, '1990-10-10 00:00:00', 24548, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (19, 17, '1992-10-24 00:00:00', 71199, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
+INSERT INTO public.reservas_vehiculos VALUES (20, 17, '1998-02-08 00:00:00', 24096, '2018-12-28 12:14:35', '2018-12-28 12:14:35');
 
 
 --
--- Data for Name: detalles_reservas_autos; Type: TABLE DATA; Schema: public; Owner: guillermo
+-- Data for Name: detalles_reservas_vehiculos; Type: TABLE DATA; Schema: public; Owner: guillermo
 --
 
-INSERT INTO public.detalles_reservas_autos VALUES (1, 13, 'NX04 PLJ', '2019-01-02 11:51:05', '2019-01-19 03:12:39', 122658, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (2, 14, 'WV06 HLF', '2019-01-05 16:15:52', '2019-01-24 19:35:38', 51043, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (3, 2, 'NX04 PLJ', '2018-12-31 17:09:36', '2019-01-23 20:15:22', 110119, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (4, 19, 'NJ02 JRL', '2019-01-04 05:32:28', '2019-01-19 09:49:39', 188384, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (5, 10, 'WV06 HLF', '2019-01-05 02:04:49', '2019-01-13 02:24:17', 86624, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (6, 14, 'RC07 WUZ', '2019-01-09 05:58:47', '2019-01-24 13:52:24', 131867, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (7, 15, 'KH17 JEF', '2019-01-01 12:22:58', '2019-01-21 15:29:00', 179109, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (8, 10, 'DL14 OQS', '2019-01-11 12:00:20', '2019-01-19 10:16:33', 191673, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (9, 10, 'FM17 AOV', '2019-01-09 20:07:59', '2019-01-25 11:33:54', 114674, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (10, 17, 'MV14 LYK', '2018-12-30 20:04:20', '2019-01-13 10:44:43', 142281, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (11, 19, 'RW06 XNI', '2019-01-04 07:45:19', '2019-01-12 06:56:22', 66131, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (12, 3, 'VF15 KPN', '2018-12-31 00:27:32', '2019-01-18 17:04:47', 92235, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (13, 14, 'KJ06 KWJ', '2019-01-02 17:00:47', '2019-01-12 03:50:38', 71659, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (14, 16, 'CF16 FCW', '2019-01-02 03:19:43', '2019-01-19 01:12:18', 81494, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (15, 11, 'PH01 CLB', '2019-01-03 03:46:18', '2019-01-22 21:58:36', 139980, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (16, 19, 'DL14 OQS', '2019-01-03 11:08:34', '2019-01-22 07:53:17', 57316, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (17, 3, 'MD08 NMW', '2019-01-01 09:08:24', '2019-01-14 20:47:52', 91745, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (18, 7, 'MV14 LYK', '2019-01-04 15:15:03', '2019-01-14 01:34:12', 146584, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (19, 10, 'WV06 HLF', '2018-12-31 20:23:08', '2019-01-16 06:33:14', 140039, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
-INSERT INTO public.detalles_reservas_autos VALUES (20, 19, 'KH17 JEF', '2018-12-29 22:38:41', '2019-01-20 04:11:18', 107127, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (1, 13, 'NX04 PLJ', '2019-01-02 11:51:05', '2019-01-19 03:12:39', 122658, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (2, 14, 'WV06 HLF', '2019-01-05 16:15:52', '2019-01-24 19:35:38', 51043, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (3, 2, 'NX04 PLJ', '2018-12-31 17:09:36', '2019-01-23 20:15:22', 110119, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (4, 19, 'NJ02 JRL', '2019-01-04 05:32:28', '2019-01-19 09:49:39', 188384, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (5, 10, 'WV06 HLF', '2019-01-05 02:04:49', '2019-01-13 02:24:17', 86624, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (6, 14, 'RC07 WUZ', '2019-01-09 05:58:47', '2019-01-24 13:52:24', 131867, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (7, 15, 'KH17 JEF', '2019-01-01 12:22:58', '2019-01-21 15:29:00', 179109, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (8, 10, 'DL14 OQS', '2019-01-11 12:00:20', '2019-01-19 10:16:33', 191673, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (9, 10, 'FM17 AOV', '2019-01-09 20:07:59', '2019-01-25 11:33:54', 114674, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (10, 17, 'MV14 LYK', '2018-12-30 20:04:20', '2019-01-13 10:44:43', 142281, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (11, 19, 'RW06 XNI', '2019-01-04 07:45:19', '2019-01-12 06:56:22', 66131, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (12, 3, 'VF15 KPN', '2018-12-31 00:27:32', '2019-01-18 17:04:47', 92235, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (13, 14, 'KJ06 KWJ', '2019-01-02 17:00:47', '2019-01-12 03:50:38', 71659, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (14, 16, 'CF16 FCW', '2019-01-02 03:19:43', '2019-01-19 01:12:18', 81494, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (15, 11, 'PH01 CLB', '2019-01-03 03:46:18', '2019-01-22 21:58:36', 139980, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (16, 19, 'DL14 OQS', '2019-01-03 11:08:34', '2019-01-22 07:53:17', 57316, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (17, 3, 'MD08 NMW', '2019-01-01 09:08:24', '2019-01-14 20:47:52', 91745, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (18, 7, 'MV14 LYK', '2019-01-04 15:15:03', '2019-01-14 01:34:12', 146584, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (19, 10, 'WV06 HLF', '2018-12-31 20:23:08', '2019-01-16 06:33:14', 140039, 0.200000000000000011, 1, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+INSERT INTO public.detalles_reservas_vehiculos VALUES (20, 19, 'KH17 JEF', '2018-12-29 22:38:41', '2019-01-20 04:11:18', 107127, 0.200000000000000011, 2, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 
 
 --
@@ -1530,9 +1528,9 @@ INSERT INTO public.migrations VALUES (4, '2018_11_25_213032_create_servicios_de_
 INSERT INTO public.migrations VALUES (5, '2018_11_26_212509_create_calendarios_vehiculos_table', 1);
 INSERT INTO public.migrations VALUES (6, '2018_11_26_212540_create_zonas_table', 1);
 INSERT INTO public.migrations VALUES (7, '2018_11_26_212612_create_proveedores_table', 1);
-INSERT INTO public.migrations VALUES (8, '2018_11_27_212256_create_reservas_autos_table', 1);
-INSERT INTO public.migrations VALUES (9, '2018_11_27_212257_create_automoviles_table', 1);
-INSERT INTO public.migrations VALUES (10, '2018_11_27_212346_create_detalles_reservas_autos_table', 1);
+INSERT INTO public.migrations VALUES (8, '2018_11_27_212256_create_reservas_vehiculos_table', 1);
+INSERT INTO public.migrations VALUES (9, '2018_11_27_212257_create_vehiculos_table', 1);
+INSERT INTO public.migrations VALUES (10, '2018_11_27_212346_create_detalles_reservas_vehiculos_table', 1);
 INSERT INTO public.migrations VALUES (11, '2018_11_27_212646_create_servicios_proveedores_table', 1);
 INSERT INTO public.migrations VALUES (12, '2018_11_27_213113_create_servicios_y_vehiculos_table', 1);
 INSERT INTO public.migrations VALUES (13, '2018_11_28_122819_create_hoteles_table', 1);
@@ -1704,10 +1702,10 @@ SELECT pg_catalog.setval('public.asientos_id_seq', 20, true);
 
 
 --
--- Name: automoviles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: guillermo
+-- Name:vehiculos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: guillermo
 --
 
-SELECT pg_catalog.setval('public.automoviles_id_seq', 20, true);
+SELECT pg_catalog.setval('public.vehiculos_id_seq', 20, true);
 
 
 --
@@ -1753,10 +1751,10 @@ SELECT pg_catalog.setval('public.companias_id_seq', 20, true);
 
 
 --
--- Name: detalles_reservas_autos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: guillermo
+-- Name: detalles_reservas_vehiculos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: guillermo
 --
 
-SELECT pg_catalog.setval('public.detalles_reservas_autos_id_seq', 20, true);
+SELECT pg_catalog.setval('public.detalles_reservas_vehiculos_id_seq', 20, true);
 
 
 --
@@ -1830,10 +1828,10 @@ SELECT pg_catalog.setval('public.proveedores_id_seq', 20, true);
 
 
 --
--- Name: reservas_autos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: guillermo
+-- Name: reservas_vehiculos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: guillermo
 --
 
-SELECT pg_catalog.setval('public.reservas_autos_id_seq', 20, true);
+SELECT pg_catalog.setval('public.reservas_vehiculos_id_seq', 20, true);
 
 
 --
@@ -1902,6 +1900,3 @@ SELECT pg_catalog.setval('public.zonas_id_seq', 20, true);
 --
 -- PostgreSQL database dump complete
 --
-
-=======
->>>>>>> Stashed changes

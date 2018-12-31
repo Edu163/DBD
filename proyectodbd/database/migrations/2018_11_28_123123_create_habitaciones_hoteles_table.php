@@ -15,13 +15,13 @@ class CreateHabitacionesHotelesTable extends Migration
     {
         Schema::create('habitaciones_hoteles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_hotel');
-            $table->foreign('id_hotel')
+            $table->integer('hotel_id');
+            $table->foreign('hotel_id')
                 ->references('id')
                 ->on('hoteles')
                 ->onDelete('cascade');
-            $table->integer('id_calendario_alojamiento');
-            $table->foreign('id_calendario_alojamiento')
+            $table->integer('calendario_alojamiento_id');
+            $table->foreign('calendario_alojamiento_id')
                 ->references('id')
                 ->on('calendarios_alojamientos')
                 ->onDelete('cascade');

@@ -113,7 +113,7 @@ class HotelController extends Controller
      */
     public function destroy($id)
     {
-         $hotel = Hotel::findOrFail($id);
+        $hotel = Hotel::findOrFail($id);
         $hotel->delete();
         return "eliminado";
     }

@@ -37,9 +37,9 @@ class DetalleReservaHotelController extends Controller
     public function store(Request $request)
     {
         $detalleReservaHotelData = $this->validate($request, [
-            'id_reserva_hotel' => 'required',
-            'id_habitacion_hotel' => 'required',
-            'id_alojamiento_privado' => 'required',
+            'reserva_hotel_id' => 'required',
+            'habitacion_hotel_id' => 'required',
+            'alojamiento_privado_id' => 'required',
             'fecha_ingreso' => 'required',
             'fecha_egreso' => 'required',
             'precio' => 'required',
@@ -95,9 +95,9 @@ class DetalleReservaHotelController extends Controller
     {
         $detalleReservaHotel = $DetalleReservaHotel::find($id);
         $detalleReservaHotel->fill($this->validate($request, [
-            'id_reserva_hotel' => 'required',
-            'id_habitacion_hotel' => 'required',
-            'id_alojamiento_privado' => 'required',
+            'reserva_hotel_id' => 'required',
+            'habitacion_hotel_id' => 'required',
+            'alojamiento_privado_id' => 'required',
             'fecha_ingreso' => 'required',
             'fecha_egreso' => 'required',
             'precio' => 'required',

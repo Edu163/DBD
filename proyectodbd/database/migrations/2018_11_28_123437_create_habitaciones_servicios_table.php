@@ -15,13 +15,13 @@ class CreateHabitacionesServiciosTable extends Migration
     {
         Schema::create('habitaciones_servicios', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_servicio_alojamiento');
-            $table->foreign('id_servicio_alojamiento')
+            $table->integer('servicio_alojamiento_id');
+            $table->foreign('servicio_alojamiento_id')
                 ->references('id')
                 ->on('servicios_alojamientos')
                 ->onDelete('cascade');
-            $table->integer('id_habitacion_hotel');
-            $table->foreign('id_habitacion_hotel')
+            $table->integer('habitacion_hotel_id');
+            $table->foreign('habitacion_hotel_id')
                 ->references('id')
                 ->on('habitaciones_hoteles')
                 ->onDelete('cascade');
