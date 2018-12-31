@@ -8,12 +8,12 @@ class AlojamientoServicio extends Model
 {
     protected $table = 'alojamientos_servicios';
 
-    protected $id_servicio_alojamiento;
-    protected $id_alojamiento_privado;
+    protected $servicio_alojamiento_id;
+    protected $alojamiento_privado_id;
 
     protected $fillable = [
-	    'id_servicio_alojamiento',
-	    'id_alojamiento_privado',
+	    'servicio_alojamiento_id',
+	    'alojamiento_privado_id',
     ];
 
     /* Relaciones */

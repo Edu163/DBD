@@ -15,7 +15,6 @@ class AeropuertoController extends Controller
      */
     public function index()
     {
-        //
         return Aeropuerto::all();
     }
 
@@ -37,7 +36,6 @@ class AeropuertoController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $asiento = Aeropuerto::create($this->validate($request, [
             'pais' => 'required',
             'ciudad' => 'required',
@@ -61,7 +59,6 @@ class AeropuertoController extends Controller
      */
     public function show($id)
     {
-        //
         return Aeropuerto::findOrFail($id);
     }
 
@@ -85,7 +82,6 @@ class AeropuertoController extends Controller
      */
     public function update(Request $request, Aeropuerto $aeropuerto)
     {
-        //
         $outcome = $aeropuerto->fill($this->validate($request, [
             'pais' => 'required',
             'ciudad' => 'required',
@@ -110,7 +106,6 @@ class AeropuertoController extends Controller
      */
     public function destroy($id)
     {
-        //
         $aeropuerto = Aeropuerto::findOrFail($id);
         $aeropuerto->delete();
         return "eliminado";

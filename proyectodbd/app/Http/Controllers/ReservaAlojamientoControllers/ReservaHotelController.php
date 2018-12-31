@@ -37,7 +37,7 @@ class ReservaHotelController extends Controller
     public function store(Request $request)
     {
          $reservaHotelData = $this->validate($request, [
-            'id_venta' => 'required',
+            'venta_id' => 'required',
             'precio' => 'required',
             'fecha' => 'required',
             'cantidad' => 'required',

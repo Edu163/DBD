@@ -9,6 +9,7 @@ class DetalleVentaVuelo extends Model
 
     protected $table = 'detalles_ventas_vuelos';
 
+    protected $venta_id;    
     protected $precio;
     protected $descuento;
     protected $monto_total;
@@ -17,7 +18,7 @@ class DetalleVentaVuelo extends Model
     protected $cantidad;
 
     protected $fillable = [
-        'id_venta',
+        'venta_id',
         'precio',
         'descuento',
         'monto_total',

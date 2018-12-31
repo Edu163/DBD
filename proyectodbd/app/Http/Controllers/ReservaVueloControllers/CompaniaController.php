@@ -15,14 +15,12 @@ class CompaniaController extends Controller
      */
     /*public function index()
     {
-        //
         $companias = Compania::all();
 
         return view('modulos.ReservaVuelo.companias.index', compact('companias'));
     }*/
     public function index()
     {
-        //
         return Compania::all();
     }
 
@@ -33,7 +31,6 @@ class CompaniaController extends Controller
      */
     public function create()
     {
-        //
         return view('modulos.ReservaVuelo.companias.create');
     }
 
@@ -65,7 +62,6 @@ class CompaniaController extends Controller
      */
     public function show($id)
     {
-        //
         return Compania::findOrFail($id);
     }
 
@@ -89,7 +85,6 @@ class CompaniaController extends Controller
      */
     public function update(Request $request, Compania $compania)
     {
-        //
         $outcome = $compania->fill($this->validate($request, [
             'nombre' => 'required',
             'direccion' => 'required'
@@ -112,7 +107,6 @@ class CompaniaController extends Controller
      */
     public function destroy($id)
     {
-        //
         $compania = Compania::find($id);
         $aviones = $compania->avion();
         foreach ($aviones as $avion) {

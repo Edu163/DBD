@@ -15,7 +15,6 @@ class DetalleVueloController extends Controller
      */
     public function index()
     {
-        //
         return DetalleVuelo::all();
     }
 
@@ -37,11 +36,9 @@ class DetalleVueloController extends Controller
      */
     public function store(Request $request)
     {
-        //
-         //
          $detalleVuelo = DetalleVuelo::create($this->validate($request, [
-            'id_avion' => 'required',
-            'id_vuelo' => 'required',
+            'avion_id' => 'required',
+            'vuelo_id' => 'required',
             'fecha_despegue' => 'required',
             'fecha_aterrizaje' => 'required',
         ]));
@@ -62,7 +59,6 @@ class DetalleVueloController extends Controller
      */
     public function show($id)
     {
-        //
         return DetalleVuelo::findOrFail($id);
     }
 
@@ -86,10 +82,9 @@ class DetalleVueloController extends Controller
      */
     public function update(Request $request, DetalleVuelo $detalleVuelo)
     {
-        //
         $outcome = $detalleVuelo->fill($this->validate($request, [
-            'id_avion' => 'required',
-            'id_vuelo' => 'required',
+            'avion_id' => 'required',
+            'vuelo_id' => 'required',
             'fecha_despegue' => 'required',
             'fecha_aterrizaje' => 'required',
           ]))->save();
@@ -111,8 +106,6 @@ class DetalleVueloController extends Controller
      */
     public function destroy($id)
     {
-        //
-
         $detalleVuelo = DetalleVuelo::findOrFail($id);
         $detalleVuelo->delete();
         return "eliminado";

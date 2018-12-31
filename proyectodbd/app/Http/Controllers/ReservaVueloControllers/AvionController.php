@@ -15,7 +15,6 @@ class AvionController extends Controller
      */
     public function index()
     {
-        //
         return Avion::All();
     }
 
@@ -37,10 +36,9 @@ class AvionController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $avion = Avion::create($this->validate($request, [
-            'modelo' => 'required',
             'compania_id' => 'required',
+            'modelo' => 'required',
         ]));
 
         if ($avion->exists()) {
@@ -59,7 +57,6 @@ class AvionController extends Controller
      */
     public function show($id)
     {
-        //
         return Avion::findOrFail($id);
     }
 
@@ -83,10 +80,9 @@ class AvionController extends Controller
      */
     public function update(Request $request, Avion $avion)
     {
-        //
         $outcome = $avion->fill($this->validate($request, [
+            'compania_id' => 'required',
             'modelo' => 'required',
-            'compania_id' => 'required'
           ]))->save();
       
           if ($outcome) {
@@ -106,7 +102,6 @@ class AvionController extends Controller
      */
     public function destroy($id)
     {
-        //
         $avion = Avion::findOrFail($id);
         $avion->delete();
         return "eliminado";

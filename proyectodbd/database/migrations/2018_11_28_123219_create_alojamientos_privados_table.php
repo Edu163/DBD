@@ -15,8 +15,8 @@ class CreateAlojamientosPrivadosTable extends Migration
     {
         Schema::create('alojamientos_privados', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_calendario_alojamiento');
-            $table->foreign('id_calendario_alojamiento')
+            $table->integer('calendario_alojamiento_id');
+            $table->foreign('calendario_alojamiento_id')
                 ->references('id')
                 ->on('calendarios_alojamientos')
                 ->onDelete('cascade');

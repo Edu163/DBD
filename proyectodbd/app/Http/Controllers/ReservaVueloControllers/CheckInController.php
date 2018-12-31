@@ -15,7 +15,6 @@ class CheckInController extends Controller
      */
     public function index()
     {
-        //
         return CheckIn::all();
     }
 
@@ -38,10 +37,9 @@ class CheckInController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $checkin = CheckIn::create($this->validate($request, [
-            'id_asiento' => 'required',
-            'id_user' => 'required',
+            'asiento_id' => 'required',
+            'user_id' => 'required',
             'fecha' => 'required',
             'estado' => 'required'
         ]));
@@ -62,7 +60,6 @@ class CheckInController extends Controller
      */
     public function show($id)
     {
-        //
         return CheckIn::findOrFail($id);
         
     }
@@ -87,10 +84,9 @@ class CheckInController extends Controller
      */
     public function update(Request $request, CheckIn $checkIn)
     {
-        //
         $outcome = $checkIn->fill($this->validate($request, [
-            'id_asiento' => 'required',
-            'id_user' => 'required',
+            'asiento_id' => 'required',
+            'user_id' => 'required',
             'fecha' => 'required',
             'estado' => 'required'
           ]))->save();
@@ -112,7 +108,6 @@ class CheckInController extends Controller
      */
     public function destroy($id)
     {
-        //
         $checkIn = CheckIn::findOrFail($id);
         $checkIn->delete();
         return "eliminado";

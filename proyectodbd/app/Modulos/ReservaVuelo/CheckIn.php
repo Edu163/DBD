@@ -8,14 +8,14 @@ class CheckIn extends Model
 {
     protected $table = 'checks_in';
 
-    protected $id_asiento;
-    protected $id_user;
+    protected $asiento_id;
+    protected $user_id;
     protected $fecha;
     protected $estado;
 
     protected $fillable = [
-        'id_asiento',
-        'id_user',
+        'asiento_id',
+        'user_id',
         'fecha',
         'estado'
     ];

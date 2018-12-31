@@ -8,13 +8,13 @@ class ServicioAlojamiento extends Model
 {
 	protected $table = 'servicios_alojamientos';
 	
-	protected $id_hotel;
+	protected $hotel_id;
     protected $nombre;
     protected $precio;
     protected $descripcion;
 
     protected $fillable = [
-    	'id_hotel',
+    	'hotel_id',
     	'nombre',
     	'precio',
     	'descripcion'

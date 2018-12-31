@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\ReservaAutoControllers;
+namespace App\Http\Controllers\ReservaVehiculoControllers;
 
-use App\Modulos\ReservaAuto\Proveedor;
+use App\Modulos\ReservaVehiculo\ServicioDeVehiculo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProveedorController extends Controller
+class ServicioDeVehiculoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        return Proveedor::all();
+        return ServicioDeVehiculo::all();
     }
 
     /**
@@ -36,27 +36,27 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        return Proveedor::create($request->all());
+        return ServicioDeVehiculo::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Modulos\ReservaAuto\Proveedor  $proveedor
+     * @param  \App\Modulos\ReservaVehiculo\ServicioDeVehiculo  $servicioDeVehiculo
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return Proveedor::find($id);
+        return ServicioDeVehiculo::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Modulos\ReservaAuto\Proveedor  $proveedor
+     * @param  \App\Modulos\ReservaVehiculo\ServicioDeVehiculo  $servicioDeVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proveedor $proveedor)
+    public function edit(ServicioDeVehiculo $servicioDeVehiculo)
     {
         //
     }
@@ -65,19 +65,15 @@ class ProveedorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Modulos\ReservaAuto\Proveedor  $proveedor
+     * @param  \App\Modulos\ReservaVehiculo\ServicioDeVehiculo  $servicioDeVehiculo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $proveedor = Proveedor::find($id);
-        $proveedor->fill($this->validate($request, [
-            'politica_combustible' => 'required',
-            'documentacion_necesaria' => 'required',
-            'franquicia_daños' => 'required',
-            'calificacion' => 'required',
-            'deposito_seguridad' => 'required',
-            'kilometraje' => 'required',
+        $servicioDeVehiculo = ServicioDeVehiculo::find($id);
+        $servicioDeVehiculo->fill($this->validate($request, [
+            'nombre_servicio' => 'required',
+            'duracion' => 'required',
         ]))->save();
 
         return "Me he acutalizado correctamente! :D!";
@@ -86,13 +82,13 @@ class ProveedorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Modulos\ReservaAuto\Proveedor  $proveedor
+     * @param  \App\Modulos\ReservaVehiculo\ServicioDeVehiculo  $servicioDeVehiculo
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $proveedor = Proveedor::find($id);
-        $proveedor->delete();
+        $servicioDeVehiculo = ServicioDeVehiculo::find($id);
+        $servicioDeVehiculo->delete();
         return "lo eliminé";
     }
 }

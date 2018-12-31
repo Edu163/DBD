@@ -37,8 +37,8 @@ class AlojamientoServicioController extends Controller
     public function store(Request $request)
     {
         $alojamientoServicioData = $this->validate($request, [
-            'id_servicio_alojamiento' => 'required',
-            'id_alojamiento_privado' => 'required',
+            'servicio_alojamiento_id' => 'required',
+            'alojamiento_privado_id' => 'required',
         ]);
 
         $alojamientoServicio = AlojamientoServicio::create($alojamientoServicioData);
@@ -90,8 +90,8 @@ class AlojamientoServicioController extends Controller
     {
         $alojamientoServicio = $AlojamientoServicio::find($id);
         $alojamientoServicio->fill($this->validate($request, [
-            'id_servicio_alojamiento' => 'required',
-            'id_alojamiento_privado' => 'required',
+            'servicio_alojamiento_id' => 'required',
+            'alojamiento_privado_id' => 'required',
         ]))->save();
         
             return 'Actualizado con éxito!';
@@ -105,7 +105,7 @@ class AlojamientoServicioController extends Controller
      */
     public function destroy($id)
     {
-         $alojamientoServicio = AlojamientoServicio::findOrFail($id);
+        $alojamientoServicio = AlojamientoServicio::findOrFail($id);
         $alojamientoServicio->delete();
         return "eliminado";
     }

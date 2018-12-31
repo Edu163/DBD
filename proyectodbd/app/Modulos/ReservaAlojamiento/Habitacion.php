@@ -8,13 +8,13 @@ class Habitacion extends Model
 {
 	protected $table = 'habitaciones';
 	
-	protected $id_alojamiento_privado;
+	protected $alojamiento_privado_id;
     protected $piso;
     protected $numero;
     protected $camas;
 
     protected $fillable = [
-    	'id_alojamiento_privado',
+    	'alojamiento_privado_id',
     	'piso',
     	'numero',
     	'camas'

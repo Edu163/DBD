@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\ReservaAutoControllers;
+namespace App\Http\Controllers\ReservaVehiculoControllers;
 
-use App\Modulos\ReservaAuto\Automovil;
+use App\Modulos\ReservaVehiculo\Vehiculo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AutomovilController extends Controller
+class VehiculoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class AutomovilController extends Controller
      */
     public function index()
     {
-        return Automovil::all();
+        return Vehiculo::all();
     }
 
     /**
@@ -36,27 +36,27 @@ class AutomovilController extends Controller
      */
     public function store(Request $request)
     {
-        return Automovil::create($request->all());
+        return Vehiculo::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Modulos\ReservaAuto\Automovil  $automovil
+     * @param  \App\Modulos\ReservaVehiculo\Vehiculo  $vehiculo
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return Automovil::find($id);
+        return Vehiculo::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Modulos\ReservaAuto\Automovil  $automovil
+     * @param  \App\Modulos\ReservaVehiculo\Vehiculo  $vehiculo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Automovil $automovil)
+    public function edit(Vehiculo $vehiculo)
     {
         
     }
@@ -65,16 +65,16 @@ class AutomovilController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Modulos\ReservaAuto\Automovil  $automovil
+     * @param  \App\Modulos\ReservaVehiculo\Vehiculo  $vehiculo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $automovil = Automovil::find($id);
-        $automovil->fill($this->validate($request, [
-            'id_calendario_vehiculo' => 'required',
-            'id_proveedor' => 'required',
-            'id_zona' => 'required',
+        $vehiculo = Vehiculo::find($id);
+        $vehiculo->fill($this->validate($request, [
+            'calendario_vehiculo_id' => 'required',
+            'proveedor_id' => 'required',
+            'zona_id' => 'required',
             'marca' => 'required',
             'tipo' => 'required',
             'gamma' => 'required',
@@ -95,13 +95,13 @@ class AutomovilController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Modulos\ReservaAuto\Automovil  $automovil
+     * @param  \App\Modulos\ReservaVehiculo\Vehiculo  $vehiculo
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $automovil = Automovil::find($id);
-        $automovil->delete();
+        $vehiculo = Vehiculo::find($id);
+        $vehiculo->delete();
         return "Me eliminé correctamente! :D!";
     }
 }

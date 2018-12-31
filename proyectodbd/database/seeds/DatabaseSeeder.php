@@ -16,15 +16,15 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             VentasSeeder::class,
 
-            /* Autos */
-            ReservasAutosSeeder::class,
+            /* Vehiculos */
+            ReservasVehiculosSeeder::class,
             CalendariosVehiculosSeeder::class,
             ZonasSeeder::class,
             ProveedoresSeeder::class,
-            AutomovilesSeeder::class,
-            DetallesReservasAutosSeeder::class,
+            VehiculosSeeder::class,
+            DetallesReservasVehiculosSeeder::class,
             ServiciosDeVehiculosSeeder::class,
-            ServiciosYVehiculosSeeder::class,
+            //ServiciosYVehiculosSeeder::class,
             ServiciosProveedoresSeeder::class,
 
             /* Hoteles */

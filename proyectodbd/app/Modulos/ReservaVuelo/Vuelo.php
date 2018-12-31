@@ -8,12 +8,12 @@ class Vuelo extends Model
 {
     protected $table = 'vuelos';
 
-    protected $id_detalle_venta_vuelo;
+    protected $detalle_venta_vuelo_id;
     protected $precio;
     protected $duracion_vuelo;
 
     protected $fillable = [
-    	'id_detalle_venta_vuelo',
+    	'detalle_venta_vuelo_id',
         'precio',
         'duracion_vuelo'
     ];

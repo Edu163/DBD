@@ -15,7 +15,6 @@ class AsientoController extends Controller
      */
     public function index()
     {
-        //
         return Asiento::all();
     }
 
@@ -37,14 +36,13 @@ class AsientoController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $asiento = Asiento::create($this->validate($request, [
+            'avion_id'=> 'required',
             'numero' => 'required',
             'letra' => 'required',
             'tipo' => 'required',
             'clase' => 'required',
             'disponible' => 'required',
-            'id_avion'=> 'required'
         ]));
 
         if ($asiento->exists()) {
@@ -87,14 +85,13 @@ class AsientoController extends Controller
      */
     public function update(Request $request, Asiento $asiento)
     {
-        //
         $outcome = $asiento->fill($this->validate($request, [
+            'avion_id'=> 'required',
             'numero' => 'required',
             'letra' => 'required',
             'tipo' => 'required',
             'clase' => 'required',
             'disponible' => 'required',
-            'id_avion'=> 'required'
           ]))->save();
       
           if ($outcome) {
@@ -114,7 +111,6 @@ class AsientoController extends Controller
      */
     public function destroy(Asiento $asiento)
     {
-        //
         $asiento = Asiento::findOrFail($id);
         $asiento->delete();
         return "eliminado";

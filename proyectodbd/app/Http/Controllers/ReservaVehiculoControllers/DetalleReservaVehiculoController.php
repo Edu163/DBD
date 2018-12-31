@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\ReservaAutoControllers;
+namespace App\Http\Controllers\ReservaVehiculoControllers;
 
-use App\Modulos\ReservaAuto\DetalleReservaAuto;
+use App\Modulos\ReservaVehiculo\DetalleReservaVehiculo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DetalleReservaAutoController extends Controller
+class DetalleReservaVehiculoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class DetalleReservaAutoController extends Controller
      */
     public function index()
     {
-        return DetalleReservaAuto::all();
+        return DetalleReservaVehiculo::all();
     }
 
     /**
@@ -36,27 +36,27 @@ class DetalleReservaAutoController extends Controller
      */
     public function store(Request $request)
     {
-        return DetalleReservaAuto::create($request->all());
+        return DetalleReservaVehiculo::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Modulos\ReservaAuto\DetalleReservaAuto  $detalleReservaAuto
+     * @param  \App\Modulos\ReservaVehiculo\DetalleReservaVehiculo  $detalleReservaVehiculo
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return DetalleReservaAuto::find($id);
+        return DetalleReservaVehiculo::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Modulos\ReservaAuto\DetalleReservaAuto  $detalleReservaAuto
+     * @param  \App\Modulos\ReservaVehiculo\DetalleReservaVehiculo  $detalleReservaVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function edit(DetalleReservaAuto $detalleReservaAuto)
+    public function edit(DetalleReservaVehiculo $detalleReservaVehiculo)
     {
         //
     }
@@ -65,14 +65,14 @@ class DetalleReservaAutoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Modulos\ReservaAuto\DetalleReservaAuto  $detalleReservaAuto
+     * @param  \App\Modulos\ReservaVehiculo\DetalleReservaVehiculo  $detalleReservaVehiculo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $detalleReservaAuto = DetalleReservaAuto::find($id);
-        $detalleReservaAuto->fill($this->validate($request, [
-            'id_res_auto' => 'required',
+        $detalleReservaVehiculo = DetalleReservaVehiculo::find($id);
+        $detalleReservaVehiculo->fill($this->validate($request, [
+            'id_reserva_vehiculo' => 'required',
             'patente' => 'required',
             'fecha_retiro' => 'required',
             'fecha_regreso' => 'required',
@@ -87,13 +87,13 @@ class DetalleReservaAutoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Modulos\ReservaAuto\DetalleReservaAuto  $detalleReservaAuto
+     * @param  \App\Modulos\ReservaVehiculo\DetalleReservaVehiculo  $detalleReservaVehiculo
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $detalleReservaAuto = DetalleReservaAuto::find($id);
-        $detalleReservaAuto->delete();
+        $detalleReservaVehiculo = DetalleReservaVehiculo::find($id);
+        $detalleReservaVehiculo->delete();
         return "lo eliminé";
     }
 }

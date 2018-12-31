@@ -37,8 +37,8 @@ class HabitacionServicioController extends Controller
     public function store(Request $request)
     {
          $habitacionServicioData = $this->validate($request, [
-            'id_servicio_alojamiento' => 'required',
-            'id_habitacion_hotel' => 'required',
+            'servicio_alojamiento_id' => 'required',
+            'habitacion_hotel_id' => 'required',
         ]);
 
         $habitacionServicio = HabitacionServicio::create($habitacionServicioData);
@@ -90,8 +90,8 @@ class HabitacionServicioController extends Controller
     {
         $habitacionServicio = $HabitacionServicio::find($id);
         $habitacionServicio->fill($this->validate($request, [
-            'id_servicio_alojamiento' => 'required',
-            'id_habitacion_hotel' => 'required',
+            'servicio_alojamiento_id' => 'required',
+            'habitacion_hotel_id' => 'required',
         ]))->save();
         
             return 'Actualizado con éxito!';
@@ -105,7 +105,7 @@ class HabitacionServicioController extends Controller
      */
     public function destroy($id)
     {
-         $habitacionServicio = HabitacionServicio::findOrFail($id);
+        $habitacionServicio = HabitacionServicio::findOrFail($id);
         $habitacionServicio->delete();
         return "eliminado";
     }

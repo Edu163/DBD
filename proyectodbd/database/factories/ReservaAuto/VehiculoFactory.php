@@ -1,22 +1,23 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Modulos\ReservaAuto\Automovil;
+use App\Modulos\ReservaVehiculo\Vehiculo;
 
-$factory->define(Automovil::class, function (Faker $faker) {
-    //Faker para automóviles
+$factory->define(Vehiculo::class, function (Faker $faker) {
+    
+    //Faker para vehiculos
     $faker->addProvider(new \MattWells\Faker\Vehicle\Provider($faker));
 
     //Llaves foráneas
-    $id_calendario_vehiculo = DB::table('calendarios_vehiculos')->select('id')->get();
-    $id_proveedor = DB::table('proveedores')->select('id')->get();
-    $id_zona = DB::table('zonas')->select('id')->get();
+    $calendario_vehiculo_id = DB::table('calendarios_vehiculos')->select('id')->get();
+    $proveedor_id = DB::table('proveedores')->select('id')->get();
+    $zona_id = DB::table('zonas')->select('id')->get();
 
     return [
         'patente' => $faker->vehicleRegistration,
-        'id_calendario_vehiculo' => $id_calendario_vehiculo->random()->id,
-        'id_proveedor' => $id_proveedor->random()->id,
-        'id_zona' => $id_zona->random()->id,
+        'calendario_vehiculo_id' => $calendario_vehiculo_id->random()->id,
+        'proveedor_id' => $proveedor_id->random()->id,
+        'zona_id' => $zona_id->random()->id,
         'marca' => $faker->vehicleMake,
         'tipo' => $faker->randomElement(['Minivan','Automovil','Camioneta']),
         'gamma' => $faker->randomElement(['Baja','Media', 'Alta']),

@@ -9,12 +9,12 @@ class Avion extends Model
 
     protected $table = 'aviones';
 
+    protected $compania_id;
     protected $modelo;
-    protected $id_compania;
 
     protected $fillable = [
+        'compania_id',
         'modelo',
-        'id_compania',
     ];
 
     /* Relaciones */

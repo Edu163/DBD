@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReservasAutosTable extends Migration
+class CreateReservasVehiculosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateReservasAutosTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservas_autos', function (Blueprint $table) {
+        Schema::create('reservas_vehiculos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_venta');
-            $table->foreign('id_venta')
+            $table->integer('venta_id');
+            $table->foreign('venta_id')
                   ->references('id')
                   ->on('ventas')
                   ->onDelete('cascade');
@@ -33,6 +33,6 @@ class CreateReservasAutosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservas_autos');
+        Schema::dropIfExists('reservas_vehiculos');
     }
 }
