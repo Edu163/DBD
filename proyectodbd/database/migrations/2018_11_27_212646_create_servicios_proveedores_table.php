@@ -15,13 +15,13 @@ class CreateServiciosProveedoresTable extends Migration
     {
         Schema::create('servicios_proveedores', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_servicio');
-            $table->foreign('id_servicio')
+            $table->integer('servicio_id');
+            $table->foreign('servicio_id')
                 ->references('id')
                 ->on('servicios_de_vehiculos')
                 ->onDelete('cascade');
-            $table->integer('id_proveedor');
-            $table->foreign('id_proveedor')
+            $table->integer('proveedor_id');
+            $table->foreign('proveedor_id')
                 ->references('id')
                 ->on('proveedores')
                 ->onDelete('cascade');

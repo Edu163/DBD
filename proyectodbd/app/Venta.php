@@ -8,7 +8,7 @@ class Venta extends Model
 {
     protected $table = 'ventas';
 
-    protected $id_user;
+    protected $user_id;
     protected $monto_total;
     protected $fecha;
     protected $impuesto;
@@ -18,7 +18,7 @@ class Venta extends Model
     protected $descuento;
 
     protected $fillable = [
-        'id_user',
+        'user_id',
         'monto_total',
         'fecha',
         'impuesto',

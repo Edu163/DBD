@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Modulos\ReservaAuto\Zona;
+use App\Modulos\ReservaVehiculo\Zona;
 
 $factory->define(Zona::class, function (Faker $faker) {
     

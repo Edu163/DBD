@@ -8,12 +8,12 @@ class HabitacionServicio extends Model
 {
     protected $table = 'habitaciones_servicios';
 
-    protected $id_servicio_alojamiento;
-    protected $id_habitacion_hotel;
+    protected $servicio_alojamiento_id;
+    protected $habitacion_hotel_id;
 
-    protected $filleable = [
-    	'id_servicio_alojamiento',
-    	'id_habitacion_hotel',
+    protected $fillable = [
+    	'servicio_alojamiento_id',
+    	'habitacion_hotel_id',
     ];
 
     /* Relaciones */

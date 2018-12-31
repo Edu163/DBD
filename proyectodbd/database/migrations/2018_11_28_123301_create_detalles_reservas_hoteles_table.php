@@ -15,18 +15,21 @@ class CreateDetallesReservasHotelesTable extends Migration
     {
         Schema::create('detalles_reservas_hoteles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_reserva_hotel');
-            $table->foreign('id_reserva_hotel')
+            $table->integer('reserva_hotel_id');
+            $table->foreign('reserva_hotel_id')
                 ->references('id')
-                ->on('reservas_hoteles');
-            $table->integer('id_habitacion_hotel');
-            $table->foreign('id_habitacion_hotel')
+                ->on('reservas_hoteles')
+                ->onDelete('cascade');
+            $table->integer('habitacion_hotel_id');
+            $table->foreign('habitacion_hotel_id')
                 ->references('id')
-                ->on('habitaciones_hoteles');
-            $table->integer('id_alojamiento_privado');
-            $table->foreign('id_alojamiento_privado')
+                ->on('habitaciones_hoteles')
+                ->onDelete('cascade');
+            $table->integer('alojamiento_privado_id');
+            $table->foreign('alojamiento_privado_id')
                 ->references('id')
-                ->on('alojamientos_privados');
+                ->on('alojamientos_privados')
+                ->onDelete('cascade');
             $table->date('fecha_ingreso');
             $table->date('fecha_egreso');
             $table->float('precio');

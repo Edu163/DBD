@@ -8,15 +8,15 @@ class HabitacionHotel extends Model
 {
 	protected $table = 'habitaciones_hoteles';
 	
-	protected $id_hotel;
-    protected $id_calendario_alojamiento;
+	protected $hotel_id;
+    protected $calendario_alojamiento_id;
     protected $capacidad;
     protected $camas;
     protected $numero;
 
-    protected $filleable = [
-    	'id_hotel',
-    	'id_calendario_alojamiento',
+    protected $fillable = [
+    	'hotel_id',
+    	'calendario_alojamiento_id',
     	'capacidad',
     	'camas',
     	'numero'

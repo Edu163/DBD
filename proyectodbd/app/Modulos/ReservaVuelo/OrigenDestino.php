@@ -8,12 +8,12 @@ class OrigenDestino extends Model
 {
     protected $table = 'origenes_destinos';
 
-    protected $id_detalle_vuelo;
-    protected $id_aeropuerto;
+    protected $detalle_vuelo_id;
+    protected $aeropuerto_id;
 
-    protected $filleable = [
-        'id_detalle_vuelo',
-        'id_aeropuerto',
+    protected $fillable = [
+        'detalle_vuelo_id',
+        'aeropuerto_id',
     ];
 
     /* Relaciones */

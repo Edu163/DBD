@@ -6,10 +6,10 @@ use App\Modulos\ReservaVuelo\Avion;
 $factory->define(Avion::class, function (Faker $faker) {
     
     /* Llaves foráneas */
-    $id_companias = DB::table('companias')->select('id')->get();
+    $compania_id = DB::table('companias')->select('id')->get();
     
     return [
+        'compania_id' => $compania_id->random()->id,
         'modelo' => $faker->lastName,
-    	'id_compania' => $id_companias->random()->id,
     ];
 });

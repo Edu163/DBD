@@ -8,12 +8,13 @@ class Compania extends Model
 {
     protected $table = 'companias';
 
-    protected $direccion;
     protected $nombre;
+    protected $direccion;
 
-    protected $filleable = [
-        'direccion',
+    protected $fillable = [
         'nombre',
+        'direccion'
+        
     ];
 
     /* Relaciones */

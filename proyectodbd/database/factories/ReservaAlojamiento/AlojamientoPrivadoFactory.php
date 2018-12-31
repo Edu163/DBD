@@ -6,10 +6,10 @@ use App\Modulos\ReservaAlojamiento\AlojamientoPrivado;
 $factory->define(AlojamientoPrivado::class, function (Faker $faker) {
 
     /* LLaves foráneas */
-	$id_calendario_alojamiento = DB::table('calendarios_alojamientos')->select('id')->get();
+	$calendario_alojamiento_id = DB::table('calendarios_alojamientos')->select('id')->get();
 	
     return [
-    	'id_calendario_alojamiento' => $id_calendario_alojamiento->random()->id,
+    	'calendario_alojamiento_id' => $calendario_alojamiento_id->random()->id,
     	'capacidad' => $faker->numberBetween($min = 1000, $max = 999999),
     	'direccion' => $faker->address,
 	    'nombre' => $faker->name,

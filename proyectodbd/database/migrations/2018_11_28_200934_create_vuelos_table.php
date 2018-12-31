@@ -15,10 +15,11 @@ class CreateVuelosTable extends Migration
     {
         Schema::create('vuelos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_detalle_venta_vuelo');
-            $table->foreign('id_detalle_venta_vuelo')
+            $table->integer('detalle_venta_vuelo_id');
+            $table->foreign('detalle_venta_vuelo_id')
                 ->references('id')
-                ->on('detalles_ventas_vuelos');
+                ->on('detalles_ventas_vuelos')
+                ->onDelete('cascade');
             $table->float('precio');
             $table->time('duracion_vuelo');
             $table->timestamps();
