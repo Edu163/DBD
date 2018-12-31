@@ -1,5 +1,5 @@
 html, body {
-    background-color: #fff;
+    background-color:white;
     color: #636b6f;
     font-family: 'Nunito', sans-serif;
     height: 100vh;
@@ -42,7 +42,7 @@ font-size: 13px;
 font-weight: 600;
 letter-spacing: .1rem;
 text-decoration: none;
-text-transform: uppercase;
+text-transform: lowercase;
 }
 
 .m-b-md {
