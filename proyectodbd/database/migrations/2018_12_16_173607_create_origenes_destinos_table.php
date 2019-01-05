@@ -15,13 +15,13 @@ class CreateOrigenesDestinosTable extends Migration
     {
         Schema::create('origenes_destinos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_detalle_vuelo');
-            $table->foreign('id_detalle_vuelo')
+            $table->integer('detalle_vuelo_id');
+            $table->foreign('detalle_vuelo_id')
                 ->references('id')
                 ->on('detalles_vuelos')
                 ->onDelete('cascade');
-            $table->integer('id_aeropuerto');
-            $table->foreign('id_aeropuerto')
+            $table->integer('aeropuerto_id');
+            $table->foreign('aeropuerto_id')
                 ->references('id')
                 ->on('aeropuertos')
                 ->onDelete('cascade');

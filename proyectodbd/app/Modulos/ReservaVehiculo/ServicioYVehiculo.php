@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modulos\ReservaAuto;
+namespace App\Modulos\ReservaVehiculo;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,23 +8,23 @@ class ServicioYVehiculo extends Model
 {
     protected $table = 'servicios_y_vehiculos';
 
-    protected $id_servicio;
+    protected $servicio_id;
     protected $patente;
     protected $precio;
 
     protected $fillable = [
-        'id_servicio',
+        'servicio_id',
         'patente',
         'precio',
     ];
 
     /* Relaciones */
 
-    public function reserva_auto(){
-    	return $this->belongsTo(ReservaAuto::class);
+    public function reserva_vehiculo(){
+    	return $this->belongsTo(ReservaVehiculo::class);
     }
 
-    public function automovil(){
-    	return $this->belongsTo(Automovil::class);
+    public function vehiculo(){
+    	return $this->belongsTo(Vehiculo::class);
     }
 }

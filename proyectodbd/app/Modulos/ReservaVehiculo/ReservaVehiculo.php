@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Modulos\ReservaAuto;
+namespace App\Modulos\ReservaVehiculo;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ReservaAuto extends Model
+class ReservaVehiculo extends Model
 {
-    protected $table = 'reservas_autos';
+    protected $table = 'reservas_vehiculos';
 
-    protected $id_venta;
+    protected $venta_id;
     protected $fecha;
     protected $monto_total;
 
     protected $fillable = [
-        'id_venta',
+        'venta_id',
         'fecha',
         'monto_total',
     ];
@@ -24,7 +24,7 @@ class ReservaAuto extends Model
     	return $this->belongsTo(Venta::class);
     }
 
-    public function detalle_reserva_auto(){
-    	return $this->hasMany(DetalleReservaAuto::class);
+    public function detalle_reserva_vehiculos(){
+    	return $this->hasMany(DetalleReservaVehiculos::class);
     }
 }

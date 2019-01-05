@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modulos\ReservaAuto;
+namespace App\Modulos\ReservaVehiculo;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,7 +26,7 @@ class Proveedor extends Model
 
     /* Relaciones */
 
-    public function automovil(){
-    	return $this->hasMany(Automovil::class);
+    public function vehiculo(){
+    	return $this->hasMany(Vehiculo::class);
     }
 }

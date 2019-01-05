@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\ReservaAutoControllers;
+namespace App\Http\Controllers\ReservaVehiculoControllers;
 
-use App\Modulos\ReservaAuto\Zona;
+use App\Modulos\ReservaVehiculo\CalendarioVehiculo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ZonaController extends Controller
+class CalendarioVehiculoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ZonaController extends Controller
      */
     public function index()
     {
-        return Zona::all();
+        return CalendarioVehiculo::all();
     }
 
     /**
@@ -36,27 +36,27 @@ class ZonaController extends Controller
      */
     public function store(Request $request)
     {
-        return Zona::create($request->all());
+        return CalendarioVehiculo::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Modulos\ReservaAuto\Zona  $zona
+     * @param  \App\Modulos\ReservaVehiculo\CalendarioVehiculo  $calendarioVehiculo
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return Zona::find($id);
+        return CalendarioVehiculo::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Modulos\ReservaAuto\Zona  $zona
+     * @param  \App\Modulos\ReservaVehiculo\CalendarioVehiculo  $calendarioVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Zona $zona)
+    public function edit(CalendarioVehiculo $calendarioVehiculo)
     {
         //
     }
@@ -65,15 +65,16 @@ class ZonaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Modulos\ReservaAuto\Zona  $zona
+     * @param  \App\Modulos\ReservaVehiculo\CalendarioVehiculo  $calendarioVehiculo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $zona = Zona::find($id);
-        $zona->fill($this->validate($request, [
-            'nombre' => 'required',
-            'direccion' => 'required',
+        $calendarioVehiculo = CalendarioVehiculo::find($id);
+        $calendarioVehiculo->fill($this->validate($request, [
+            'año' => 'required',
+            'mes' => 'required',
+            'dia' => 'required',
         ]))->save();
 
         return "Me he acutalizado correctamente! :D!";
@@ -82,13 +83,13 @@ class ZonaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Modulos\ReservaAuto\Zona  $zona
+     * @param  \App\Modulos\ReservaVehiculo\CalendarioVehiculo  $calendarioVehiculo
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $zona = Zona::find($id);
-        $zona->delete();
+        $calendarioVehiculo = CalendarioVehiculo::find($id);
+        $calendarioVehiculo->delete();
         return "lo eliminé";
     }
 }

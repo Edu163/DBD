@@ -38,6 +38,10 @@ body {
   font-size: 100px;
 }
 
+.carousel-indicators {
+  bottom: 170px !important;
+}
+
 .links > a {
   color: #636b6f;
   padding: 0 25px;

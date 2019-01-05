@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Modulos\ReservaAuto\Proveedor;
+use App\Modulos\ReservaVehiculo\Proveedor;
 
 class ProveedoresSeeder extends Seeder
 {

@@ -15,13 +15,13 @@ class CreateChecksInTable extends Migration
     {
         Schema::create('checks_in', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_asiento');
-            $table->foreign('id_asiento')
+            $table->integer('asiento_id');
+            $table->foreign('asiento_id')
                 ->references('id')
                 ->on('asientos')
                 ->onDelete('cascade');
-            $table->integer('id_user');
-            $table->foreign('id_user')
+            $table->integer('user_id');
+            $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');

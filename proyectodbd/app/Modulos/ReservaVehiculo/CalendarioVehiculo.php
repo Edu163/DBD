@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modulos\ReservaAuto;
+namespace App\Modulos\ReservaVehiculo;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,8 +20,8 @@ class CalendarioVehiculo extends Model
 
     /* Relaciones */
 
-    public function automovil()
+    public function vehiculo()
     {
-      return $this->hasMany(Automovil::class);
+      return $this->hasMany(Vehiculo::class);
     }
 }

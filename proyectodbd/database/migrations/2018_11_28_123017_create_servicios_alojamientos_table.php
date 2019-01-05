@@ -15,8 +15,8 @@ class CreateServiciosAlojamientosTable extends Migration
     {
         Schema::create('servicios_alojamientos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_hotel');
-            $table->foreign('id_hotel')
+            $table->integer('hotel_id');
+            $table->foreign('hotel_id')
                 ->references('id')
                 ->on('hoteles')
                 ->onDelete('cascade');

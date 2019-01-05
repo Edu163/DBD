@@ -15,8 +15,8 @@ class CreateReservasHotelesTable extends Migration
     {
         Schema::create('reservas_hoteles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_venta');
-            $table->foreign('id_venta')
+            $table->integer('venta_id');
+            $table->foreign('venta_id')
                 ->references('id')
                 ->on('ventas')
                 ->onDelete('cascade');

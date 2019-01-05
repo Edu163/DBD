@@ -36,7 +36,7 @@ class AlojamientoPrivadoController extends Controller
     public function store(Request $request)
     {
          $alojamientoPrivadoData = $this->validate($request, [
-            'id_calendario_alojamiento' => 'required',
+            'calendario_alojamiento_id' => 'required',
             'capacidad' => 'required',
             'direccion' => 'required',
             'nombre' => 'required',
@@ -95,7 +95,7 @@ class AlojamientoPrivadoController extends Controller
     {
         $alojamientoPrivado = AlojamientoPrivado::find($id);
         $alojamientoPrivado->fill($this->validate($request, [
-            'id_calendario_alojamiento' => 'required',
+            'calendario_alojamiento_id' => 'required',
             'capacidad' => 'required',
             'direccion' => 'required',
             'nombre' => 'required',

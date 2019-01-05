@@ -15,7 +15,6 @@ class VueloController extends Controller
      */
     public function index()
     {
-        //
         return Vuelo::all();
     }
 
@@ -37,9 +36,8 @@ class VueloController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $vuelo = Vuelo::create($this->validate($request, [
-            'id_detalle_venta_vuelo' => 'required',
+            'detalle_venta_vuelo_id' => 'required',
             'precio' => 'required',
             'duracion_vuelo' => 'required'
         ]));
@@ -60,7 +58,6 @@ class VueloController extends Controller
      */
     public function show($id)
     {
-        //
         return Vuelo::findOrFail($id);
     }
 
@@ -84,9 +81,8 @@ class VueloController extends Controller
      */
     public function update(Request $request, Vuelo $vuelo)
     {
-        //
         $outcome = $vuelo->fill($this->validate($request, [
-            'id_detalle_venta_vuelo' => 'required',
+            'detalle_venta_vuelo_id' => 'required',
             'precio' => 'required',
             'duracion_vuelo' => 'required'
           ]))->save();
@@ -108,7 +104,6 @@ class VueloController extends Controller
      */
     public function destroy($id)
     {
-        //
         $vuelo = Vuelo::findOrFail($id);
         $vuelo->delete();
         return "eliminado";

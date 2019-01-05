@@ -8,7 +8,7 @@ class AlojamientoPrivado extends Model
 {
 	protected $table = 'alojamientos_privados';
 	
-	protected $id_calendario_alojamiento;
+	protected $calendario_alojamiento_id;
     protected $capacidad;
     protected $direccion;
     protected $nombre;
@@ -17,7 +17,7 @@ class AlojamientoPrivado extends Model
     protected $pais;
 
     protected $fillable = [
-	    'id_calendario_alojamiento',
+	    'calendario_alojamiento_id',
 	    'capacidad',
 	    'direccion',
 	    'nombre',

@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Modulos\ReservaAuto\CalendarioVehiculo;
+use App\Modulos\ReservaVehiculo\CalendarioVehiculo;
 
 $factory->define(CalendarioVehiculo::class, function (Faker $faker) {
 

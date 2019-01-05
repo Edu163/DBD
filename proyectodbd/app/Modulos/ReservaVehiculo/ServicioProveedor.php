@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modulos\ReservaAuto;
+namespace App\Modulos\ReservaVehiculo;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,12 +8,12 @@ class ServicioProveedor extends Model
 {
     protected $table = 'servicios_proveedores';
 
-    protected $id_servicio;
-    protected $id_proveedor;
+    protected $servicio_id;
+    protected $proveedor_id;
 
     protected $fillable = [
-        'id_servicio',
-        'id_proveedor',
+        'servicio_id',
+        'proveedor_id',
     ];
 
     /* Relaciones */
