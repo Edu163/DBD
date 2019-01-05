@@ -56,3 +56,17 @@ margin-bottom: 30px;
 .carousel-item{
     height: 700px;
 }
+
+.search-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateY(-28px);
+    width: 525px;
+    height: 406px;
+    z-index: 10;
+}
+
+.nav-pills {
+    background: white;
+}
+
