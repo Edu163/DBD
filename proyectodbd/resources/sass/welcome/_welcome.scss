@@ -1,3 +1,4 @@
+<<<<<<< HEAD:proyectodbd/resources/sass/_welcome.scss
 html, body {
     background-color: black;
     color: #636b6f !important;
@@ -6,6 +7,9 @@ html, body {
     margin: 0;
     line-height: 1 !important;
 }
+=======
+//General
+>>>>>>> omar:proyectodbd/resources/sass/welcome/_welcome.scss
 
 .full-height {
 height: 100vh;
@@ -35,10 +39,6 @@ text-align: center;
 font-size: 100px;
 }
 
-.carousel-indicators {
-    bottom: 170px !important;
-}
-
 .links > a {
 color: #636b6f;
 padding: 0 25px;
@@ -53,19 +53,27 @@ text-transform: uppercase;
 margin-bottom: 30px;
 }
 
-.carousel-item{
-    height: 700px;
+//Forms
+
+.nav-link-form {
+    color: #150067 !important;
+    background: rgba(255,255,255,0.3);
+    font-size: 16px;
 }
 
-.search-container {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) translateY(-28px);
-    width: 525px;
-    height: 406px;
-    z-index: 10;
+.material-icons {
+    color: #ED1650 !important;
 }
 
+<<<<<<< HEAD:proyectodbd/resources/sass/_welcome.scss
 .nav-pills {
     background: white;
 }
+=======
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #150067 !important;
+    color: #FFFFFF !important;
+    font-size: 16px;
+}
+
+>>>>>>> omar:proyectodbd/resources/sass/welcome/_welcome.scss
