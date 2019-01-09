@@ -22,12 +22,9 @@
         "sass-loader": "^7.1.0",
         "vue": "^2.5.21",
         "vue-template-compiler": "^2.5.21"
-<<<<<<< HEAD
     },
     "dependencies": {
         "npm": "^6.5.0",
         "watch": "^1.0.2"
-=======
->>>>>>> omar
     }
 }
