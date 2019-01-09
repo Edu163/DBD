@@ -6,8 +6,8 @@
 
 </br>
 
-<div class="container">
-        <div class="row justify-content-md-center">
+<div class="container py-4">
+        <div class="row row-buy-forms">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link nav-link-form active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
                     <i class="material-icons">local_airport</i>

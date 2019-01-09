@@ -50,10 +50,14 @@ margin-bottom: 30px;
 
 //Forms
 
+.row-buy-forms {
+    margin-left: 6% !important;
+}
+
 .nav-link-form {
     color: #150067 !important;
     background: rgba(255,255,255,0.3);
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .material-icons {
@@ -67,5 +71,11 @@ margin-bottom: 30px;
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     background-color: #150067 !important;
     color: #FFFFFF !important;
+<<<<<<< HEAD
     font-size: 16px;
 }
+=======
+    font-size: 18px;
+}
+
+>>>>>>> omar

@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+<<<<<<< HEAD
 html,
 body {
   background-color: black;
@@ -8,6 +9,10 @@ body {
   height: 100vh;
   margin: 0;
   line-height: 1 !important;
+=======
+.auth-card {
+  margin-top: 10%;
+>>>>>>> omar
 }
 
 .full-height {
@@ -52,10 +57,14 @@ body {
   margin-bottom: 30px;
 }
 
+.row-buy-forms {
+  margin-left: 6% !important;
+}
+
 .nav-link-form {
   color: #150067 !important;
   background: rgba(255, 255, 255, 0.3);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .material-icons {
@@ -70,7 +79,7 @@ body {
 .nav-pills .show > .nav-link {
   background-color: #150067 !important;
   color: #FFFFFF !important;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .carouselInicio {
