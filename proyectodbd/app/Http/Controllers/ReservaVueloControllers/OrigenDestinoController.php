@@ -38,10 +38,9 @@ class OrigenDestinoController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $origendestino = OrigenDestino::create($this->validate($request, [
-            'id_detalle_vuelo' => 'required',
-            'id_aeropuerto' => 'required'
+            'detalle_vuelo_id' => 'required',
+            'aeropuerto_id' => 'required'
         ]));
 
         if ($origendestino->exists()) {
@@ -60,7 +59,6 @@ class OrigenDestinoController extends Controller
      */
     public function show($id)
     {
-        //
         return OrigenDestino::findOrFail($id);
     }
 
@@ -84,10 +82,9 @@ class OrigenDestinoController extends Controller
      */
     public function update(Request $request, OrigenDestino $origenDestino)
     {
-        //
         $outcome = $origenDestino->fill($this->validate($request, [
-            'id_detalle_vuelo' => 'required',
-            'id_aeropuerto' => 'required'
+            'detalle_vuelo_id' => 'required',
+            'aeropuerto_id' => 'required'
           ]))->save();
       
           if ($outcome) {
@@ -107,7 +104,6 @@ class OrigenDestinoController extends Controller
      */
     public function destroy($id)
     {
-        //
         $OrigenDestino = OrigenDestino::findOrFail($id);
         $OrigenDestino->delete();
         return "eliminado";

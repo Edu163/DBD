@@ -1,93 +1,46 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+@extends('layouts.app')
 
-        <title>NombreAereolinea</title>
+@section('contenido')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+@include('components.carrusel')
 
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</br>
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+<div class="container py-4">
+        <div class="row row-buy-forms">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link nav-link-form active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                    <i class="material-icons">local_airport</i>
+                    Reserva tu vuelo
+                </a>
 
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-                <a class="navbar-brand links" href="{{ url('/') }}">LogoEmpresa</a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="navbar-nav mr-auto mt-2 mt-lg-0 nav-item nav-link links">
-                    <a href="{{ url('/') }}">Inicio <span class="sr-only">(current)</span></a>
-                </div>
-                <div class="nav-item nav-link links">
-                    @if (Route::has('login'))
-                        @auth
-                        <a href="{{ url('/home') }}">{{ Auth::user()->nombre }}</a>
-                        @else
-                        <a href="{{ route('login') }}">Iniciar sesión</a>
-                            @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Registrarse</a>
-                            @endif
-                        @endauth
-                    @endif
-                </div>
+                <a class="nav-link nav-link-form" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                    <i class="material-icons">directions_car</i>
+                    Reserva vehiculo
+                </a>
+                        
+                <a class="nav-link nav-link-form" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                    <i class="material-icons">domain</i>
+                    Reserva alojamiento
+                </a>
+
+                <a class="nav-link nav-link-form" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                    <i class="material-icons">view_quilt</i>
+                    Vuelo, alojamiento y vehiculo
+                </a>
             </div>
-        </nav>
 
-        <div id="carruselInicio" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carruselInicio" data-slide-to="0" class="active"></li>
-                <li data-target="#carruselInicio" data-slide-to="1"></li>
-                <li data-target="#carruselInicio" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{ asset('img/2.jpg')}}" alt="Primera slide">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    @include('modulos.ReservaVehiculo.vehiculos.form')
                 </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ asset('img/3.jpg')}}" alt="Segunda slide">
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"> </div>
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"> 
+                    @include('modulos.ReservaAlojamiento.Hotel.form')
                 </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ asset('img/5.jpg')}}" alt="Tercera slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carruselInicio" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-            </a>
-            <a class="carousel-control-next" href="#carruselInicio" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Siguiente</span>
-            </a>
-        </div>
-
-        <div class="flex-center position-ref full-height">            
-            <div class="content">
-                <div class="title m-b-md">
-                    @auth
-                    ¡Bienvenido {{ Auth::user()->nombre }}!
-                    @else
-                    ¡Bienvenido!
-                    @endauth
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"> </div>
             </div>
         </div>
-    </body>
-</html>
+</div>
+
+@endsection

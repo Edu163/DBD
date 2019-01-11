@@ -8,8 +8,8 @@ class Compania extends Model
 {
     protected $table = 'companias';
 
-    //protected $direccion;
-    //protected $nombre;
+    protected $nombre;
+    protected $direccion;
 
     protected $fillable = [
         'nombre',

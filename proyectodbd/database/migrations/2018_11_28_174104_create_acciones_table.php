@@ -15,8 +15,8 @@ class CreateAccionesTable extends Migration
     {
         Schema::create('acciones', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_users');
-            $table->foreign('id_users')
+            $table->integer('user_id');
+            $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');

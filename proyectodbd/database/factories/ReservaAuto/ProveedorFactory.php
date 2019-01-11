@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Modulos\ReservaAuto\Proveedor;
+use App\Modulos\ReservaVehiculo\Proveedor;
 
 $factory->define(Proveedor::class, function (Faker $faker) {
     

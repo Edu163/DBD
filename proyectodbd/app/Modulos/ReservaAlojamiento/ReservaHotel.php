@@ -8,15 +8,15 @@ class ReservaHotel extends Model
 {
 	protected $table = 'reservas_hoteles';
 	
-	protected $id_venta;
+	protected $venta_id;
     protected $precio;
     protected $fecha;
     protected $cantidad;
     protected $monto_total;
     protected $descuento;
 
-    protected $filleable = [
-    	'id_venta',
+    protected $fillable = [
+    	'venta_id',
     	'precio',
     	'fecha',
     	'cantidad',
