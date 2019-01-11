@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('contenido')
-<<<<<<< HEAD
-<div class="container">
-=======
+
 <div class="container py-4">
->>>>>>> omar
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card auth-card">

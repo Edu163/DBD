@@ -1,6 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
-<<<<<<< HEAD
+.auth-card {
+  margin-top: 10%;
+}
+
 html,
 body {
   background-color: black;
@@ -9,10 +12,6 @@ body {
   height: 100vh;
   margin: 0;
   line-height: 1 !important;
-=======
-.auth-card {
-  margin-top: 10%;
->>>>>>> omar
 }
 
 .full-height {
@@ -2601,8 +2600,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color:#008D87;
-  border-color: #008D87;
+  background-color: #3490dc;
+  border-color: #3490dc;
 }
 
 .btn-primary:hover {
