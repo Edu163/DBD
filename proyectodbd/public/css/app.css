@@ -65,6 +65,7 @@
   background-color: #150067 !important;
   color: #FFFFFF !important;
   font-size: 18px;
+  border-radius: 0px !important;
 }
 
 .carouselInicio {
@@ -122,6 +123,13 @@
   outline: none !important;
   border: 0 !important;
   background-color: transparent !important;
+}
+
+.custom-col-sm {
+  float: left;
+  padding: 0;
+  margin-left: 10px;
+  width: calc((100% - 60px - 20px)/2);
 }
 
 /*!
