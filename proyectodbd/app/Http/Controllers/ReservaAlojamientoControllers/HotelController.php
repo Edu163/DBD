@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaAlojamientoControllers;
 
 use App\Modulos\ReservaAlojamiento\Hotel;
+use App\Modulos\ReservaAlojamiento\Habitacion;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,10 @@ class HotelController extends Controller
      */
     public function index()
     {
-       return Hotel::all();
+        //$hoteles = Hotel::all();
+        $hoteles = Hotel::all()->where('capacidad', '>=', 500000);
+
+        return view('modulos.ReservaAlojamiento.Hotel.index', compact('hoteles'));
     }
 
     /**
