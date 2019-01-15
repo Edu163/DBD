@@ -14,13 +14,7 @@ use App\AlojamientoPrivado;
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
-
-Route::get('/Vuelos', function () {
-	$aviones = Avion::all();
-    return View('aviones')->with('aviones',$aviones);
-});
-
+Route::get('/', 'WelcomeController@index')->name('welcome');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
