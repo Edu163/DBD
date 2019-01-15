@@ -43,7 +43,7 @@
                             </label>
                             <span id="compra-vuelo-ida-error" class="errorHelpText sr-only"></span>
                             <span id="help-compra-vuelo-ida" class="helpText sr-only" data-text=""></span>
-                            <input id="compra-vuelo-ida" class="ui-autocomplete-input textbox-n" name="ida" type="text" onfocus="(this.type='date')" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
+                            <input id="compra-vuelo-ida" class="ui-autocomplete-input textbox-n" name="ida" type="date" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                             </label>
                             <span id="compra-vuelo-vuelta-error" class="errorHelpText sr-only"></span>
                             <span id="help-compra-vuelo-vuelta" class="helpText sr-only" data-text=""></span>
-                            <input id="compra-vuelo-vuelta" class="ui-autocomplete-input textbox-n" name="destino" type="text" onfocus="(this.type='date')" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
+                            <input id="compra-vuelo-vuelta" class="ui-autocomplete-input textbox-n" name="destino" type="date" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
                         </div>
                     </div>
                 </div>

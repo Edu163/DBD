@@ -7,6 +7,7 @@
 html,
 body {
   background-color: black;
+  background: #FFFFFF;
   color: #636b6f !important;
   font-family: "Nunito", sans-serif;
   height: 100vh;
@@ -104,6 +105,7 @@ body {
 
 .buy-card {
   border: none !important;
+  margin-bottom: 20%;
 }
 
 .buy-card-body {
@@ -119,6 +121,7 @@ body {
   position: relative;
   border-radius: 1px;
   outline: none;
+  margin-top: 5px;
 }
 
 .box-input label {
@@ -137,6 +140,7 @@ body {
   outline: none !important;
   border: 0 !important;
   background-color: transparent !important;
+  margin-top: 6px;
 }
 
 .custom-col-sm {
@@ -9689,13 +9693,13 @@ body {
 }
 
 footer {
-  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   height: 60px;
   flex-shrink: 0;
   padding: 10px 0px;
+  background: #FFFFFF;
 }
 
 /*Hoteles */
@@ -9817,15 +9821,5 @@ th {
 .btn-companias:hover span:after {
   opacity: 1;
   right: 0;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  padding: 10px 0px;
-  background: #FFFFFF;
 }
 

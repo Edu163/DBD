@@ -34,13 +34,13 @@ body {
 }
           
 footer {
-  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   height: 60px;
   flex-shrink: 0;
   padding: 10px 0px;
+  background: #FFFFFF;
 }
 
 /*Hoteles */
@@ -161,14 +161,4 @@ th {
 .btn-companias:hover span:after {
   opacity: 1;
   right: 0;
-}
-
-.footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    padding: 10px 0px;
-    background: #FFFFFF;
 }

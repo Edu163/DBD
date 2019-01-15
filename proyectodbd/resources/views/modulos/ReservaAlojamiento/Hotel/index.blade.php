@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('contenido')
+@section('content')
     <h1>
         Hoteles Disponibles
     </h1>
