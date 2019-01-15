@@ -40,20 +40,20 @@ class CompaniaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    /*public function store(Request $request)
+    public function store(Request $request)
     {
         $compania = new Compania();
         $compania->nombre = $request->input('nombre');
         $compania->direccion = $request->input('direccion');
         $compania->save();
-        return 'Guardado';
-    }*/
-    public function store(Request $request)
+        return view('modulos.ReservaVuelo.companias.index', compact('companias'));
+    }
+    /*public function store(Request $request)
     {
         return Compania::create($request->all());
         return $compania;
         
-    }
+    }*/
     /**
      * Display the specified resource.
      *

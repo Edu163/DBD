@@ -85,17 +85,17 @@ Route::get('/servicioAlojamiento/update/{id}', 'ReservaAlojamientoControllers\Se
 //VUELOS
 /* Compania */
 //Route::resource('companias', 'CompaniaController');
-Route::get('/companias/all', 'ReservaVueloControllers\CompaniaController@index');
+/*Route::get('/companias/all', 'ReservaVueloControllers\CompaniaController@index');
 Route::get('/companias/show/{id}', 'ReservaVueloControllers\CompaniaController@show');
 Route::get('/companias/destroy/{id}', 'ReservaVueloControllers\CompaniaController@destroy');
 Route::get('/companias/store', 'ReservaVueloControllers\CompaniaController@store');
-Route::get('/companias/update/{id}', 'ReservaVueloControllers\CompaniaController@update');
+Route::get('/companias/update/{id}', 'ReservaVueloControllers\CompaniaController@update');*/
 /* Avion */
-Route::get('/aviones/all', 'ReservaVueloControllers\AvionController@index');
+/*Route::get('/aviones/all', 'ReservaVueloControllers\AvionController@index');
 Route::get('/aviones/show/{id}', 'ReservaVueloControllers\AvionController@show');
 Route::get('/aviones/destroy/{id}', 'ReservaVueloControllers\AvionController@destroy');
 Route::get('/aviones/store', 'ReservaVueloControllers\AvionController@store');
-Route::get('/aviones/update/{id}', 'ReservaVueloControllers\AvionController@update');
+Route::get('/aviones/update/{id}', 'ReservaVueloControllers\AvionController@update');*/
 /* Asiento */
 Route::get('/asientos/all', 'ReservaVueloControllers\AsientoController@index');
 Route::get('/asientos/show/{id}', 'ReservaVueloControllers\AsientoController@show');
@@ -240,6 +240,12 @@ Route::resources([
     'servicio_proveedore'          => 'ReservaVehiculoControllers\ServicioProveedorController',
     'servicio_y_vehiculo'          => 'ReservaVehiculoControllers\ServicioYVehiculoController',
     'zona'                         => 'ReservaVehiculoControllers\ZonaController',
+  ]);
+
+/* CRUD Reserva vuelos */
+Route::resources([
+    'companias' => 'ReservaVueloControllers\CompaniaController',
+    'aviones' => 'ReservaVueloControllers\AvionController'
   ]);
 
 
