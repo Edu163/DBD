@@ -44,3 +44,14 @@ php artisan migrate:fresh -- seed       -> Usar cada vez que se quiera recargar 
 
 
 composer require mattwells/faker-vehicle     -> Instala la dependencia necesaria para el uso de faker para automóviles
+
+
+
+Requerimientos:
+    Crud de todas las entidades.
+    Administración de las entidades.
+    Todo lo anterior según LATAM.
+
+
+Cosas a tener en cuenta:
+    Proxy reverse
