@@ -8,7 +8,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'nombreEmpresa') }}</title>
+        <title>GP14LATAM</title>
 
         <!-- Icons -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -20,6 +20,9 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+         <!-- Bootstrap Select -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
     </head>
     <body>
         <div id="app">
@@ -74,16 +77,18 @@
             </nav>
 
             <main style="width: 100%;">
-                @yield('contenido')
+                @yield('content')
             </main>
 
         </div>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
         <br/>
     </body>
+    <br/>
     <footer class="text-center">
-        &copy; 2019 {{ config('app.name', 'nombreEmpresa') }}
+        &copy; 2019 GP14LATAM
         <br>
         <address>Departamento de Ingeniería en Informática - Universidad de Santiago de Chile, Santiago de Chile</address>
         </center>

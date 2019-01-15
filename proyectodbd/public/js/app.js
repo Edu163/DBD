@@ -47806,8 +47806,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/guillermo/Proyectos/DBD/proyectodbd/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/guillermo/Proyectos/DBD/proyectodbd/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/komarov/Desktop/Lessons/Diseño de Bases de Datos/Laboratorio/Development/proyectodbd/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/komarov/Desktop/Lessons/Diseño de Bases de Datos/Laboratorio/Development/proyectodbd/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
