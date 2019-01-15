@@ -78,13 +78,14 @@
             </main>
 
         </div>
-        <footer class="text-center">
-            &copy; 2019 {{ config('app.name', 'TetraVago') }}
-            <br>
-            <address>Departamento de Ingeniería en Informática - Universidad de Santiago de Chile, Santiago de Chile</address>
-            </center>
-        </footer>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <br/>
     </body>
+    <footer class="text-center">
+        &copy; 2019 {{ config('app.name', 'nombreEmpresa') }}
+        <br>
+        <address>Departamento de Ingeniería en Informática - Universidad de Santiago de Chile, Santiago de Chile</address>
+        </center>
+    </footer>
 </html>
