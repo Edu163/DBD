@@ -8,10 +8,11 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'nombreEmpresa') }}</title>
+        <title>GP14LATAM</title>
 
         <!-- Icons -->
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,6 +20,9 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+         <!-- Bootstrap Select -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
     </head>
     <body>
         <div id="app">
@@ -73,17 +77,20 @@
             </nav>
 
             <main style="width: 100%;">
-                @yield('contenido')
+                @yield('content')
             </main>
 
         </div>
-        <footer class="text-center">
-            &copy; 2019 {{ config('app.name', 'TetraVago') }}
-            <br>
-            <address>Departamento de Ingeniería en Informática - Universidad de Santiago de Chile, Santiago de Chile</address>
-            </center>
-        </footer>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
+        <br/>
     </body>
+    <br/>
+    <footer class="text-center">
+        &copy; 2019 GP14LATAM
+        <br>
+        <address>Departamento de Ingeniería en Informática - Universidad de Santiago de Chile, Santiago de Chile</address>
+        </center>
+    </footer>
 </html>

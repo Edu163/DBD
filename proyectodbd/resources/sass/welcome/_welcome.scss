@@ -1,5 +1,6 @@
 html, body {
     background-color: black;
+    background: #FFFFFF;
     color: #636b6f !important;
     font-family: 'Nunito', sans-serif;
     height: 100vh;
@@ -51,7 +52,7 @@ margin-bottom: 30px;
 //Forms
 
 .row-buy-forms {
-    margin-left: 6% !important;
+    margin-left: 0% !important;
 }
 
 .nav-link-form {
@@ -72,4 +73,5 @@ margin-bottom: 30px;
     background-color: #150067 !important;
     color: #FFFFFF !important;
     font-size: 18px;
+    border-radius: 0px !important;
 }

@@ -3,79 +3,65 @@
         <div class="card-body buy-card-body">
             <!-- Línea 1 -->
             <div class="row justify-content-around">
-                <div class="col-6">
+                <form action="/reserva_vehiculo" method="post">
+                    {{ csrf_field() }}
+
                     <!-- Input Origen -->
                     <div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">
                         <div class="box-input col-xs-12 col-sm-push-0 col-sm-12 inner-shadow-box">
                             <label for="compra-vuelo-origen">
-                                <span> 
-                                    Origen 
+                                <span for="zona_id"> 
+                                    Zona
                                 </span>
-                                <span class="placeholder sr-only" data-text="Ciudad o aeropuerto">
-                                    Ciudad o aeropuerto 
-                                </span>
+                                <div class="form-group">
+                                    <select id="zona_id" name="zona_id" class="form-control selectpicker" title="Zona" data-live-search="true">
+                                        @foreach ($zonas as $zona)
+                                        <option value="{{ $zona->id }}">
+                                            {{ $zona->nombre }}, {{ $zona->direccion }}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </label>
-                            <span id="compra-vuelo-origen-error" class="errorHelpText sr-only"></span>
-                            <span id="help-compra-vuelo-origen" class="helpText sr-only" data-text=""></span>
-                            <input id="compra-vuelo-origen" class="ui-autocomplete-input" name="origen" type="text" placeholder="Ciudad o aeropuerto" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
                         </div>
                     </div>
-                </div>
-                <div class="col-6">
-                    <!-- Input Destino -->
-                    <div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">
-                        <div class="box-input col-xs-12 col-sm-push-0 col-sm-12 inner-shadow-box">
-                            <label for="compra-vuelo-destino">
-                                <span> 
-                                    Destino 
-                                </span>
-                                <span class="placeholder sr-only" data-text="Ciudad o aeropuerto">
-                                    Ciudad o aeropuerto 
-                                </span>
-                            </label>
-                            <span id="compra-vuelo-destino-error" class="errorHelpText sr-only"></span>
-                            <span id="help-compra-vuelo-destino" class="helpText sr-only" data-text=""></span>
-                            <input id="compra-vuelo-destino" class="ui-autocomplete-input" name="destino" type="text" placeholder="Ciudad o aeropuerto" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
-                        </div>
-                    </div>
-                </div>
             </div>
             </br>
             <!-- Línea 2 -->
             <div class="row justify-content-around">
                 <div class="col-6">
-                    <!-- Input Ida -->
+                    <!-- Input Fecha de recogida -->
                     <div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">
                         <div class="box-input col-xs-12 col-sm-push-0 col-sm-12 inner-shadow-box">
                             <label for="compra-vuelo-ida">
                                 <span> 
-                                    Ida 
+                                    Fecha de recogida
                                 </span>
-                                <span class="placeholder sr-only" data-text="Ciudad o aeropuerto">
-                                    Ciudad o aeropuerto 
+                                <span class="placeholder sr-only" data-text="Fecha de recogida">
+                                    Fecha
                                 </span>
                             </label>
                             <span id="compra-vuelo-ida-error" class="errorHelpText sr-only"></span>
                             <span id="help-compra-vuelo-ida" class="helpText sr-only" data-text=""></span>
-                            <input id="compra-vuelo-ida" class="ui-autocomplete-input textbox-n" name="ida" type="text" onfocus="(this.type='date')" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
+                            <input id="compra-vuelo-ida" class="ui-autocomplete-input textbox-n" name="ida" type="date" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
                         </div>
                     </div>
                 </div>
                 <div class="col-6">
-                    <!-- Input Vuelta -->
+                    <!-- Input Fecha de devolución: -->
                     <div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">
                         <div class="box-input col-xs-12 col-sm-push-0 col-sm-12 inner-shadow-box">
                             <label for="compra-vuelo-vuelta">
                                 <span> 
-                                    Vuelta
+                                    Fecha de devolución:
                                 </span>
-                                <span class="placeholder sr-only" data-text="Fecha">
+                                <span class="placeholder sr-only" data-text="Fecha de devolución:">
                                     Fecha 
                                 </span>
                             </label>
                             <span id="compra-vuelo-vuelta-error" class="errorHelpText sr-only"></span>
                             <span id="help-compra-vuelo-vuelta" class="helpText sr-only" data-text=""></span>
-                            <input id="compra-vuelo-vuelta" class="ui-autocomplete-input textbox-n" name="destino" type="text" onfocus="(this.type='date')" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
+                            <input id="compra-vuelo-vuelta" class="ui-autocomplete-input textbox-n" name="destino" type="date" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -84,7 +70,7 @@
             <!-- Línea 3 -->
             <div class="row justify-content-around">
                 <div class="col-6">
-                    <!-- Input Ida -->
+                    <!-- Input Pasajeros -->
                     <div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">
                         <div class="box-input col-xs-12 col-sm-push-0 col-sm-12 inner-shadow-box">
                             <label for="compra-vuelo-pasajeros">
@@ -94,17 +80,16 @@
                             </label>
                             <span id="compra-vuelo-pasajeros-error" class="errorHelpText sr-only"></span>
                             <span id="help-compra-vuelo-pasajeros" class="helpText sr-only" data-text=""></span>
-                            <input id="compra-vuelo-pasajeros" class="ui-autocomplete-input textbox-n" name="ida" type="text" onfocus="(this.type='date')" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
                         </div>
                     </div>
                 </div>
                 <div class="col-6">
-                    <!-- Input Vuelta -->
+                    <!-- Input Cabina -->
                     <div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">
                         <div class="box-input col-xs-12 col-sm-push-0 col-sm-12 inner-shadow-box">
                             <label for="compra-vuelo-vuelta">
                                 <span> 
-                                    Vuelta
+                                    Cabina
                                 </span>
                                 <span class="placeholder sr-only" data-text="Fecha">
                                     Fecha 
@@ -112,12 +97,11 @@
                             </label>
                             <span id="compra-vuelo-vuelta-error" class="errorHelpText sr-only"></span>
                             <span id="help-compra-vuelo-vuelta" class="helpText sr-only" data-text=""></span>
-                            <input id="compra-vuelo-vuelta" class="ui-autocomplete-input textbox-n" name="destino" type="text" onfocus="(this.type='date')" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
                         </div>
                     </div>
                 </div>
             </div> 
-
+        </form>
         </div>
     </div>
 </div>

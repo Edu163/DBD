@@ -7,6 +7,7 @@
 html,
 body {
   background-color: black;
+  background: #FFFFFF;
   color: #636b6f !important;
   font-family: "Nunito", sans-serif;
   height: 100vh;
@@ -57,7 +58,7 @@ body {
 }
 
 .row-buy-forms {
-  margin-left: 6% !important;
+  margin-left: 0% !important;
 }
 
 .nav-link-form {
@@ -79,6 +80,7 @@ body {
   background-color: #150067 !important;
   color: #FFFFFF !important;
   font-size: 18px;
+  border-radius: 0px !important;
 }
 
 .carouselInicio {
@@ -103,6 +105,7 @@ body {
 
 .buy-card {
   border: none !important;
+  margin-bottom: 20%;
 }
 
 .buy-card-body {
@@ -118,6 +121,7 @@ body {
   position: relative;
   border-radius: 1px;
   outline: none;
+  margin-top: 5px;
 }
 
 .box-input label {
@@ -126,7 +130,7 @@ body {
   width: 100%;
   font-family: "Latam-Sans-Bold", Arial, sans-serif;
   color: #1B0088;
-  font-size: 14px;
+  font-size: 11px;
   text-transform: uppercase;
   position: relative;
   top: -2px;
@@ -136,6 +140,14 @@ body {
   outline: none !important;
   border: 0 !important;
   background-color: transparent !important;
+  margin-top: 6px;
+}
+
+.custom-col-sm {
+  float: left;
+  padding: 0;
+  margin-left: 10px;
+  width: calc((100% - 60px - 20px)/2);
 }
 
 /*!
@@ -9681,13 +9693,13 @@ body {
 }
 
 footer {
-  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   height: 60px;
   flex-shrink: 0;
   padding: 10px 0px;
+  background: #FFFFFF;
 }
 
 /*Hoteles */

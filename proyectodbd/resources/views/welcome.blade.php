@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('contenido')
+@section('content')
 
 @include('components.carrusel')
 
 </br>
 
-<div class="container py-4">
+<div class="container py-4" style="widht: 100%;">
         <div class="row row-buy-forms">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link nav-link-form active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
@@ -32,9 +32,11 @@
 
             <div class="tab-content" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    @include('modulos.ReservaVuelo.vuelos.form')
+                </div>
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"> 
                     @include('modulos.ReservaVehiculo.vehiculos.form')
                 </div>
-                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"> </div>
                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"> 
                     @include('modulos.ReservaAlojamiento.Hotel.form')
                 </div>
