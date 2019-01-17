@@ -1,4 +1,4 @@
-<form action="/reserva-habitaciones" method="post" class="body-hotel">
+<form action="/reserva_hotel" method="post" class="body-hotel">
 {{ csrf_field() }}
 <div class="auto-field field item-component">
     <div class="card buy-card flex-fill">
@@ -19,8 +19,9 @@
                             </label>
                             <span id="compra-vuelo-destino-error" class="errorHelpText sr-only"></span>
                             <span id="help-compra-vuelo-destino" class="helpText sr-only" data-text=""></span>
-							<select id="destino_id" name="destino_id" class="custom-select" title="Destino" data-live-search="true" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
-							@foreach ($hoteles as $hotel)
+						<select id="destino_id" name="destino_id" class="custom-select" title="Destino" data-live-search="true" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off" placeholder = "">
+                            <option selected disabled>Seleccione su destino</option>
+                            @foreach ($hoteles as $hotel)
                             <option value="{{ $hotel->id }}">
                                 {{ $hotel->pais }}
                             </option>
