@@ -14,9 +14,7 @@ use App\AlojamientoPrivado;
 
 Auth::routes();
 
-Route::get('/', 'WelcomeController@index')->name('welcome');
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 /*alojamientoPrivado*/
 /*Route::get('/alojamientoPrivado/all', 'ReservaAlojamientoControllers\AlojamientoPrivadoController@index');
@@ -90,12 +88,8 @@ Route::get('/servicioAlojamiento/update/{id}', 'ReservaAlojamientoControllers\Se
 */
 //VUELOS
 /* Compania */
-//Route::resource('companias', 'CompaniaController');
-Route::get('/companias/all', 'ReservaVueloControllers\CompaniaController@index');
-Route::get('/companias/show/{id}', 'ReservaVueloControllers\CompaniaController@show');
-Route::get('/companias/destroy/{id}', 'ReservaVueloControllers\CompaniaController@destroy');
-Route::get('/companias/store', 'ReservaVueloControllers\CompaniaController@store');
-Route::get('/companias/update/{id}', 'ReservaVueloControllers\CompaniaController@update');
+Route::resource('companias', 'ReservaVueloControllers\CompaniaController');
+
 /* Avion */
 Route::get('/aviones/all', 'ReservaVueloControllers\AvionController@index');
 Route::get('/aviones/show/{id}', 'ReservaVueloControllers\AvionController@show');

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('contenido')
+@section('content')
 	<div class="card-deck">
 	@foreach($companias as $compania)
 		<div class="col-sm">
