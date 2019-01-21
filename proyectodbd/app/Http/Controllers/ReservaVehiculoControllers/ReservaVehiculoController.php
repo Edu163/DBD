@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\ReservaVehiculoControllers;
 
-use App\Modulos\ReservaVehiculo\ReservaVehiculo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

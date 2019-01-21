@@ -1,11 +1,10 @@
 <div class="auto-field field item-component">
     <div class="card buy-card flex-fill">
         <div class="card-body buy-card-body">
+            <form action="/detalle_reserva_vehiculo" method="get">
             <!-- Línea 1 -->
             <div class="row justify-content-center">
                 <div class="col-12">
-                <form action="/reserva_vehiculo" method="post">
-                    {{ csrf_field() }}
                     <!-- Input Origen -->
                     <div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">
                         <div class="box-input col-xs-12 col-sm-push-0 col-sm-12 inner-shadow-box">
@@ -41,7 +40,7 @@
                     <!-- Input Fecha de recogida -->
                     <div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">
                         <div class="box-input col-xs-12 col-sm-push-0 col-sm-12 inner-shadow-box">
-                            <label for="reserva-vehiculo-recogida">
+                            <label for="fecha-recogida">
                                 <span> 
                                     Fecha de recogida
                                 </span>
@@ -49,9 +48,9 @@
                                     Fecha
                                 </span>
                             </label>
-                            <span id="reserva-vehiculo-recogida-error" class="errorHelpText sr-only"></span>
-                            <span id="help-reserva-vehiculo-recogida" class="helpText sr-only" data-text=""></span>
-                            <input id="reserva-vehiculo-recogida" class="ui-autocomplete-input textbox-n" name="ida" type="date" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
+                            <span id="fecha-recogida-error" class="errorHelpText sr-only"></span>
+                            <span id="help-fecha-recogida" class="helpText sr-only" data-text=""></span>
+                            <input id="fecha-recogida" name="fecha-recogida" class="ui-autocomplete-input textbox-n"  type="date" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-disabled="false" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -59,7 +58,7 @@
                     <!-- Input Fecha de devolución: -->
                     <div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">
                         <div class="box-input col-xs-12 col-sm-push-0 col-sm-12 inner-shadow-box">
-                            <label for="reserva-vehiculo-devolucion">
+                            <label for="fecha-devolucion">
                                 <span> 
                                     Fecha de devolución:
                                 </span>
@@ -67,9 +66,9 @@
                                     Fecha 
                                 </span>
                             </label>
-                            <span id="reserva-vehiculo-devolucion-error" class="errorHelpText sr-only"></span>
-                            <span id="help-reserva-vehiculo-devolucion" class="helpText sr-only" data-text=""></span>
-                            <input id="reserva-vehiculo-devolucion" class="ui-autocomplete-input textbox-n" name="devolucion" type="date" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off">
+                            <span id="fecha-devolucion-error" class="errorHelpText sr-only"></span>
+                            <span id="help-fecha-devolucion" class="helpText sr-only" data-text=""></span>
+                            <input id="fecha-devolucion" name="fecha-devolucion" class="ui-autocomplete-input textbox-n" type="date" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-disabled="false" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -81,7 +80,7 @@
                     <!-- Input Pasajeros -->
                     <div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">
                         <div class="box-input col-xs-12 col-sm-push-0 col-sm-12 inner-shadow-box">
-                            <label for="reserva-vehiculo-pasajeros">
+                            <label for="pasajeros">
                                 <span> 
                                     Pasajeros 
                                 </span>
@@ -90,7 +89,7 @@
                             <span id="help-reserva-vehiculo-pasajeros" class="helpText sr-only" data-text=""></span>
                             <input
                             class="form-control"
-                            id="reserva-vehiculo-pasajeros"
+                            id="pasajeros"
                             name="pasajeros"
                             type="number"
                             min="0"
@@ -103,7 +102,7 @@
                 </div>
             </div> 
 					<center>
-					<a href="/vehiculo" class="btn-hoteles" style="vertical-align:middle;" style="margin-top:6px;" >
+					<a type="submit" class="btn-vehiculo" style="vertical-align:middle;" style="margin-top:6px;" >
                         <span>Busca tu vehiculo</span> 
                     </a>
 					</center>	
