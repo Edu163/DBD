@@ -35,7 +35,7 @@
                     @include('modulos.ReservaVuelo.vuelos.form')
                 </div>
                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"> 
-                    @include('modulos.ReservaVehiculo.vehiculos.form')
+                    @include('modulos.ReservaVehiculo.vehiculo.form')
                 </div>
                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"> 
                     @include('modulos.ReservaAlojamiento.Hotel.form')

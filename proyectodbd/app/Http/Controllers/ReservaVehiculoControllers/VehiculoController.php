@@ -15,7 +15,9 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        return Vehiculo::all();
+        $vehiculos = Vehiculo::all();
+
+        return view('modulos.ReservaVehiculo.vehiculo.index', compact('vehiculos'));
     }
 
     /**
