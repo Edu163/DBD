@@ -1,4 +1,4 @@
-<form action="/reserva_hotel" method="post" class="body-hotel">
+<form action="/hotel" method="post" class="body-hotel">
 {{ csrf_field() }}
 <div class="auto-field field item-component">
     <div class="card buy-card flex-fill">
@@ -113,7 +113,7 @@
                 <div class="col-12">
 				<div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">    
 					<center>
-					<a href="hotel/all" class="btn-hoteles" style="vertical-align:middle"><span>Buscar </span> </a>
+					<a href="hotel" class="btn-hoteles" style="vertical-align:middle"><span>Buscar </span> </a>
 					</center>	
                 </div>
                 </div>
@@ -143,6 +143,8 @@
 </form>
 
 <script>
+localStorage.setItem("pais", "Poland");
+
   let fechaEntrada = flatpickr('#fecha_entrada', {
       enableTime: true,
       dateFormat: "Y-m-d H:i",

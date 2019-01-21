@@ -7,6 +7,7 @@ use App\Modulos\ReservaAlojamiento\Habitacion;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 class HotelController extends Controller
 {
     /**
@@ -17,7 +18,7 @@ class HotelController extends Controller
     public function index()
     {
         //$hoteles = Hotel::all();
-        $hoteles = Hotel::all()->where('capacidad', '>=', 500000);
+        $hoteles = Hotel::all()->where('pais', '=', 'Poland');
 
         return view('modulos.ReservaAlojamiento.Hotel.index', compact('hoteles'));
     }
