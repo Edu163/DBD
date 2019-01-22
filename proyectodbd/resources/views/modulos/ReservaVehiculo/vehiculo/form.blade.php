@@ -101,11 +101,9 @@
                     </div>
                 </div>
             </div> 
-					<center>
-					<a type="submit" class="btn-vehiculo" style="vertical-align:middle;" style="margin-top:6px;" >
-                        <span>Busca tu vehiculo</span> 
-                    </a>
-					</center>	
+			<center>
+				<button type="submit" class="btn-vehiculo">Busca tu vehiculo</button>
+			</center>	
         </form>
         </div>
     </div>
