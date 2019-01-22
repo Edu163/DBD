@@ -1,5 +1,4 @@
-<form action="/hotel" method="post" class="body-hotel">
-{{ csrf_field() }}
+<form action="/hotel" method="get" class="body-hotel">
 <div class="auto-field field item-component">
     <div class="card buy-card flex-fill">
         <div class="card-body buy-card-body">
@@ -22,7 +21,7 @@
 						<select id="destino_id" name="destino_id" class="custom-select" title="Destino" data-live-search="true" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="compra-vuelo-origen-error" aria-disabled="false" autocomplete="off" placeholder = "">
                             <option selected disabled>Seleccione su destino</option>
                             @foreach ($hoteles as $hotel)
-                            <option value="{{ $hotel->id }}">
+                            <option value="{{ $hotel->pais }}">
                                 {{ $hotel->pais }}
                             </option>
                             @endforeach
@@ -113,7 +112,7 @@
                 <div class="col-12">
 				<div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">    
 					<center>
-					<a href="hotel" class="btn-hoteles" style="vertical-align:middle"><span>Buscar </span> </a>
+					<button type="submit" class="btn-hoteles">Busca tu vehiculo</button>
 					</center>	
                 </div>
                 </div>
