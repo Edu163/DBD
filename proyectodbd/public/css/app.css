@@ -7,6 +7,7 @@
 html,
 body {
   background-color: black;
+  background: #FFFFFF;
   color: #636b6f !important;
   font-family: "Nunito", sans-serif;
   height: 100vh;
@@ -102,8 +103,11 @@ body {
 }
 */
 
+/* General */
+
 .buy-card {
   border: none !important;
+  margin-bottom: 20%;
 }
 
 .buy-card-body {
@@ -119,6 +123,7 @@ body {
   position: relative;
   border-radius: 1px;
   outline: none;
+  margin-top: 5px;
 }
 
 .box-input label {
@@ -137,6 +142,7 @@ body {
   outline: none !important;
   border: 0 !important;
   background-color: transparent !important;
+  margin-top: 6px;
 }
 
 .custom-col-sm {
@@ -144,6 +150,125 @@ body {
   padding: 0;
   margin-left: 10px;
   width: calc((100% - 60px - 20px)/2);
+}
+
+/* Alojamiento */
+
+/*Hoteles */
+
+.body-hotel {
+  background-color: #150067;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: white;
+  color: black;
+}
+
+.custom-select {
+  border: 0px solid transparent;
+  cursor: pointer;
+}
+
+.btn-hoteles {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-hoteles {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #008D87 !important;
+  border: none;
+  color: #FFFFFF !important;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.btn-hoteles span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-hoteles span:after {
+  content: "\BB";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-hoteles:hover span {
+  padding-right: 25px;
+}
+
+.btn-hoteles:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* Vehiculo */
+
+.btn-vehiculo {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-vehiculo {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #008D87 !important;
+  border: none;
+  color: #FFFFFF !important;
+  text-align: center;
+  font-size: 26px;
+  padding: 17px;
+  width: 248px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.btn-vehiculo span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-vehiculo span:after {
+  content: "\BB";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-vehiculo:hover span {
+  padding-right: 25px;
+}
+
+.btn-vehiculo:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 /*!
@@ -9689,85 +9814,16 @@ body {
 }
 
 footer {
-  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   height: 60px;
   flex-shrink: 0;
   padding: 10px 0px;
+  background: #FFFFFF;
 }
 
-/*Hoteles */
-
-.body-hotel {
-  background-color: #150067;
-}
-
-table,
-th,
-td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-th {
-  background-color: white;
-  color: black;
-}
-
-.custom-select {
-  border: 0px solid transparent;
-  cursor: pointer;
-}
-
-.btn-hoteles {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.btn-hoteles {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #008D87 !important;
-  border: none;
-  color: #FFFFFF !important;
-  text-align: center;
-  font-size: 28px;
-  padding: 10px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.btn-hoteles span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.btn-hoteles span:after {
-  content: "\BB";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.btn-hoteles:hover span {
-  padding-right: 25px;
-}
-
-.btn-hoteles:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-/* Comapanias, borrar de aquí */
+/* Compañias, borrar de aquí */
 
 .card-companias {
   margin: 15px;
@@ -9817,15 +9873,5 @@ th {
 .btn-companias:hover span:after {
   opacity: 1;
   right: 0;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  padding: 10px 0px;
-  background: #FFFFFF;
 }
 
