@@ -13,7 +13,6 @@ class Vuelo extends Model
     protected $duracion_vuelo;
 
     protected $fillable = [
-    	'detalle_venta_vuelo_id',
         'precio',
         'duracion_vuelo'
     ];
@@ -21,9 +20,5 @@ class Vuelo extends Model
     public function detalleVuelo()
     {
         return $this->hasMany(DetalleVuelo::class);
-    }
-    public function detalleVentaVuelo()
-    {
-        return $this->belongsTo(DetalleVentaVuelo::class);
     }
 }

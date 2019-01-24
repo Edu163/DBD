@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaVueloControllers;
 
 use App\Modulos\ReservaVuelo\Avion;
+use App\Modulos\ReservaVuelo\Compania;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class AvionController extends Controller
      */
     public function index()
     {
-        return Avion::All();
+        $aviones = Avion::All();
+        return view('modulos.ReservaVuelo.aviones.index', compact('aviones'));
     }
 
     /**
@@ -25,7 +27,8 @@ class AvionController extends Controller
      */
     public function create()
     {
-        //
+        $companias = Compania::All();
+        return view('modulos.ReservaVuelo.aviones.create', compact('companias'));
     }
 
     /**
@@ -43,10 +46,12 @@ class AvionController extends Controller
 
         if ($avion->exists()) {
             $response = ['success' => 'Creado con éxito!'];
+            $avion->save();
         } else {
             $response = ['error' => 'No se ha podido crear!'];
         }
-        return $response;
+        $aviones = Avion::All();
+        return view('modulos.ReservaVuelo.aviones.index', compact('aviones'));
     }
 
     /**
