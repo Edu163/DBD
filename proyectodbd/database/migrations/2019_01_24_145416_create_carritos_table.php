@@ -4,23 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHotelesTable extends Migration
+class CreateCarritosTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-     public function up()
+    public function up()
     {
-        Schema::create('hoteles', function (Blueprint $table) {
+        Schema::create('carritos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->string('pais');
-            $table->string('direccion');
-            $table->float('estrellas');
-            $table->integer('valoracion');
-            $table->integer('capacidad');
             $table->timestamps();
         });
     }
@@ -32,6 +26,6 @@ class CreateHotelesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hoteles');
+        Schema::dropIfExists('carritos');
     }
 }
