@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\CarritoControllers;
 
-
 use App\Modulos\ReservaAlojamiento\Hotel;
+use App\Modulos\ReservaAlojamiento\Vuelo;
+use App\Modulos\ReservaAlojamiento\Vehiculo;
+use App\Modulos\ReservaAlojamiento\Paquete;
 use App\Modulos\Carrito\Carrito;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -21,7 +23,8 @@ class CarritoController extends Controller
     {
         $hoteles = Hotel::all();
 
-        return view('modulos.ReservaAlojamiento.hotel.index', compact('hoteles'));
+
+        return view('modulos.Carrito.index', compact('hoteles'));
     }
 
     /**
