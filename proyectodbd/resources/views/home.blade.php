@@ -38,9 +38,11 @@
                     @include('modulos.ReservaVehiculo.vehiculo.form')
                 </div>
                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"> 
+                    @include('modulos.ReservaPaquete.form')
+                </div>
+                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"> 
                     @include('modulos.ReservaAlojamiento.Hotel.form')
                 </div>
-                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"> </div>
             </div>
         </div>
 </div>

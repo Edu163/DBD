@@ -112,7 +112,7 @@
                 <div class="col-12">
 				<div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">    
 					<center>
-					<button type="submit" class="btn-hoteles">Busca tu Hotel</button>
+					<button type="submit" class="btn-hoteles">Reserva tu Paquete</button>
 					</center>	
                 </div>
                 </div>

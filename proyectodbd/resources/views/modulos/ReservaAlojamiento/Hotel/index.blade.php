@@ -5,7 +5,7 @@
         Hoteles Disponibles
     </h1>
 
-	<table>
+	<table style="text-align:center;">
     <tr>
     <th><h5 class="card-title"></h5></th>
     <th><h5 class="card-title">Hotel</h5></th>

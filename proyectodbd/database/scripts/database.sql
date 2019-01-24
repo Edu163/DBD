@@ -886,45 +886,45 @@ Tatyanaland, AL 58438', 'Judy Weissnat V', 4, 2, 'Nicaragua', '2018-12-28 12:14:
 --
 
 INSERT INTO public.hoteles VALUES (1, 'Kassulke-Quigley', 'Iran', '1451 Connelly Springs
-Johnsonborough, NC 92916', 4, '1991-03-20', 964423, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+Johnsonborough, NC 92916', 4, 4, 964423, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (2, 'Dare and Sons', 'Cayman Islands', '902 Daren Ridge
-New Eileenville, CA 00260', 2, '2012-03-04', 317954, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+New Eileenville, CA 00260', 2, 5, 317954, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (3, 'Mante-Zieme', 'Isle of Man', '329 Strosin Mill Suite 777
-Olsonstad, OH 70339', 1, '2012-08-04', 978402, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+Olsonstad, OH 70339', 1, 7, 978402, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (4, 'Harvey Group', 'Antigua and Barbuda', '1915 Florine Branch Suite 647
-O''Harahaven, NV 44261-4025', 1, '2015-07-23', 396333, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+O''Harahaven, NV 44261-405', 1, 10, 396333, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (5, 'Jacobi, Volkman and Nienow', 'Lesotho', '5581 Mohr Oval Apt. 242
-Rodriguezmouth, NE 10977-8088', 3, '1983-01-25', 331042, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+Rodriguezmouth, NE 10977-8088', 3, 9, 331042, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (6, 'Goyette, Pagac and Jacobs', 'Suriname', '61238 Kuvalis Square
-Wendymouth, IN 41463-6618', 3, '1996-02-06', 245039, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+Wendymouth, IN 41463-6618', 3, 1, 245039, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (7, 'Reinger-Botsford', 'Barbados', '63197 Kovacek Ridges Apt. 135
-Bradfordborough, NJ 40982', 2, '1998-07-24', 591945, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+Bradfordborough, NJ 40982', 2, 0, 591945, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (8, 'Borer PLC', 'Lao People''s Democratic Republic', '328 Bruce Trafficway
-Lueberg, DE 76410', 3, '1979-02-26', 332648, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+Lueberg, DE 76410', 3, 9, 332648, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (9, 'Abbott-Steuber', 'Belize', '976 Swift Hill
-East Rettachester, MD 29978', 5, '1997-09-24', 311383, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+East Rettachester, MD 29978', 5, 7, 311383, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (10, 'Nitzsche and Sons', 'Saint Martin', '69843 Elinor Mall
-North Novella, KY 77869', 4, '2018-02-15', 570214, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+North Novella, KY 77869', 4, 8, 570214, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (11, 'Simonis PLC', 'Palestinian Territories', '2624 Bogan Path Apt. 182
-New Sylvan, IA 37063-3239', 2, '1983-01-15', 161474, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+New Sylvan, IA 37063-3239', 2, 7, 161474, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (12, 'Buckridge, Thompson and Bayer', 'French Southern Territories', '1343 Wisoky Terrace
-West Jermainside, UT 68596', 2, '1997-01-13', 947789, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+West Jermainside, UT 68596', 2, 9, 947789, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (13, 'Kerluke Ltd', 'Qatar', '3661 Alfonso Ramp Suite 961
-Port Keonton, AL 78400-9770', 5, '1978-05-09', 580397, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+Port Keonton, AL 78400-9770', 5, 3, 580397, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (14, 'Emmerich-Kohler', 'Benin', '7082 Maxie Plaza Suite 785
-Mitchelbury, MO 33065-8579', 5, '2003-11-21', 26314, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+Mitchelbury, MO 33065-8579', 5, 2, 26314, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (15, 'Bartell-Champlin', 'Croatia', '8918 Haylee Burgs Apt. 849
-Floridatown, MT 85632-5444', 1, '1979-07-29', 394030, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+Floridatown, MT 85632-5444', 1, 4, 394030, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (16, 'Kunze-Thiel', 'Greenland', '972 Rohan Haven
-O''Keefeborough, KY 72309-2609', 4, '1986-03-22', 167073, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+O''Keefeborough, KY 72309-2609', 4, 5, 167073, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (17, 'Koelpin-Carter', 'Barbados', '904 Jerel Inlet
-Port Alisonhaven, NV 38205', 3, '2005-03-08', 462607, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+Port Alisonhaven, NV 38205', 3, 6, 462607, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (18, 'Littel, Jacobson and Hammes', 'Niger', '77694 Zieme Fort Apt. 123
-Jastside, SC 30188', 4, '2000-09-01', 471725, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+Jastside, SC 30188', 4, 10, 471725, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (19, 'Fay Group', 'Netherlands', '20627 Koepp Radial Apt. 128
-Stanleychester, AZ 14716', 5, '1982-12-30', 985738, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+Stanleychester, AZ 14716', 5, 9, 985738, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 INSERT INTO public.hoteles VALUES (20, 'Sporer Inc', 'Norfolk Island', '8017 Lemke Wells
-Dominicberg, AR 56989', 3, '1974-03-06', 483667, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
+Dominicberg, AR 56989', 3, 3, 483667, '2018-12-28 12:14:36', '2018-12-28 12:14:36');
 
 
 --
