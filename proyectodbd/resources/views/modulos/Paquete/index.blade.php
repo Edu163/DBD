@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>
-        Hoteles Disponibles
+        Paquetes Disponibles
     </h1>
 
 	<table style="text-align:center;">
@@ -15,7 +15,7 @@
     <th><h5 class="card-title">Valoración</h5></th>
     <th><h5 class="card-title">Capacidad</h5></th>
   </tr>
-    @foreach($hoteles as $hotel)
+    @foreach($paquetes as $paquete)
     <tr>
     <th>
         <center>

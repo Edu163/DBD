@@ -6,7 +6,7 @@
 
 </br>
 
-<div class="container py-4" style="widht: 100%;">
+<div class="container py-4" style="margin-top: -10%;position: absolute;margin-left: 17%;">
         <div class="row row-buy-forms">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link nav-link-form active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
@@ -23,10 +23,9 @@
                     <i class="material-icons">domain</i>
                     Reserva alojamiento
                 </a>
-
-                <a class="nav-link nav-link-form" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                <a class="nav-link nav-link-form" href="paquete">
                     <i class="material-icons">view_quilt</i>
-                    Vuelo, alojamiento y vehiculo
+                    Paquetes
                 </a>
             </div>
 
@@ -38,9 +37,9 @@
                     @include('modulos.ReservaVehiculo.vehiculo.form')
                 </div>
                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"> 
+
                     @include('modulos.ReservaAlojamiento.Hotel.form')
                 </div>
-                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"> </div>
             </div>
         </div>
 </div>
