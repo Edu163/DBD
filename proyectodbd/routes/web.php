@@ -238,10 +238,9 @@ Route::resources([
 
 
 /* CRUD Otros */
-/*
+
 Route::resources([
-    'ventas'                    => 'ReservaAutoControllers\VentaController'.
+    'ventas'                    => 'ReservaAutoControllers\VentaController',
     'users'                     => 'ReservaAutoControllers\UserController',
     ]);
-*/
 
