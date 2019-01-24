@@ -15,37 +15,8 @@ class User extends Authenticatable
      *
      * @var array
      */
-
-    protected $nombre;
-    protected $apellido;
-    protected $email;
-    protected $password;
-    protected $acceso;
-    protected $n_documento;
-    protected $tipo_documento;
-    protected $pais;
-    protected $puntos;
-    protected $millas;
-    protected $millas_elite;
-    protected $telefono;
-    protected $categoria;
-    protected $fecha_nac;
-
     protected $fillable = [
-        'nombre',
-        'apellido',
-        'email',
-        'password',
-        'acceso',
-        'n_documento',
-        'tipo_documento',
-        'pais',
-        'puntos',
-        'millas',
-        'millas_elite',
-        'telefono',
-        'categoria',
-        'fecha_nac',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -56,14 +27,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    /* Relaciones */
-
-    public function venta(){
-    	return $this->hasMany(Venta::class);
-    }
-
-    public function check_in(){
-    	return $this->hasMany(CheckIn::class);
-    }
 }
