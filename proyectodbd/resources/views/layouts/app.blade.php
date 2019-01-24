@@ -45,6 +45,9 @@
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
+                                    <a class="fas fa-shopping-cart" href="carrito"></a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
                                 </li>
                                 <li class="nav-item">

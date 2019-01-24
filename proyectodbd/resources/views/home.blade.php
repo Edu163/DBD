@@ -23,10 +23,9 @@
                     <i class="material-icons">domain</i>
                     Reserva alojamiento
                 </a>
-
-                <a class="nav-link nav-link-form" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                <a class="nav-link nav-link-form" href="paquete">
                     <i class="material-icons">view_quilt</i>
-                    Vuelo, alojamiento y vehiculo
+                    Paquetes
                 </a>
             </div>
 
@@ -38,9 +37,7 @@
                     @include('modulos.ReservaVehiculo.vehiculo.form')
                 </div>
                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"> 
-                    @include('modulos.ReservaPaquete.form')
-                </div>
-                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"> 
+
                     @include('modulos.ReservaAlojamiento.Hotel.form')
                 </div>
             </div>

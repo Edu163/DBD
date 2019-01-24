@@ -229,6 +229,19 @@ Route::get('/user/store', 'UserController@store');
 Route::get('/user/update/{id}', 'UserController@update');
 
 
+/* Carrito */
+
+Route::resources([
+    'carrito'                     => 'CarritoControllers\CarritoController',
+  ]);
+
+
+/* Carrito */
+
+Route::resources([
+    'paquete'                     => 'PaqueteControllers\PaqueteController',
+  ]);
+
 /* Reserva de Vehiculos */
 
 Route::resources([
@@ -242,7 +255,6 @@ Route::resources([
     'zona'                         => 'ReservaVehiculoControllers\ZonaController',
   ]);
 
-<<<<<<< HEAD
 /*Alojamiento*/
 Route::resources([
     'alojamiento_privado'           => 'ReservaAlojamientoControllers\AlojamientoPrivadoController',
@@ -256,7 +268,7 @@ Route::resources([
     'reserva_hotel'                 => 'ReservaAlojamientoControllers\ReservaHotelController',
     'servicio_alojamiento'          => 'ReservaAlojamientoControllers\ServicioAlojamientoController',
   ]);
-=======
+  
 /* CRUD Reserva vuelos */
 Route::resources([
     'companias' => 'ReservaVueloControllers\CompaniaController',
@@ -270,7 +282,6 @@ Route::resources([
     'origenesDestinos' => 'ReservaVueloControllers\OrigenDestinoController',
   ]);
 
->>>>>>> eduardo2
 
 /* CRUD Otros */
 /*
