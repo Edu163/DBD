@@ -6,7 +6,7 @@
 
 </br>
 
-<div class="container py-4" style="widht: 100%;">
+<div class="container py-4" style="margin-top: -10%;position: absolute;margin-left: 17%;">
         <div class="row row-buy-forms">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link nav-link-form active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
