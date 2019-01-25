@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
             ChecksInSeeder::class,
             OrigenesDestinosSeeder::class,
             ReservasVuelosSeeder::class,
+            PaquetesSeeder::class,
             /* Paquetes */
 
         ]);

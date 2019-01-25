@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\PaqueteControllers;
 
-use App\Modulos\Paquete\Paquete;
+use App\Modulos\PaqueteVuelo\Paquete;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

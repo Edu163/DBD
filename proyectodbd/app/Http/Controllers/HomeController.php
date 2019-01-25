@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Modulos\ReservaVehiculo\Zona;
 use App\Modulos\ReservaAlojamiento\Hotel;
 use App\Modulos\ReservaVuelo\Aeropuerto;
+use App\Modulos\ReservaVuelo\DetalleVuelo;
 
 class HomeController extends Controller
 {
@@ -20,10 +21,12 @@ class HomeController extends Controller
         $zonas = Zona::all();
         $hoteles = Hotel::all();
         $aeropuertos = Aeropuerto::all();
+        $detalles_vuelos = DetalleVuelo::all();
         return view('home', compact(
             'zonas',
             'hoteles',
-            'aeropuertos'
+            'aeropuertos',
+            'detalles_vuelos'
         ));
     }
 }

@@ -280,7 +280,6 @@ Route::resources([
     'reserva_hotel'                 => 'ReservaAlojamientoControllers\ReservaHotelController',
     'servicio_alojamiento'          => 'ReservaAlojamientoControllers\ServicioAlojamientoController',
   ]);
-=========
 /* CRUD Reserva vuelos */
 Route::resources([
     'companias' => 'ReservaVueloControllers\CompaniaController',
