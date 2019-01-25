@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\PaqueteControllers;
+namespace App\Http\Controllers;
 
-use App\Modulos\Paquete\Paquete;
-use App\Http\Controllers\Controller;
+use App\ReservaPaquete;
 use Illuminate\Http\Request;
 
-
-class PaqueteController extends Controller
+class ReservaPaqueteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,7 @@ class PaqueteController extends Controller
      */
     public function index()
     {
-        //$paquetes = Paquete::all()->where('pais', '=', request('destino_id'));
-        $paquetes = Paquete::all();
-        return view('modulos.ReservaPaquete.index', compact('paquetes'));
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class PaqueteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Paquete  $paquete
+     * @param  \App\ReservaPaquete  $reservaPaquete
      * @return \Illuminate\Http\Response
      */
-    public function show(Paquete $paquete)
+    public function show(ReservaPaquete $reservaPaquete)
     {
         //
     }
@@ -56,10 +52,10 @@ class PaqueteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Paquete  $paquete
+     * @param  \App\ReservaPaquete  $reservaPaquete
      * @return \Illuminate\Http\Response
      */
-    public function edit(Paquete $paquete)
+    public function edit(ReservaPaquete $reservaPaquete)
     {
         //
     }
@@ -68,10 +64,10 @@ class PaqueteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Paquete  $paquete
+     * @param  \App\ReservaPaquete  $reservaPaquete
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paquete $paquete)
+    public function update(Request $request, ReservaPaquete $reservaPaquete)
     {
         //
     }
@@ -79,10 +75,10 @@ class PaqueteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Paquete  $paquete
+     * @param  \App\ReservaPaquete  $reservaPaquete
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Paquete $paquete)
+    public function destroy(ReservaPaquete $reservaPaquete)
     {
         //
     }

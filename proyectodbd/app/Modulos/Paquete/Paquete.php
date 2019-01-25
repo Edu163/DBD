@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Modulos\PaqueteVuelo;
+namespace App\Modulos\Paquete;
+
 use App\Modulos\ReservaVuelo\Vuelo;
 use Illuminate\Database\Eloquent\Model;
 use App\Modulos\ReservaAlojamiento\Hotel;
@@ -14,7 +15,7 @@ class Paquete extends Model
         'hotel_id',
         'vehiculo_id',
         'fecha_inicio',
-        'fecha_fin'
+        'fecha_fin',
     ];
 
     public function vuelo(){
