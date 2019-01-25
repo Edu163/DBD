@@ -1,3 +1,4 @@
+<form action="/register" method="get" class="body-carrito">
 @extends('layouts.app')
 
 @section('content')
@@ -19,10 +20,10 @@
     <tr>
     <th>
         <center>
-		<a href="\" class="btn btn-danger btn-hoteles" style="vertical-align:middle"><span>Reservar </span> </a>
+		<a href="\register" class="btn btn-danger btn-hoteles" style="vertical-align:middle"><span>Reservar </span> </a>
         </center>
         </th>
-    <th><h5 class="card-title">{{$hotel->nombre}}</h5></th>
+    <th><h5 class="card-title" id="nombre_hotel">{{$hotel->nombre}}</h5></th>
     <th><h5 class="card-title">{{$hotel->pais}}</h5></th>
     <th><h5 class="card-title">{{$hotel->direccion}}</h5></th>
     <th><h5 class="card-title">{{$hotel->estrellas}}</h5></th>

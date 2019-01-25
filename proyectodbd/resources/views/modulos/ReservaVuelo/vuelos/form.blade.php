@@ -1,3 +1,4 @@
+<form action="/detallesVuelos" method="get" class="body-vuelo">
 <div class="auto-field field item-component">
     <div class="card buy-card flex-fill">
         <div class="card-body buy-card-body">
@@ -19,7 +20,7 @@
                             <span id="help-compra-vuelo-origen" class="helpText sr-only" data-text=""></span>
                             <select 
                                 id="origen_id" 
-                                name="origen" 
+                                name="origen_id" 
                                 class="form-control selectpicker custom-select" 
                                 title="Aeropuerto" 
                                 data-live-search="true" 

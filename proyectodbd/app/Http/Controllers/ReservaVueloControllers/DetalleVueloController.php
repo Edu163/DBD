@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaVueloControllers;
 
 use App\Modulos\ReservaVuelo\DetalleVuelo;
+use App\Modulos\ReservaVuelo\Aeropuerto;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,16 @@ class DetalleVueloController extends Controller
      */
     public function index()
     {
-        return DetalleVuelo::all();
+        $detalles_vuelos = DetalleVuelo::all();
+        $origen = Aeropuerto::where('id',request('origen_id'))->pluck('id');
+        $destino = Aeropuerto::where('id',request('destino_id'))->pluck('id');
+        $detalles_vuelos =  DetalleVuelo::where('id_origen','=',$origen)
+                                            ->where('id_destino','=',$destino)
+                                            ->get();
+        
+        //$detalles_vuelos2 = origenDestino($id1,$id2);
+        return view('modulos.ReservaVuelo.detalles_vuelos.index', compact('detalles_vuelos'));
+        //return $detalles_vuelos2;
     }
 
     /**
@@ -132,6 +142,13 @@ class DetalleVueloController extends Controller
     public function destino($id)
     {
         $det_vuelos = DetalleVuelo::where('id_destino','=',$id)->get();
+        return $det_vuelos;
+    }
+    public function origenDestino($id1,$id2)
+    {
+        $det_vuelos = DetalleVuelo::where(
+            ['id_origen', '=', $id1],
+            ['id_destino', '=', $id2])->get();
         return $det_vuelos;
     }
 }

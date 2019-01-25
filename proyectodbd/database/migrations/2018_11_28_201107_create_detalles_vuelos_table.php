@@ -61,7 +61,7 @@ class CreateDetallesVuelosTable extends Migration
                 ->references('id')
                 ->on('aeropuertos')
                 ->onDelete('cascade');
-            $table->float('precio');
+            $table->integer('precio');
             $table->datetime('fecha_despegue');
             $table->datetime('fecha_aterrizaje');
             $table->timestamps();
