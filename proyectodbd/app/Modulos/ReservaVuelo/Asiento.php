@@ -8,7 +8,7 @@ class Asiento extends Model
 {
     protected $table = 'asientos';
 
-    protected $detalle_vuelo_id;
+    protected $avion_id;
     protected $numero;
     protected $letra;
     protected $tipo;
@@ -17,7 +17,7 @@ class Asiento extends Model
     
 
     protected $fillable = [
-        'detalle_vuelo_id',
+        'avion_id',
         'numero',
         'letra',
         'tipo',
@@ -28,9 +28,9 @@ class Asiento extends Model
 
     /* Relaciones */
 
-    public function detalle_vuelo()
+    public function avion()
     {
-        return $this->belongsTo(DetalleVuelo::class);
+        return $this->belongsTo(Avion::class);
     }
 
     public function check_in(){
