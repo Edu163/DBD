@@ -114,6 +114,17 @@ Route::resources([
     'users'                         => 'ReservaAutoControllers\UserController',
     ]);
 
+/* Carrito */
+
+Route::resources([
+    'carrito'                     => 'CarritoControllers\CarritoController',
+  ]);
+/* Paquete */
+
+Route::resources([
+    'paquete'                     => 'PaqueteControllers\PaqueteController',
+  ]);
+
 
 
 /*Alojamiento+/

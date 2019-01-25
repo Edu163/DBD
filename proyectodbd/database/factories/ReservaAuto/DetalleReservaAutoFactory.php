@@ -8,7 +8,6 @@ $factory->define(DetalleReservaVehiculo::class, function (Faker $faker) {
     //Llaves foráneas
     $reserva_vehiculo_id = DB::table('reservas_vehiculos')->select('id')->get();
     $patente = DB::table('vehiculos')->select('patente')->get();
-
     return [
         'reserva_vehiculo_id' => $reserva_vehiculo_id->random()->id,
         'patente' => $patente->random()->patente,
