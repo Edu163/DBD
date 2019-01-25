@@ -48,7 +48,7 @@ class DetalleVueloController extends Controller
     {
         $detalleVuelo = DetalleVuelo::create($this->validate($request, [
             'id_avion' => 'required',
-            'id_vuelo' => 'required',
+            'detalle_vuelo_id' => 'required',
             'id_origen' => 'required',
             'id_destino' => 'required',
             'precio' => 'required',
@@ -97,7 +97,7 @@ class DetalleVueloController extends Controller
     {
         $outcome = $detalleVuelo->fill($this->validate($request, [
             'avion_id' => 'required',
-            'vuelo_id' => 'required',
+            'detalle_vuelo_id' => 'required',
             'fecha_despegue' => 'required',
             'fecha_aterrizaje' => 'required',
           ]))->save();
