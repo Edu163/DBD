@@ -4,18 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Modulos\ReservaVehiculo\Zona;
+use App\Modulos\ReservaAlojamiento\Hotel;
+use App\Modulos\ReservaAlojamiento\HabitacionHotel;
+use App\Modulos\ReservaVuelo\Aeropuerto;
+use App\Modulos\ReservaVuelo\DetalleVuelo;
+
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -23,6 +19,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $zonas = Zona::all();
+        $hoteles = Hotel::all();
+        $aeropuertos = Aeropuerto::all();
+        $detalles_vuelos = DetalleVuelo::all();
+        return view('home', compact(
+            'zonas',
+            'hoteles',
+            'aeropuertos',
+            'detalles_vuelos',
+            'habitaciones_hoteles'
+        ));
     }
 }

@@ -49,7 +49,8 @@ class DatabaseSeeder extends Seeder
             DetallesVuelosSeeder::class,
             ChecksInSeeder::class,
             OrigenesDestinosSeeder::class,
-
+            ReservasVuelosSeeder::class,
+            PaquetesSeeder::class,
             /* Paquetes */
 
         ]);

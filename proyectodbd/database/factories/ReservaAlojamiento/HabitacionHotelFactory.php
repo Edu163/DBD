@@ -15,6 +15,7 @@ $factory->define(HabitacionHotel::class, function (Faker $faker) {
     	'calendario_alojamiento_id' => $calendario_alojamiento_id->random()->id,
     	'capacidad' => $faker->numberBetween($min = 1000, $max = 999999),
     	'camas' => $faker->numberBetween($min = 1000, $max = 999999),
-    	'numero' => $faker->numberBetween($min = 1000, $max = 999999),
+		'numero' => $faker->numberBetween($min = 1000, $max = 999999),
+		'precio' => $faker->numberBetween($min = 1000, $max = 9999),
     ];
 });

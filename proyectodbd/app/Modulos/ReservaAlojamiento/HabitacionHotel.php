@@ -19,7 +19,8 @@ class HabitacionHotel extends Model
     	'calendario_alojamiento_id',
     	'capacidad',
     	'camas',
-    	'numero'
+		'numero',
+		'precio'
 	];
 	
 	/* Relaciones */

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaVehiculoControllers;
 
 use App\Modulos\ReservaVehiculo\Vehiculo;
+use App\Modulos\ReservaVehiculo\Zona;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,12 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        return Vehiculo::all();
+        $zonas = Zona::where('id', request('zona_id'))->pluck('id');
+
+        $vehiculos = Vehiculo::whereIn('zona_id', $zonas)
+            ->get();
+
+        return view('modulos.ReservaVehiculo.vehiculo.index', compact('vehiculos'));
     }
 
     /**

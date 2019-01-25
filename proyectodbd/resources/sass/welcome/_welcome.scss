@@ -1,12 +1,12 @@
 html, body {
-    background-color: #fff;
+    background-color: black;
+    background: #FFFFFF;
     color: #636b6f !important;
     font-family: 'Nunito', sans-serif;
     height: 100vh;
     margin: 0;
     line-height: 1 !important;
 }
-
 .full-height {
 height: 100vh;
 }
@@ -49,6 +49,29 @@ text-transform: uppercase;
 margin-bottom: 30px;
 }
 
-.carousel-item{
-    height: 700px;
+//Forms
+
+.row-buy-forms {
+    margin-left: 0% !important;
+}
+
+.nav-link-form {
+    color: #150067 !important;
+    background: rgba(255,255,255,0.3);
+    font-size: 18px;
+}
+
+.material-icons {
+    color: #ED1650 !important;
+}
+
+.nav-pills {
+    background: white;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #150067 !important;
+    color: #FFFFFF !important;
+    font-size: 18px;
+    border-radius: 0px !important;
 }

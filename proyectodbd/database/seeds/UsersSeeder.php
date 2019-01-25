@@ -15,20 +15,10 @@ class UsersSeeder extends Seeder
         factory(User::class, 19)->create();
 
         User::create([
-            'nombre' => 'Omar',
-            'apellido' => 'Carrasco',
+            'name' => 'Omar Carrasco',
             'email' => 'omar.carrasco@usach.cl',
             'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-            'acceso' => 'Administrador',
-            'n_documento' => null,
-            'tipo_documento' => null,
-            'pais' => 'Chile',
-            'puntos' => 9999,
-            'millas' => 9999,
-            'millas_elite' => 9999,
-            'telefono' => 942723136,
-            'categoria' => 'Premium',
-            'fecha_nac' => '1996-06-27',
+            'is_admin' => 1,
             ]);
     }
 }
