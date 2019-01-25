@@ -16,7 +16,11 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        $zonas = Zona::where('id', request('zona_id'))->pluck('id');
+        $zonas = Zona::all();
+        foreach($zonas as $zona)
+        {
+        $vehiculos = vehiculo::all()->where($zona->id, '=', request('zona_id'));
+        }
 
         $vehiculos = Vehiculo::whereIn('zona_id', $zonas)
             ->get();

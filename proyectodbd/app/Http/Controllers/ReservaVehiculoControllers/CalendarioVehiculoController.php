@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaVehiculoControllers;
 
 use App\Modulos\ReservaVehiculo\CalendarioVehiculo;
+use App\Modulos\ReservaVehiculo\Vehiculo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,10 @@ class CalendarioVehiculoController extends Controller
      */
     public function index()
     {
-        return CalendarioVehiculo::all();
+        $autos = Vehiculo::all()->where('id', request('auto_id'));
+        //$habhotel = HabitacionHotel::all();
+        return view('confirmacionV', compact('autos'));
+        //return CalendarioVehiculo::all();
     }
 
     /**
