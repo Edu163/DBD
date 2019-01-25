@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ReservaAlojamientoControllers;
 
 use App\Modulos\ReservaAlojamiento\CalendarioAlojamiento;
+use App\Modulos\ReservaAlojamiento\HabitacionHotel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,9 @@ class CalendarioAlojamientoController extends Controller
      */
     public function index()
     {
-        return CalendarioAlojamiento::all();
+        $habHotel = HabitacionHotel::all()->where('id', request('hotel_id'));
+        //$habhotel = HabitacionHotel::all();
+        return view('confirmacion', compact('habHotel'));
     }
 
     /**

@@ -14,12 +14,12 @@
 						<div class="form-group">
 							
 							<label for="">Nombre: </label>
-							<input type="text" name="nombre" class="form-control">
+							<input type="text" name="nombre" class="form-control" required>
 						</div>
 						<div class="form-group">
 							
 							<label for="">Direccion: </label>
-							<input type="text" name="direccion" class="form-control">
+							<input type="text" name="direccion" class="form-control" required>
 						</div>
 			
 						<button type="submit" class="btn btn-primary">Guardar</button>

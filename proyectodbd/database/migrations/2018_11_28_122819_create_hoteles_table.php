@@ -19,7 +19,7 @@ class CreateHotelesTable extends Migration
             $table->string('pais');
             $table->string('direccion');
             $table->float('estrellas');
-            $table->date('valoracion');
+            $table->integer('valoracion');
             $table->integer('capacidad');
             $table->timestamps();
         });

@@ -13,17 +13,17 @@ class CompaniaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    /*public function index()
+    public function index()
     {
         $companias = Compania::all();
 
         return view('modulos.ReservaVuelo.companias.index', compact('companias'));
-    }*/
-    public function index()
+    }
+    /*public function index()
     {
         return Compania::all();
     }
-
+    */
     /**
      * Show the form for creating a new resource.
      *
@@ -40,20 +40,20 @@ class CompaniaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    /*public function store(Request $request)
+    public function store(Request $request)
     {
         $compania = new Compania();
         $compania->nombre = $request->input('nombre');
         $compania->direccion = $request->input('direccion');
         $compania->save();
-        return 'Guardado';
-    }*/
-    public function store(Request $request)
+        return view('modulos.ReservaVuelo.companias.index', compact('companias'));
+    }
+    /*public function store(Request $request)
     {
         return Compania::create($request->all());
         return $compania;
         
-    }
+    }*/
     /**
      * Display the specified resource.
      *

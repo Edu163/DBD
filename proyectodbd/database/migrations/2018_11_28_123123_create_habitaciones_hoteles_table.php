@@ -28,6 +28,7 @@ class CreateHabitacionesHotelesTable extends Migration
             $table->integer('capacidad');
             $table->integer('camas');
             $table->integer('numero');
+            $table->integer('precio');
             $table->timestamps();
         });
     }
