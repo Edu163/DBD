@@ -15,79 +15,194 @@ use App\AlojamientoPrivado;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+/*
+Route::group(['middleware' => ['admin']], function() {
+  Route::get('/', 'HomeController@index')->name('home');
+});
+*/
+Route::group(['middleware' => 'admin'], function() {
+
+    /* Vehiculos */
+  Route::resources([
+      '/admin/vehiculo'                     => 'ReservaVehiculoControllers\VehiculoController',
+      '/admin/calendario_vehiculo'          => 'ReservaVehiculoControllers\CalendarioVehiculoController',
+      '/admin/detalle_reserva_vehiculo'     => 'ReservaVehiculoControllers\DetalleReservaVehiculoController',
+      '/admin/reserva_vehiculo'             => 'ReservaVehiculoControllers\ReservaVehiculoController',
+      '/admin/proveedore'                   => 'ReservaVehiculoControllers\ProveedorController',
+      '/admin/servicio_proveedore'          => 'ReservaVehiculoControllers\ServicioProveedorController',
+      '/admin/servicio_y_vehiculo'          => 'ReservaVehiculoControllers\ServicioYVehiculoController',
+      '/admin/zona'                         => 'ReservaVehiculoControllers\ZonaController',
+    ]);
+
+    /* Vuelos */
+Route::resources([
+    '/admin/companias'                     => 'ReservaVueloControllers\CompaniaController',
+    '/admin/aviones'                       => 'ReservaVueloControllers\AvionController',
+    '/admin/reserva_vuelo'                 => 'ReservaVueloControllers\ReservaVueloController',
+    '/admin/asientos'                      => 'ReservaVueloControllers\AsientoController',
+    '/admin/aeropuertos'                   => 'ReservaVueloControllers\AeropuertoController',
+    '/admin/checkins'                      => 'ReservaVueloControllers\CheckInController',
+    '/admin/detallesVentasVuelos'          => 'ReservaVueloControllers\DetalleVentaVueloController',
+    '/admin/detallesVuelos'                =>'ReservaVueloControllers\DetalleVueloController',
+    '/admin/origenesDestinos'              => 'ReservaVueloControllers\OrigenDestinoController',
+  ]);
+
+/* Alojamiento */
+Route::resources([
+    '/admin/alojamiento_privado'           => 'ReservaAlojamientoControllers\AlojamientoPrivadoController',
+    '/admin/alojamiento_servicio'          => 'ReservaAlojamientoControllers\AlojamientoServicioController',
+    '/admin/calendario_alojamiento'        => 'ReservaAlojamientoControllers\CalendarioAlojamientoController',
+    '/admin/detalle_reserva_hotel'         => 'ReservaAlojamientoControllers\DetalleReservaHotelController',
+    '/admin/habitacion'                    => 'ReservaAlojamientoControllers\HabitacionController',
+    '/admin/habitacion_hotel'              => 'ReservaAlojamientoControllers\HabitacionHotelController',
+    '/admin/habitacion_servicio'           => 'ReservaAlojamientoControllers\HabitacionServicioController',
+    '/admin/hotel'                         => 'ReservaAlojamientoControllers\HotelController',
+    '/admin/reserva_hotel'                 => 'ReservaAlojamientoControllers\ReservaHotelController',
+    '/admin/servicio_alojamiento'          => 'ReservaAlojamientoControllers\ServicioAlojamientoController',
+  ]);
+
+/* Otros */
+Route::resources([
+    '/admin/ventas'                        => 'ReservaAutoControllers\VentaController',
+    '/admin/users'                         => 'ReservaAutoControllers\UserController',
+    ]);
+});
+
+
+/* Vehiculos */
+Route::resources([
+    'vehiculo'                     => 'ReservaVehiculoControllers\VehiculoController',
+    'calendario_vehiculo'          => 'ReservaVehiculoControllers\CalendarioVehiculoController',
+    'detalle_reserva_vehiculo'     => 'ReservaVehiculoControllers\DetalleReservaVehiculoController',
+    'reserva_vehiculo'             => 'ReservaVehiculoControllers\ReservaVehiculoController',
+    'proveedore'                   => 'ReservaVehiculoControllers\ProveedorController',
+    'servicio_proveedore'          => 'ReservaVehiculoControllers\ServicioProveedorController',
+    'servicio_y_vehiculo'          => 'ReservaVehiculoControllers\ServicioYVehiculoController',
+    'zona'                         => 'ReservaVehiculoControllers\ZonaController',
+  ]);
+
+/* Vuelos */
+Route::resources([
+    'companias'                     => 'ReservaVueloControllers\CompaniaController',
+    'aviones'                       => 'ReservaVueloControllers\AvionController',
+    'reserva_vuelo'                 => 'ReservaVueloControllers\ReservaVueloController',
+    'asientos'                      => 'ReservaVueloControllers\AsientoController',
+    'aeropuertos'                   => 'ReservaVueloControllers\AeropuertoController',
+    'checkins'                      => 'ReservaVueloControllers\CheckInController',
+    'detallesVentasVuelos'          => 'ReservaVueloControllers\DetalleVentaVueloController',
+    'detallesVuelos'                =>'ReservaVueloControllers\DetalleVueloController',
+    'origenesDestinos'              => 'ReservaVueloControllers\OrigenDestinoController',
+  ]);
+
+/* Alojamiento */
+Route::resources([
+    'alojamiento_privado'           => 'ReservaAlojamientoControllers\AlojamientoPrivadoController',
+    'alojamiento_servicio'          => 'ReservaAlojamientoControllers\AlojamientoServicioController',
+    'calendario_alojamiento'        => 'ReservaAlojamientoControllers\CalendarioAlojamientoController',
+    'detalle_reserva_hotel'         => 'ReservaAlojamientoControllers\DetalleReservaHotelController',
+    'habitacion'                    => 'ReservaAlojamientoControllers\HabitacionController',
+    'habitacion_hotel'              => 'ReservaAlojamientoControllers\HabitacionHotelController',
+    'habitacion_servicio'           => 'ReservaAlojamientoControllers\HabitacionServicioController',
+    'hotel'                         => 'ReservaAlojamientoControllers\HotelController',
+    'reserva_hotel'                 => 'ReservaAlojamientoControllers\ReservaHotelController',
+    'servicio_alojamiento'          => 'ReservaAlojamientoControllers\ServicioAlojamientoController',
+  ]);
+
+/* Otros */
+Route::resources([
+    'ventas'                        => 'ReservaAutoControllers\VentaController',
+    'users'                         => 'ReservaAutoControllers\UserController',
+    ]);
+
+/* Carrito */
+
+Route::resources([
+    'carrito'                     => 'CarritoControllers\CarritoController',
+  ]);
+/* Paquete */
+
+Route::resources([
+    'paquete'                     => 'PaqueteControllers\PaqueteController',
+  ]);
+
+
+
+/*Alojamiento+/
 
 /*alojamientoPrivado*/
-/*Route::get('/alojamientoPrivado/all', 'ReservaAlojamientoControllers\AlojamientoPrivadoController@index');
+/*
+Route::get('/alojamientoPrivado/all', 'ReservaAlojamientoControllers\AlojamientoPrivadoController@index');
 Route::get('/alojamientoPrivado/show/{id}', 'ReservaAlojamientoControllers\AlojamientoPrivadoController@show');
 Route::get('/alojamientoPrivado/destroy/{id}', 'ReservaAlojamientoControllers\AlojamientoPrivadoController@destroy');
 Route::get('/alojamientoPrivado/store', 'ReservaAlojamientoControllers\AlojamientoPrivadoController@store');
 Route::get('/alojamientoPrivado/update/{id}', 'ReservaAlojamientoControllers\AlojamientoPrivadoController@update');
-*/
 /*alojamientoServicio*/
-/*Route::get('/alojamientoServicio/all', 'ReservaAlojamientoControllers\AlojamientoServicioController@index');
+/*
+Route::get('/alojamientoServicio/all', 'ReservaAlojamientoControllers\AlojamientoServicioController@index');
 Route::get('/alojamientoServicio/show/{id}', 'ReservaAlojamientoControllers\AlojamientoServicioController@show');
 Route::get('/alojamientoServicio/destroy/{id}', 'ReservaAlojamientoControllers\AlojamientoServicioController@destroy');
 Route::get('/alojamientoServicio/store', 'ReservaAlojamientoControllers\AlojamientoServicioController@store');
 Route::get('/alojamientoServicio/update/{id}', 'ReservaAlojamientoControllers\AlojamientoServicioController@update');
-*/
 /*caledarioAlojamiento*/
-/*Route::get('/caledarioAlojamiento/all', 'ReservaAlojamientoControllers\CalendarioAlojamientoController@index');
+/*
+Route::get('/caledarioAlojamiento/all', 'ReservaAlojamientoControllers\CalendarioAlojamientoController@index');
 Route::get('/caledarioAlojamiento/show/{id}', 'ReservaAlojamientoControllers\CalendarioAlojamientoController@show');
 Route::get('/caledarioAlojamiento/destroy/{id}', 'ReservaAlojamientoControllers\CalendarioAlojamientoController@destroy');
 Route::get('/caledarioAlojamiento/store', 'ReservaAlojamientoControllers\CalendarioAlojamientoController@store');
 Route::get('/caledarioAlojamiento/update/{id}', 'ReservaAlojamientoControllers\CalendarioAlojamientoController@update');
-*/
 /*detalleReservaHotel*/
-/*Route::get('/detalleReservaHotel/all', 'ReservaAlojamientoControllers\DetalleReservaHotelController@index');
+/*
+Route::get('/detalleReservaHotel/all', 'ReservaAlojamientoControllers\DetalleReservaHotelController@index');
 Route::get('/detalleReservaHotel/show/{id}', 'ReservaAlojamientoControllers\DetalleReservaHotelController@show');
 Route::get('/detalleReservaHotel/destroy/{id}', 'ReservaAlojamientoControllers\DetalleReservaHotelController@destroy');
 Route::get('/detalleReservaHotel/store', 'ReservaAlojamientoControllers\DetalleReservaHotelController@store');
 Route::get('/detalleReservaHotel/update/{id}', 'ReservaAlojamientoControllers\DetalleReservaHotelController@update');
-*/
 /*habitacion*/
-/*Route::get('/habitacion/all', 'ReservaAlojamientoControllers\HabitacionController@index');
+/*
+Route::get('/habitacion/all', 'ReservaAlojamientoControllers\HabitacionController@index');
 Route::get('/habitacion/show/{id}', 'ReservaAlojamientoControllers\HabitacionController@show');
 Route::get('/habitacion/destroy/{id}', 'ReservaAlojamientoControllers\HabitacionController@destroy');
 Route::get('/habitacion/store', 'ReservaAlojamientoControllers\HabitacionController@store');
 Route::get('/habitacion/update/{id}', 'ReservaAlojamientoControllers\HabitacionController@update');
-*/
 /*habitacionHotel*/
-/*Route::get('/habitacionHotel/all', 'ReservaAlojamientoControllers\HabitacionHotelController@index');
+/*
+Route::get('/habitacionHotel/all', 'ReservaAlojamientoControllers\HabitacionHotelController@index');
 Route::get('/habitacionHotel/show/{id}', 'ReservaAlojamientoControllers\HabitacionHotelController@show');
 Route::get('/habitacionHotel/destroy/{id}', 'ReservaAlojamientoControllers\HabitacionHotelController@destroy');
 Route::get('/habitacionHotel/store', 'ReservaAlojamientoControllers\HabitacionHotelController@store');
 Route::get('/habitacionHotel/update/{id}', 'ReservaAlojamientoControllers\HabitacionHotelController@update');
-*/
 /*habitacionServicio*/
-/*Route::get('/habitacionServicio/all', 'ReservaAlojamientoControllers\HabitacionServicioController@index');
+/*
+Route::get('/habitacionServicio/all', 'ReservaAlojamientoControllers\HabitacionServicioController@index');
 Route::get('/habitacionServicio/show/{id}', 'ReservaAlojamientoControllers\HabitacionServicioController@show');
 Route::get('/habitacionServicio/destroy/{id}', 'ReservaAlojamientoControllers\HabitacionServicioController@destroy');
 Route::get('/habitacionServicio/store', 'ReservaAlojamientoControllers\HabitacionServicioController@store');
 Route::get('/habitacionServicio/update/{id}', 'ReservaAlojamientoControllers\HabitacionServicioController@update');
-*/
 /*hotel*/
-/*Route::get('/hotel/all', 'ReservaAlojamientoControllers\HotelController@index');
+/*
+Route::get('/hotel/all', 'ReservaAlojamientoControllers\HotelController@index');
 Route::get('/hotel/show/{id}', 'ReservaAlojamientoControllers\HotelController@show');
 Route::get('/hotel/destroy/{id}', 'ReservaAlojamientoControllers\HotelController@destroy');
 Route::get('/hotel/store', 'ReservaAlojamientoControllers\HotelController@store');
 Route::get('/hotel/update/{id}', 'ReservaAlojamientoControllers\HotelController@update');
-*/
 /*reservaHotel*/
-/*Route::get('/reservaHotel/all', 'ReservaAlojamientoControllers\ReservaHotelController@index');
+/*
+Route::get('/reservaHotel/all', 'ReservaAlojamientoControllers\ReservaHotelController@index');
 Route::get('/reservaHotel/show/{id}', 'ReservaAlojamientoControllers\ReservaHotelController@show');
 Route::get('/reservaHotel/destroy/{id}', 'ReservaAlojamientoControllers\ReservaHotelController@destroy');
 Route::get('/reservaHotel/store', 'ReservaAlojamientoControllers\ReservaHotelController@store');
 Route::get('/reservaHotel/update/{id}', 'ReservaAlojamientoControllers\ReservaHotelController@update');
-*/
 /*servicioAlojamiento*/
-/*Route::get('/servicioAlojamiento/all', 'ReservaAlojamientoControllers\ServicioAlojamientoController@index');
+/*
+Route::get('/servicioAlojamiento/all', 'ReservaAlojamientoControllers\ServicioAlojamientoController@index');
 Route::get('/servicioAlojamiento/show/{id}', 'ReservaAlojamientoControllers\ServicioAlojamientoController@show');
 Route::get('/servicioAlojamiento/destroy/{id}', 'ReservaAlojamientoControllers\ServicioAlojamientoController@destroy');
 Route::get('/servicioAlojamiento/store', 'ReservaAlojamientoControllers\ServicioAlojamientoController@store');
 Route::get('/servicioAlojamiento/update/{id}', 'ReservaAlojamientoControllers\ServicioAlojamientoController@update');
-*/
+
 //VUELOS
 /* Compania */
+/*
 Route::resource('companias', 'ReservaVueloControllers\CompaniaController');
 
 /* Avion */
@@ -214,91 +329,18 @@ Route::get('/zona/store', 'ReservaAutoControllers\ZonaController@store');
 Route::get('/zona/update/{id}', 'ReservaAutoControllers\ZonaController@update');
 */
 /* Venta */
-
+/*
 Route::get('/venta/all', 'VentaController@index');
 Route::get('/venta/show/{id}', 'VentaController@show');
 Route::get('/venta/destroy/{id}', 'VentaController@destroy');
 Route::get('/venta/store', 'VentaController@store');
 Route::get('/venta/update/{id}', 'VentaController@update');
-
+*/
 /* Usuario */
+/*
 Route::get('/user/all', 'UserController@index');
 Route::get('/user/show/{id}', 'UserController@show');
 Route::get('/user/destroy/{id}', 'UserController@destroy');
 Route::get('/user/store', 'UserController@store');
 Route::get('/user/update/{id}', 'UserController@update');
-
-
-/* Carrito */
-
-Route::resources([
-    'carrito'                     => 'CarritoControllers\CarritoController',
-  ]);
-
-
-/* Carrito */
-
-Route::resources([
-    'paquete'                     => 'PaqueteControllers\PaqueteController',
-  ]);
-
-/* Reserva de Vehiculos */
-
-Route::resources([
-    'vehiculo'                     => 'ReservaVehiculoControllers\VehiculoController',
-    'calendario_vehiculo'          => 'ReservaVehiculoControllers\CalendarioVehiculoController',
-    'detalle_reserva_vehiculo'     => 'ReservaVehiculoControllers\DetalleReservaVehiculoController',
-    'reserva_vehiculo'             => 'ReservaVehiculoControllers\ReservaVehiculoController',
-    'proveedore'                   => 'ReservaVehiculoControllers\ProveedorController',
-    'servicio_proveedore'          => 'ReservaVehiculoControllers\ServicioProveedorController',
-    'servicio_y_vehiculo'          => 'ReservaVehiculoControllers\ServicioYVehiculoController',
-    'zona'                         => 'ReservaVehiculoControllers\ZonaController',
-  ]);
-
-/* CRUD Reserva vuelos */
-Route::resources([
-    'companias' => 'ReservaVueloControllers\CompaniaController',
-    'aviones' => 'ReservaVueloControllers\AvionController',
-    'reserva_vuelo' => 'ReservaVueloControllers\ReservaVueloController',
-    'asientos' => 'ReservaVueloControllers\AsientoController',
-    'aeropuertos' => 'ReservaVueloControllers\AeropuertoController',
-    'checkins'=> 'ReservaVueloControllers\CheckInController',
-    'detallesVentasVuelos' => 'ReservaVueloControllers\DetalleVentaVueloController',
-    'detallesVuelos' =>'ReservaVueloControllers\DetalleVueloController',
-    'origenesDestinos' => 'ReservaVueloControllers\OrigenDestinoController',
-  ]);
-/*Alojamiento*/
-Route::resources([
-    'alojamiento_privado'           => 'ReservaAlojamientoControllers\AlojamientoPrivadoController',
-    'alojamiento_servicio'          => 'ReservaAlojamientoControllers\AlojamientoServicioController',
-    'calendario_alojamiento'        => 'ReservaAlojamientoControllers\CalendarioAlojamientoController',
-    'detalle_reserva_hotel'         => 'ReservaAlojamientoControllers\DetalleReservaHotelController',
-    'habitacion'                    => 'ReservaAlojamientoControllers\HabitacionController',
-    'habitacion_hotel'              => 'ReservaAlojamientoControllers\HabitacionHotelController',
-    'habitacion_servicio'           => 'ReservaAlojamientoControllers\HabitacionServicioController',
-    'hotel'                         => 'ReservaAlojamientoControllers\HotelController',
-    'reserva_hotel'                 => 'ReservaAlojamientoControllers\ReservaHotelController',
-    'servicio_alojamiento'          => 'ReservaAlojamientoControllers\ServicioAlojamientoController',
-  ]);
-/* CRUD Reserva vuelos */
-Route::resources([
-    'companias' => 'ReservaVueloControllers\CompaniaController',
-    'aviones' => 'ReservaVueloControllers\AvionController',
-    'reserva_vuelo' => 'ReservaVueloControllers\ReservaVueloController',
-    'asientos' => 'ReservaVueloControllers\AsientoController',
-    'aeropuertos' => 'ReservaVueloControllers\AeropuertoController',
-    'checkins'=> 'ReservaVueloControllers\CheckInController',
-    'detallesVentasVuelos' => 'ReservaVueloControllers\DetalleVentaVueloController',
-    'detallesVuelos' =>'ReservaVueloControllers\DetalleVueloController',
-    'origenesDestinos' => 'ReservaVueloControllers\OrigenDestinoController',
-  ]);
-
-
-/* CRUD Otros */
-/*
-Route::resources([
-    'ventas'                    => 'ReservaAutoControllers\VentaController'.
-    'users'                     => 'ReservaAutoControllers\UserController',
-    ]);
 */
-
