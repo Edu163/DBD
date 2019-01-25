@@ -15,7 +15,7 @@ class HabitacionHotelController extends Controller
      */
     public function index()
     {
-        return HabitacionHotel::all();
+        return HabitacionHotel::all()->where('hotel_id', request('hotel_id'));
     }
 
     /**

@@ -1,4 +1,4 @@
-<form action="/carrito" method="get" class="body-carrito">
+<form action="/habitacion_hotel" method="get">
 @extends('layouts.app')
 
 @section('content')
@@ -20,7 +20,7 @@
     <tr>
     <th>
         <center>
-		<a href="\" class="btn btn-danger btn-hoteles" style="vertical-align:middle"><span>Reservar </span> </a>
+		<button type="submit" class="btn btn-danger btn-hoteles" id="hotel_id" name="hotel_id" value="{{ $hotel->id }}" style="vertical-align:middle"><span>Reservar </span> </button>
         </center>
         </th>
     <th><h5 class="card-title" id="nombre_hotel">{{$hotel->nombre}}</h5></th>

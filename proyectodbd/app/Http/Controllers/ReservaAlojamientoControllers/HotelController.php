@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\ReservaAlojamientoControllers;
 
 use App\Modulos\ReservaAlojamiento\Hotel;
-use App\Modulos\ReservaAlojamiento\Habitacion;
+use App\Modulos\ReservaAlojamiento\HabitacionHotel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -17,11 +17,10 @@ class HotelController extends Controller
      */
     public function index()
     {
-        //$hoteles = Hotel::all();
-        $hoteles = Hotel::all()->where('pais', '=', request('destino_id'));
-                    
-
-        return view('modulos.ReservaAlojamiento.hotel.index', compact('hoteles'));
+        $hoteles = Hotel::all();
+        $habitaciones = HabitacionHotel::all();
+        
+        return view('modulos.ReservaAlojamiento.hotel.index', compact('hoteles', 'habitaciones'));
     }
 
     /**
