@@ -17,7 +17,16 @@ class HabitacionHotelController extends Controller
      */
     public function index()
     {
-        return HabitacionHotel::all()->where('hotel_id', request('hotel_id'));
+        $hab_disp = HabitacionHotel::all()->where('hotel_id', request('hotel_id'));
+
+        if(count($hab_disp)>0)
+        {
+        return view('modulos.ReservaAlojamiento.habitacion.index', compact('hab_disp'));
+        }
+        else{
+            return view('nodisp');
+        }
+        
     }
 
     /**

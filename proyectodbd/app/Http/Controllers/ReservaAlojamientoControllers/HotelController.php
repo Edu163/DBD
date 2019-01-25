@@ -17,10 +17,11 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hoteles = Hotel::all();
-        $habitaciones = HabitacionHotel::all();
-        
-        return view('modulos.ReservaAlojamiento.hotel.index', compact('hoteles', 'habitaciones'));
+      
+        $hoteles = Hotel::all()->where('pais', '=', request('destino_id'));
+                    
+        return view('modulos.ReservaAlojamiento.hotel.index', compact('hoteles'));
+   
     }
 
     /**
