@@ -71,6 +71,18 @@ Route::resources([
 });
 
 
+
+/* Vehiculos */
+Route::resources([
+    'carrito'                     => 'CarritoControllers\CarritoController',
+  ]);
+
+  /* Vehiculos */
+  Route::resources([
+    'paquete'                     => 'PaqueteControllers\PaqueteController',
+  ]);
+
+
 /* Vehiculos */
 Route::resources([
     'vehiculo'                     => 'ReservaVehiculoControllers\VehiculoController',
