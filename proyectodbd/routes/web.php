@@ -22,6 +22,8 @@ Route::group(['middleware' => ['admin']], function() {
 */
 Route::group(['middleware' => 'admin'], function() {
 
+  Route::get('/admin', 'HomeAdminController@index')->name('admin');
+
     /* Vehiculos */
   Route::resources([
       '/admin/vehiculo'                     => 'ReservaVehiculoControllers\VehiculoController',
@@ -124,19 +126,9 @@ Route::resources([
 Route::resources([
     'ventas'                        => 'ReservaAutoControllers\VentaController',
     'users'                         => 'ReservaAutoControllers\UserController',
+    'carrito'                       => 'CarritoControllers\CarritoController',
+    'paquete'                       => 'PaqueteControllers\PaqueteController',
     ]);
-
-/* Carrito */
-
-Route::resources([
-    'carrito'                     => 'CarritoControllers\CarritoController',
-  ]);
-/* Paquete */
-
-Route::resources([
-    'paquete'                     => 'PaqueteControllers\PaqueteController',
-  ]);
-
 
 
 /*Alojamiento+/

@@ -18,7 +18,7 @@ class PaqueteController extends Controller
     {
         //$paquetes = Paquete::all()->where('pais', '=', request('destino_id'));
         $paquetes = Paquete::all();
-        return view('modulos.Paquete.index', compact('paquetes'));
+        return view('modulos.ReservaPaquete.index', compact('paquetes'));
     }
 
     /**
