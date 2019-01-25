@@ -35,7 +35,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return Automovil::create($request->all());
+        return User::create($request->all());
     }
 
     /**
@@ -72,18 +72,8 @@ class UserController extends Controller
         $user = User::find($id);
         $user->fill($this->validate($request, [
             'nombre' => 'required',
-            'apellido' => 'required',
             'password' => 'required',
-            'acceso' => 'required',
-            'n_documento' => 'required',
-            'tipo_documento' => 'required',
-            'pais' => 'required',
-            'puntos' => 'required',
-            'millas' => 'required',
-            'millas_elite' => 'required',
-            'telefono' => 'required',
-            'categoria' => 'required',
-            'fecha_nac' => 'required',
+
         ]))->save();
 
         return "Me he acutalizado correctamente! :D!";

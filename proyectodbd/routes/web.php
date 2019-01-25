@@ -15,6 +15,59 @@ use App\AlojamientoPrivado;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+/*
+Route::group(['middleware' => ['admin']], function() {
+  Route::get('/', 'HomeController@index')->name('home');
+});
+*/
+Route::group(['middleware' => 'admin'], function() {
+
+    /* Vehiculos */
+  Route::resources([
+      '/admin/vehiculo'                     => 'ReservaVehiculoControllers\VehiculoController',
+      '/admin/calendario_vehiculo'          => 'ReservaVehiculoControllers\CalendarioVehiculoController',
+      '/admin/detalle_reserva_vehiculo'     => 'ReservaVehiculoControllers\DetalleReservaVehiculoController',
+      '/admin/reserva_vehiculo'             => 'ReservaVehiculoControllers\ReservaVehiculoController',
+      '/admin/proveedore'                   => 'ReservaVehiculoControllers\ProveedorController',
+      '/admin/servicio_proveedore'          => 'ReservaVehiculoControllers\ServicioProveedorController',
+      '/admin/servicio_y_vehiculo'          => 'ReservaVehiculoControllers\ServicioYVehiculoController',
+      '/admin/zona'                         => 'ReservaVehiculoControllers\ZonaController',
+    ]);
+
+    /* Vuelos */
+Route::resources([
+    '/admin/companias'                     => 'ReservaVueloControllers\CompaniaController',
+    '/admin/aviones'                       => 'ReservaVueloControllers\AvionController',
+    '/admin/reserva_vuelo'                 => 'ReservaVueloControllers\ReservaVueloController',
+    '/admin/asientos'                      => 'ReservaVueloControllers\AsientoController',
+    '/admin/aeropuertos'                   => 'ReservaVueloControllers\AeropuertoController',
+    '/admin/checkins'                      => 'ReservaVueloControllers\CheckInController',
+    '/admin/detallesVentasVuelos'          => 'ReservaVueloControllers\DetalleVentaVueloController',
+    '/admin/detallesVuelos'                =>'ReservaVueloControllers\DetalleVueloController',
+    '/admin/origenesDestinos'              => 'ReservaVueloControllers\OrigenDestinoController',
+  ]);
+
+/* Alojamiento */
+Route::resources([
+    '/admin/alojamiento_privado'           => 'ReservaAlojamientoControllers\AlojamientoPrivadoController',
+    '/admin/alojamiento_servicio'          => 'ReservaAlojamientoControllers\AlojamientoServicioController',
+    '/admin/calendario_alojamiento'        => 'ReservaAlojamientoControllers\CalendarioAlojamientoController',
+    '/admin/detalle_reserva_hotel'         => 'ReservaAlojamientoControllers\DetalleReservaHotelController',
+    '/admin/habitacion'                    => 'ReservaAlojamientoControllers\HabitacionController',
+    '/admin/habitacion_hotel'              => 'ReservaAlojamientoControllers\HabitacionHotelController',
+    '/admin/habitacion_servicio'           => 'ReservaAlojamientoControllers\HabitacionServicioController',
+    '/admin/hotel'                         => 'ReservaAlojamientoControllers\HotelController',
+    '/admin/reserva_hotel'                 => 'ReservaAlojamientoControllers\ReservaHotelController',
+    '/admin/servicio_alojamiento'          => 'ReservaAlojamientoControllers\ServicioAlojamientoController',
+  ]);
+
+/* Otros */
+Route::resources([
+    '/admin/ventas'                        => 'ReservaAutoControllers\VentaController',
+    '/admin/users'                         => 'ReservaAutoControllers\UserController',
+    ]);
+});
+
 
 /* Vehiculos */
 Route::resources([
@@ -30,15 +83,15 @@ Route::resources([
 
 /* Vuelos */
 Route::resources([
-    'companias' => 'ReservaVueloControllers\CompaniaController',
-    'aviones' => 'ReservaVueloControllers\AvionController',
-    'reserva_vuelo' => 'ReservaVueloControllers\ReservaVueloController',
-    'asientos' => 'ReservaVueloControllers\AsientoController',
-    'aeropuertos' => 'ReservaVueloControllers\AeropuertoController',
-    'checkins'=> 'ReservaVueloControllers\CheckInController',
-    'detallesVentasVuelos' => 'ReservaVueloControllers\DetalleVentaVueloController',
-    'detallesVuelos' =>'ReservaVueloControllers\DetalleVueloController',
-    'origenesDestinos' => 'ReservaVueloControllers\OrigenDestinoController',
+    'companias'                     => 'ReservaVueloControllers\CompaniaController',
+    'aviones'                       => 'ReservaVueloControllers\AvionController',
+    'reserva_vuelo'                 => 'ReservaVueloControllers\ReservaVueloController',
+    'asientos'                      => 'ReservaVueloControllers\AsientoController',
+    'aeropuertos'                   => 'ReservaVueloControllers\AeropuertoController',
+    'checkins'                      => 'ReservaVueloControllers\CheckInController',
+    'detallesVentasVuelos'          => 'ReservaVueloControllers\DetalleVentaVueloController',
+    'detallesVuelos'                =>'ReservaVueloControllers\DetalleVueloController',
+    'origenesDestinos'              => 'ReservaVueloControllers\OrigenDestinoController',
   ]);
 
 /* Alojamiento */
@@ -57,8 +110,8 @@ Route::resources([
 
 /* Otros */
 Route::resources([
-    'ventas'                    => 'ReservaAutoControllers\VentaController',
-    'users'                     => 'ReservaAutoControllers\UserController',
+    'ventas'                        => 'ReservaAutoControllers\VentaController',
+    'users'                         => 'ReservaAutoControllers\UserController',
     ]);
 
 
