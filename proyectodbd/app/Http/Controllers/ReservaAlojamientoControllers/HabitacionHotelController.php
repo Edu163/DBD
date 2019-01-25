@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\ReservaAlojamientoControllers;
 
+
+use App\Modulos\ReservaAlojamiento\Hotel;
 use App\Modulos\ReservaAlojamiento\HabitacionHotel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -15,7 +17,7 @@ class HabitacionHotelController extends Controller
      */
     public function index()
     {
-        return HabitacionHotel::all();
+        return HabitacionHotel::all()->where('hotel_id', request('hotel_id'));
     }
 
     /**

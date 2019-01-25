@@ -1,3 +1,4 @@
+<form action="/habitacion_hotel" method="get">
 @extends('layouts.app')
 
 @section('content')
@@ -14,21 +15,37 @@
     <th><h5 class="card-title">Estrellas</h5></th>
     <th><h5 class="card-title">Valoración</h5></th>
     <th><h5 class="card-title">Capacidad</h5></th>
+    <th><h5 class="card-title">Capacidad2</h5></th>
   </tr>
     @foreach($hoteles as $hotel)
+
     <tr>
     <th>
         <center>
-		<a href="\" class="btn btn-danger btn-hoteles" style="vertical-align:middle"><span>Reservar </span> </a>
+		<button type="submit" class="btn btn-danger btn-hoteles" id="hotel_id" name="hotel_id" value="{{ $hotel->id }}" style="vertical-align:middle"><span>Reservar </span> </button>
         </center>
         </th>
-    <th><h5 class="card-title">{{$hotel->nombre}}</h5></th>
+    <th><h5 class="card-title" id="nombre_hotel">{{$hotel->nombre}}</h5></th>
     <th><h5 class="card-title">{{$hotel->pais}}</h5></th>
     <th><h5 class="card-title">{{$hotel->direccion}}</h5></th>
     <th><h5 class="card-title">{{$hotel->estrellas}}</h5></th>
     <th><h5 class="card-title">{{$hotel->valoracion}}</h5></th>
     <th><h5 class="card-title">{{$hotel->capacidad}}</h5></th>
   </tr>
+    @endforeach
+    </tr>
+    @foreach($habitaciones_hoteles as $hab)
+    
+    <tr>
+    <th>
+        <center>
+		<a href="\" class="btn btn-danger btn-hoteles" style="vertical-align:middle"><span>Reservar </span> </a>
+        </center>
+        </th>
+    <th><h5 class="card-title">{{$hab->capacidad}}</h5></th>
+  </tr>
 	@endforeach
+
+
     </table>
 @endsection

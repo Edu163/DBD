@@ -45,7 +45,7 @@
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
-                                    <a class="fas fa-shopping-cart" href="carrito" style="font-size: 30px;"></a>
+                                    <a class="fas fa-shopping-cart" href="carrito"></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
@@ -56,6 +56,7 @@
                                     @endif
                                 </li>
                             @else
+
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }} <span class="caret"></span>
@@ -90,8 +91,7 @@
         <br/>
     </body>
     <br/>
-    <br/>
-    <footer class="text-center" style="position: absolute; margin-top: 0%;">
+    <footer class="text-center">
         &copy; 2019 GP14LATAM
         <br>
         <address>Departamento de Ingeniería en Informática - Universidad de Santiago de Chile, Santiago de Chile</address>

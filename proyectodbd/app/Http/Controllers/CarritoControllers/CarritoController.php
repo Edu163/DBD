@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\CarritoControllers;
 
-
 use App\Modulos\ReservaAlojamiento\Hotel;
+use App\Modulos\ReservaAlojamiento\Vuelo;
+use App\Modulos\ReservaAlojamiento\Vehiculo;
+use App\Modulos\ReservaAlojamiento\Paquete;
 use App\Modulos\Carrito\Carrito;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -17,11 +19,13 @@ class CarritoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $hoteles = Hotel::all();
+       $hoteles = Hotel::all()->where('nombre', '=', request('nombre_hotel'));
 
         return view('modulos.ReservaAlojamiento.hotel.index', compact('hoteles'));
+        array('hotel' => array(), 'vuelo' => array(), 'vehiculo' => array());
     }
 
     /**

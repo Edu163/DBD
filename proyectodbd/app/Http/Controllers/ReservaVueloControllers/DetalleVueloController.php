@@ -17,11 +17,15 @@ class DetalleVueloController extends Controller
     public function index()
     {
         $detalles_vuelos = DetalleVuelo::all();
-        $id1 = Aeropuerto::where('ciudad', '=' ,request('origen_id'));
-        dd($id1);
-        $detalles_vuelos2 = origen($id1);
+        $origen = Aeropuerto::where('id',request('origen_id'))->pluck('id');
+        $destino = Aeropuerto::where('id',request('destino_id'))->pluck('id');
+        $detalles_vuelos =  DetalleVuelo::where('id_origen','=',$origen)
+                                            ->where('id_destino','=',$destino)
+                                            ->get();
+        
         //$detalles_vuelos2 = origenDestino($id1,$id2);
-        return view('modulos.ReservaVuelo.detalles_vuelos.index', compact('detalles_vuelos2'));
+        return view('modulos.ReservaVuelo.detalles_vuelos.index', compact('detalles_vuelos'));
+        //return $detalles_vuelos2;
     }
 
     /**
