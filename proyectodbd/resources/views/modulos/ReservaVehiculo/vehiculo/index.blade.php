@@ -1,9 +1,11 @@
+<form action="/calendario_vehiculo" method="get">
 @extends('layouts.app')
 
 @section('content')
     <table class="table table-hover table-bordered table-sm datatable">
         <thead>
             <tr>
+                <th></th>
                 <th> Patente </th>
                 <th> Tipo </th>
                 <th> Gamma </th>
@@ -22,6 +24,11 @@
         <tbody>
             @foreach($vehiculos as $vehiculo)
                 <tr>
+                    <td>
+                        <center>
+		                    <button type="submit" class="btn btn-danger btn-hoteles" id="auto_id" name="auto_id" value="{{ $vehiculo->id }}" style="vertical-align:middle"><span>Reservar </span> </button>
+                        </center>
+                    </td>
                     <td>{{ $vehiculo->patente }}</td>
                     <td>{{ $vehiculo->tipo }}</td>
                     <td>{{ $vehiculo->gamma }}</td>

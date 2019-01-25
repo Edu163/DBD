@@ -56,8 +56,8 @@ class ReservaHotelController extends Controller
         } else {
           $response = ['error' => 'No se ha podido crear!'];
         }
-
-         return $response;
+        return view('Congrats');
+         //return $response;
     }
 
     /**
@@ -105,7 +105,7 @@ class ReservaHotelController extends Controller
             'monto_total' => 'required',
             'descuento' => 'required',
         ]))->save();
-        
+            
             return 'Actualizado con éxito!';
     }
 

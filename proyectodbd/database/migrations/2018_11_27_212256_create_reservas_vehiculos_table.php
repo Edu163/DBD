@@ -15,13 +15,13 @@ class CreateReservasVehiculosTable extends Migration
     {
         Schema::create('reservas_vehiculos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('venta_id');
+            $table->integer('venta_id')->nullable();
             $table->foreign('venta_id')
                   ->references('id')
                   ->on('ventas')
                   ->onDelete('cascade');
             $table->datetime('fecha');
-            $table->float('monto_total');
+            $table->float('monto_total')->nullable();
             $table->timestamps();
         });
     }

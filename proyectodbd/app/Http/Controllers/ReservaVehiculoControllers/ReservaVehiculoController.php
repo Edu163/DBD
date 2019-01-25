@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\ReservaVehiculoControllers;
 
+
+use App\Modulos\ReservaVehiculo\ReservaVehiculo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ReservaVehiculoController extends Controller
 {
@@ -35,7 +38,18 @@ class ReservaVehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        return ReservaVehiculo::create($request->all());
+        $reservaVehiculo = new ReservaVehiculo();
+        $reservaVehiculo->monto_total = $request->input('monto_total');
+        $reservaVehiculo->fecha = Carbon::now();
+        //$reservaHotel = ReservaHotel::create($reservaHotelData);
+        $reservaVehiculo->save();
+        if ($reservaVehiculo->exists()) {
+          $response = ['success' => 'Creado con éxito!'];
+        } else {
+          $response = ['error' => 'No se ha podido crear!'];
+        }
+        return view('Congrats');
+         //return $response;
     }
 
     /**
