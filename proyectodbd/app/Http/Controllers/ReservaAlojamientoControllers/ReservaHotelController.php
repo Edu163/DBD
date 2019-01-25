@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ReservaAlojamientoControllers;
 use App\Modulos\ReservaAlojamiento\ReservaHotel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ReservaHotelController extends Controller
 {
@@ -36,17 +37,20 @@ class ReservaHotelController extends Controller
      */
     public function store(Request $request)
     {
-         $reservaHotelData = $this->validate($request, [
-            'venta_id' => 'required',
+         /*$reservaHotelData = $this->validate($request, [
             'precio' => 'required',
-            'fecha' => 'required',
             'cantidad' => 'required',
             'monto_total' => 'required',
             'descuento' => 'required',
-        ]);
-
-        $reservaHotel = ReservaHotel::create($reservaHotelData);
-
+        ]);*/
+        $reservaHotel = new ReservaHotel();
+        $reservaHotel->precio = $request->input('precio');
+        $reservaHotel->cantidad = $request->input('cantidad');
+        $reservaHotel->monto_total = $request->input('monto_total');
+        $reservaHotel->descuento = $request->input('descuento');
+        $reservaHotel->fecha = Carbon::now();
+        //$reservaHotel = ReservaHotel::create($reservaHotelData);
+        $reservaHotel->save();
         if ($reservaHotel->exists()) {
           $response = ['success' => 'Creado con éxito!'];
         } else {

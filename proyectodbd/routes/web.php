@@ -18,6 +18,7 @@ Route::group(['middleware' => 'admin'], function() {
 
   Route::get('/admin', 'HomeAdminController@index')->name('admin');
 
+
     /* Vehiculos */
   Route::resources([
       '/admin/vehiculo'                     => 'ReservaVehiculoControllers\VehiculoController',
