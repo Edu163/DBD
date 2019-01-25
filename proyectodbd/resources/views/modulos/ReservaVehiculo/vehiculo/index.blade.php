@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<form action="/reserva_vehiculo" method="get">
     <table class="table table-hover table-bordered table-sm datatable">
         <thead>
             <tr>
@@ -35,8 +36,7 @@
                     <td>{{ $vehiculo->aire_acondicionado }}</td>
                     <td>{{ $vehiculo->precio_hora }}</td>
                     <td>
-                        <a class="btn btn-sm btn-info" href="/vehiculo/{{ $vehiculo->id }}"> Elígeme!
-                        </a>
+                    <button type="submit" class="btn btn-danger btn-hoteles" id="vehiculo_id" name="vehiculo->id" value="{{ $vehiculo->id }}" style="vertical-align:middle"><span>Reservar </span> </button>
                     </td>
                 </tr>
             @endforeach

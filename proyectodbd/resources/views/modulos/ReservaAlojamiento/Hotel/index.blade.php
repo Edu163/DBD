@@ -33,3 +33,4 @@
 	@endforeach
     </table>
 @endsection
+</form>

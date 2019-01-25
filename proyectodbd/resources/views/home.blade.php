@@ -6,6 +6,8 @@
 
 </br>
 
+
+
 <div class="container py-4" style="margin-top: -10%;position: absolute;margin-left: 17%;">
         <div class="row row-buy-forms">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -37,7 +39,6 @@
                     @include('modulos.ReservaVehiculo.vehiculo.form')
                 </div>
                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"> 
-
                     @include('modulos.ReservaAlojamiento.Hotel.form')
                 </div>
             </div>

@@ -1,7 +1,7 @@
+<form action="/vehiculo" method="get">
 <div class="auto-field field item-component">
     <div class="card buy-card flex-fill">
         <div class="card-body buy-card-body">
-            <form action="/detalle_reserva_vehiculo" method="get">
             <!-- Línea 1 -->
             <div class="row justify-content-center">
                 <div class="col-12">
@@ -9,29 +9,42 @@
                     <div class="box-component col-xs-12 col-md-12 field-origin box-no-margin">
                         <div class="box-input col-xs-12 col-sm-push-0 col-sm-12 inner-shadow-box">
                             <label for="reserva-vehiculo-zona">
-                                <span for="zona_id"> 
+                                <span> 
                                     Zona
                                 </span>
-                                <div class="form-group">
-                                    <select 
-                                    id="zona_id" 
-                                    name="zona_id" 
-                                    class="form-control selectpicker custom-select" 
-                                    title="Zona" 
-                                    data-live-search="true" 
-                                    required>
-                                        <option selected disabled>Elija la zona</option>
-                                        @foreach ($zonas as $zona)
-                                        <option value="{{ $zona->id }}">
-                                            {{ $zona->nombre }}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                <span class="placeholder sr-only" data-text="Zona">
+                                    Zona
+                                </span>
                             </label>
+                            <span id="reserva-vehiculo-zona-error" class="errorHelpText sr-only"></span>
+                            <span id="help-reserva-vehiculo-zona" class="helpText sr-only" data-text=""></span>
+                            <div class="form-group">
+                                <select 
+                                id="zona_id" 
+                                name="zona_id" 
+                                class="form-control selectpicker custom-select" 
+                                title="Zona"
+                                class="custom-select"
+                                data-live-search="true"
+                                aria-required="true" 
+                                dir="ltr" 
+                                aria-readonly="false" 
+                                aria-describedby="compra-vuelo-origen-error" 
+                                aria-disabled="false" 
+                                autocomplete="off" 
+                                placeholder = "" 
+                                required>
+                                    <option selected disabled>Elija la zona</option>
+                                    @foreach ($zonas as $zona)
+                                    <option value="{{ $zona->id }}">
+                                        {{ $zona->nombre }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    </div>
+                </div>
             </div>
             </br>
             <!-- Línea 2 -->
@@ -50,7 +63,7 @@
                             </label>
                             <span id="fecha-recogida-error" class="errorHelpText sr-only"></span>
                             <span id="help-fecha-recogida" class="helpText sr-only" data-text=""></span>
-                            <input id="fecha-recogida" name="fecha-recogida" class="ui-autocomplete-input textbox-n"  type="date" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-disabled="false" autocomplete="off">
+                            <input id="fecha-recogida" name="fecha-recogida" class="ui-autocomplete-input textbox-n"  type="date" placeholder="Fecha" aria-required="true" dir="ltr" aria-readonly="false" aria-describedby="fecha-recogida-error" aria-disabled="false" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -100,11 +113,11 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
 			<center>
 				<button type="submit" class="btn-vehiculo">Busca tu vehiculo</button>
-			</center>	
-        </form>
+			</center>
         </div>
     </div>
 </div>
+</form>
