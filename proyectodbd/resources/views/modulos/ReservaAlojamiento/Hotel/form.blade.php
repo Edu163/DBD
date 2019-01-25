@@ -1,4 +1,4 @@
-<form action="/hotel" method="get" class="body-hotel">
+<form action="/habitaciones_hoteles" method="get" class="body-hotel">
 <div class="auto-field field item-component">
     <div class="card buy-card flex-fill">
         <div class="card-body buy-card-body">
