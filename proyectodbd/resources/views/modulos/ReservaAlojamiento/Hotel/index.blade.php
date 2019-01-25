@@ -17,6 +17,7 @@
     <th><h5 class="card-title">Capacidad</h5></th>
   </tr>
     @foreach($hoteles as $hotel)
+
     <tr>
     <th>
         <center>
@@ -30,7 +31,7 @@
     <th><h5 class="card-title">{{$hotel->valoracion}}</h5></th>
     <th><h5 class="card-title">{{$hotel->capacidad}}</h5></th>
   </tr>
-	@endforeach
+    @endforeach
     </table>
 @endsection
 </form>

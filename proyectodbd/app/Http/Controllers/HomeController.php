@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Modulos\ReservaVehiculo\Zona;
 use App\Modulos\ReservaAlojamiento\Hotel;
+use App\Modulos\ReservaAlojamiento\HabitacionHotel;
 use App\Modulos\ReservaVuelo\Aeropuerto;
 use App\Modulos\ReservaVuelo\DetalleVuelo;
 
@@ -26,7 +27,8 @@ class HomeController extends Controller
             'zonas',
             'hoteles',
             'aeropuertos',
-            'detalles_vuelos'
+            'detalles_vuelos',
+            'habitaciones_hoteles'
         ));
     }
 }
