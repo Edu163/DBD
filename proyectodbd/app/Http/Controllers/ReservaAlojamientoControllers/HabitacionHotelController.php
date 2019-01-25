@@ -17,15 +17,7 @@ class HabitacionHotelController extends Controller
      */
     public function index()
     {
-        $arrayobj = new ArrayObject();
-        $hoteles = Hotel::all()->where('pais', '=', request('destino_id'));
-        
-        foreach($hoteles as $hotel){
-        $habitaciones_hoteles = HabitacionHotel::all()->where('hotel_id', '=', $hotel->id);
-        }
-
-        return view('modulos.ReservaAlojamiento.hotel.index', compact('habitaciones_hoteles','hoteles'));
-        
+        return HabitacionHotel::all()->where('hotel_id', request('hotel_id'));
     }
 
     /**

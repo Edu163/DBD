@@ -1,6 +1,4 @@
 <?php
-use App\Avion;
-use App\AlojamientoPrivado;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,11 +13,7 @@ use App\AlojamientoPrivado;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-/*
-Route::group(['middleware' => ['admin']], function() {
-  Route::get('/', 'HomeController@index')->name('home');
-});
-*/
+
 Route::group(['middleware' => 'admin'], function() {
 
   Route::get('/admin', 'HomeAdminController@index')->name('admin');
@@ -70,64 +64,54 @@ Route::resources([
     ]);
 });
 
+Route::group(['middleware' => 'auth'], function() {
 
+    /* Otros */
+  Route::resources([
+      'ventas'                        => 'ReservaAutoControllers\VentaController',
+      'users'                         => 'ReservaAutoControllers\UserController',
+      'carrito'                       => 'CarritoControllers\CarritoController',
+      'paquete'                       => 'PaqueteControllers\PaqueteController',
+      ]);
+  });
 
-/* Vehiculos */
-Route::resources([
-    'carrito'                     => 'CarritoControllers\CarritoController',
-  ]);
+       /* Alojamiento */
+  Route::resources([
+      'alojamiento_privado'           => 'ReservaAlojamientoControllers\AlojamientoPrivadoController',
+      'alojamiento_servicio'          => 'ReservaAlojamientoControllers\AlojamientoServicioController',
+      'calendario_alojamiento'        => 'ReservaAlojamientoControllers\CalendarioAlojamientoController',
+      'detalle_reserva_hotel'         => 'ReservaAlojamientoControllers\DetalleReservaHotelController',
+      'habitacion'                    => 'ReservaAlojamientoControllers\HabitacionController',
+      'habitacion_hotel'              => 'ReservaAlojamientoControllers\HabitacionHotelController',
+      'habitacion_servicio'           => 'ReservaAlojamientoControllers\HabitacionServicioController',
+      'hotel'                         => 'ReservaAlojamientoControllers\HotelController',
+      'reserva_hotel'                 => 'ReservaAlojamientoControllers\ReservaHotelController',
+      'servicio_alojamiento'          => 'ReservaAlojamientoControllers\ServicioAlojamientoController',
+    ]);
+
+      /* Vuelos */
+  Route::resources([
+      'companias'                     => 'ReservaVueloControllers\CompaniaController',
+      'aviones'                       => 'ReservaVueloControllers\AvionController',
+      'reserva_vuelo'                 => 'ReservaVueloControllers\ReservaVueloController',
+      'asientos'                      => 'ReservaVueloControllers\AsientoController',
+      'aeropuertos'                   => 'ReservaVueloControllers\AeropuertoController',
+      'checkins'                      => 'ReservaVueloControllers\CheckInController',
+      'detallesVentasVuelos'          => 'ReservaVueloControllers\DetalleVentaVueloController',
+      'detallesVuelos'                =>'ReservaVueloControllers\DetalleVueloController',
+      'origenesDestinos'              => 'ReservaVueloControllers\OrigenDestinoController',
+    ]);
 
   /* Vehiculos */
   Route::resources([
-    'paquete'                     => 'PaqueteControllers\PaqueteController',
-  ]);
-
-
-/* Vehiculos */
-Route::resources([
-    'vehiculo'                     => 'ReservaVehiculoControllers\VehiculoController',
-    'calendario_vehiculo'          => 'ReservaVehiculoControllers\CalendarioVehiculoController',
-    'detalle_reserva_vehiculo'     => 'ReservaVehiculoControllers\DetalleReservaVehiculoController',
-    'reserva_vehiculo'             => 'ReservaVehiculoControllers\ReservaVehiculoController',
-    'proveedore'                   => 'ReservaVehiculoControllers\ProveedorController',
-    'servicio_proveedore'          => 'ReservaVehiculoControllers\ServicioProveedorController',
-    'servicio_y_vehiculo'          => 'ReservaVehiculoControllers\ServicioYVehiculoController',
-    'zona'                         => 'ReservaVehiculoControllers\ZonaController',
-  ]);
-
-/* Vuelos */
-Route::resources([
-    'companias'                     => 'ReservaVueloControllers\CompaniaController',
-    'aviones'                       => 'ReservaVueloControllers\AvionController',
-    'reserva_vuelo'                 => 'ReservaVueloControllers\ReservaVueloController',
-    'asientos'                      => 'ReservaVueloControllers\AsientoController',
-    'aeropuertos'                   => 'ReservaVueloControllers\AeropuertoController',
-    'checkins'                      => 'ReservaVueloControllers\CheckInController',
-    'detallesVentasVuelos'          => 'ReservaVueloControllers\DetalleVentaVueloController',
-    'detallesVuelos'                =>'ReservaVueloControllers\DetalleVueloController',
-    'origenesDestinos'              => 'ReservaVueloControllers\OrigenDestinoController',
-  ]);
-
-/* Alojamiento */
-Route::resources([
-    'alojamiento_privado'           => 'ReservaAlojamientoControllers\AlojamientoPrivadoController',
-    'alojamiento_servicio'          => 'ReservaAlojamientoControllers\AlojamientoServicioController',
-    'calendario_alojamiento'        => 'ReservaAlojamientoControllers\CalendarioAlojamientoController',
-    'detalle_reserva_hotel'         => 'ReservaAlojamientoControllers\DetalleReservaHotelController',
-    'habitacion'                    => 'ReservaAlojamientoControllers\HabitacionController',
-    'habitacion_hotel'              => 'ReservaAlojamientoControllers\HabitacionHotelController',
-    'habitacion_servicio'           => 'ReservaAlojamientoControllers\HabitacionServicioController',
-    'hotel'                         => 'ReservaAlojamientoControllers\HotelController',
-    'reserva_hotel'                 => 'ReservaAlojamientoControllers\ReservaHotelController',
-    'servicio_alojamiento'          => 'ReservaAlojamientoControllers\ServicioAlojamientoController',
-  ]);
-
-/* Otros */
-Route::resources([
-    'ventas'                        => 'ReservaAutoControllers\VentaController',
-    'users'                         => 'ReservaAutoControllers\UserController',
-    'carrito'                       => 'CarritoControllers\CarritoController',
-    'paquete'                       => 'PaqueteControllers\PaqueteController',
+      'vehiculo'                     => 'ReservaVehiculoControllers\VehiculoController',
+      'calendario_vehiculo'          => 'ReservaVehiculoControllers\CalendarioVehiculoController',
+      'detalle_reserva_vehiculo'     => 'ReservaVehiculoControllers\DetalleReservaVehiculoController',
+      'reserva_vehiculo'             => 'ReservaVehiculoControllers\ReservaVehiculoController',
+      'proveedore'                   => 'ReservaVehiculoControllers\ProveedorController',
+      'servicio_proveedore'          => 'ReservaVehiculoControllers\ServicioProveedorController',
+      'servicio_y_vehiculo'          => 'ReservaVehiculoControllers\ServicioYVehiculoController',
+      'zona'                         => 'ReservaVehiculoControllers\ZonaController',
     ]);
 
 
