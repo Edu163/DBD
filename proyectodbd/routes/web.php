@@ -16,6 +16,18 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+
+/* Vehiculos */
+Route::resources([
+    'carrito'                     => 'CarritoControllers\CarritoController',
+  ]);
+
+  /* Vehiculos */
+  Route::resources([
+    'paquete'                     => 'PaqueteControllers\PaqueteController',
+  ]);
+
+
 /* Vehiculos */
 Route::resources([
     'vehiculo'                     => 'ReservaVehiculoControllers\VehiculoController',

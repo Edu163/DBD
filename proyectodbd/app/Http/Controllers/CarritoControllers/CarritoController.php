@@ -22,8 +22,6 @@ class CarritoController extends Controller
     public function index()
     {
         $hoteles = Hotel::all();
-
-
         return view('modulos.Carrito.index', compact('hoteles'));
     }
 

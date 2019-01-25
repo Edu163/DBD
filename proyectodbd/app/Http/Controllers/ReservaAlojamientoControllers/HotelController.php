@@ -19,6 +19,7 @@ class HotelController extends Controller
     {
         //$hoteles = Hotel::all();
         $hoteles = Hotel::all()->where('pais', '=', request('destino_id'));
+                    
 
         return view('modulos.ReservaAlojamiento.hotel.index', compact('hoteles'));
     }

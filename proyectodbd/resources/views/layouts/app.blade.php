@@ -45,7 +45,7 @@
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
-                                    <a class="fas fa-shopping-cart" href="carrito"></a>
+                                    <a class="fas fa-shopping-cart" href="carrito" style="font-size: 30px;"></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
@@ -91,7 +91,7 @@
     </body>
     <br/>
     <br/>
-    <footer class="text-center">
+    <footer class="text-center" style="position: absolute; margin-top: 0%;">
         &copy; 2019 GP14LATAM
         <br>
         <address>Departamento de Ingeniería en Informática - Universidad de Santiago de Chile, Santiago de Chile</address>
