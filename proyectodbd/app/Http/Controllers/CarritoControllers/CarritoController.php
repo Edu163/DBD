@@ -17,11 +17,13 @@ class CarritoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $hoteles = Hotel::all();
+       $hoteles = Hotel::all()->where('nombre', '=', request('nombre_hotel'));
 
         return view('modulos.ReservaAlojamiento.hotel.index', compact('hoteles'));
+        array('hotel' => array(), 'vuelo' => array(), 'vehiculo' => array());
     }
 
     /**
