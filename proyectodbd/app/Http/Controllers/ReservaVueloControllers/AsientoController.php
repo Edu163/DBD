@@ -4,6 +4,7 @@ namespace App\Http\Controllers\ReservaVueloControllers;
 
 use App\Modulos\ReservaVuelo\DetalleVuelo;
 use App\Modulos\ReservaVuelo\Asiento;
+use App\Modulos\ReservaVuelo\DetalleVuelo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,13 +17,16 @@ class AsientoController extends Controller
      */
     public function index()
     {
-        $det_vue = Detalle_vuelo::all();
-        foreach($det_vue as $d_v)
-        {
-        $asientos = Asiento::all()->where($d_v->id, '=', request('vuelo_id'));
-        }           
+        $detalle_vuelo = DetalleVuelo::all()->where('vuelo_id', request('vuelo_id'));
 
-        return view('modulos.ReservaVuelo.asiento.index', compact('asientos'));
+        if(count($detalle_vuelo)>0)
+        {
+        return view('modulos.ReservaVuelo.asiento.index', compact('detalle_vuelo'));
+        }
+        else{
+            return view('nodisp');
+        }
+        
     }
 
     /**

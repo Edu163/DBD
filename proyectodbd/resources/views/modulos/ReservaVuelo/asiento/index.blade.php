@@ -2,19 +2,17 @@
 
 @section('content')
 
-<form action="/checkins" method="get">
+<form action="/calendario_alojamiento" method="get">
     <h1>
-        Asientos Disponibles
+        Habitaciones Disponibles
     </h1>
 
 	<table style="text-align:center;">
     <tr>
     <th><h5 class="card-title"></h5></th>
-    <th><h5 class="card-title">Letra</h5></th>
+    <th><h5 class="card-title">Camas</h5></th>
     <th><h5 class="card-title">Numero</h5></th>
-    <th><h5 class="card-title">Tipo</h5></th>
-    <th><h5 class="card-title">Clase</h5></th>
-    <th><h5 class="card-title">Disponible</h5></th>
+    <th><h5 class="card-title">Capacidad</h5></th>
   </tr>
     @foreach($hab_disp as $hab)
 
