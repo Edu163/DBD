@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modules\VehicleReservation;
 
 use Illuminate\Database\Eloquent\Model;
 

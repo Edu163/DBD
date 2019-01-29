@@ -94,13 +94,13 @@
                         <div class="col-9">
                             <div class="tab-content" id="v-pills-tabContent">
                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                @include('modulos.reserva_vuelo.vuelo.form')
+                                @include('modules.flightReservation.flight.form')
                             </div>
                             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                @include('modulos.reserva_vehiculo.vehiculo.form')
+                                @include('modules.vehicleReservation.vehicle.form')
                             </div>
                             <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                @include('modulos.reserva_alojamiento.hotel.form')
+                                @include('modules.housingReservation.hotel.form')
                             </div>
                             </div>
                         </div>
