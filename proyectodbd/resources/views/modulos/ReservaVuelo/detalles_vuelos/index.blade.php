@@ -1,4 +1,3 @@
-<form action="/asientos" method="get">
 @extends('layouts.app')
 
 @section('content')
@@ -19,8 +18,10 @@
     <tr>
     <th>
         <center>
-        <button type="submit" class="btn btn-danger btn-hoteles" id="vuelo_id" name="vuelo_id" value="{{ $detalle_vuelo->id }}" style="vertical-align:middle"><span>Reservar </span> </button>
-        </center>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Reservar
+        </button>
+         </center>
         </th>
     <th><h5 class="card-title">{{$detalle_vuelo->origen->ciudad}}</h5></th>
     <th><h5 class="card-title">{{$detalle_vuelo->destino->ciudad}}</h5></th>
