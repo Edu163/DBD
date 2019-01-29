@@ -22,7 +22,7 @@ class VehicleService extends Model
     	return $this->hasMany(ServiceAndVehicle::class);
     }
 
-    public function servicio_proveedor(){
-    	return $this->hasMany(ServicioProveedor::class);
+    public function serviceAndProvider(){
+    	return $this->hasMany(ServiceAndProvider::class);
     }
 }
