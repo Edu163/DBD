@@ -107,3 +107,31 @@ Traducciones:
     OrigenDestino = OriginDestiny
     ReservaVuelo = FlightReservation
     Vuelo = Flight
+
+
+Cosas por revisar
+
+General
+
+Buscar la diferencia entre create y store.
+
+Reserva Vuelo
+
+Función store CompanyController pareciera estar bien hecha, verificar, podría ser replicada.
+Funciones luego de la función destroy en FlightDetailController (descomentar con cmd + shift + 7).
+Vista de No disponible en SeatController, realizar con pop-up/modal.
+
+
+Reserva Alojamiento
+
+Función store en HotelController es diferente al resto de las funciones store.
+Función edit en HotelController pareciera estar bien hecha, verificar, podría ser replicada.
+Función index en RoomController muestra hoteles, no habitaciones, por buenas prácticas debería mostrar habitaciones.
+Función edit en RoomController, verificar a la vista que va, si es en plural o singular (existe esto mismo en otro controlador).
+Función store HotelReservationController, lleva a vista Congrats, debe llevar al carrito, ver a través del tiempo (hasta que implementemos el carrito).
+
+
+Reserva Vehículo
+
+No sé que invento raro hicieron en el index de VehicleCalendaryController.
+Función store en VehicleReservationController, cambios a la función original, lleva a vista Congrats, debe llevar al carrito, ver a través del tiempo (hasta que implementemos el carrito).
