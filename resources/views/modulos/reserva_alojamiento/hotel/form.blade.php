@@ -1,4 +1,4 @@
-<form action="/hotel" method="get">
+<form action="/vehiculo" method="get">
      <div class="card buy-card flex-fill">
           <div class="card-body buy-card-body">
                <!-- Línea 1 -->
