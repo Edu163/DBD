@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Modules\HousingReservation\HousingCalendary;
 
 class HousingCalendariesTableSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class HousingCalendariesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(HousingCalendary::class, 20)->create();
     }
 }

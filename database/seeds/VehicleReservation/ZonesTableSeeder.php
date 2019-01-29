@@ -11,6 +11,6 @@ class ZonesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Zone::class, 20)->create();
     }
 }

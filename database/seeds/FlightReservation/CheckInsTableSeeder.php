@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Modules\FlightReservation\CheckIn;
 
 class CheckInsTableSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class CheckInsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(CheckIn::class, 20)->create();
     }
 }

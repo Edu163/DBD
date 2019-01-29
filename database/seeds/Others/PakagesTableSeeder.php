@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Others\Package;
 
 class PakagesTableSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class PakagesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Pakage::class, 20)->create();
     }
 }

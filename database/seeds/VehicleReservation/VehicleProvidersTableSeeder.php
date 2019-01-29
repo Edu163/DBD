@@ -11,6 +11,6 @@ class VehicleProvidersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(VehicleProviders::class, 20)->create();
     }
 }

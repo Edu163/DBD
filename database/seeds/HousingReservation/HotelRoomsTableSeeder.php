@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Modules\HousingReservation\HotelRooms;
 
 class HotelRoomsTableSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class HotelRoomsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(HotelRooms::class, 20)->create();
     }
 }

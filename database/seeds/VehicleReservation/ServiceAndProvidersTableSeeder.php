@@ -11,6 +11,6 @@ class ServiceAndProvidersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(ServiceAndProvider::class, 20)->create();
     }
 }

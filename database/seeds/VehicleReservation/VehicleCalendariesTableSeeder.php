@@ -11,6 +11,6 @@ class VehicleCalendariesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(VehicleCalendary::class, 20)->create();
     }
 }
