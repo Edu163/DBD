@@ -8,12 +8,12 @@ class ServiceAndRoom extends Model
 {
     protected $table = 'service_and_rooms';
 
-    protected $servicio_alojamiento_id;
-    protected $habitacion_hotel_id;
+    protected $housing_service_id;
+    protected $hotel_room_id;
 
     protected $fillable = [
-    	'servicio_alojamiento_id',
-    	'habitacion_hotel_id',
+    	'housing_service_id',
+    	'hotel_room_id',
     ];
 
     /* Relaciones */

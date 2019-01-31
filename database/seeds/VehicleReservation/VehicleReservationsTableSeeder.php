@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Modules\VehicleReservation\VehicleReservation;
 
 class VehicleReservationsTableSeeder extends Seeder
 {

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Modules\FlightReservation\FlightSellDetails;
+use App\Modules\FlightReservation\FlightSellDetail;
 
 class FlightSellDetailsTableSeeder extends Seeder
 {
@@ -12,6 +12,6 @@ class FlightSellDetailsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(FlightSellDetails::class, 20)->create();
+        factory(FlightSellDetail::class, 20)->create();
     }
 }

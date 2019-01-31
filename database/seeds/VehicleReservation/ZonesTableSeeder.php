@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Modules\VehicleReservation\Zone;
 
 class ZonesTableSeeder extends Seeder
 {

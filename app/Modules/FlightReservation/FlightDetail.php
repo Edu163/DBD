@@ -8,21 +8,21 @@ class FlightDetail extends Model
 {
     protected $table = 'flight_details';
 
-    protected $avion_id;
-    protected $vuelo_id;
-    protected $aeropuerto_id;
-    protected $origen_id;
-    protected $destino_id;
+    // protected $avion_id;
+    protected $flight_id;
+    protected $airport_id;
+    protected $origin_id;
+    protected $destiny_id;
     protected $fecha_despegue;
     protected $fecha_aterrizaje;
     protected $precio;
 
     protected $fillable = [
-        'avion_id',
-        'vuelo_id',
-        'aeropuerto_id',
-        'origen_id',
-        'destino_id',
+        // 'avion_id',
+        'flight_id',
+        'airport_id',
+        'origin_id',
+        'destiny_id',
         'fecha_despegue',
         'fecha_aterrizaje',
         'precio',

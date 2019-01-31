@@ -8,9 +8,9 @@ class HotelReservationDetail extends Model
 {
     protected $table = 'hotel_reservation_details';
 	
-	protected $reserva_hotel_id;
-    protected $habitacion_hotel_id;
-    protected $alojamiento_privado_id;
+	protected $hotel_reservation_id;
+    protected $hotel_room_id;
+    protected $private_housing_id;
     protected $fecha_ingreso;
     protected $fecha_egreso;
 	protected $precio;
@@ -18,9 +18,9 @@ class HotelReservationDetail extends Model
 	
 
     protected $fillable = [
-	    'reserva_hotel_id',
-	    'habitacion_hotel_id',
-	    'alojamiento_privado_id',
+	    'hotel_reservation_id',
+	    'hotel_room_id',
+	    'private_housing_id',
 	    'fecha_ingreso',
 	    'fecha_egreso',
 	    'precio',

@@ -9,9 +9,9 @@ class Vehicle extends Model
     protected $table = 'vehicles';
 
     protected $patente;
-    protected $calendario_vehiculo_id;
-    protected $proveedor_id;
-    protected $zona_id;
+    protected $vehicle_calendary_id;
+    protected $vehicle_provider_id;
+    protected $zone_id;
     protected $marca;
     protected $tipo;
     protected $gamma;
@@ -27,9 +27,9 @@ class Vehicle extends Model
 
     protected $fillable = [
         'patente',
-        'calendario_vehiculo_id',
-        'proveedor_id',
-        'zona_id',
+        'vehicle_calendary_id',
+        'vehicle_provider_id',
+        'zone_id',
         'marca',
         'tipo',
         'gamma',

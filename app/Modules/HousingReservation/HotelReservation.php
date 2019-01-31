@@ -8,7 +8,7 @@ class HotelReservation extends Model
 {
     protected $table = 'hotel_reservations';
 	
-	protected $venta_id;
+	protected $sell_id;
     protected $precio;
     protected $fecha;
     protected $cantidad;
@@ -16,7 +16,7 @@ class HotelReservation extends Model
     protected $descuento;
 
     protected $fillable = [
-    	'venta_id',
+    	'sell_id',
     	'precio',
     	'fecha',
     	'cantidad',

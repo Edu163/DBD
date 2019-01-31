@@ -8,12 +8,12 @@ class OriginDestiny extends Model
 {
     protected $table = 'origin_destinies';
 
-    protected $detalle_vuelo_id;
-    protected $aeropuerto_id;
+    protected $flight_detail_id;
+    protected $airport_id;
 
     protected $fillable = [
-        'detalle_vuelo_id',
-        'aeropuerto_id',
+        'flight_detail_id',
+        'airport_id',
     ];
 
     /* Relaciones */

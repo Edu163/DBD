@@ -1,9 +1,13 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Modules\FlightReservation\Airport;
 
-$factory->define(App\Airport::class, function (Faker $faker) {
+$factory->define(Airport::class, function (Faker $faker) {
     return [
-        //
+        'pais' => $faker->country,
+    	'ciudad' => $faker->city,
+    	'direccion' => $faker->address,
+    	'nombre' =>  $faker->company,
     ];
 });

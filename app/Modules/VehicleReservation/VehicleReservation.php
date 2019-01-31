@@ -8,12 +8,12 @@ class VehicleReservation extends Model
 {
     protected $table = 'vehicle_reservations';
 
-    protected $venta_id;
+    protected $sell_id;
     protected $fecha;
     protected $monto_total;
 
     protected $fillable = [
-        'venta_id',
+        'sell_id',
         'fecha',
         'monto_total',
     ];

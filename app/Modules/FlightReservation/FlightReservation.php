@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class FlightReservation extends Model
 {
     protected $table = 'flight_reservations';
+
+    protected $flight_id;
+    protected $fecha;
+    protected $tipo;
+    protected $precio;
+
     protected $fillable = [
-        'id',
-        'vuelo_id',
+        'flight_id',
         'fecha',
         'tipo',
         'precio',

@@ -1,9 +1,12 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Modules\HousingReservation\HousingCalendary;
 
-$factory->define(App\HousingCalendary::class, function (Faker $faker) {
+$factory->define(HousingCalendary::class, function (Faker $faker) {
     return [
-        //
+    	'año' => $faker->year($max = 'now'),
+    	'mes' => $faker->monthName($max = 'now'),
+    	'dia' => $faker->dayOfMonth($max = 'now')
     ];
 });

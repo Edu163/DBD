@@ -68,7 +68,9 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
+## Se recuerda instalar las siguientes dependencias
 
+composer require mattwells/faker-vehicle
 
 
 
@@ -136,4 +138,14 @@ Reserva Vehículo
 No sé que invento raro hicieron en el index de VehicleCalendaryController.
 Función store en VehicleReservationController, cambios a la función original, lleva a vista Congrats, debe llevar al carrito, ver a través del tiempo (hasta que implementemos el carrito).
 
+Modelos
+
+FlightDetail => referencia a Avión.
+Seat => referencia a Avión.
+
+Factories
+
+FlightFactory => siento que está muy vacío y me causa duda.
+OriginDestiny => sólo tiene llave foráneas de detalle vuelo y aeropuerto, me causa duda.
+FlightDetaiReservation => referencia a Avión.
 
