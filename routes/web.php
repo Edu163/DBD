@@ -71,52 +71,61 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 
 Route::group(['middleware' => 'auth'], function() {
 
-    /* Vehiculos */
+    /* Reservas */
+
     Route::resources([
-        'service_and_provider'         => 'VehicleReservationControllers\ServiceAndProviderController',
-        'vehicle_service'              => 'VehicleReservationControllers\VehicleServiceController',
-        'vehicle_calendary'            => 'VehicleReservationControllers\VehicleCalendaryController',
-        'vehicle'                      => 'VehicleReservationControllers\VehicleController',
-        'vehicle_provider'             => 'VehicleReservationControllers\VehicleProviderController',
+        /* Vehículo */
         'vehicle_reservation'          => 'VehicleReservationControllers\VehicleReservationController',
         'vehicle_reservation_detail'   => 'VehicleReservationControllers\VehicleReservationDetailController',
-        'vehicle_service'              => 'VehicleReservationControllers\VehicleServiceController',
-        'zone'                         => 'VehicleReservationControllers\ZoneController',
-    ]);
-
-    /* Vuelos */
-    Route::resources([
-        'airport'                      => 'FlightReservationControllers\AirportController',
-        'checkin'                      => 'FlightReservationControllers\CheckInController',
-        'company'                      => 'FlightReservationControllers\CompanyController',
-        'flight'                       => 'FlightReservationControllers\FlightController',
-        'flight_detail'                => 'FlightReservationControllers\FlightDetailController',
+        /* Vuelo */
         'flight_reservation'           => 'FlightReservationControllers\FlightReservationController',
         'flight_sell_detail'           => 'FlightReservationControllers\FlightSellDetailController',
-        'origin_destiny'               => 'FlightReservationControllers\OrigenDestinoController',
-        'seat'                         => 'FlightReservationControllers\AsientoController',
-        // '/aviones'                       => 'FlightReservationControllers\AvionController',     
-    ]);
-
-    /* Alojamiento */
-    Route::resources([
-        'hotel'                        => 'HousingReservationControllers\HotelController',
+        /* Alojamiento */
         'hotel_reservation'            => 'HousingReservationControllers\HotelReservationController',
         'hotel_reservation_detail'     => 'HousingReservationControllers\HotelReservationDetailController',
-        'hotel_room'                   => 'HousingReservationControllers\HotelRoomController',
-        'housing_and_service'          => 'HousingReservationControllers\HousingAndServiceController',
-        'housing_calendary'            => 'HousingReservationControllers\HousingCalendaryController',
-        'housing_service'              => 'HousingReservationControllers\HousingServiceController',
-        'private_housing'              => 'HousingReservationControllers\PrivateHousingController',
-        'room'                         => 'HousingReservationControllers\RoomController',
-        'service_and_room'             => 'HousingReservationControllers\ServiceAndRoomController',
     ]);
 
-    /* Otros */
-    Route::resources([
-        'cart'                         => 'OthersControllers\CartController',
-        'package'                      => 'OthersControllers\PackageController',
-        'sell'                         => 'OthersControllers\SellController',
-        // 'users'                        => 'OthersControllers\UserController',
-        ]);
-  });
+});
+
+/* Vehiculos */
+Route::resources([
+    'service_and_provider'         => 'VehicleReservationControllers\ServiceAndProviderController',
+    'vehicle_service'              => 'VehicleReservationControllers\VehicleServiceController',
+    'vehicle_calendary'            => 'VehicleReservationControllers\VehicleCalendaryController',
+    'vehicle'                      => 'VehicleReservationControllers\VehicleController',
+    'vehicle_provider'             => 'VehicleReservationControllers\VehicleProviderController',
+    'vehicle_service'              => 'VehicleReservationControllers\VehicleServiceController',
+    'zone'                         => 'VehicleReservationControllers\ZoneController',
+]);
+
+/* Vuelos */
+Route::resources([
+    'airport'                      => 'FlightReservationControllers\AirportController',
+    'checkin'                      => 'FlightReservationControllers\CheckInController',
+    'company'                      => 'FlightReservationControllers\CompanyController',
+    'flight'                       => 'FlightReservationControllers\FlightController',
+    'flight_detail'                => 'FlightReservationControllers\FlightDetailController',
+    'origin_destiny'               => 'FlightReservationControllers\OrigenDestinoController',
+    'seat'                         => 'FlightReservationControllers\AsientoController',
+    // '/aviones'                       => 'FlightReservationControllers\AvionController',     
+]);    
+
+/* Alojamiento */
+Route::resources([
+    'hotel'                        => 'HousingReservationControllers\HotelController',
+    'hotel_room'                   => 'HousingReservationControllers\HotelRoomController',
+    'housing_and_service'          => 'HousingReservationControllers\HousingAndServiceController',
+    'housing_calendary'            => 'HousingReservationControllers\HousingCalendaryController',
+    'housing_service'              => 'HousingReservationControllers\HousingServiceController',
+    'private_housing'              => 'HousingReservationControllers\PrivateHousingController',
+    'room'                         => 'HousingReservationControllers\RoomController',
+    'service_and_room'             => 'HousingReservationControllers\ServiceAndRoomController',
+]);
+
+/* Otros */
+Route::resources([
+    'cart'                         => 'OthersControllers\CartController',
+    'package'                      => 'OthersControllers\PackageController',
+    'sell'                         => 'OthersControllers\SellController',
+    // 'users'                        => 'OthersControllers\UserController',
+]);

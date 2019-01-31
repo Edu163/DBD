@@ -1,13 +1,14 @@
-<form action="/vehiculo" method="get">
+<form action="/hotel" method="get">
      <div class="card buy-card flex-fill">
           <div class="card-body buy-card-body">
                <!-- Línea 1 -->
                <div class="row justify-content-center">
                     <div class="col-12">
+                         <!-- Input Destino -->
                          <center>
                               <label for="reserva-vehiculo-zona">
                                    <span> 
-                                        Zona
+                                        Destino
                                    </span>
                               </label>
                          </center>
@@ -17,7 +18,14 @@
                                    name="zona_id" 
                                    class="form-control selectpicker custom-select" 
                                    required>
-                                   <option selected disabled> Elija la zona </option>
+                                   <option selected disabled>
+                                        Seleccione su destino
+                                   </option>
+                                   @foreach ($hotels as $hotel)
+                                   <option value="{{ $hotel->pais }}">
+                                        {{ $hotel->pais }}
+                                   </option>
+                                   @endforeach
                               </select>
                          </div>
                     </div>
@@ -27,15 +35,15 @@
                <div class="row justify-content-center">
                     <div class="col">
                          <center>
-                              <!-- Input Fecha de recogida -->
-                              <label for="fecha-recogida">
+                              <!-- Input Entrada -->
+                              <label for="fecha-entrada">
                                    <span> 
-                                        Fecha de recogida
+                                        Entrada
                                    </span>
                               </label>
                               <input 
-                                   id="fecha-recogida" 
-                                   name="fecha-recogida" 
+                                   id="fecha-entrada" 
+                                   name="fecha-entrada" 
                                    type="date"
                                    class="form-control"
                                    style="color:black;"
@@ -44,15 +52,15 @@
                     </div>
                     <div class="col">
                          <center>
-                              <!-- Input Fecha de devolución -->
-                              <label for="fecha-devolucion">
+                              <!-- Input Salida -->
+                              <label for="fecha-salida">
                                    <span> 
-                                        Fecha de devolución
+                                        Salida
                                    </span>
                               </label>
                               <input 
-                                   id="fecha-devolucion"
-                                   name="fecha-devolucion"
+                                   id="fecha-salida"
+                                   name="fecha-salida"
                                    type="date" 
                                    class="form-control"
                                    style="color:black;"
@@ -63,33 +71,51 @@
                </br>
                <!-- Línea 3 -->
                <div class="row justify-content-center">
-                    <div class="col-12">
-                         <!-- Input Pasajeros -->
+                    <div class="col">
+                         <!-- Input Habitaciones -->
                          <center>
-                              <label for="pasajeros">
+                              <label for="habitaciones">
                                    <span> 
-                                        Pasajeros 
+                                        Habitaciones 
                                    </span>
                               </label>
                          </center>
                          <input
                               class="form-control"
-                              id="pasajeros"
-                              name="pasajeros"
+                              id="habitaciones"
+                              name="habitaciones"
                               type="number"
                               min="0"
                               max="8"
-                              placeholder="Número de pasajeros"
+                              placeholder="Número de habitaciones"
+                              style="width:100%;" 
+                              required>
+                    </div>
+                    <div class="col">
+                         <!-- Input Personas -->
+                         <center>
+                              <label for="personas">
+                                   <span> 
+                                        Personas 
+                                   </span>
+                              </label>
+                         </center>
+                         <input
+                              class="form-control"
+                              id="personas"
+                              name="personas"
+                              type="number"
+                              min="0"
+                              max="8"
+                              placeholder="Número de personas"
                               style="width:100%;" 
                               required>
                     </div>
                </div>
                </br>
                <center>
-                    <button type="submit" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Encuentra tu vehículo</button> 
+                    <button type="submit" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Encuentra su alojamiento</button> 
                </center>
-               
-
           </div> 
      </div>
 </form>

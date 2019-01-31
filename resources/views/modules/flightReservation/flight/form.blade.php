@@ -1,23 +1,58 @@
-<form action="/vehiculo" method="get">
+<form action="/flight_detail" method="get">
      <div class="card buy-card flex-fill">
           <div class="card-body buy-card-body">
                <!-- Línea 1 -->
                <div class="row justify-content-center">
-                    <div class="col-12">
+                    <div class="col">
                          <center>
-                              <label for="reserva-vehiculo-zona">
+                              <!-- Input Origen -->
+                              <label for="origen">
                                    <span> 
-                                        Zona
+                                        Origen
                                    </span>
                               </label>
                          </center>
                          <div class="form-group">
                               <select 
-                                   id="zona_id" 
-                                   name="zona_id" 
+                                   id="origen" 
+                                   name="origen" 
                                    class="form-control selectpicker custom-select" 
                                    required>
-                                   <option selected disabled> Elija la zona </option>
+                                   <option selected disabled> 
+                                        Seleccione el origen de su vuelo 
+                                   </option>
+                                   @foreach ($airports as $airport)
+                                    <option value="{{ $airport->id }}">
+                                        {{ $airport->ciudad }}
+                                    </option>
+                                    @endforeach
+                              </select>
+                         </div>
+                    </div>
+
+                    <div class="col">
+                         <center>
+                              <!-- Input Destino -->
+                              <label for="destino">
+                                   <span> 
+                                        Destino
+                                   </span>
+                              </label>
+                         </center>
+                         <div class="form-group">
+                              <select 
+                                   id="destino" 
+                                   name="destino" 
+                                   class="form-control selectpicker custom-select" 
+                                   required>
+                                   <option selected disabled> 
+                                        Seleccione el destino de su vuelo 
+                                   </option>
+                                   @foreach ($airports as $airport)
+                                    <option value="{{ $airport->id }}">
+                                        {{ $airport->ciudad }}
+                                    </option>
+                                    @endforeach
                               </select>
                          </div>
                     </div>
@@ -27,15 +62,15 @@
                <div class="row justify-content-center">
                     <div class="col">
                          <center>
-                              <!-- Input Fecha de recogida -->
-                              <label for="fecha-recogida">
+                              <!-- Input Ida -->
+                              <label for="fecha-ida">
                                    <span> 
-                                        Fecha de recogida
+                                        Fecha de ida
                                    </span>
                               </label>
                               <input 
-                                   id="fecha-recogida" 
-                                   name="fecha-recogida" 
+                                   id="fecha-ida" 
+                                   name="fecha-ida" 
                                    type="date"
                                    class="form-control"
                                    style="color:black;"
@@ -44,15 +79,15 @@
                     </div>
                     <div class="col">
                          <center>
-                              <!-- Input Fecha de devolución -->
-                              <label for="fecha-devolucion">
+                              <!-- Input Vuelta -->
+                              <label for="fecha-vuelta">
                                    <span> 
-                                        Fecha de devolución
+                                        Fecha de vuelta
                                    </span>
                               </label>
                               <input 
-                                   id="fecha-devolucion"
-                                   name="fecha-devolucion"
+                                   id="fecha-vuelta"
+                                   name="fecha-vuelta"
                                    type="date" 
                                    class="form-control"
                                    style="color:black;"
@@ -63,7 +98,7 @@
                </br>
                <!-- Línea 3 -->
                <div class="row justify-content-center">
-                    <div class="col-12">
+                    <div class="col">
                          <!-- Input Pasajeros -->
                          <center>
                               <label for="pasajeros">
@@ -83,10 +118,40 @@
                               style="width:100%;" 
                               required>
                     </div>
+
+                    <div class="col">
+                         <!-- Input Cabina -->
+                         <center>
+                              <label for="cabina">
+                                   <span> 
+                                        Cabina 
+                                   </span>
+                              </label>
+                         </center>
+                         <select 
+                            id="cabina" 
+                            name="cabina" 
+                            class="form-control selectpicker custom-select" 
+                            data-live-search="true" 
+                            required>
+                              <option value="" selected disabled hidden>
+                                   Seleccione el tipo de cabina
+                              </option>
+                              <option value="1">
+                                   First Class
+                              </option>
+                              <option value="2">
+                                   Bussiness
+                              </option>
+                              <option value="3">
+                                   Economy
+                              </option>
+                         </select>
+                    </div>
                </div>
                </br>
                <center>
-                    <button type="submit" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Encuentra tu vehículo</button> 
+                    <button type="submit" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Encuentra su vuelo</button> 
                </center>
                
 
