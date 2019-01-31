@@ -17,7 +17,12 @@
                                    name="zona_id" 
                                    class="form-control selectpicker custom-select" 
                                    required>
-                                   <option selected disabled> Elija la zona </option>
+                                   <option selected disabled>Elija la zona</option>
+                                   @foreach ($zones as $zone)
+                                   <option value="{{ $zone->id }}">
+                                            {{ $zone->nombre }}
+                                   </option>
+                                   @endforeach
                               </select>
                          </div>
                     </div>
