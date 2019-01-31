@@ -15,6 +15,12 @@ class CreateVehicleProvidersTable extends Migration
     {
         Schema::create('vehicle_providers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('politica_combustible');
+            $table->string('documentacion_necesaria');
+            $table->string('franquicia_daños');
+            $table->float('calificacion');
+            $table->float('deposito_seguridad');
+            $table->integer('kilometraje');
             $table->timestamps();
         });
     }

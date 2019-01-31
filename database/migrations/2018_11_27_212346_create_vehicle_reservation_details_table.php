@@ -15,6 +15,20 @@ class CreateVehicleReservationDetailsTable extends Migration
     {
         Schema::create('vehicle_reservation_details', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('vehicle_reservation_id');
+            $table->foreign('vehicle_reservation_id')
+                ->references('id')
+                ->on('vehicle_reservations');
+            $table->string('patente');
+            $table->foreign('patente')
+                ->references('patente')
+                ->on('vehicles')
+                ->onDelete('cascade');
+            $table->datetime('fecha_retiro');
+            $table->datetime('fecha_regreso');
+            $table->float('precio_reserva');
+            $table->float('descuento');
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }

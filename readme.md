@@ -135,3 +135,5 @@ Reserva Vehículo
 
 No sé que invento raro hicieron en el index de VehicleCalendaryController.
 Función store en VehicleReservationController, cambios a la función original, lleva a vista Congrats, debe llevar al carrito, ver a través del tiempo (hasta que implementemos el carrito).
+
+

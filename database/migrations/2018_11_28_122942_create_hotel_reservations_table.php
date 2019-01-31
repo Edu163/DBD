@@ -15,6 +15,16 @@ class CreateHotelReservationsTable extends Migration
     {
         Schema::create('hotel_reservations', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('sell_id')->nullable();
+            $table->foreign('sell_id')
+                ->references('id')
+                ->on('sells')
+                ->onDelete('cascade');
+            $table->float('precio');
+            $table->date('fecha');
+            $table->integer('cantidad');
+            $table->float('monto_total');
+            $table->float('descuento');
             $table->timestamps();
         });
     }

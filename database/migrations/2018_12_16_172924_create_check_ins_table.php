@@ -15,6 +15,18 @@ class CreateCheckInsTable extends Migration
     {
         Schema::create('check_ins', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('seat_id');
+            $table->foreign('seat_id')
+                ->references('id')
+                ->on('seats')
+                ->onDelete('cascade');
+            $table->integer('user_id');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+            $table->date('fecha');
+            $table->string('estado');
             $table->timestamps();
         });
     }

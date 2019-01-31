@@ -15,6 +15,16 @@ class CreateServiceAndRoomsTable extends Migration
     {
         Schema::create('service_and_rooms', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('housing_service_id');
+            $table->foreign('housing_service_id')
+                ->references('id')
+                ->on('housing_services')
+                ->onDelete('cascade');
+            $table->integer('hotel_room_id');
+            $table->foreign('hotel_room_id')
+                ->references('id')
+                ->on('hotel_rooms')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

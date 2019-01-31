@@ -15,6 +15,17 @@ class CreateServiceAndVehiclesTable extends Migration
     {
         Schema::create('service_and_vehicles', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('vehicle_service_id');
+            $table->foreign('vehicle_service_id')
+                ->references('id')
+                ->on('vehicle_services')
+                ->onDelete('cascade');
+            $table->string('patente');
+            $table->foreign('patente')
+                ->references('patente')
+                ->on('vehicles')
+                ->onDelete('cascade');
+            $table->float('precio');
             $table->timestamps();
         });
     }

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Others\Sell;
+use App\Modules\Others\Sell;
 
 class SellsTableSeeder extends Seeder
 {

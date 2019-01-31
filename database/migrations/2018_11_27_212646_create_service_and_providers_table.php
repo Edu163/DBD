@@ -15,6 +15,16 @@ class CreateServiceAndProvidersTable extends Migration
     {
         Schema::create('service_and_providers', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('vehicle_service_id');
+            $table->foreign('vehicle_service_id')
+                ->references('id')
+                ->on('vehicle_services')
+                ->onDelete('cascade');
+            $table->integer('vehicle_provider_id');
+            $table->foreign('vehicle_provider_id')
+                ->references('id')
+                ->on('vehicle_providers')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

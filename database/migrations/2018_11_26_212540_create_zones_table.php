@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFlightSellDetailsTable extends Migration
+class CreateZonesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateFlightSellDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('flight_sell_details', function (Blueprint $table) {
+        Schema::create('zones', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nombre');
+            $table->string('direccion');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateFlightSellDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('flight_sell_details');
+        Schema::dropIfExists('zones');
     }
 }
