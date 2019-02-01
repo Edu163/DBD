@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VehicleProvider extends Model
 {
-    protected $table = 'providers';
+    protected $table = 'vehicle_providers';
 
     protected $politica_combustible;
     protected $calificacion;

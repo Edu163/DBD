@@ -1,11 +1,12 @@
-<form action="/vehiculo" method="get">
+<form action="/vehicle" method="get">
      <div class="card buy-card flex-fill">
           <div class="card-body buy-card-body">
                <!-- Línea 1 -->
                <div class="row justify-content-center">
                     <div class="col-12">
                          <center>
-                              <label for="reserva-vehiculo-zona">
+                              <!-- Input Zona -->
+                              <label for="zone">
                                    <span> 
                                         Zona
                                    </span>
@@ -13,11 +14,18 @@
                          </center>
                          <div class="form-group">
                               <select 
-                                   id="zona_id" 
-                                   name="zona_id" 
+                                   id="zone" 
+                                   name="zone" 
                                    class="form-control selectpicker custom-select" 
                                    required>
-                                   <option selected disabled> Elija la zona </option>
+                                   <option selected disabled>
+                                        Seleccione su zona objetivo
+                                        </option>
+                                   @foreach ($zones as $zone)
+                                   <option value="{{ $zone->id }}">
+                                            {{ $zone->nombre }}
+                                   </option>
+                                   @endforeach
                               </select>
                          </div>
                     </div>

@@ -8,7 +8,7 @@ class Seat extends Model
 {
     protected $table = 'seats';
 
-    protected $avion_id;
+    // protected $avion_id;
     protected $numero;
     protected $letra;
     protected $tipo;
@@ -17,7 +17,7 @@ class Seat extends Model
     
 
     protected $fillable = [
-        'avion_id',
+        // 'avion_id',
         'numero',
         'letra',
         'tipo',

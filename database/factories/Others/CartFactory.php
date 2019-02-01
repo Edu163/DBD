@@ -1,8 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Modules\Others\Cart;
 
-$factory->define(App\Cart::class, function (Faker $faker) {
+$factory->define(Cart::class, function (Faker $faker) {
     return [
         //
     ];

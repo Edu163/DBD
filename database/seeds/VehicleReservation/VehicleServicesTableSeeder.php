@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Modules\VehicleReservation\VehicleService;
 
 class VehicleServicesTableSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class VehicleServicesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(VehicleService::class, 20)->create();
     }
 }

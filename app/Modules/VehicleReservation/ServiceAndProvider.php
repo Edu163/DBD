@@ -8,12 +8,12 @@ class ServiceAndProvider extends Model
 {
     protected $table = 'service_and_providers';
 
-    protected $servicio_id;
-    protected $proveedor_id;
+    protected $vehicle_service_id;
+    protected $vehicle_provider_id;
 
     protected $fillable = [
-        'servicio_id',
-        'proveedor_id',
+        'vehicle_service_id',
+        'vehicle_provider_id',
     ];
 
     /* Relaciones */

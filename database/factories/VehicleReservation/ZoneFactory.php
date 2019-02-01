@@ -1,9 +1,11 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Modules\VehicleReservation\Zone;
 
-$factory->define(App\Zone::class, function (Faker $faker) {
+$factory->define(Zone::class, function (Faker $faker) {
     return [
-        //
+        'nombre' => $faker->state,
+        'direccion' => $faker->address,
     ];
 });

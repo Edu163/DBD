@@ -144,5 +144,26 @@
                 </div>
             </div>
         </div>
+
+        <!-- Subscribe Form -->
+        <div class="cta-sub no-color">
+            <div class="container">
+                <div class="cta-inner">
+                    <h1 class="wow fadeInUp" data-wow-delay="0s">¡Inscríbite a nuestro a nuestro boletín y enterate de nuestras grandiosas ofertas!</h1>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s"> Ingresa tu correo electrónico y te envíaremos<br class="hidden-xs">
+                        las mejores ofertas. </p>
+                    <div class="form wow fadeInUp" data-wow-delay="0.3s">
+                        <form class="subscribe-form center-form wow zoomIn" action="php/subscribe.php" method="post" name="subscribeform" id="subscribeform">
+                            <input class="mail" type="email" name="email" placeholder="Tu bello correo electrónico" autocomplete="off" id="subemail">
+                            <input class="submit-button" type="submit" value="¡Suscríbete!" name="send" id="subsubmit">
+                        </form>
+                        <!-- subscribe message -->
+                        <div id="mesaj"></div>
+                        <!-- subscribe message --> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
 @endsection

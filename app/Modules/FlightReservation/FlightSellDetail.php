@@ -8,7 +8,7 @@ class FlightSellDetail extends Model
 {
     protected $table = 'flight_sell_details';
 
-    protected $venta_id;    
+    protected $sell_id;    
     protected $precio;
     protected $descuento;
     protected $monto_total;
@@ -17,7 +17,7 @@ class FlightSellDetail extends Model
     protected $cantidad;
 
     protected $fillable = [
-        'venta_id',
+        'sell_id',
         'precio',
         'descuento',
         'monto_total',

@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             VehicleReservationsTableSeeder::class,
             VehicleCalendariesTableSeeder::class,
             ZonesTableSeeder::class,
-            ProvidersTableSeeder::class,
+            VehicleProvidersTableSeeder::class,
             VehiclesTableSeeder::class,
             VehicleReservationDetailsTableSeeder::class,
             VehicleServicesTableSeeder::class,

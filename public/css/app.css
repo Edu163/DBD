@@ -1,5 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.auth-card {
+  margin-top: 18%;
+  margin-bottom: 10%;
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  color: white;
+}
+
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   background-color: #222225 !important;
@@ -31,11 +38,13 @@
   color: white;
 }
 
-.auth-card {
-  margin-top: 18%;
+/*
+*   Vehicle
+*/
+
+.vehicle-table {
+  margin-top: 10%;
   margin-bottom: 10%;
-  background-color: rgba(0, 0, 0, 0.6) !important;
-  color: white;
 }
 
 /*!
@@ -10527,5 +10536,9 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.main {
+  height: auto !important;
 }
 
