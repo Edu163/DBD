@@ -51,6 +51,13 @@
                             <li><a class="page-scroll" href="#classes">Vuelos</a></li>
                             <li><a class="page-scroll" href="#features">Transporte</a></li>
                             <li><a class="page-scroll" href="#review">Alojamiento</a></li>
+                            <li>
+                                <a href="<?php echo e(route('cart.index')); ?>">Cart <span class="cart-count">
+                                <?php if(Cart::instance('default')->count() > 0): ?>
+                                <span><?php echo e(Cart::instance('default')->count()); ?></span></span>
+                                <?php endif; ?>
+                                </a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
@@ -78,26 +85,6 @@
 
         <div class="main app form" id="main"><!-- Main Section-->
             <?php echo $__env->yieldContent('content'); ?>
-        </div>
-
-        <!-- Subscribe Form -->
-        <div class="cta-sub no-color">
-            <div class="container">
-                <div class="cta-inner">
-                    <h1 class="wow fadeInUp" data-wow-delay="0s">¡Inscríbite a nuestro a nuestro boletín y enterate de nuestras grandiosas ofertas!</h1>
-                    <p class="wow fadeInUp" data-wow-delay="0.2s"> Ingresa tu correo electrónico y te envíaremos<br class="hidden-xs">
-                        las mejores ofertas. </p>
-                    <div class="form wow fadeInUp" data-wow-delay="0.3s">
-                        <form class="subscribe-form center-form wow zoomIn" action="php/subscribe.php" method="post" name="subscribeform" id="subscribeform">
-                            <input class="mail" type="email" name="email" placeholder="Tu bello correo electrónico" autocomplete="off" id="subemail">
-                            <input class="submit-button" type="submit" value="¡Suscríbete!" name="send" id="subsubmit">
-                        </form>
-                        <!-- subscribe message -->
-                        <div id="mesaj"></div>
-                        <!-- subscribe message --> 
-                    </div>
-                </div>
-            </div>
         </div>
                     
         <!-- Footer Section -->

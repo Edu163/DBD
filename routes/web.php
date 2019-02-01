@@ -11,7 +11,9 @@
 |
 */
 Auth::routes();
-
+//Route::get('/cart', 'OthersControllers\CartController@index')->name('cart.index');
+//Route::post('/cart', 'OthersControllers\CartController@store')->name('cart.store');
+//Route::delete('/cart/{product}', 'OthersControllers\CartController@destroy')->name('cart.destroy');
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth', 'admin']], function() {

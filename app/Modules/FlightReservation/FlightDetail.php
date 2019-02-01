@@ -37,7 +37,7 @@ class FlightDetail extends Model
 
     public function flight()
     {
-        return $this->belongsTo(Flight::class);
+        return $this->belongsTo(Flight::class, flight_id);
     }
 
     // public function origen_destino()

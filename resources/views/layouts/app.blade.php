@@ -51,6 +51,13 @@
                             <li><a class="page-scroll" href="#classes">Vuelos</a></li>
                             <li><a class="page-scroll" href="#features">Transporte</a></li>
                             <li><a class="page-scroll" href="#review">Alojamiento</a></li>
+                            <li>
+                                <a href="{{ route('cart.index') }}">Cart <span class="cart-count">
+                                @if (Cart::instance('default')->count() > 0)
+                                <span>{{ Cart::instance('default')->count() }}</span></span>
+                                @endif
+                                </a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\OthersControllers;
 
-use App\Modules\Others\Cart;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Validator;
+use App\Modules\FlightReservation\FlightDetail;
+use App\Http\Controllers\Controller;
 
 class CartController extends Controller
 {
@@ -15,7 +17,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        return view('cart');
     }
 
     /**
