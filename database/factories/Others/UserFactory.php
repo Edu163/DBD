@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Modules\Others\User;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
