@@ -47,7 +47,7 @@
                                 <li><a class="nav-link page-scroll" href="{{ route('register') }}">{{ __('Registrarse') }}</a></li>
                             @endif
                         @else
-                            <li><a class="page-scroll" href="{{ url('/home') }}">Inicio</a></li>
+                            <li><a class="page-scroll" href="{{ url('/') }}">Inicio</a></li>
                             <li><a class="page-scroll" href="#classes">Vuelos</a></li>
                             <li><a class="page-scroll" href="#features">Transporte</a></li>
                             <li><a class="page-scroll" href="#review">Alojamiento</a></li>
