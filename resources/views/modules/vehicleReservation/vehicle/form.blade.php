@@ -6,7 +6,7 @@
                     <div class="col-12">
                          <center>
                               <!-- Input Zona -->
-                              <label for="reserva-vehiculo-zona">
+                              <label for="zone">
                                    <span> 
                                         Zona
                                    </span>
@@ -14,8 +14,8 @@
                          </center>
                          <div class="form-group">
                               <select 
-                                   id="zona_id" 
-                                   name="zona_id" 
+                                   id="zone" 
+                                   name="zone" 
                                    class="form-control selectpicker custom-select" 
                                    required>
                                    <option selected disabled>
