@@ -1,0 +1,15 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'others/variables';
+@import 'others/auth';
+@import 'home/buy-forms';
+@import 'body/index';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.main{
+    height: auto !important;
+}
