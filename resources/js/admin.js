@@ -6,6 +6,13 @@
  */
 
 require('./bootstrap');
+require('./others/adminJS');
+require('./others/adminJS.min');
+
+
+require('../../vendor/jquery/jquery.min.js');
+require('../../vendor/jquery-easing/jquery.easing.min.js');
+
 
 window.Vue = require('vue');
 
