@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Modules\VehicleReservation\Vehicle;
 use App\Modules\VehicleReservation\Zone;
 use App\Modules\HousingReservation\Hotel;
 use App\Modules\HousingReservation\HotelRoom;
@@ -25,13 +26,15 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $vehicles = Vehicle::all();
         $zones = Zone::all();
         $hotels = Hotel::all();
         $airports = Airport::all();
         $hotelRooms = HotelRoom::all();
         $flightDetails = FlightDetail::all();
 
-        return view('admin', compact(
+        return view('admin.index', compact(
+            'vehicles',
             'zones',
             'hotels',
             'airports',

@@ -5,7 +5,22 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require('./others/bootstrap');
+require('./others/admin');
+require('./others/admin.min');
+require('./others/custom');
+require('./others/jquery-2.1.1');
+require('./others/jquery.subscribe');
+require('./others/menu');
+require('./others/plugins');
+
+
+
+require('../../vendor/jquery/jquery.min.js');
+require('../../vendor/bootstrap/js/bootstrap.bundle.min.js');
+require('../../vendor/jquery-easing/jquery.easing.min.js');
+require('../../vendor/datatables/jquery.dataTables.js');
+
 
 window.Vue = require('vue');
 

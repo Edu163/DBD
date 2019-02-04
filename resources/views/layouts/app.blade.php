@@ -16,11 +16,9 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-    <!-- Resource style -->
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}">
-    <!-- Resource style -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 
 
@@ -112,15 +110,5 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
-    <!-- Jquery and Js Plugins --> 
-        <script type="text/javascript" src="js/jquery-2.1.1.js"></script> 
-        <script type="text/javascript" src="js/bootstrap.min.js"></script> 
-        <script type="text/javascript" src="js/plugins.js"></script> 
-        <script type="text/javascript" src="js/menu.js"></script> 
-        <script type="text/javascript" src="js/custom.js"></script> 
-        <script src="js/jquery.subscribe.js"></script>
 </body>
-
-
 </html>

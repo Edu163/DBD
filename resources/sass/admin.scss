@@ -4,6 +4,13 @@
 // Import Bootstrap
 @import "../../vendor/bootstrap/scss/bootstrap.scss";
 
+// Import DataTables
+@import "../../vendor/datatables/dataTables.bootstrap4.css";
+
+//Import FontAwesome
+@import "../../vendor/fontawesome-free/css/all.min.css";
+
+
 // Import Custom SCSS
 @import "admin/mixins.scss";
 @import "admin/global.scss";
