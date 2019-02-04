@@ -1,44 +1,23 @@
-<form action="/habitacion_hotel" method="get">
+<form action="/habitacion_hotel" method="get" style="background-color: black;">
 @extends('layouts.app')
 @section('content')
-    <div class="container">
-    <div class="vehicle-table">
-      <h1>
-        Hoteles Disponibles
-    </h1>
-
-	<table style="text-align:center;">
-    <tr>
-    <th><h5 class="card-title"></h5></th>
-    <th><h5 class="card-title">Hotel</h5></th>
-    <th><h5 class="card-title">Pais</h5></th>
-    <th><h5 class="card-title">Dirección</h5></th>
-    <th><h5 class="card-title">Estrellas</h5></th>
-    <th><h5 class="card-title">Valoración</h5></th>
-    <th><h5 class="card-title">Capacidad</h5></th>
-  </tr>
+<div class="container">
     @foreach($hotels as $hotel)
 
-    <tr>
-    <th>
+    <div class="gp14-card">
         <center>
-		<button type="submit" class="btn btn-danger btn-hoteles" id="hotel_id" name="hotel_id" value="{{ $hotel->id }}" style="vertical-align:middle"><span>Reservar </span> </button>
+        <img src="images/hotel.jpg" alt="{{$hotel->nombre}}" style="width:800px">
         </center>
-        </th>
-    <th><h5 class="card-title" id="nombre_hotel">{{$hotel->nombre}}</h5></th>
-    <th><h5 class="card-title">{{$hotel->pais}}</h5></th>
-    <th><h5 class="card-title">{{$hotel->direccion}}</h5></th>
-    <th><h5 class="card-title">{{$hotel->estrellas}}</h5></th>
-    <th><h5 class="card-title">{{$hotel->valoracion}}</h5></th>
-    <th><h5 class="card-title">{{$hotel->capacidad}}</h5></th>
-  </tr>
-    @endforeach
-    </table>
-    
+        <div class="container">
+            <center>
+                <div class="card-header" id="nombre_hotel">{{$hotel->nombre}}</div>
+                <h5 class="card-title">{{$hotel->direccion}}, {{$hotel->pais}}</h5>
+                <h5 class="card-title">Estrellas {{$hotel->estrellas}}</h5>
+                <h5 class="card-title">Valoración {{$hotel->valoracion}}</h5>
+                <h5 class="card-title">Capacidad {{$hotel->capacidad}}</h5>
+            </center>
+        </div>
     </div>
-      
-    
-    </div>
-    
-@endsection
+    @endforeach   
+</div>
 </form>
