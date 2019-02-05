@@ -52382,7 +52382,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/komarov/Desktop/Lessons/Diseño de Bases de Datos/Laboratorio/proyectodbd/resources/js/admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! /Users/guillermo/Documents/Usach/DBD/DBD/resources/js/admin.js */"./resources/js/admin.js");
 
 
 /***/ })

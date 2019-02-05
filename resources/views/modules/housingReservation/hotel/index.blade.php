@@ -1,22 +1,25 @@
-<form action="/habitacion_hotel" method="get" style="background-color: black;">
+<form action="/hotel_room" method="get" style="background: #2e2e30; margin-top: 5.5%;">
 @extends('layouts.app')
 @section('content')
+
 <div class="container">
     @foreach($hotels as $hotel)
 
+    <div class="card borderlight  ">
     <div class="gp14-card">
-        <center>
-        <img src="images/hotel.jpg" alt="{{$hotel->nombre}}" style="width:800px">
+     <center>
+        <img src="images/hotel.jpg" alt="{{$hotel->nombre}}" style="width:600px">
         </center>
         <div class="container">
             <center>
-                <div class="card-header" id="nombre_hotel">{{$hotel->nombre}}</div>
-                <h5 class="card-title">{{$hotel->direccion}}, {{$hotel->pais}}</h5>
-                <h5 class="card-title">Estrellas {{$hotel->estrellas}}</h5>
-                <h5 class="card-title">Valoración {{$hotel->valoracion}}</h5>
-                <h5 class="card-title">Capacidad {{$hotel->capacidad}}</h5>
-            </center>
+                <h1>{{$hotel->nombre}}</h1>
+                <h3>{{$hotel->direccion}}, {{$hotel->pais}}</h3>
+                <img src="images/{{$hotel->estrellas}}.png">
+                <h3>Valoración {{$hotel->valoracion}}</h3>
+                <h3>Capacidad {{$hotel->capacidad}}</h3>
+                <button id="hotel_id" name="hotel_id" value="{{ $hotel->id }}" type="submit" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Reservar</button>
         </div>
+    </div>
     </div>
     @endforeach   
 </div>

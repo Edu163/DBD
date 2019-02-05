@@ -1,4 +1,27 @@
+
 <form action="/hotel" method="get">
+
+
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.css" rel="stylesheet"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/locales/bootstrap-datepicker.es.min.js"></script>
+<script>
+addEventListener('load',inicio,false);
+
+  function inicio()
+  {
+    document.getElementById('fecha-entrada').addEventListener('change',cambioFecha,false);
+  }
+function cambioFecha()
+     var entrada = document.getElementById("fecha-entrada").value;
+     document.getElementById("fecha-salida").setAttribute("min", document.getElementById("fecha-entrada").value);
+</script>
+
+
      <div class="card buy-card flex-fill">
           <div class="card-body buy-card-body">
                <!-- Línea 1 -->
@@ -41,13 +64,13 @@
                                         Entrada
                                    </span>
                               </label>
-                              <input 
-                                   id="fecha-entrada" 
-                                   name="fecha-entrada" 
-                                   type="date"
-                                   class="form-control"
-                                   style="color:black;"
-                                   required>
+
+
+
+
+                         <input type="date" class="form-control" name="fecha" id="fecha-entrada"  placeholder="Introduce una fecha" onChange="document.getElementById("fecha-salida").setAttribute("min", document.getElementById("fecha-entrada").value)" required min="2019/02/05"/>
+                         
+
                          </center>
                     </div>
                     <div class="col">
@@ -64,8 +87,10 @@
                                    type="date" 
                                    class="form-control"
                                    style="color:black;"
+                                   min="2019/02/05"
                                    required>
                          </center>
+                        
                     </div>
                </div>
                </br>
@@ -119,3 +144,21 @@
           </div> 
      </div>
 </form>
+
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+if(dd<10){
+     dd='0'+dd
+} 
+if(mm<10){
+     mm='0'+mm
+} 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("fecha-entrada").setAttribute("min", today);
+document.getElementById("fecha-salida").setAttribute("min", document.getElementById("fecha-entrada").value);
+</script>
