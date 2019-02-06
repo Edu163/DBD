@@ -6,7 +6,7 @@
     <div class="card borderlight  ">
     <div class="gp14-card">
     <center>
-        <img src="https://source.unsplash.com/600x600/?hotels={{ mt_rand(500, 50000) }}" alt="habitacion" style="width:600px">
+        <img src="https://source.unsplash.com/600x600/?bedroom={{ mt_rand(500, 50000) }}" alt="habitacion" style="width:600px">
         <div class="container">
             <br>
             <h5 class="card-title">Camas: {{$hab->camas}}</h5>
