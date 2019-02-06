@@ -3,6 +3,7 @@
 namespace App\Modules\Others;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Sell extends Model
 {

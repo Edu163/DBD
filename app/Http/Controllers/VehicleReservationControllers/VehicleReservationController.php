@@ -101,6 +101,6 @@ class VehicleReservationController extends Controller
     {
         $vehicleReservation = VehicleReservation::find($id);
         $vehicleReservation->delete();
-        return "lo eliminé";
+        return back();
     }
 }

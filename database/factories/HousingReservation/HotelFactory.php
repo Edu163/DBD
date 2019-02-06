@@ -10,6 +10,6 @@ $factory->define(Hotel::class, function (Faker $faker) {
     	'direccion' => $faker->address,
 		'estrellas' => $faker->numberBetween($min = 1, $max = 5),
 		'valoracion'=> $faker->numberBetween($min = 0, $max = 10),
-		'capacidad'=> $faker->numberBetween($min = 1000, $max = 999999),
+		'capacidad'=> $faker->numberBetween($min = 0, $max = 9999),
     ];
 });

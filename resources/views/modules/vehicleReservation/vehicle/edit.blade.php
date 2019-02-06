@@ -42,11 +42,11 @@
               <td class="align-middle">{{$vehicle->aire_acondicionado}}</td>
               <td class="align-middle">
               <center>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-update-{{ $vehicle->id }}">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-vehicle-update-{{ $vehicle->id }}">
                   Editar
                 </button>
               </center>
-              @include('modules.vehicleReservation.vehicle.update') 
+                @include('modules.vehicleReservation.vehicle.update') 
               </td>
               <td class="align-middle">
               <form action="/vehicle/{{ $vehicle->id }}" method="post">
