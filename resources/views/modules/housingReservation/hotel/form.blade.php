@@ -9,17 +9,33 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/locales/bootstrap-datepicker.es.min.js"></script>
+
+
+
+
 <script>
-addEventListener('load',inicio,false);
+  addEventListener('load',inicio,false);
 
   function inicio()
   {
-    document.getElementById('fecha-entrada').addEventListener('change',cambioFecha,false);
+    document.getElementById('fecha-entrada').addEventListener('change',cambioSalida,false);
   }
-function cambioFecha()
-     var entrada = document.getElementById("fecha-entrada").value;
-     document.getElementById("fecha-salida").setAttribute("min", document.getElementById("fecha-entrada").value);
-</script>
+
+  function cambioSalida()
+  {
+     var fecha = document.getElementById("fecha-entrada").value;
+     var rest = fecha.substr(0,8);
+     var dayInt = parseInt(fecha.substr(8,10))+1;
+     var day = dayInt.toString();
+     if(dayInt < 10)
+     {
+          day = "0"+day;
+     }
+     var salida = rest + day;
+    document.getElementById('fecha-entrada').innerHTML=document.getElementById('fecha-entrada').value;
+    document.getElementById("fecha-salida").setAttribute("min", salida);
+  }
+</script>  
 
 
      <div class="card buy-card flex-fill">
@@ -68,7 +84,7 @@ function cambioFecha()
 
 
 
-                         <input type="date" class="form-control" name="fecha" id="fecha-entrada"  placeholder="Introduce una fecha" onChange="document.getElementById("fecha-salida").setAttribute("min", document.getElementById("fecha-entrada").value)" required min="2019/02/05"/>
+                         <input type="date" class="form-control" name="fecha" id="fecha-entrada"  placeholder="Introduce una fecha" required min="2019/02/05"/>
                          
 
                          </center>
@@ -160,5 +176,4 @@ if(mm<10){
 
 today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("fecha-entrada").setAttribute("min", today);
-document.getElementById("fecha-salida").setAttribute("min", document.getElementById("fecha-entrada").value);
 </script>
