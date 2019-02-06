@@ -35,8 +35,9 @@ class FlightController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        return Flight::create($request->all());
+    {   
+        Flight::create($request->all());
+        return back();
     }
 
     /**
@@ -77,7 +78,7 @@ class FlightController extends Controller
             'duracion_vuelo' => 'required'
           ]))->save();
       
-          return "se ha actualizado";
+          return back();
     }
 
     /**
@@ -90,6 +91,6 @@ class FlightController extends Controller
     {
         $flight = Flight::findOrFail($id);
         $flight->delete();
-        return "eliminado";
+        return back();
     }
 }

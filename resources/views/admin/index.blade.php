@@ -94,7 +94,7 @@
 
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
               <div class="card-body">
-                @include('modules.vehicleReservation.vehicle.edit')
+                @include('modules.flightReservation.flight.edit')
               </div>
             </div>
           </div>
@@ -135,7 +135,7 @@
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
               <div class="card-body">
-                @include('modules.vehicleReservation.vehicle.edit')
+
               </div>
             </div>
           </div>
