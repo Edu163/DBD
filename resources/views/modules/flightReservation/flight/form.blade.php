@@ -1,4 +1,23 @@
 <form action="/flight_detail" method="get">
+
+<script>
+  addEventListener('load',inicio,false);
+
+  function inicio()
+  {
+    document.getElementById('fecha-ida').addEventListener('change',cambioVuelta,false);
+  }
+
+  function cambioVuelta()
+  {
+     var fecha = document.getElementById("fecha-ida").value;
+     
+    document.getElementById('fecha-ida').innerHTML=document.getElementById('fecha-ida').value;
+    document.getElementById("fecha-vuelta").setAttribute("min", fecha);
+  }
+</script>  
+
+
      <div class="card buy-card flex-fill">
           <div class="card-body buy-card-body">
                <!-- Línea 1 -->
@@ -158,3 +177,19 @@
           </div> 
      </div>
 </form>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+if(dd<10){
+     dd='0'+dd
+} 
+if(mm<10){
+     mm='0'+mm
+} 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("fecha-ida").setAttribute("min", today);
+</script>

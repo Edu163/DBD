@@ -19,10 +19,12 @@ class HotelRoomController extends Controller
         $hab_disp = HotelRoom::all()->where('hotel_id', request('hotel_id'));
         if(count($hab_disp)>0)
         {
-        return view('modules.housingReservation.hotelRoom.index', compact('hab_disp'));
+            return view('modules.housingReservation.hotelRoom.index', compact('hab_disp'));
         }
         else{
-            return view('nodisp');
+            //return view('modules.housingReservation.hotelRoom.modal');
+            //return view('modules.housingReservation.hotelRoom.index', compact('hab_disp'));
+            return view('modules.housingReservation.hotelRoom.noDisp');
         }
     }
 
