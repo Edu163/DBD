@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="main app form" id="main"><!-- Main Section-->
+    <div class="main app form" id="main" ><!-- Main Section-->
         <div class="hero-section">
             <div class="container nopadding">
                 <div class="col-md-12">
