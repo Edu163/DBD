@@ -77,8 +77,8 @@
           </div>
         </div> -->
 
-        <!-- DataTables -->
         <div id="accordion">
+          <!-- Vuelos -->
           <div class="card">
             <div class="card-header" id="headingOne">
               <h5 class="d-flex justify-content-between">
@@ -91,13 +91,13 @@
                 </button>
               </h5>
             </div>
-
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
               <div class="card-body">
                 @include('modules.flightReservation.flight.edit')
               </div>
             </div>
           </div>
+          <!-- Vehículos -->
           <div class="card">
             <div class="card-header" id="headingTwo">
               <h5 class="d-flex justify-content-between">
@@ -108,7 +108,7 @@
                 <form action="/vehicle/" method="post">
                 @method('POST')
                 @csrf
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-store">
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-vehicle-store">
                     Agregar
                   </button>
                   @include('modules.vehicleReservation.vehicle.store')
@@ -121,6 +121,23 @@
               </div>
             </div>
           </div>
+          <!-- Reserva de Vehículos -->
+          <div class="card">
+            <div class="card-header" id="headingTwoOne">
+              <h5 class="d-flex justify-content-between">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwoOne" aria-expanded="false" aria-controls="collapseTwoOne">
+                  <i class="fas fa-fw fa-car"></i>
+                  Reserva de Vehículos
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwoOne" class="collapse" aria-labelledby="headingTwoOne" data-parent="#accordion">
+              <div class="card-body">
+                @include('modules.vehicleReservation.vehicleReservation.edit')
+              </div>
+            </div>
+          </div>
+          <!-- Hoteles -->
           <div class="card">
             <div class="card-header" id="headingThree">
               <h5 class="d-flex justify-content-between">
@@ -128,14 +145,19 @@
                   <i class="fas fa-fw fa-building"></i>
                   Hoteles
                 </button>
-                <button class="btn btn-success">
-                  Agregar
-                </button>
+                <form action="/hotel/" method="post">
+                @method('POST')
+                @csrf
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-hotel-store">
+                    Agregar
+                  </button>
+                  @include('modules.housingReservation.hotel.store')
+                </form>
               </h5>
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
               <div class="card-body">
-
+                @include('modules.housingReservation.hotel.edit')
               </div>
             </div>
           </div>
