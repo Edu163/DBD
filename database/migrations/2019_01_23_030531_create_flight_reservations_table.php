@@ -18,7 +18,8 @@ class CreateFlightReservationsTable extends Migration
             $table->integer('flight_id');
             $table->foreign('flight_id')
                     ->references('id')
-                    ->on('flights');
+                    ->on('flights')
+                    ->onDelete('cascade');
             $table->datetime('fecha');
             $table->string('tipo');
             $table->double('precio');

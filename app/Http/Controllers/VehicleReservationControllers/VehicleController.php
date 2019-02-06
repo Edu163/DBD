@@ -38,8 +38,9 @@ class VehicleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        return Vehicle::create($request->all());
+    {   
+        Vehicle::create($request->all());
+        return back();
     }
 
     /**
@@ -75,15 +76,14 @@ class VehicleController extends Controller
     {
         $vehicle = Vehicle::find($id);
         $vehicle->fill($this->validate($request, [
-            'calendario_vehiculo_id' => 'required',
-            'proveedor_id' => 'required',
-            'zona_id' => 'required',
+            'zone_id' => 'required',
+            'vehicle_provider_id' => 'required',
+            'patente' => 'required',
             'marca' => 'required',
             'tipo' => 'required',
             'gamma' => 'required',
             'transmision' => 'required',
             'combustible' => 'required',
-            'n_pasajeros' => 'required',
             'equipaje_g' => 'required',
             'equipaje_p' => 'required',
             'n_puertas' => 'required',
@@ -92,7 +92,7 @@ class VehicleController extends Controller
             'aire_acondicionado' => 'required',
         ]))->save();
 
-        return "Me he acutalizado correctamente! :D!";
+        return back();
     }
 
     /**
@@ -105,6 +105,6 @@ class VehicleController extends Controller
     {
         $vehicle = Vehicle::find($id);
         $vehicle->delete();
-        return "Me eliminé correctamente! :D!";
+        return back();
     }
 }

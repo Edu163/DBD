@@ -18,15 +18,18 @@ class CreatePackagesTable extends Migration
             $table->integer('flight_id');
             $table->foreign('flight_id')
                     ->references('id')
-                    ->on('flights');
+                    ->on('flights')
+                    ->onDelete('cascade');
             $table->integer('hotel_id');
             $table->foreign('hotel_id')
                     ->references('id')
-                    ->on('hotels');
+                    ->on('hotels')
+                    ->onDelete('cascade');
             $table->integer('vehicle_id');
             $table->foreign('vehicle_id')
                     ->references('id')
-                    ->on('vehicles');
+                    ->on('vehicles')
+                    ->onDelete('cascade');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->timestamps();
