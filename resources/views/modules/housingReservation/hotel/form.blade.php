@@ -176,4 +176,5 @@ if(mm<10){
 
 today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("fecha-entrada").setAttribute("min", today);
+document.getElementById("fecha-salida").setAttribute("min", today);
 </script>

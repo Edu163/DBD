@@ -134,4 +134,5 @@ if(mm<10){
 
 today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("fecha-recogida").setAttribute("min", today);
+document.getElementById("fecha-devolucion").setAttribute("min", today);
 </script>

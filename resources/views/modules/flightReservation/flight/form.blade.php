@@ -192,4 +192,5 @@ if(mm<10){
 
 today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("fecha-ida").setAttribute("min", today);
+document.getElementById("fecha-vuelta").setAttribute("min", today);
 </script>
