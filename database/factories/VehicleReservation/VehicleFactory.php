@@ -18,7 +18,7 @@ $factory->define(Vehicle::class, function (Faker $faker) {
         'vehicle_provider_id' => $vehicle_provider_id->random()->id,
         'zone_id' => $zone_id->random()->id,
         'marca' => $faker->vehicleMake,
-        'tipo' => $faker->randomElement(['Minivan','Automovil','Camioneta']),
+        'tipo' => $faker->randomElement(['Minivan','Automóvil','Camioneta']),
         'gamma' => $faker->randomElement(['Baja','Media', 'Alta']),
         'transmision' => $faker->randomElement(['Manual','Automática']),
         'combustible' => $faker->randomElement(['Bencina','Petróleo']),
@@ -28,6 +28,6 @@ $factory->define(Vehicle::class, function (Faker $faker) {
         'n_puertas' => 4,
         'n_kilometraje' => rand(10000,99999),
         'precio_hora' => rand(10000,99999),
-        'aire_acondicionado' => $faker->boolean,
+        'aire_acondicionado' => $faker->randomElement(['Sí','No']),
     ];
 });

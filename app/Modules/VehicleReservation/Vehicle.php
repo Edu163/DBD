@@ -54,8 +54,8 @@ class Vehicle extends Model
     	return $this->belongsTo(Zone::class);
     }
 
-    public function provider(){
-    	return $this->belongsTo(Provider::class);
+    public function vehicleProvider(){
+    	return $this->belongsTo(VehicleProvider::class);
     }
 
     public function serviceAndVehicle(){

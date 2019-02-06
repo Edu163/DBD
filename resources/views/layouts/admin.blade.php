@@ -15,7 +15,7 @@
 
 <body id="page-top">
 
-    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <nav class="navbar fixed-top navbar-expand navbar-dark bg-dark static-top">
         <a class="navbar-brand mr-1" href="admin">Administración</a>
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         </button>
@@ -77,58 +77,66 @@
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="admin">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Tablero</span>
-        </a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Páginas</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Login:</h6>
-          <a class="dropdown-item" href="login">Inicio de Sesión</a>
-          <a class="dropdown-item" href="register">Registro</a>
-          <a class="dropdown-item" href="password/reset">Recuperación de Contraseña</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Other Pages:</h6>
-          <a class="dropdown-item" href="404.html">404 Page</a>
-          <a class="dropdown-item" href="blank.html">Blank Page</a>
-        </div>
+        <li class="nav-item active">
+          <a class="nav-link" href="admin">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Tablero</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Páginas</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <h6 class="dropdown-header">Login:</h6>
+            <a class="dropdown-item" href="login">Inicio de Sesión</a>
+            <a class="dropdown-item" href="register">Registro</a>
+            <a class="dropdown-item" href="password/reset">Recuperación de Contraseña</a>
+            <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">Other Pages:</h6>
+            <a class="dropdown-item" href="404.html">404 Page</a>
+            <a class="dropdown-item" href="blank.html">Blank Page</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <i class="fas fa-fw fa-plane"></i>
+            <span>Vuelos</span></a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-car"></i>
+          <span>Vehículos</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+        <a class="nav-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <i class="fas fa-fw fa-building"></i>
+          <span>Hoteles</span></a>
       </li>
     </ul>
 
-    <div id="content-wrapper">
+    <div class="content-wrapper" id="content-wrapper">
 
       <div class="container-fluid">
         @yield('content')
       </div>
       <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-wrapper -->
 
       <!-- Sticky Footer -->
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2019</span>
+            <span>&copy; 2019 GP14LATAM</span>
+            <address style="margin-top: 1%;">Departamento de Ingeniería en Informática - Universidad de Santiago de Chile, Santiago de Chile</address>
           </div>
         </div>
       </footer>
 
-    </div>
-    <!-- /.content-wrapper -->
+    
+    
 
   </div>
   <!-- /#wrapper -->

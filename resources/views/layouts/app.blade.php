@@ -103,9 +103,8 @@
                     <p> Contacte a nuestra atención al cliente 24/7 si tiene alguna pregunta. </p>
                     <a href="mailto:support@gmail.com">contacto@iland.com</a> 
                 </div>
-            </div>
+            </div>            
         </div>
-
     </div>
 
     <!-- Scripts -->

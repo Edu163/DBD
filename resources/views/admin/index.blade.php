@@ -78,19 +78,23 @@
         </div> -->
 
         <!-- DataTables -->
-        <div class="panel-group" id="accordion">
+        <div id="accordion">
           <div class="card">
             <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
+              <h5 class="d-flex justify-content-between">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Aviones
+                  <i class="fas fa-fw fa-plane"></i>
+                  Vuelos
+                </button>
+                <button class="btn btn-success">
+                  Agregar
                 </button>
               </h5>
             </div>
 
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
               <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                @include('modules.vehicleReservation.vehicle.edit')
               </div>
             </div>
           </div>
@@ -98,30 +102,40 @@
             <div class="card-header" id="headingTwo">
               <h5 class="d-flex justify-content-between">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <i class="fas fa-fw fa-car"></i>
                   Vehículos
+                </button>
+                <form action="/vehicle/" method="post">
+                @method('POST')
+                @csrf
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-store">
+                    Agregar
+                  </button>
+                  @include('modules.vehicleReservation.vehicle.store')
+                </form> 
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body">
+                @include('modules.vehicleReservation.vehicle.edit')
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="d-flex justify-content-between">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <i class="fas fa-fw fa-building"></i>
+                  Hoteles
                 </button>
                 <button class="btn btn-success">
                   Agregar
                 </button>
               </h5>
             </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-              <div class="card-body">
-                @include('modules.vehicleReservation.vehicle.admin')
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Hoteles
-                </button>
-              </h5>
-            </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
               <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                @include('modules.vehicleReservation.vehicle.edit')
               </div>
             </div>
           </div>
