@@ -1,8 +1,9 @@
-<form action="/hotel_room" method="get" style="background: #2e2e30; margin-top: 5.5%;">
+<form action="/hotel_room" method="get" style="background: #2e2e30; ">
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    @foreach($hotels as $hotel)
+    <div class="hotel-cards">
+         @foreach($hotels as $hotel)
     <div class="card borderlight  ">
     <div class="gp14-card">
     <center>
@@ -18,6 +19,8 @@
     </center>
     </div>
     </div>
-    @endforeach   
+    @endforeach  
+    </div>
+    
 </div>
 </form>
