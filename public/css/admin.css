@@ -10721,6 +10721,10 @@ body {
   }
 }
 
+.fixed-top {
+  height: 10% !important;
+}
+
 .card-body-icon {
   position: absolute;
   z-index: 0;
@@ -10790,7 +10794,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .sidebar {
-  width: 21% !important;
+  width: 20.95% !important;
   position: fixed;
   margin-top: 4.4%;
 }

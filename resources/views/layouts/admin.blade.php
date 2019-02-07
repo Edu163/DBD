@@ -37,7 +37,7 @@
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-bell fa-fw"></i>
-          <span class="badge badge-danger">9+</span>
+          <span class="badge badge-danger">999+</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
           <a class="dropdown-item" href="#">Action</a>
@@ -49,7 +49,7 @@
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-envelope fa-fw"></i>
-          <span class="badge badge-danger">7</span>
+          <span class="badge badge-danger">999+</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
           <a class="dropdown-item" href="#">Action</a>
@@ -100,19 +100,19 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <a class="nav-link" data-toggle="collapse" data-target="#flight" aria-expanded="true" aria-controls="flight">
             <i class="fas fa-fw fa-plane"></i>
-            <span>Vuelos</span></a>
+            <span>Aéreo</span></a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-car"></i>
-          <span>Vehículos</span></a>
+        <a class="nav-link" data-toggle="collapse" data-target="#housing" aria-expanded="false" aria-controls="housing">
+          <i class="fas fa-fw fa-building"></i>
+          <span>Alojamiento</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          <i class="fas fa-fw fa-building"></i>
-          <span>Hoteles</span></a>
+        <a class="nav-link" data-toggle="collapse" data-target="#transport" aria-expanded="false" aria-controls="transport"> 
+          <i class="fas fa-fw fa-car"></i>
+          <span>Transporte</span></a>
       </li>
     </ul>
 

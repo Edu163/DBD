@@ -77,87 +77,56 @@
           </div>
         </div> -->
 
-        <div id="accordion">
-          <!-- Vuelos -->
+        <div class="accordion" id="mainAccordion">
+          
+          <!-- Aéreo -->
           <div class="card">
-            <div class="card-header" id="headingOne">
+            <div class="card-header" id="flightAccordion">
               <h5 class="d-flex justify-content-between">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#flight" aria-expanded="false" aria-controls="flight">
                   <i class="fas fa-fw fa-plane"></i>
-                  Vuelos
-                </button>
-                <button class="btn btn-success">
-                  Agregar
+                  Aéreo
                 </button>
               </h5>
             </div>
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div id="flight" class="collapse" aria-labelledby="flightAccordion" data-parent="#mainAccordion">
               <div class="card-body">
-                @include('modules.flightReservation.flight.edit')
+                @include('admin.flight')
               </div>
             </div>
           </div>
-          <!-- Vehículos -->
+
+          <!-- Alojamiento -->
           <div class="card">
-            <div class="card-header" id="headingTwo">
+            <div class="card-header" id="housingAccordion">
               <h5 class="d-flex justify-content-between">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  <i class="fas fa-fw fa-car"></i>
-                  Vehículos
-                </button>
-                <form action="/vehicle/" method="post">
-                @method('POST')
-                @csrf
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-vehicle-store">
-                    Agregar
-                  </button>
-                  @include('modules.vehicleReservation.vehicle.store')
-                </form> 
-              </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-              <div class="card-body">
-                @include('modules.vehicleReservation.vehicle.edit')
-              </div>
-            </div>
-          </div>
-          <!-- Reserva de Vehículos -->
-          <div class="card">
-            <div class="card-header" id="headingTwoOne">
-              <h5 class="d-flex justify-content-between">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwoOne" aria-expanded="false" aria-controls="collapseTwoOne">
-                  <i class="fas fa-fw fa-car"></i>
-                  Reserva de Vehículos
-                </button>
-              </h5>
-            </div>
-            <div id="collapseTwoOne" class="collapse" aria-labelledby="headingTwoOne" data-parent="#accordion">
-              <div class="card-body">
-                @include('modules.vehicleReservation.vehicleReservation.edit')
-              </div>
-            </div>
-          </div>
-          <!-- Hoteles -->
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h5 class="d-flex justify-content-between">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#housing" aria-expanded="false" aria-controls="housing">
                   <i class="fas fa-fw fa-building"></i>
-                  Hoteles
+                  Alojamiento
                 </button>
-                <form action="/hotel/" method="post">
-                @method('POST')
-                @csrf
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-hotel-store">
-                    Agregar
-                  </button>
-                  @include('modules.housingReservation.hotel.store')
-                </form>
               </h5>
             </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div id="housing" class="collapse" aria-labelledby="housingAccordion" data-parent="#mainAccordion">
               <div class="card-body">
-                @include('modules.housingReservation.hotel.edit')
+                @include('admin.housing')
+              </div>
+            </div>
+          </div>
+        
+          <!-- Transporte -->
+          <div class="card">
+            <div class="card-header" id="transportAccordion">
+              <h5 class="d-flex justify-content-between">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#transport" aria-expanded="false" aria-controls="transport">
+                  <i class="fas fa-fw fa-car"></i>
+                    Transporte
+                </button>
+              </h5>
+            </div>
+
+            <div id="transport" class="collapse" aria-labelledby="transportAccordion" data-parent="#mainAccordion">
+              <div class="card-body">
+                @include('admin.transport')
               </div>
             </div>
           </div>
