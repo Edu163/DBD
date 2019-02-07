@@ -1,5 +1,6 @@
-<form action="/hotel_room" method="get" style="background: #2e2e30; ">
+<form action="/hotel_room" method="get"">
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
     <div class="hotel-cards">
@@ -24,3 +25,4 @@
     
 </div>
 </form>
+@endsection

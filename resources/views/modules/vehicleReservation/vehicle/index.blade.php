@@ -44,8 +44,3 @@
   </div>   
 </div>
 @endsection
-
-<!-- .vehicle-table{
-    margin-top: 20%;
-    margin-bottom: 20%;
-} -->

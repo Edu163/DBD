@@ -39,18 +39,17 @@
 }
 
 /*
-*   Vehicle
+*   Todo
 */
 
-.vehicle-table {
-  margin-top: 10%;
-  margin-bottom: 10%;
+.main {
+  padding-top: 10%;
+  padding-bottom: 10%;
 }
 
-.hotel-cards {
-  margin-top: 7.2%;
-  margin-bottom: 10%;
-}
+/*
+*   Vehicle
+*/
 
 /*
 *   Housing
