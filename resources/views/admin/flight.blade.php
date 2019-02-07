@@ -27,7 +27,7 @@
             <h5 class="d-flex justify-content-between">
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#flightTwo" aria-expanded="false" aria-controls="flightTwo">
                     <i class="fas fa-fw fa-plane"></i>
-                    Reserva de Vuelos
+                    Reservas de Vuelos
                 </button>
             </h5>
         </div>

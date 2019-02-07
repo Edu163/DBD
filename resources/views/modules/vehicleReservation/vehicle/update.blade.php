@@ -300,6 +300,19 @@
           </div>
 
           <div class="form-group row">
+            <div class="col-md-6">
+                <input 
+                  id="n_puertas" 
+                  name="n_puertas" 
+                  type="hidden" 
+                  value=4
+                  required 
+                  autofocus
+                >
+            </div>
+          </div>
+
+          <div class="form-group row">
             <label 
             for="n_kilometraje" 
             class="col-sm-4 col-form-label text-md-right"
