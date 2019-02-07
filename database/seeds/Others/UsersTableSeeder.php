@@ -18,6 +18,28 @@ class UsersTableSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@admin.cl',
             'password' => '$2y$10$WSOF2xVdqFqbjZDCppkOKe1K6bMPnJiw6631jrrRkdeFb13jnaKyK', //admin
-            ]);
+            'is_admin' => 1
+        ]);
+
+        User::create([
+            'name' => 'Omar Carrasco',
+            'email' => 'omar.carrasco@usach.cl',
+            'password' => '$2y$10$WSOF2xVdqFqbjZDCppkOKe1K6bMPnJiw6631jrrRkdeFb13jnaKyK', //admin
+            'is_admin' => 1
+        ]);
+
+        User::create([
+            'name' => 'Eduardo Peilemilla',
+            'email' => 'edu.pailemilla@gmail.com',
+            'password' => '$2y$10$WSOF2xVdqFqbjZDCppkOKe1K6bMPnJiw6631jrrRkdeFb13jnaKyK', //admin
+            'is_admin' => 1
+        ]);
+        
+        User::create([
+            'name' => 'Guillermo Campos',
+            'email' => 'guillermo.campos@usach.cl',
+            'password' => '$2y$10$WSOF2xVdqFqbjZDCppkOKe1K6bMPnJiw6631jrrRkdeFb13jnaKyK', //admin
+            'is_admin' => 1
+        ]);
     }
 }
