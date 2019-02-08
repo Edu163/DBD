@@ -48086,17 +48086,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/admin.scss":
-/*!***********************************!*\
-  !*** ./resources/sass/admin.scss ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -48109,15 +48098,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*****************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/admin.scss ***!
-  \*****************************************************************************************/
+/*!*************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/komarov/Desktop/Lessons/Diseño de Bases de Datos/Laboratorio/proyectodbd/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/komarov/Desktop/Lessons/Diseño de Bases de Datos/Laboratorio/proyectodbd/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /Users/komarov/Desktop/Lessons/Diseño de Bases de Datos/Laboratorio/proyectodbd/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /Users/eduardo/LabDBD/DBD/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/eduardo/LabDBD/DBD/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
