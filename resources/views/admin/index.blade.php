@@ -8,7 +8,11 @@
           </li>
           <li class="breadcrumb-item active">Vista General</li>
         </ol>
-
+        @if (session()->has('success_message'))
+          <div class="alert alert-success">
+              {{ session()->get('success_message')}}
+          </div>
+        @endif
         <!-- Icon Cards-->
         <!-- <div class="row">
           <div class="col-xl-3 col-sm-6 mb-3">
