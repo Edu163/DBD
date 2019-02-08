@@ -1,4 +1,4 @@
-<form action="/calendario" method="get" style="background: #2e2e30; margin-top: 5.5%;">
+<form action="/calendario" method="get" style="background: #2e2e30;">
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -19,3 +19,4 @@
     @endforeach   
 </div>
 </form>
+@endsection
