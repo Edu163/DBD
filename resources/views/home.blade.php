@@ -56,7 +56,7 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="profile/{{ Auth::user()->id }}" method="get">
+                                        <a class="dropdown-item" href="{{ route('profile.show', Auth::user()->id )}}"  method="get">
                                                 {{ __('Perfil') }}
                                         </a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
@@ -128,9 +128,6 @@
                             </div>
                         </div>
                     </div>
-                    <script>
-                        document.getElementById('v-pills-home-tab').click();
-                    </script>
                     <!-- Package Section -->
                     <div id="pricing" class="pricing-section text-center" style="padding-top: 0px !important;">
                         <div class="container">
