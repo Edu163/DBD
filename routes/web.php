@@ -127,5 +127,7 @@ Route::resources([
     'cart'                         => 'OthersControllers\CartController',
     'package'                      => 'OthersControllers\PackageController',
     'sell'                         => 'OthersControllers\SellController',
+    'checkout'                     => 'OthersControllers\CheckoutController',
+    'confirmation'                 => 'OthersControllers\BuyConfirmationController',
     // 'users'                        => 'OthersControllers\UserController',
 ]);

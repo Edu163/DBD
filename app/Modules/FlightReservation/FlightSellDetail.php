@@ -12,7 +12,6 @@ class FlightSellDetail extends Model
     protected $precio;
     protected $descuento;
     protected $monto_total;
-    protected $fecha;
     protected $tipo;
     protected $cantidad;
 
@@ -21,7 +20,6 @@ class FlightSellDetail extends Model
         'precio',
         'descuento',
         'monto_total',
-        'fecha',
         'tipo',
         'cantidad',
     ];

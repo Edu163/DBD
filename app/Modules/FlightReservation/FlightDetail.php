@@ -26,6 +26,9 @@ class FlightDetail extends Model
         'fecha_despegue',
         'fecha_aterrizaje',
         'precio',
+        'asientos_economy',
+        'asientos_bussiness', 
+        'asientos_premium',
     ];
 
     /* Relaciones */
@@ -47,10 +50,14 @@ class FlightDetail extends Model
 
     public function origin()
     {
-        return $this->belongsTo(Airport::class, 'origen_id');
+        return $this->belongsTo(Airport::class, 'origin_id');
     }
     public function destiny()
     {
-        return $this->belongsTo(Airport::class, 'destino_id');
+        return $this->belongsTo(Airport::class, 'destiny_id');
+    }
+    public function presentPrice()
+    {
+        return money_format('$%i', $this->precio);
     }
 }
