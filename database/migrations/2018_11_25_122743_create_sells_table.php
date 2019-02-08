@@ -20,13 +20,11 @@ class CreateSellsTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->integer('monto_total');
-            $table->date('fecha');
-            $table->float('impuesto');
+            $table->string('monto_total');
+            $table->string('impuesto');
             $table->string('tipo_comprobante');
             $table->string('metodo_pago');
-            $table->integer('n_cuotas');
-            $table->float('descuento');
+            $table->string('descuento');
             $table->timestamps();
         });
     }

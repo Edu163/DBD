@@ -39,13 +39,7 @@ class CreateFlightDetailsTable extends Migration
             $table->integer('flight_id');
             $table->foreign('flight_id')
                 ->references('id')
-                ->on('flights')
-                ->onDelete('cascade');
-            // $table->integer('airplane_id');
-            // $table->foreign('airplane_id')
-            //     ->references('id')
-            //     ->on('airplanes')
-            //     ->onDelete('cascade');
+                ->on('flights');
             $table->integer('airport_id');
             $table->foreign('airport_id')
                 ->references('id')
@@ -64,6 +58,9 @@ class CreateFlightDetailsTable extends Migration
             $table->integer('precio');
             $table->datetime('fecha_despegue');
             $table->datetime('fecha_aterrizaje');
+            $table->integer('asientos_economy');
+            $table->integer('asientos_bussiness');
+            $table->integer('asientos_premium');
             $table->timestamps();
         });
     }

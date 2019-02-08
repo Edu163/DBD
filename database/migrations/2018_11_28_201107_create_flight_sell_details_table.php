@@ -20,10 +20,9 @@ class CreateFlightSellDetailsTable extends Migration
                 ->references('id')
                 ->on('sells')
                 ->onDelete('cascade');
-            $table->float('precio');
-            $table->float('descuento');
-            $table->float('monto_total');
-            $table->datetime('fecha');
+            $table->string('precio');
+            $table->string('descuento');
+            $table->string('monto_total');
             $table->string('tipo');
             $table->integer('cantidad');
             $table->timestamps();

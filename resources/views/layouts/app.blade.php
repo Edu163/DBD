@@ -37,9 +37,16 @@
                         <ul class="nav navbar-nav navbar-right"> 
                         @guest  
                             <li><a class="page-scroll" href="{{ url('/') }}">Inicio</a></li>
-                            <li><a class="page-scroll" href="#classes">Vuelos</a></li>
+                            <li><a class="page-scroll" href="{{ route('flight_detail.index') }}">Vuelos</a></li>
                             <li><a class="page-scroll" href="#features">Transporte</a></li>
                             <li><a class="page-scroll" href="#review">Alojamiento</a></li>
+                            <li>
+                                <a href="{{ route('cart.index') }}">Carro <span class="cart-count">
+                                @if (Cart::instance('default')->count() > 0)
+                                <span>{{ Cart::instance('default')->count() }}</span></span>
+                                @endif
+                                </a>
+                            </li>
                             <li><a class="nav-link page-scroll" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a></li>
                             @if (Route::has('register'))
                                 <li><a class="nav-link page-scroll" href="{{ route('register') }}">{{ __('Registrarse') }}</a></li>
@@ -49,6 +56,13 @@
                             <li><a class="page-scroll" href="#classes">Vuelos</a></li>
                             <li><a class="page-scroll" href="#features">Transporte</a></li>
                             <li><a class="page-scroll" href="#review">Alojamiento</a></li>
+                            <li>
+                                <a href="{{ route('cart.index') }}"> Carro <span class="cart-count">
+                                @if (Cart::instance('default')->count() > 0)
+                                <span>{{ Cart::instance('default')->count() }}</span></span>
+                                @endif
+                                </a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

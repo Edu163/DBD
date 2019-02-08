@@ -16,12 +16,13 @@ class FlightDetailController extends Controller
      */
     public function index()
     {
-        $origin = Airport::where('id',request('origen_id'))->pluck('id');
+        /*$origin = Airport::where('id',request('origen_id'))->pluck('id');
         $destiny = Airport::where('id',request('destino_id'))->pluck('id');
         $flightDetails =  FlightDetail::where('id_origen', $origin)
                                             ->where('id_destino', $destiny)
-                                            ->get();
-        return view('modules.flightReservation.flightDetail.index', compact('flightDetails'));
+                                            ->get();*/
+        $flight = FlightDetail::all();
+        return view('modules.flightReservation.flightdetail.flightDetail', compact('flight'));
     }
 
     /**

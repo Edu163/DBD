@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\FlightReservationControllers;
+namespace App\Http\Controllers\OthersControllers;
 
-use App\Modules\FlightReservation\FlightSellDetail;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-class FlightSellDetailController extends Controller
+use App\Http\Controllers\Controller;
+class BuyConfirmationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +13,10 @@ class FlightSellDetailController extends Controller
      */
     public function index()
     {
-        return FlightSellDetail::all();
+        /*if (! session()->has('success_message')) {
+            return redirect('/');
+        }*/
+        return view('confirmation');
     }
 
     /**
@@ -36,27 +37,27 @@ class FlightSellDetailController extends Controller
      */
     public function store(Request $request)
     {
-        return FlightSellDetail::create($request->all());
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\FlightSellDetail  $flightSellDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return FlightSellDetail::findOrFail($id);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\FlightSellDetail  $flightSellDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(FlightSellDetail $flightSellDetail)
+    public function edit($id)
     {
         //
     }
@@ -65,34 +66,22 @@ class FlightSellDetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\FlightSellDetail  $flightSellDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $flightSellDetail = FlightSellDetail::find($id);
-        $flightSellDetail->fill($this->validate($request, [
-            'sell_id' => 'required',
-            'precio' => 'required',
-            'descuento' => 'required',
-            'monto_total' => 'required',
-            'tipo' => 'required',
-            'cantidad' => 'required'
-          ]))->save();
-      
-        return "se ha actualizado";
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\FlightSellDetail  $flightSellDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $flightSellDetail = FlightSellDetail::findOrFail($id);
-        $flightSellDetail->delete();
-        return "eliminado";
+        //
     }
 }
