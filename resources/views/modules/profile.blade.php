@@ -65,49 +65,58 @@
                         role="tabpanel" 
                         aria-labelledby="configuraciones-tab"
                         >
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="/profile/{{ $user->id }}" method="post" enctype="multipart/form-data">
+                                @method('PATCH')
+                                @csrf
                                 <div class="form-group">
                                     <label for="inputName" class="col-sm-4 col-form-label control-label">Nombre</label>
 
                                     <div class="col-md-6">
                                         <input 
+                                            id="name"
+                                            name="name"
                                             type="text" 
                                             class="form-control" 
-                                            id="inputName" 
                                             value="{{ $user->name }}" 
                                             autofocus
+                                            required
                                             >
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputEmail" class="col-sm-4 col-form-label control-label">Correo Electrónico</label>
+                                    <label for="email" class="col-sm-4 col-form-label control-label">Correo Electrónico</label>
 
                                     <div class="col-md-6">
                                         <input 
+                                            id="email" 
+                                            name="email"
                                             type="email" 
                                             class="form-control" 
-                                            id="inputEmail" 
-                                            value="{{ $user->email }}" 
+                                            value="{{ $user->email }}"
+                                            autofocus
+                                            required
                                             >
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="imgurl" class="col-sm-4 col-form-label control-label">Foto de Perfil</label>
+                                    <label for="img" class="col-sm-4 col-form-label control-label">Foto de Perfil</label>
                                     <div class="col-md-6">
                                         <input 
+                                            id="img" 
+                                            name="img" 
                                             type="file"
-                                            name="imgurl" 
                                             class="form-input"
+                                            autofocus
+                                            required
                                             >
                                     </div>
                                 </div>
 
-
                                 <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-12">
-                                    <button type="submit" class="btn btn-success">Update</button>
+                                    <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-success">Acutalizar</button>
                                     </div>
                                 </div>
                             </form>

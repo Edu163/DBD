@@ -69,9 +69,20 @@ class ProfileController extends Controller
      * @param  \App\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request,$id)
     {
-        //
+
+        $filePath = $request->file('img')->store('profileImgs');
+        $path = '../storage/';
+        $finalPath = $path . $filePath;
+        
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->imgurl = $finalPath;
+        $user->save();
+
+        return back();
     }
 
     /**

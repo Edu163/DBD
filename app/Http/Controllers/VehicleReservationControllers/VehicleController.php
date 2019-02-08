@@ -97,8 +97,6 @@ class VehicleController extends Controller
         } else {
             return back()->with('success_message','Ha ocurrido un error en la Base de Datos al actualizar!');
         }
-
-        
     }
 
     /**
