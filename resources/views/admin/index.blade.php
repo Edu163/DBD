@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
+        <ol class="breadcrumb" style="padding:0;">
           <li class="breadcrumb-item">
             <a href="admin">Tablón de Administración</a>
           </li>

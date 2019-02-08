@@ -32,7 +32,7 @@
                     </option>
                     @foreach ($zones as $zone)
                     <option value="{{ $zone->id }}">
-                      { $zone->nombre }}
+                      {{ $zone->nombre }}
                     </option>
                     @endforeach
                 </select>

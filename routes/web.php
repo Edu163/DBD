@@ -74,6 +74,8 @@ Route::group(['middleware' => 'auth'], function() {
     /* Reservas */
 
     Route::resources([
+        /* Profile */
+        'profile'                      => 'OthersControllers\ProfileController',                   
         /* Vehículo */
         'vehicle_reservation'          => 'VehicleReservationControllers\VehicleReservationController',
         'vehicle_reservation_detail'   => 'VehicleReservationControllers\VehicleReservationDetailController',

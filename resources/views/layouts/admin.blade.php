@@ -9,7 +9,7 @@
 
     <title>G14Airland</title>
 
-    <link href="css/admin.css" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 
 </head>
 
