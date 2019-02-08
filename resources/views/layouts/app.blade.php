@@ -37,7 +37,7 @@
                         <ul class="nav navbar-nav navbar-right"> 
                         @guest  
                             <li><a class="page-scroll" href="{{ url('/') }}">Inicio</a></li>
-                            <li><a class="page-scroll" href="{{ route('flight_detail.index') }}">Vuelos</a></li>
+                            <li><a class="page-scroll" href='/flight_detail'>Vuelos</a></li>
                             <li><a class="page-scroll" href="#features">Transporte</a></li>
                             <li><a class="page-scroll" href="#review">Alojamiento</a></li>
                             <li>
