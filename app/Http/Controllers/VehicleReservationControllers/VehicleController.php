@@ -75,7 +75,7 @@ class VehicleController extends Controller
     public function update(Request $request, $id)
     {
         $vehicle = Vehicle::find($id);
-        $vehicle->fill($this->validate($request, [
+        $outcome = $vehicle->fill($this->validate($request, [
             'zone_id' => 'required',
             'vehicle_provider_id' => 'required',
             'patente' => 'required',
@@ -92,7 +92,13 @@ class VehicleController extends Controller
             'aire_acondicionado' => 'required',
         ]))->save();
 
-        return back();
+        if ($outcome) {
+            return back()->with('success_message','Actualizado con éxito!');
+        } else {
+            return back()->with('success_message','Ha ocurrido un error en la Base de Datos al actualizar!');
+        }
+
+        
     }
 
     /**
