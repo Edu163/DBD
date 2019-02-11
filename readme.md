@@ -71,6 +71,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Se recuerda instalar las siguientes dependencias
 
 composer require mattwells/faker-vehicle
+composer require cartalyst/stripe-laravel
+composer require hardevine/shoppingcart
 
 
 Traducciones:
