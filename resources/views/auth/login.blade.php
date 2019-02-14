@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="main app form" id="main" style="background:url(../images/header-bg.jpeg) !important;" style="background-size: cover !important;"><!-- Main Section-->
+<div class="main app form" id="main" style="background:url({{ asset('images/header-bg.jpeg') }}) !important; background-size: cover !important;"><!-- Main Section-->
     <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-md-8">

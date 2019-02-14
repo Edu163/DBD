@@ -12,6 +12,11 @@
 */
 Auth::routes();
 
+
+Route::get('/prueba', function () {
+    return view('prueba');
+});
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth', 'admin']], function() {
@@ -74,6 +79,8 @@ Route::group(['middleware' => 'auth'], function() {
     /* Reservas */
 
     Route::resources([
+        /* Profile */
+        'profile'                      => 'OthersControllers\ProfileController',                   
         /* Vehículo */
         'vehicle_reservation'          => 'VehicleReservationControllers\VehicleReservationController',
         'vehicle_reservation_detail'   => 'VehicleReservationControllers\VehicleReservationDetailController',

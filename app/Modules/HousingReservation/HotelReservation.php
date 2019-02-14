@@ -3,6 +3,7 @@
 namespace App\Modules\HousingReservation;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Modules\Others\Sell;
 
 class HotelReservation extends Model
 {

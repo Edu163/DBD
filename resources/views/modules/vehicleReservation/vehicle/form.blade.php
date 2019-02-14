@@ -1,4 +1,22 @@
 <form action="/vehicle" method="get">
+
+<script>
+  addEventListener('load',inicio,false);
+
+  function inicio()
+  {
+    document.getElementById('fecha-recogida').addEventListener('change',cambioDevolucion,false);
+  }
+
+  function cambioDevolucion()
+  {
+     var fecha = document.getElementById("fecha-recogida").value;
+     
+    document.getElementById('fecha-recogida').innerHTML=document.getElementById('fecha-recogida').value;
+    document.getElementById("fecha-devolucion").setAttribute("min", fecha);
+  }
+</script>  
+
      <div class="card buy-card flex-fill">
           <div class="card-body buy-card-body">
                <!-- Línea 1 -->
@@ -20,7 +38,7 @@
                                    required>
                                    <option selected disabled>
                                         Seleccione su zona objetivo
-                                        </option>
+                                   </option>
                                    @foreach ($zones as $zone)
                                    <option value="{{ $zone->id }}">
                                             {{ $zone->nombre }}
@@ -85,7 +103,7 @@
                               id="pasajeros"
                               name="pasajeros"
                               type="number"
-                              min="0"
+                              min="1"
                               max="8"
                               placeholder="Número de pasajeros"
                               style="width:100%;" 
@@ -101,3 +119,20 @@
           </div> 
      </div>
 </form>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+if(dd<10){
+     dd='0'+dd
+} 
+if(mm<10){
+     mm='0'+mm
+} 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("fecha-recogida").setAttribute("min", today);
+document.getElementById("fecha-devolucion").setAttribute("min", today);
+</script>

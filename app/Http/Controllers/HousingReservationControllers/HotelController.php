@@ -16,7 +16,8 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotels = Hotel::all()->where('pais', request('destino_id'));         
+        //$hotels = Hotel::all();
+        $hotels = Hotel::all()->where('pais', request('zona_id'));         
         return view('modules.housingReservation.hotel.index', compact('hotels'));
     }
 
@@ -37,8 +38,9 @@ class HotelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        return Hotel::create($request->all());
+    {   
+        Hotel::create($request->all());
+        return back();
     }
 
     /**
@@ -87,7 +89,7 @@ class HotelController extends Controller
             'capacidad' => 'required',
         ]))->save();
         
-            return 'Actualizado con éxito!';
+            return back();
     }
 
     /**
@@ -100,6 +102,6 @@ class HotelController extends Controller
     {
         $hotel = Hotel::findOrFail($id);
         $hotel->delete();
-        return "eliminado";
+        return back();
     }
 }

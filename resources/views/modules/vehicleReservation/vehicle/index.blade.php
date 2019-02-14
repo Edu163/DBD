@@ -33,7 +33,7 @@
             <th><h5 class="card-title">{{$vehicle->combustible}}</h5></th>
             <th>
             <center>
-              <button type="submit" class="btn btn-primary btn-hoteles" id="vuelo_id" name="vuelo_id" value="{{ $vehicle->id }}" style="vertical-align:middle"><span>Reservar </span> </button>
+              <button type="submit" class="btn btn-primary btn-vehiculo" id="vehiculo_id" name="vehiculo_id" value="{{ $vehicle->id }}" style="vertical-align:middle"><span>Reservar </span> </button>
             </center>
             </th>
         </tr>
@@ -44,8 +44,3 @@
   </div>   
 </div>
 @endsection
-
-<!-- .vehicle-table{
-    margin-top: 20%;
-    margin-bottom: 20%;
-} -->

@@ -11,9 +11,9 @@ $factory->define(HotelRoom::class, function (Faker $faker) {
     return [
     	'hotel_id' => $hotel_id->random()->id,
     	'housing_calendary_id' => $housing_calendary_id->random()->id,
-    	'capacidad' => $faker->numberBetween($min = 1000, $max = 999999),
-    	'camas' => $faker->numberBetween($min = 1000, $max = 999999),
-		'numero' => $faker->numberBetween($min = 1000, $max = 999999),
-		'precio' => $faker->numberBetween($min = 1000, $max = 9999),
+    	'capacidad' => $faker->numberBetween($min = 3, $max = 8),
+    	'camas' => $faker->numberBetween($min = 1, $max = 3),
+		'numero' => $faker->numberBetween($min = 1000, $max = 999),
+		'precio' => $faker->numberBetween($min = 1000, $max = 100000),
     ];
 });
