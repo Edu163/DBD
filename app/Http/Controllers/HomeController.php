@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Modules\VehicleReservation\Zone;
+use App\Modules\HousingReservation\Hotel;
+use App\Modules\HousingReservation\HotelRoom;
+use App\Modules\FlightReservation\Airport;
+use App\Modules\FlightReservation\FlightDetail;
+
 class HomeController extends Controller
 {
     /**
@@ -11,10 +17,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -23,6 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $zones = Zone::all();
+        $hotels = Hotel::all();
+        $airports = Airport::all();
+        $hotelRooms = HotelRoom::all();
+        $flightDetails = FlightDetail::all();
+        return view('home', compact(
+            'zones',
+            'hotels',
+            'airports',
+            'flightDetails',
+            'hotelRooms'
+        ));
     }
 }
