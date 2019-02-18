@@ -39,28 +39,12 @@
             <h5>Administración</h5><span>GP14</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>M</strong><strong class="text-primary">S</strong><strong>C</strong></a></div>
+          <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>G</strong><strong class="text-primary">P</strong><strong>14</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Menú</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Páginas</span>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                <h6 class="dropdown-header">Login:</h6>
-                <a class="dropdown-item" href="login">Inicio de Sesión</a>
-                <a class="dropdown-item" href="register">Registro</a>
-                <a class="dropdown-item" href="password/reset">Recuperación de Contraseña</a>
-                <div class="dropdown-divider"></div>
-                <h6 class="dropdown-header">Other Pages:</h6>
-                <a class="dropdown-item" href="404.html">404 Page</a>
-                <a class="dropdown-item" href="blank.html">Blank Page</a>
-              </div>
-            </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" data-target="#flight" aria-expanded="true" aria-controls="flight">
                 <i class="fas fa-fw fa-plane"></i>
@@ -185,11 +169,11 @@
     <!-- JavaScript files-->
     <script src="{{ asset('template/lib/jquery/jquery.min.js') }}"defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('lib/jquery.cookie/jquery.cookie.js') }}" defer></script>
-    <script src="{{ asset('lib/jquery-validation/jquery.validate.min.js') }}" defer></script>
-    <script src="{{ asset('lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}" defer></script>
+    <script src="{{ asset('template/lib/jquery.cookie/jquery.cookie.js') }}" defer></script>
+    <script src="{{ asset('template/lib/jquery-validation/jquery.validate.min.js') }}" defer></script>
+    <script src="{{ asset('template/lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}" defer></script>
     <!-- Main File-->
-    <script src="{{ asset('js/others/front.js') }}"defer></script>
+    <script src="{{ asset('admin/js/front.js') }}"defer></script>
 
   </body>
 </html>
