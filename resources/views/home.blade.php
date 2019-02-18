@@ -32,6 +32,7 @@
 
     <!-- Main Stylesheet File -->
     <link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
+
     <!-- End Template Style Files -->
 
 </head>
@@ -56,9 +57,9 @@
                 <li><a href="#about">Paquetes</a></li>
                 <li><a href="#buy-forms">Servicios</a></li>
                 <li><a href="#features">Vuelos</a></li>
-                <li><a href="#pricing">Transporte</a></li>
-                <li><a href="#team">Alojamiento</a></li>
-                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#more-features">Transporte</a></li>
+                <li><a href="#pricing">Alojamiento</a></li>
+                {{-- <li><a href="#gallery">Galería</a></li> --}}
                 <li><a href="#contact">Contáctenos</a></li>
                 <li><a class="nav-link page-scroll" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a></li>
                 @if (Route::has('register'))
@@ -69,9 +70,9 @@
                     <li><a href="#about">Paquetes</a></li>
                     <li><a href="#buy-forms">Servicios</a></li>
                     <li><a href="#features">Vuelos</a></li>
-                    <li><a href="#pricing">Transporte</a></li>
-                    <li><a href="#team">Alojamiento</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#more-features">Transporte</a></li>
+                    <li><a href="#pricing">Alojamiento</a></li>
+                    {{-- <li><a href="#gallery">Galería</a></li> --}}
                     <li><a href="#contact">Contáctenos</a></li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -379,7 +380,7 @@
         <!--==========================
         Product Advanced Featuress Section
         ============================-->
-        <section id="advanced-features">
+        {{-- <section id="advanced-features">
 
         <div class="features-row section-bg">
             <div class="container">
@@ -432,7 +433,8 @@
             </div>
             </div>
         </div>
-        </section><!-- #advanced-features -->
+        </section> --}}
+        <!-- #advanced-features -->
 
         <!--==========================
         Call To Action Section
@@ -677,7 +679,7 @@
         <!--==========================
         Gallery Section
         ============================-->
-        <section id="gallery">
+        {{-- <section id="gallery">
         <div class="container-fluid">
             <div class="section-header">
             <h3 class="section-title">Galaría</h3>
@@ -738,7 +740,8 @@
             </div>
 
         </div>
-        </section><!-- #gallery -->
+        </section> --}}
+        <!-- #gallery -->
 
         <!--==========================
         Our Team Section, Esto queda sólo si no se sube a la red.
