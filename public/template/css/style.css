@@ -301,6 +301,7 @@ Slider Area css
 .nav-menu li:hover > ul,
 .nav-menu li.sfHover > ul {
   display: block;
+  color: black
 }
 
 .nav-menu ul ul {
@@ -310,24 +311,6 @@ Slider Area css
 
 .nav-menu ul li {
   min-width: 180px;
-}
-
-/* Nav Menu Arrows */
-.sf-arrows .sf-with-ul {
-  padding-right: 30px;
-}
-
-.sf-arrows .sf-with-ul:after {
-  content: "\f107";
-  position: absolute;
-  right: 15px;
-  font-family: FontAwesome;
-  font-style: normal;
-  font-weight: normal;
-}
-
-.sf-arrows ul .sf-with-ul:after {
-  content: "\f105";
 }
 
 /* Nav Meu Container */
@@ -346,7 +329,7 @@ Slider Area css
 .nav-menu a {
   padding: 0 8px 10px 8px;
   text-decoration: none;
-  display: inline-block;
+  /* display: inline-block; */
   color: #fff;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -373,7 +356,7 @@ Slider Area css
   padding: 10px;
   color: #333;
   transition: 0.3s;
-  display: block;
+  /* display: block; */
   font-size: 13px;
   text-transform: none;
 }

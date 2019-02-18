@@ -75,10 +75,10 @@
                     <li><a href="#contact">Contáctenos</a></li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            {{ Auth::user()->name }} <i class="fas fa-caret-down"></i>
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right" style="background: linear-gradient(45deg, #1de099, #1dc8cd) !important;" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('profile.show', Auth::user()->id )}}"  method="get">
                                     {{ __('Perfil') }}
                             </a>
@@ -909,7 +909,6 @@
     <!-- JavaScript Libraries -->
     <script src="{{ asset('template/lib/jquery/jquery.min.js') }}"defer></script>
     <script src="{{ asset('template/lib/jquery/jquery-migrate.min.js') }}"defer></script>
-    <script src="{{ asset('template/lib/bootstrap/js/bootstrap.bundle.min.js') }}"defer></script>
     <script src="{{ asset('template/lib/easing/easing.min.js') }}"defer></script>
     <script src="{{ asset('template/lib/wow/wow.min.js') }}"defer></script>
     <script src="{{ asset('template/lib/superfish/hoverIntent.js') }}"defer></script>
