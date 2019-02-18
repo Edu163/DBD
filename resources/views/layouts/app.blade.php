@@ -49,22 +49,24 @@
                 <li class="menu-active"><a href="/#intro">Inicio</a></li>
                 <li><a href="/#about">Paquetes</a></li>
                 <li><a href="/#buy-forms">Servicios</a></li>
-                <li><a href="/#features">Features</a></li>
-                <li><a href="/#pricing">Pricing</a></li>
-                <li><a href="/#team">Team</a></li>
+                <li><a href="/#features">Vuelos</a></li>
+                <li><a href="/#pricing">Transporte</a></li>
+                <li><a href="/#team">Alojamiento</a></li>
                 <li><a href="/#gallery">Gallery</a></li>
-                <li><a href="/#contact">Contact Us</a></li>
+                <li><a href="/#contact">Contáctenos</a></li>
                 <li><a class="nav-link page-scroll" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a></li>
                 @if (Route::has('register'))
                     <li><a class="nav-link page-scroll" href="{{ route('register') }}">{{ __('Registrarse') }}</a></li>
                 @endif
                 @else
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li class="menu-active"><a href="/#intro">Inicio</a></li>
+                    <li><a href="/#about">Paquetes</a></li>
+                    <li><a href="/#buy-forms">Servicios</a></li>
+                    <li><a href="/#features">Vuelos</a></li>
+                    <li><a href="/#pricing">Transporte</a></li>
+                    <li><a href="/#team">Alojamiento</a></li>
+                    <li><a href="/#gallery">Gallery</a></li>
+                    <li><a href="/#contact">Contáctenos</a></li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>

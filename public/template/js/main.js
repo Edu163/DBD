@@ -1,7 +1,7 @@
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 
   // Header fixed and Back to top button
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
       $('.back-to-top').fadeIn('slow');
       $('#header').addClass('header-fixed');
@@ -16,12 +16,64 @@ jQuery(document).ready(function($) {
     $('#header').addClass('header-fixed');
   }
 
-  $('.back-to-top').click(function() {
+  $('.back-to-top').click(function () {
     $('html, body').animate({
       scrollTop: 0
     }, 1500, 'easeInOutExpo');
     return false;
   });
+
+  /*----------------------------------------------------*/
+  /*  Main Slider js
+  /*----------------------------------------------------*/
+  function main_slider() {
+    if ($('#main_slider').length) {
+      $("#main_slider").revolution({
+        sliderType: "standard",
+        sliderLayout: "auto",
+        delay: 5000,
+        disableProgressBar: "on",
+        navigation: {
+          onHoverStop: 'off',
+          touch: {
+            touchenabled: "on"
+          },
+          arrows: {
+            style: "zeus",
+            enable: false,
+            hide_onmobile: true,
+            hide_under: 820,
+            hide_onleave: true,
+            hide_delay: 200,
+            hide_delay_mobile: 1200,
+            tmp: '<div class="tp-title-wrap">  	<div class="tp-arr-imgholder"></div> </div>',
+            left: {
+              h_align: "left",
+              v_align: "center",
+              h_offset: 5,
+              v_offset: 0
+            },
+            right: {
+              h_align: "right",
+              v_align: "center",
+              h_offset: 5,
+              v_offset: 0
+            }
+          },
+        },
+        responsiveLevels: [4096, 1320, 1199, 992, 767, 480],
+        gridwidth: [1170, 1170, 960, 720, 700, 300],
+        gridheight: [900, 900, 900, 800, 500, 500],
+        lazyType: "smart",
+        fallbacks: {
+          simplifyAll: "off",
+          nextSlideOnWindowFocus: "off",
+          disableFocusListener: false,
+        }
+      })
+    }
+  }
+  main_slider();
 
   // Initiate the wowjs animation library
   new WOW().init();
@@ -48,19 +100,19 @@ jQuery(document).ready(function($) {
     $('body').append('<div id="mobile-body-overly"></div>');
     $('#mobile-nav').find('.menu-has-children').prepend('<i class="fa fa-chevron-down"></i>');
 
-    $(document).on('click', '.menu-has-children i', function(e) {
+    $(document).on('click', '.menu-has-children i', function (e) {
       $(this).next().toggleClass('menu-item-active');
       $(this).nextAll('ul').eq(0).slideToggle();
       $(this).toggleClass("fa-chevron-up fa-chevron-down");
     });
 
-    $(document).on('click', '#mobile-nav-toggle', function(e) {
+    $(document).on('click', '#mobile-nav-toggle', function (e) {
       $('body').toggleClass('mobile-nav-active');
       $('#mobile-nav-toggle i').toggleClass('fa-times fa-bars');
       $('#mobile-body-overly').toggle();
     });
 
-    $(document).click(function(e) {
+    $(document).click(function (e) {
       var container = $("#mobile-nav, #mobile-nav-toggle");
       if (!container.is(e.target) && container.has(e.target).length === 0) {
         if ($('body').hasClass('mobile-nav-active')) {
@@ -75,7 +127,7 @@ jQuery(document).ready(function($) {
   }
 
   // Smoth scroll on page hash links
-  $('.nav-menu a, #mobile-nav a, .scrollto').on('click', function() {
+  $('.nav-menu a, #mobile-nav a, .scrollto').on('click', function () {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var target = $(this.hash);
       if (target.length) {
@@ -84,7 +136,7 @@ jQuery(document).ready(function($) {
         if ($('#header').length) {
           top_space = $('#header').outerHeight();
 
-          if( ! $('#header').hasClass('header-fixed') ) {
+          if (!$('#header').hasClass('header-fixed')) {
             top_space = top_space - 20;
           }
         }
@@ -120,7 +172,7 @@ jQuery(document).ready(function($) {
       enabled: true,
       duration: 300,
       easing: 'ease-in-out',
-      opener: function(openerElement) {
+      opener: function (openerElement) {
         return openerElement.is('img') ? openerElement : openerElement.find('img');
       }
     }
