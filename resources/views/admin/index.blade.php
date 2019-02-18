@@ -1,13 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-    <!-- Breadcrumbs-->
-        <ol class="breadcrumb" style="padding:0;">
-          <li class="breadcrumb-item">
-            <a href="admin">Tablón de Administración</a>
-          </li>
-          <li class="breadcrumb-item active">Vista General</li>
-        </ol>
         @if (session()->has('success_message'))
           <div class="alert alert-success">
               {{ session()->get('success_message')}}
@@ -81,13 +74,13 @@
           </div>
         </div> -->
 
-        <div class="accordion" id="mainAccordion">
+        <div class="accordion" style="color: white !important;" id="mainAccordion">
           
           <!-- Aéreo -->
           <div class="card">
-            <div class="card-header" id="flightAccordion">
+            <div class="card-header" style="background-color: rgba(0, 0, 0, 0.1) !important;" id="flightAccordion">
               <h5 class="d-flex justify-content-between">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#flight" aria-expanded="false" aria-controls="flight">
+                <button class="btn btn-link collapsed" style="color: white !important;" type="button" data-toggle="collapse" data-target="#flight" aria-expanded="false" aria-controls="flight">
                   <i class="fas fa-fw fa-plane"></i>
                   Aéreo
                 </button>
@@ -104,7 +97,7 @@
           <div class="card">
             <div class="card-header" id="housingAccordion">
               <h5 class="d-flex justify-content-between">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#housing" aria-expanded="false" aria-controls="housing">
+                <button class="btn btn-link collapsed" style="color: white !important;" type="button" data-toggle="collapse" data-target="#housing" aria-expanded="false" aria-controls="housing">
                   <i class="fas fa-fw fa-building"></i>
                   Alojamiento
                 </button>
@@ -121,7 +114,7 @@
           <div class="card">
             <div class="card-header" id="transportAccordion">
               <h5 class="d-flex justify-content-between">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#transport" aria-expanded="false" aria-controls="transport">
+                <button class="btn btn-link collapsed" style="color: white !important;" type="button" data-toggle="collapse" data-target="#transport" aria-expanded="false" aria-controls="transport">
                   <i class="fas fa-fw fa-car"></i>
                     Transporte
                 </button>

@@ -9,7 +9,7 @@
                     <i class="fas fa-fw fa-plane"></i>
                     Vuelos
                 </button>
-                <button class="btn btn-success">
+                <button class="btn btn-success btn-galaxy">
                   Agregar
                 </button>
             </h5>

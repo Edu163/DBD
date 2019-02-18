@@ -12,7 +12,7 @@
                 <form action="/hotel/" method="post">
                     @method('POST')
                     @csrf
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-hotel-store">
+                    <button type="button" class="btn btn-success btn-galaxy" data-toggle="modal" data-target="#modal-hotel-store">
                         Agregar
                     </button>
                     @include('modules.housingReservation.hotel.store')
