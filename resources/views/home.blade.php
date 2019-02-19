@@ -80,7 +80,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" style="background: linear-gradient(45deg, #1de099, #1dc8cd) !important;" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('profile.show', Auth::user()->id )}}"  method="get">
+                            <a class="dropdown-item" href="{{ route('profile.show', Auth::user()->id )}}"  method="post">
                                     {{ __('Perfil') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -746,7 +746,7 @@
         <!--==========================
         Our Team Section, Esto queda sólo si no se sube a la red.
         ============================-->
-        <section id="team" class="section-bg">
+        {{-- <section id="team" class="section-bg">
         <div class="container">
             <div class="section-header">
             <h3 class="section-title">Nuestro Equipo</h3>
@@ -758,7 +758,7 @@
                 <div class="member">
                 <div class="pic"><img src="{{ asset('img/team-1.jpg') }}" alt=""></div>
                 <h4>Guillermo Campos</h4>
-                {{-- <span>Chief Executive Officer</span> --}}
+                <span>Chief Executive Officer</span>
                 <div class="social">
                     <a href=""><i class="fab fa-twitter"></i></a>
                     <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -771,7 +771,7 @@
                 <div class="member">
                 <div class="pic"><img src="{{asset('img/team-2.jpg')}}" alt=""></div>
                 <h4>Omar Carrasco</h4>
-                {{-- <span>Product Manager</span> --}}
+                <span>Product Manager</span>
                 <div class="social">
                     <a href=""><i class="fab fa-twitter"></i></a>
                     <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -784,7 +784,7 @@
                 <div class="member">
                 <div class="pic"><img src="{{ asset('img/team-3.jpg') }}" alt=""></div>
                 <h4>Eduardo Pailemilla</h4>
-                {{-- <span>CTO</span> --}}
+                <span>CTO</span>
                 <div class="social">
                     <a href=""><i class="fab fa-twitter"></i></a>
                     <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -796,7 +796,8 @@
             </div>
 
         </div>
-        </section><!-- #team -->
+        </section> --}}
+        <!-- #team -->
 
         <!--==========================
         Contact Section

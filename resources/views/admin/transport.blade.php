@@ -12,7 +12,7 @@
                 <form action="/vehicle/" method="post">
                     @method('POST')
                     @csrf
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-vehicle-store">
+                    <button type="button" class="btn btn-success btn-galaxy" data-toggle="modal" data-target="#modal-vehicle-store">
                         Agregar
                     </button>
                     @include('modules.vehicleReservation.vehicle.store')

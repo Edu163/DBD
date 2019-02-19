@@ -24,7 +24,7 @@
               <td class="align-middle">{{$hotel->capacidad}}</td>
               <td class="align-middle">
               <center>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-hotel-update-{{ $hotel->id }}">
+                <button type="button" class="btn btn-primary btn-galaxy" data-toggle="modal" data-target="#modal-hotel-update-{{ $hotel->id }}">
                   Editar
                 </button>
               </center>
@@ -35,7 +35,7 @@
                 @method('DELETE')
                 @csrf
               <center>
-                <button type="submit" class="btn btn-danger" id="hotel" name="hotel"><span>Eliminar</span> </button>
+                <button type="submit" class="btn btn-danger btn-galaxy" id="hotel" name="hotel"><span>Eliminar</span> </button>
               </center>
               </form>
               </td>
