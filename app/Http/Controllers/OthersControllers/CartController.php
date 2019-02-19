@@ -34,17 +34,18 @@ class CartController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  App\Modules\FlightReservation\FlightDetail  $flightDetail
      * @return \Illuminate\Http\Response
      */
-    public function storeFlights(Request $request)
+    public function storeFlights(FlightDetail $flightDetail)
     {
-        $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
-            return $cartItem->id === $request->id;
+        $duplicates = Cart::search(function ($cartItem, $rowId) use ($flightDetail) {
+            return $cartItem->id === $flightDetail->id;
         });
         if ($duplicates->isNotEmpty()) {
             return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
         }
-        Cart::add($request->id, 'destino-santiago', 1, $request->precio)
+        Cart::add($flightDetail->id, 'destino-santiago', 1, $flightDetail->precio)
             ->associate('App\Modules\FlightReservation\FlightDetail');
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');

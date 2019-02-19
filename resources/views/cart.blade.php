@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 
     <div class="breadcrumbs">
@@ -33,6 +34,7 @@
 
             <div class="cart-table">
                 @foreach (Cart::content() as $item)
+                @if(get_class($item->model) == "App\Modules\FlightReservation\FlightDetail")
                 <div class="cart-table-row">
                     <div class="cart-table-row-left">
                         <a href="#"><img src="https://picsum.photos/180/120?image={{ mt_rand(1, 50) }}" alt="item" class="cart-table-img"></a>
@@ -62,6 +64,7 @@
                         <div>{{ $item->subtotal}}</div>
                     </div>
                 </div> <!-- end cart-table-row -->
+                @endif
                 @endforeach
 
             </div> <!-- end cart-table -->
@@ -128,11 +131,11 @@
             //             quantity: this.value
             //         })
             //         .then(function (response) {
-            //             // console.log(response);
+            //             console.log(response);
             //             window.location.href = '{{ route('cart.index') }}'
             //         })
             //         .catch(function (error) {
-            //             // console.log(error);
+            //             console.log(error);
             //             window.location.href = '{{ route('cart.index') }}'
             //         });
             //     })

@@ -14,9 +14,6 @@
                     <center>
                         <form action="{{ route('cart.storeFlights', $vuelo) }}" method="POST">
                         {{ csrf_field() }}
-                        <input type = "hidden" name = "id" value = "{{ $vuelo->id }}">
-                        <input type = "hidden" name = "nombre" value = "{{ $vuelo->fecha_despegue}}">
-                        <input type = "hidden" name = "precio" value = "{{$vuelo->precio}}">
                         <button style="margin-top: 0.2cm;" type="submit" class="btn btn-success">Añadir al carrito</button>
                         </form>
 					</center>
