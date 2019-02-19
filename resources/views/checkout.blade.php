@@ -1,13 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Checkout')
-
-@section('extra-css')
-
-<script src="https://js.stripe.com/v3/"></script>
-
-@endsection
-
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="container">
@@ -150,13 +142,12 @@
         </div> <!-- end checkout-section -->
     </div>
 
-@endsection
 
-@section('extra-js')
-    <script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
         (function(){
             // Create a Stripe client
-            var stripe = Stripe('pk_test_ncvmzwDJL7zhmSBts4gZbWLl');
+            var stripe = Stripe('pk_test_37DdlWVlUWtnqquZgsqdptfW');
 
             // Create an instance of Elements
             var elements = stripe.elements();
@@ -243,4 +234,7 @@
             }
         })();
     </script>
+
 @endsection
+
+    
