@@ -1,11 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Shopping Cart')
-
-@section('extra-css')
-
-@endsection
-
 @section('content')
 
     <div class="breadcrumbs">

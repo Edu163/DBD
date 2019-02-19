@@ -10,11 +10,10 @@
 // Body
 @import 'body/index';
 
-// compra
-@import 'pages/checkout';
-@import 'pages/cart';
-//@import 'others/header';
-@import 'pages/confirmation';
+// Carrito
+@import 'cart/checkout';
+@import 'cart/cart';
+@import 'cart/confirmation';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
