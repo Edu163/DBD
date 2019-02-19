@@ -12,7 +12,7 @@
                     <h3 class="name">${{$vuelo->precio}}</h3>
                     <p class="description">{{ $vuelo->fecha_despegue }}</p>
                     <center>
-                        <form action="{{ route('cart.store', $vuelo) }}" method="POST">
+                        <form action="{{ route('cart.storeFlights', $vuelo) }}" method="POST">
                         {{ csrf_field() }}
                         <input type = "hidden" name = "id" value = "{{ $vuelo->id }}">
                         <input type = "hidden" name = "nombre" value = "{{ $vuelo->fecha_despegue}}">

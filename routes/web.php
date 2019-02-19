@@ -12,12 +12,18 @@
 */
 Auth::routes();
 
+
 Route::get('/prueba', function () {
     return view('prueba');
 });
 
 Route::get('/', 'HomeController@index')->name('home');
-
+Route::get('/cart', 'OthersControllers\CartController@index')->name('cart.index');
+Route::patch('/cart/{product}', 'OthersControllers\CartController@update')->name('cart.update');
+Route::delete('/cart/{product}', 'OthersControllers\CartController@destroy')->name('cart.destroy');
+Route::post('/cart', 'OthersControllers\CartController@storeFlights')->name('cart.storeFlights');
+// Route::post('/cart', 'CartController@storeVehicle')->name('cart.storeVehicle');
+// Route::post('/cart', 'CartController@storeHousing')->name('cart.storeHousing');
 Route::group(['middleware' => ['auth', 'admin']], function() {
 
     Route::get('/admin', 'AdminController@index')->name('admin');
@@ -131,7 +137,6 @@ Route::resources([
 
 /* Otros */
 Route::resources([
-    'cart'                         => 'OthersControllers\CartController',
     'package'                      => 'OthersControllers\PackageController',
     'sell'                         => 'OthersControllers\SellController',
     'confirmation'                 => 'OthersControllers\BuyConfirmationController',
