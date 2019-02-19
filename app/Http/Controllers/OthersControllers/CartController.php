@@ -36,7 +36,7 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeFlights(Request $request)
     {
         $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
             return $cartItem->id === $request->id;
@@ -46,6 +46,34 @@ class CartController extends Controller
         }
         Cart::add($request->id, 'destino-santiago', 1, $request->precio)
             ->associate('App\Modules\FlightReservation\FlightDetail');
+
+         return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
+    }
+
+    public function storeVehicle(Request $request)
+    {
+        $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
+            return $cartItem->id === $request->id;
+        });
+        if ($duplicates->isNotEmpty()) {
+            return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
+        }
+        Cart::add($request->id, 'destino-santiago', 1, $request->precio)
+            ->associate('App\Modules\VehicleReservation\Vehicle');
+
+         return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
+    }
+
+    public function storeHousing(Request $request)
+    {
+        $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
+            return $cartItem->id === $request->id;
+        });
+        if ($duplicates->isNotEmpty()) {
+            return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
+        }
+        Cart::add($request->id, 'destino-santiago', 1, $request->precio)
+            ->associate('App\Modules\HousingReservation\HotelRoom');
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
     }
