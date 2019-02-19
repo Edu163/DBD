@@ -31,8 +31,8 @@ class DatabaseSeeder extends Seeder
             HotelsTableSeeder::class,
             HotelReservationsTableSeeder::class,
             HousingServicesTableSeeder::class,
-            HousingCalendariesTableSeeder::class,
             HotelRoomsTableSeeder::class,
+            HousingCalendariesTableSeeder::class,
             PrivateHousingsTableSeeder::class,
             RoomsTableSeeder::class,
             HousingAndServicesTableSeeder::class,
@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
             CheckInsTableSeeder::class,
             OriginDestiniesTableSeeder::class,
             FlightReservationsTableSeeder::class,
+            InsurancesTableSeeder::class,
 
             /* Paquetes */
             PakagesTableSeeder::class,

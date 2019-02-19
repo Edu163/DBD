@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\HousingReservationControllers;
 
+use Carbon\Carbon;
 use App\Modules\HousingReservation\HousingCalendary;
 use App\Modules\HousingReservation\HotelRoom;
+use App\Modules\HousingReservation\Hotel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,7 +18,19 @@ class HousingCalendaryController extends Controller
      */
     public function index()
     {
-        //
+        $fecha_entrada = Carbon::createFromFormat('Y-m-d', request('fecha_entrada'));
+        $fecha_salida = Carbon::createFromFormat('Y-m-d', request('fecha_entrada'));
+        $hab_no_disp = HotelRoom::all()->whereDate('date', '>', $fecha_entrada)
+                                       ->whereDate('date', '<', $fecha_salida);
+        $hab_disp = HotelRoom::all()->where('hotel_id', request('hotel_id'))
+                                    ->whereNotIn($hab_no_disp);
+        if(count($hab_disp)>0)
+        {
+            return view('modules.housingReservation.hotelRoom.index', compact('hab_disp'));
+        }
+        else{
+            return view('modules.housingReservation.hotelRoom.noDisp');
+        }
     }
 
     /**
@@ -38,9 +52,8 @@ class HousingCalendaryController extends Controller
     public function store(Request $request)
     {
         $housingCalendary = $this->validate($request, [
-            'año' => 'required',
-            'mes' => 'required',
-            'dia' => 'required',
+            'room_id' => 'required',
+            'date' => 'required',
         ]);
 
         $housingCalendary = HousingCalendary::create($housingCalendary);
@@ -92,9 +105,8 @@ class HousingCalendaryController extends Controller
     {
         $housingCalendary = HousingCalendary::find($id);
         $housingCalendary->fill($this->validate($request, [
-            'año' => 'required',
-            'mes' => 'required',
-            'dia' => 'required',
+            'room_id' => 'required',
+            'date' => 'required',
         ]))->save();
         
         return 'Actualizado con éxito!';

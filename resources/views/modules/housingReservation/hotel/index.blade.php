@@ -1,4 +1,4 @@
-<form action="/hotel_room" method="get"">
+<form action="/housing_calendary" method="get"">
 @extends('layouts.app')
 
 @section('content')
@@ -15,6 +15,8 @@
             <img src="images/{{$hotel->estrellas}}.png">
             <h3>Valoración {{$hotel->valoracion}}</h3>
             <h3>Capacidad {{$hotel->capacidad}}</h3>
+            <input type="hidden" id="fecha_entrada" name="fecha_entrada" value="{{ $fecha_entrada }}">
+            <input type="hidden" id="fecha_salida" name="fecha_salida" value="{{ $fecha_salida }}">
             <button id="hotel_id" name="hotel_id" value="{{ $hotel->id }}" type="submit" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Reservar</button>
         </div>
     </center>

@@ -15,9 +15,13 @@ class CreateHousingCalendariesTable extends Migration
     {
         Schema::create('housing_calendaries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('año');
-            $table->string('mes');
-            $table->integer('dia');
+
+            $table->integer('room_id');
+            $table->foreign('room_id')
+                ->references('id')
+                ->on('hotel_rooms');
+
+            $table->date('date');
             $table->timestamps();
         });
     }

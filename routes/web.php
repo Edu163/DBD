@@ -109,6 +109,7 @@ Route::resources([
     'vehicle_provider'             => 'VehicleReservationControllers\VehicleProviderController',
     'vehicle_service'              => 'VehicleReservationControllers\VehicleServiceController',
     'zone'                         => 'VehicleReservationControllers\ZoneController',
+    'insurance'                    => 'OthersControllers\InsuranceController',
 ]);
 
 /* Vuelos */

@@ -15,16 +15,13 @@ class CreateHotelRoomsTable extends Migration
     {
         Schema::create('hotel_rooms', function (Blueprint $table) {
             $table->increments('id');
+
             $table->integer('hotel_id');
             $table->foreign('hotel_id')
                 ->references('id')
                 ->on('hotels')
                 ->onDelete('cascade');
-            $table->integer('housing_calendary_id');
-            $table->foreign('housing_calendary_id')
-                ->references('id')
-                ->on('housing_calendaries')
-                ->onDelete('cascade');
+                
             $table->integer('capacidad');
             $table->integer('camas');
             $table->integer('numero');

@@ -8,20 +8,18 @@ class HousingCalendary extends Model
 {
     protected $table = 'housing_calendaries';
 	
-	protected $año;
-    protected $mes;
-    protected $dia;
+	protected $room_id;
+    protected $date;
    
     protected $fillable = [
-    	'año',
-    	'mes',
-    	'dia'
+		'room_id',
+		'date'
 	];
 	
 	/* Relaciones */
 
 	public function hotelRoom(){
-    	return $this->hasMany(hotelRoom::class);
+    	return $this->belongsTo(hotelRoom::class);
 	}
 
 	public function privateHousing(){

@@ -1,14 +1,12 @@
 
-<form action="/hotel" method="get">
+<form action="/insurance" method="get">
 
 
-<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.css" rel="stylesheet"/>
+{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.css" rel="stylesheet"/>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/locales/bootstrap-datepicker.es.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/locales/bootstrap-datepicker.es.min.js"></script> --}}
 
 
 
@@ -84,12 +82,7 @@
 
 
 
-                         <input type="date" 
-                                class="form-control"
-                                name="fecha" id="fecha-entrada"
-                                placeholder="Introduce una fecha"
-                                min="2019/02/05"
-                                required>
+                         <input type="date" class="form-control" name="fecha" id="fecha-entrada"  placeholder="Introduce una fecha" required min="2019/02/05"/>
                          
 
                          </center>
@@ -135,7 +128,7 @@
                               max="8"
                               placeholder="Número de habitaciones"
                               style="width:100%;" 
-                              >
+                              required>
                     </div>
                     <div class="col">
                          <!-- Input Personas -->
@@ -155,7 +148,7 @@
                               max="8"
                               placeholder="Número de personas"
                               style="width:100%;" 
-                              >
+                              required>
                     </div>
                </div>
                </br>
