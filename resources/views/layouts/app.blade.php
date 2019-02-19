@@ -24,10 +24,14 @@
     <link rel="stylesheet" href="{{ asset('template/lib/ionicons/css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('template/lib/magnific-popup/magnific-popup.css') }}">
 
+    <!-- Rev slider css -->
+    <link href="{{ asset('template/lib/revolution/css/settings.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/lib/revolution/css/layers.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/lib/revolution/css/navigation.css') }}" rel="stylesheet">
+    <link href="{{ asset('template/lib/animate/animate.css') }}" rel="stylesheet">
+
     <!-- Main Stylesheet File -->
     <link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
-
-    <!-- End Template Style Files -->
 
 </head>
 <body>
@@ -219,18 +223,18 @@
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-  <!-- JavaScript Libraries -->
-  <script src="{{ asset('template/lib/jquery/jquery.min.js') }}"defer></script>
-  <script src="{{ asset('template/lib/jquery/jquery-migrate.min.js') }}"defer></script>
-  <script src="{{ asset('template/lib/bootstrap/js/bootstrap.bundle.min.js') }}"defer></script>
-  <script src="{{ asset('template/lib/easing/easing.min.js') }}"defer></script>
-  <script src="{{ asset('template/lib/wow/wow.min.js') }}"defer></script>
-  <script src="{{ asset('template/lib/superfish/hoverIntent.js') }}"defer></script>
-  <script src="{{ asset('template/lib/superfish/superfish.min.js') }}"defer></script>
-  <script src="{{ asset('template/lib/magnific-popup/magnific-popup.min.js') }}"defer></script>
+    <script src="{{ asset('js/app.js') }}"defer></script>
+
+    <!-- JavaScript Libraries -->
+    <script src="{{ asset('template/lib/jquery/jquery.min.js') }}"defer></script>
+    <script src="{{ asset('template/lib/jquery/jquery-migrate.min.js') }}"defer></script>
+    <script src="{{ asset('template/lib/easing/easing.min.js') }}"defer></script>
+    <script src="{{ asset('template/lib/wow/wow.min.js') }}"defer></script>
+    <script src="{{ asset('template/lib/superfish/hoverIntent.js') }}"defer></script>
+    <script src="{{ asset('template/lib/superfish/superfish.min.js') }}"defer></script>
+    <script src="{{ asset('template/lib/magnific-popup/magnific-popup.min.js') }}"defer></script>
 
   <!-- Template Main Javascript File -->
-  <script src="{{ asset('js/app.js') }}"defer></script>
   <script src="{{ asset('template/js/main.js') }}"defer></script>
 </body>
 </html>
