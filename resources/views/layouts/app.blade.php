@@ -125,7 +125,7 @@
 
         <div class="col-lg-4 col-md-4">
             <div class="contact-about">
-            <h3>Avilon</h3>
+            <h3>GP14</h3>
             <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
             <div class="social-links">
                 <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>

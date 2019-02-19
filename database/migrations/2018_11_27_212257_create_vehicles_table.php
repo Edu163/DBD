@@ -41,7 +41,7 @@ class CreateVehiclesTable extends Migration
             $table->integer('equipaje_p');
             $table->integer('n_puertas');
             $table->integer('n_kilometraje');
-            $table->float('precio_hora');
+            $table->float('precio');
             $table->string('aire_acondicionado');
             $table->timestamps();
         });

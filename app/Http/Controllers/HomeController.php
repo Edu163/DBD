@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Modules\VehicleReservation\Vehicle;
 use App\Modules\VehicleReservation\Zone;
 use App\Modules\HousingReservation\Hotel;
 use App\Modules\HousingReservation\HotelRoom;
@@ -25,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $vehicleCards = Vehicle::inRandomOrder()->take(3)->get();
+        $hotelCards = HotelRoom::inRandomOrder()->take(3)->get();
         $zones = Zone::all();
         $hotels = Hotel::all();
         $airports = Airport::all();
@@ -35,7 +38,9 @@ class HomeController extends Controller
             'hotels',
             'airports',
             'flightDetails',
-            'hotelRooms'
+            'hotelRooms',
+            'vehicleCards',
+            'hotelCards',
         ));
     }
 }

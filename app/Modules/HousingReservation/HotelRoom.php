@@ -11,7 +11,8 @@ class HotelRoom extends Model
 	protected $hotel_id;
     protected $capacidad;
     protected $camas;
-    protected $numero;
+	protected $numero;
+	protected $precio;
 
     protected $fillable = [
     	'hotel_id',

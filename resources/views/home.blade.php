@@ -123,48 +123,6 @@
                     <img src="{{ asset('template/img/home-slider/slider-1.jpg') }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                     <!-- LAYER NR. 1 -->
                     <div class="slider_text_box">
-                        <div class="tp-caption tp-resizeme rev-btn first_text"
-                        data-x="['center','center','center','center','center','center']"
-                        data-hoffset="['0','0','0','0']"
-                        data-y="['middle','middle','middle','middle']"
-                        data-voffset="['-130','-130','-130','-80','-80','-80']"
-                        data-fontsize="['12','12','12','12','12']"
-                        data-lineheight="['64','64','64','50','35']"
-                        data-width="['550','550','550','550','300']"
-                        data-height="none"
-                        data-whitespace="normal"
-                        data-type="text"
-                        data-type="button"
-                        data-actions='[{"event":"mouseenter","action":"startlayer","layer":"slide-2971-layer-18","delay":""},{"event":"mouseleave","action":"stoplayer","layer":"slide-2971-layer-18","delay":""},{"event":"click","action":"startlayer","layer":"slide-2971-layer-15","delay":""},{"event":"click","action":"startlayer","layer":"slide-2971-layer-19","delay":""},{"event":"click","action":"startlayer","layer":"slide-2971-layer-20","delay":"1000"},{"event":"click","action":"playvideo","layer":"slide-2971-layer-15","delay":"1000"}]'
-                        data-responsive_offset="on"
-                        data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:0px;s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]"
-                        data-textAlign="['center','center','center','center','center','center']"
-                        style="z-index: 8;font-family: 'Poppins', sans-serif;font-weight:600;color:#fff;text-transform: uppercase;"><span style="text-decoration: underline;padding-left: 10px;"></span></div>
-
-                        
-
-                        <!-- LAYER NR. 11 -->
-                        <div class="tp-caption Agency-CloseBtn rev-btn "
-                        id="slide-2971-layer-20"
-                        data-x="['center','center','center','center']" data-hoffset="['510','389','270','199']"
-                        data-y="['middle','middle','middle','middle']" data-voffset="['-298','-229','-163','-118']"
-                        data-width="50"
-                        data-height="none"
-                        data-whitespace="nowrap"
-
-                        data-type="button"
-                        data-actions='[{"event":"click","action":"stoplayer","layer":"slide-2971-layer-15","delay":""},{"event":"click","action":"stoplayer","layer":"slide-2971-layer-19","delay":""},{"event":"click","action":"stoplayer","layer":"slide-2971-layer-20","delay":""}]'
-                        data-responsive_offset="on"
-                        data-responsive="off"
-                        data-frames='[{"from":"z:0;rX:0;rY:0;rZ:45deg;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","speed":500,"to":"o:1;","delay":"bytrigger","ease":"Power3.easeInOut"},{"delay":"bytrigger","speed":500,"to":"auto:auto;","ease":"nothing"},{"frame":"hover","speed":"500","ease":"Power1.easeInOut","to":"o:1;sX:1.1;sY:1.1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);"}]'
-                        data-textAlign="['center','center','center','center']"
-                        data-paddingtop="[0,0,0,0]"
-                        data-paddingright="[0,0,0,0]"
-                        data-paddingbottom="[0,0,0,0]"
-                        data-paddingleft="[0,0,0,0]"
-                        data-lasttriggerstate="reset"
-                        style="z-index: 15; min-width: 50px; max-width: 50px; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;font-size: 24px;"><i class="fa fa-close"></i> </div>
-
                         <div class="tp-caption tp-resizeme secand_text"
                             data-x="['center','center','center','center','center','center']"
                             data-hoffset="['0','0','0','0']"
@@ -209,7 +167,7 @@
                     <div class="slider_text_box">
                         <div class="tp-caption tp-resizeme secand_text"
                             data-x="['center','center','center','center','center','center']"
-                            data-hoffset="['0','80','80','0']"
+                            data-hoffset="['0','0','0','0']"
                             data-y="['middle','middle','middle','middle']"
                             data-voffset="['0','0','0','0','0']"
                             data-fontsize="['48','48','48','28','28','22']"
@@ -223,10 +181,9 @@
                             data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]"
                             data-textAlign="['center','center','center','center','center','center']"
 
-                            {{-- style="z-index: 8;font-family:'Poppins', sans-serif;font-weight:700;color:#fff; background-image: linear-gradient(to right, #744fff 0%, #f4a8f4 51%, #744fff 100%);"--}}
-                            >Ve por las vacaciones que te mereces
+                            {{-- style="z-index: 8;font-family:'Poppins', sans-serif;font-weight:700;color:#fff; background: linear-gradient(to right, #744fff 0%, #f4a8f4 51%, #744fff 100%);"--}}
+                            >Encuentra tu paquete de viaje ideal
                         </div>
-
                         <div class="tp-caption tp-resizeme slider_button"
                             data-x="['center','center','center','center','center','center']"
                             data-hoffset="['0','0','0','0']"
@@ -243,7 +200,7 @@
                             <a class="btn-galaxy scrollto" href="#buy-forms">Servicios</a>
                         </div>
                     </div>
-                </li>
+                </li>             
             </ul>
         </div>
     </section>
@@ -259,45 +216,55 @@
                 <div class="section-header">
                     <h3 class="section-title">Paquetes</h3>
                     <span class="section-divider"></span>
-                    <p class="section-description">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque<br>
-                        sunt in culpa qui officia deserunt mollit anim id est laborum
-                    </p>
+                    {{-- <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> --}}
+                </div>
+
+                <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="box wow fadeInLeft">
+                    <h3>Free</h3>
+                    <h4><sup>$</sup>0<span> month</span></h4>
+                    <ul>
+                        <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
+                        <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
+                        <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
+                        <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
+                        <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
+                    </ul>
+                    <a href="#" class="get-started-btn">Get Started</a>
                     </div>
+                </div>
 
-                    <div class="row">
-                    <div class="col-lg-6 about-img wow fadeInLeft">
-                        <img src="{{ asset('template/img/about-img.jpg') }}" alt="">
+                <div class="col-lg-4 col-md-6">
+                    <div class="box featured wow fadeInUp">
+                    <h3>Business</h3>
+                    <h4><sup>$</sup>29<span> month</span></h4>
+                    <ul>
+                        <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
+                        <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
+                        <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
+                        <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
+                        <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
+                    </ul>
+                    <a href="#" class="get-started-btn">Get Started</a>
                     </div>
+                </div>
 
-                    <div class="col-lg-6 content wow fadeInRight">
-                        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elite storium paralate</h2>
-                        <h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                        laborum.</h3>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-
-                        <ul>
-                        <li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </li>
-                        <li><i class="ion-android-checkmark-circle"></i> Duis aute irure dolor in reprehenderit in voluptate
-                            velit.</li>
-                        <li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat
-                            nulla pariatur.</li>
-                        </ul>
-
-                        <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum Libero justo laoreet sit amet
-                        cursus sit amet dictum sit. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend
-                        donec
-                        </p>
+                <div class="col-lg-4 col-md-6">
+                    <div class="box wow fadeInRight">
+                    <h3>Developer</h3>
+                    <h4><sup>$</sup>49<span> month</span></h4>
+                    <ul>
+                        <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
+                        <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
+                        <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
+                        <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
+                        <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
+                    </ul>
+                    <a href="#" class="get-started-btn">Get Started</a>
                     </div>
-                </div>    
+                </div>
             </div>
         </section><!-- #about -->
 
@@ -344,47 +311,57 @@
         <section id="features">
         <div class="container">
 
+            <div class="section-header">
+            <h3 class="section-title">Vuelos</h3>
+            <span class="section-divider"></span>
+            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+            </div>
+
             <div class="row">
 
-            <div class="col-lg-8 offset-lg-4">
-                <div class="section-header wow fadeIn" data-wow-duration="1s">
-                <h3 class="section-title">Vuelos</h3>
-                <span class="section-divider"></span>
+            <div class="col-lg-4 col-md-6">
+                <div class="box wow fadeInLeft">
+                <h3>Free</h3>
+                <h4><sup>$</sup>0<span> month</span></h4>
+                <ul>
+                    <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
+                    <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
+                    <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
+                    <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
+                    <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
+                </ul>
+                <a href="#" class="get-started-btn">Get Started</a>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-5 features-img">
-                <img src="{{ asset('template/img/product-features.png') }}" alt="" class="wow fadeInLeft">
+            <div class="col-lg-4 col-md-6">
+                <div class="box featured wow fadeInUp">
+                <h3>Business</h3>
+                <h4><sup>$</sup>29<span> month</span></h4>
+                <ul>
+                    <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
+                    <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
+                    <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
+                    <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
+                    <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
+                </ul>
+                <a href="#" class="get-started-btn">Get Started</a>
+                </div>
             </div>
 
-            <div class="col-lg-8 col-md-7 ">
-
-                <div class="row">
-
-                <div class="col-lg-6 col-md-6 box wow fadeInRight">
-                    <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-                    <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident clarida perendo.</p>
+            <div class="col-lg-4 col-md-6">
+                <div class="box wow fadeInRight">
+                <h3>Developer</h3>
+                <h4><sup>$</sup>49<span> month</span></h4>
+                <ul>
+                    <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
+                    <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
+                    <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
+                    <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
+                    <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
+                </ul>
+                <a href="#" class="get-started-btn">Get Started</a>
                 </div>
-                <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.1s">
-                    <div class="icon"><i class="ion-ios-flask-outline"></i></div>
-                    <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                    <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata noble dynala mark.</p>
-                </div>
-                <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.2s">
-                    <div class="icon"><i class="ion-social-buffer-outline"></i></div>
-                    <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                    <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur teleca starter sinode park ledo.</p>
-                </div>
-                <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.3s">
-                    <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-                    <h4 class="title"><a href="">Magni Dolores</a></h4>
-                    <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum dinoun trade capsule.</p>
-                </div>
-                </div>
-
-            </div>
-
             </div>
 
         </div>
@@ -461,7 +438,7 @@
                 <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
             <div class="col-lg-3 cta-btn-container text-center">
-                <a class="cta-btn align-middle" href="#">Call To Action</a>
+                <a class="btn btn-galaxy align-middle" href="#">Call To Action</a>
             </div>
             </div>
 
@@ -477,42 +454,26 @@
             <div class="section-header">
             <h3 class="section-title">Transporte</h3>
             <span class="section-divider"></span>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+            {{-- <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> --}}
             </div>
 
             <div class="row">
-
-            <div class="col-lg-6">
-                <div class="box wow fadeInLeft">
-                <div class="icon"><i class="ion-ios-stopwatch-outline"></i></div>
-                <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="box wow fadeInRight">
-                <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
-                <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata nodera clas.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="box wow fadeInLeft">
-                <div class="icon"><i class="ion-ios-heart-outline"></i></div>
-                <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur trinige zareta lobur trade.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="box wow fadeInRight">
-                <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-                <h4 class="title"><a href="">Magni Dolores</a></h4>
-                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum rideta zanox satirente madera</p>
-                </div>
-            </div>
+                @foreach ($vehicleCards as $vehicle)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="box featured wow fadeInUp">
+                        <h3>{{ $vehicle->marca }}</h3>
+                        <h4><sup>$</sup>{{ $vehicle->precio }}<span> día</span></h4>
+                        <ul>
+                            <li><i class="ion-android-checkmark-circle"></i> Tipo: {{ $vehicle->tipo }}</li>
+                            <li><i class="ion-android-checkmark-circle"></i> Gamma: {{ $vehicle->gamma }}</li>
+                            <li><i class="ion-android-checkmark-circle"></i> Transmisión: {{ $vehicle->transmision }}</li>
+                            <li><i class="ion-android-checkmark-circle"></i> Zona: {{ $vehicle->zone->nombre }}</li>
+                            <li><i class="ion-android-checkmark-circle"></i> Aire Acondicionado: {{ $vehicle->aire_acondicionado }}</li>
+                        </ul>
+                        <a href="#" class="get-started-btn">Ver detalles</a>
+                        </div>
+                    </div>
+                @endforeach
 
             </div>
         </div>
@@ -552,7 +513,7 @@
 
             </div>
         </div>
-        </section><!-- #more-features -->
+        </section><!-- #clients -->
 
         <!--==========================
         Pricing Section
@@ -563,55 +524,27 @@
             <div class="section-header">
             <h3 class="section-title">Alojamiento</h3>
             <span class="section-divider"></span>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+            {{-- <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> --}}
             </div>
 
             <div class="row">
 
-            <div class="col-lg-4 col-md-6">
-                <div class="box wow fadeInLeft">
-                <h3>Free</h3>
-                <h4><sup>$</sup>0<span> month</span></h4>
-                <ul>
-                    <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
-                    <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
-                    <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
-                    <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
-                    <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
-                </ul>
-                <a href="#" class="get-started-btn">Get Started</a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="box featured wow fadeInUp">
-                <h3>Business</h3>
-                <h4><sup>$</sup>29<span> month</span></h4>
-                <ul>
-                    <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
-                    <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
-                    <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
-                    <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
-                    <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
-                </ul>
-                <a href="#" class="get-started-btn">Get Started</a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="box wow fadeInRight">
-                <h3>Developer</h3>
-                <h4><sup>$</sup>49<span> month</span></h4>
-                <ul>
-                    <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
-                    <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
-                    <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
-                    <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
-                    <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
-                </ul>
-                <a href="#" class="get-started-btn">Get Started</a>
-                </div>
-            </div>
+                @foreach ($hotelCards as $hotelCard)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="box featured wow fadeInUp">
+                            <h3>{{ $hotelCard->hotel->nombre }}</h3>
+                            <h4><sup>$</sup>{{ $hotelCard->precio }}<span> noche</span></h4>
+                            <ul>
+                                <li><i class="ion-android-checkmark-circle"></i>País: {{ $hotelCard->hotel->pais }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Dirección: {{ $hotelCard->hotel->direccion }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Estrellas: {{ $hotelCard->hotel->estrellas }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Valoración: {{ $hotelCard->hotel->estrellas }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Camas: {{ $hotelCard->camas }}</li>
+                            </ul>
+                            <a href="#" class="get-started-btn">Get Started</a>
+                        </div>
+                    </div>
+                @endforeach
 
             </div>
         </div>
@@ -625,62 +558,139 @@
         <div class="container">
 
             <div class="section-header">
-            <h3 class="section-title">Frequently Asked Questions</h3>
+            <h3 class="section-title">Preguntas Frecuentes</h3>
             <span class="section-divider"></span>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
             </div>
 
             <ul id="faq-list" class="wow fadeInUp">
             <li>
-                <a data-toggle="collapse" class="collapsed" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="ion-android-remove"></i></a>
+                <a data-toggle="collapse" class="collapsed" href="#faq1">¿Qué documentos necesito para viajar al extranjero? <i class="ion-android-remove"></i></a>
                 <div id="faq1" class="collapse" data-parent="#faq-list">
                 <p>
-                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                    Para vuelos nacionales sólo necesitas cédula de identidad.
+                    </br>
+                    Para vuelos internacionales, necesitarás los siguientes documentos:
+                </p>
+                <ul>
+                    <li>
+                    Pasaporte válido y vigente al menos por 6 meses a la fecha de retorno.
+                    </li>
+                    <li>
+                        Cédula de Identidad (para ciudadanos del Mercosur que viajan entre países sudamericanos).
+                    </li>
+                    <li>
+                        En algunos casos necesitarás VISA, según el país de destino y tu ciudadanía.
+                    </li>
+                </ul>
+                </br>
+                <p>
+                    Si viajas con un menor de edad, tendrás que presentar un certificado de nacimiento o libreta de familia y una autorización de salida del país en el caso de que viaje con uno sólo de los padres, con terceros o solos. El certificado debe ser otorgado por un Juez, Notario o Cónsul acreditado en el exterior.
                 </p>
                 </div>
             </li>
 
             <li>
-                <a data-toggle="collapse" href="#faq2" class="collapsed">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="ion-android-remove"></i></a>
+                <a data-toggle="collapse" href="#faq2" class="collapsed">¿Por qué no puedo hacer Check-in online para mi vuelo?<i class="ion-android-remove"></i></a>
                 <div id="faq2" class="collapse" data-parent="#faq-list">
                 <p>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                    Existen varias razones por las cuales no podrás hacer tu Check-in: 
                 </p>
+                <ul>
+                    <li>
+                        El vuelo no está dentro del periodo disponible. Recuerda que tiene que estar dentro de las 48 horas y 75 minutos antes de la salida del vuelo.
+                    </li>
+                    <li>
+                        Tu vuelo tuvo una modificación en el horario de salida o fue cancelado. En este caso, te recomendamos revisar la nueva opción sugerida. Luego podrás hacer el Check-in sin problemas.
+                    </li>
+                    <li>
+                        Tu viaje tiene un vuelo que es operado por otra aerolínea. Te recomendamos hacerlo en en el sitio web de la compañia que corresponde.
+                    </li>
+                    <li>
+                        Tu reserva tiene cargos pendientes.
+                    </li>
+                </ul>
+                </br>
                 </div>
             </li>
 
             <li>
-                <a data-toggle="collapse" href="#faq3" class="collapsed">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="ion-android-remove"></i></a>
+                <a data-toggle="collapse" href="#faq3" class="collapsed">¿Puedo cambiar un vuelo o la fecha de mi pasaje?<i class="ion-android-remove"></i></a>
                 <div id="faq3" class="collapse" data-parent="#faq-list">
                 <p>
-                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                    Sí, pero dependerá de las condiciones de tu tarifa. Ingresa con tu código de reserva y apellido a Cambio de Pasaje y verás si permite cambios.
+                </p>
+                <p>
+                    Para saber si el cambio tiene algún cargo adicional o multa, revisa las regulaciones de tu pasaje en tu Comprobante de compra. 
+                </p>
+                <p>
+                    Ten en cuenta que por ahora, el cambio de pasajes en línea sólo está disponible en Chile, Colombia, Perú, Ecuador, Argentina y Brasil.
                 </p>
                 </div>
             </li>
 
             <li>
-                <a data-toggle="collapse" href="#faq4" class="collapsed">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="ion-android-remove"></i></a>
+                <a data-toggle="collapse" href="#faq4" class="collapsed">¿Cuál es el equipaje de bodega permitido para mi viaje?<i class="ion-android-remove"></i></a>
                 <div id="faq4" class="collapse" data-parent="#faq-list">
                 <p>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                    El equipaje permitido en bodega depende de tu categoría de socio Elite, de la tarifa que hayas elegido al comprar tu pasaje y de la ruta en la que viajas.
+                    <br>
+                    El equipaje de bodega debe:
+                </p>
+                <ul>
+                    <li>
+                        Medir máximo 158 cm. lineales (largo, ancho y alto), y pesar máximo 23 kilos. Si supera estas medidas y peso, tendrás que pagar adicional.
+                    </li>
+                    <li>
+                        No contener artículos restringidos o elementos prohibidos.
+                    </li>
+                    <li>
+                        Ser entregado en los counters de Check-in de LATAM ubicados en los distintos aeropuertos. De lo contrario, al momento de embarcar, se te cobrará un cargo adicional.
+                    </li>
+                </ul>
+                <br>
+                <p>
+                    Revisa aquí la información de tu compra.
+                    <br>
+                    Si necesitas mayor detalle sobre equipaje de bodega ingresa aquí.
+                    <br>
+                    Conoce nuestros convenios de equipaje para cuando viajes en otras aerolíneas.
+                    <br>
+                    Si necesitas viajar con equipaje especial o sobredimensionado, revisa aquí los cobros y condiciones.
+                    <br>
+                    Te compartimos un video sobre cómo encontrar toda la información necesaria para aclarar tus dudas respecto a tu equipaje.
                 </p>
                 </div>
             </li>
 
             <li>
-                <a data-toggle="collapse" href="#faq5" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="ion-android-remove"></i></a>
+                <a data-toggle="collapse" href="#faq5" class="collapsed">¿Puedo embarcar antes si viajo con niños?<i class="ion-android-remove"></i></a>
                 <div id="faq5" class="collapse" data-parent="#faq-list">
                 <p>
-                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                    Los bebés (menores de 2 años) que viajen en coche tienen preferencia para embarcar
+                    <br>
+                    junto a sus padres sin importar la categoría de socio de éstos.
+                    <br>
+                    <br>
+                    Los mayores de 2 años estarán sujetos a la preferencia de embarque de su clase de 
+                    <br>
+                    cabina o categoría LATAM Pass. Recuerda que el embarque podría ser diferente en 
+                    <br>
+                    situaciones especiales. Si viajas con un bebé, acércate al mesón en la sala de 
+                    <br>
+                    embarque  para  confirmar.
                 </p>
                 </div>
             </li>
 
             <li>
-                <a data-toggle="collapse" href="#faq6" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="ion-android-remove"></i></a>
+                <a data-toggle="collapse" href="#faq6" class="collapsed">¿Qué dispositivos no puedo utilizar a bordo?<i class="ion-android-remove"></i></a>
                 <div id="faq6" class="collapse" data-parent="#faq-list">
                 <p>
-                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+                    Por tu seguridad y la del vuelo, no es posible utilizar durante el viaje juguetes a control remoto,
+                    <br>
+                    teléfonos o cualquier otro dispositivo sin opción para desactivar sus funciones inalámbricas de transmisión
+                    <br>
+                    de datos ni cigarrillos electrónicos. {{--  Para ver los detalles de los equipos que si están permitidos visita nuestra sección "uso de dispositivos electrónicos". --}}
                 </p>
                 </div>
             </li>
