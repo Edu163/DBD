@@ -14,38 +14,11 @@ class CreateFlightDetailsTable extends Migration
     public function up()
     {
         Schema::create('flight_details', function (Blueprint $table) {
-            /*$table->increments('id');
-            $table->integer('vuelo_id');
-            $table->foreign('vuelo_id')
-                ->references('id')
-                ->on('vuelos');
-            $table->integer('user_id');
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->integer('avion_id');
-            $table->foreign('avion_id')
-                ->references('id')
-                ->on('aviones');
-            /*$table->integer('id_calendario_vuelo');
-            $table->foreign('id_calendario_vuelo')
-                ->references('id')
-                ->on('calendarios_vuelos');
-            $table->datetime('fecha_despegue');
-            $table->datetime('fecha_aterrizaje');
-            $table->timestamps();*/
             $table->increments('id');
             $table->integer('flight_id');
             $table->foreign('flight_id')
                 ->references('id')
-                ->on('flights')
-                ->onDelete('cascade');
-            // $table->integer('airplane_id');
-            // $table->foreign('airplane_id')
-            //     ->references('id')
-            //     ->on('airplanes')
-            //     ->onDelete('cascade');
+                ->on('flights');
             $table->integer('airport_id');
             $table->foreign('airport_id')
                 ->references('id')
@@ -64,6 +37,9 @@ class CreateFlightDetailsTable extends Migration
             $table->integer('precio');
             $table->datetime('fecha_despegue');
             $table->datetime('fecha_aterrizaje');
+            $table->integer('asientos_economy');
+            $table->integer('asientos_bussiness');
+            $table->integer('asientos_premium');
             $table->timestamps();
         });
     }
