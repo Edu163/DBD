@@ -34,7 +34,12 @@ class UsersTableSeeder extends Seeder
             'password' => '$2y$10$WSOF2xVdqFqbjZDCppkOKe1K6bMPnJiw6631jrrRkdeFb13jnaKyK', //admin
             'is_admin' => 1
         ]);
-        
+        User::create([
+            'name' => 'Eduardo',
+            'email' => 'eduardo.pailemilla@usach.cl',
+            'password' => '$2y$10$WSOF2xVdqFqbjZDCppkOKe1K6bMPnJiw6631jrrRkdeFb13jnaKyK',
+            'is_admin' => 1,//admin
+        ]);
         User::create([
             'name' => 'Guillermo Campos',
             'email' => 'guillermo.campos@usach.cl',

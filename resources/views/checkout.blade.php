@@ -109,10 +109,10 @@
                     @foreach (Cart::content() as $item)
                     <div class="checkout-table-row">
                         <div class="checkout-table-row-left">
-                            <img src="{{ asset('img/products/'.$item->model->slug.'.jpg') }}" alt="item" class="checkout-table-img">
+                            <img src="https://picsum.photos/120/180?image={{ mt_rand(1, 50) }}" alt="item" class="checkout-table-img">
                             <div class="checkout-item-details">
-                                <div class="checkout-table-item">{{ $item->model->name }}</div>
-                                <div class="checkout-table-description">{{ $item->model->details }}</div>
+                                    <div class="cart-table-item"><a href="#">Destino: {{ $item->model->destiny->ciudad }}</a></div>
+                                    <div class="cart-table-description">Fecha salida: {{ $item->model->fecha_despegue }}</div>
                                 <div class="checkout-table-price">{{ $item->model->precio }}</div>
                             </div>
                         </div> <!-- end checkout-table -->

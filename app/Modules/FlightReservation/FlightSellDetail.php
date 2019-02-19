@@ -21,7 +21,6 @@ class FlightSellDetail extends Model
         'precio',
         'descuento',
         'monto_total',
-        'fecha',
         'tipo',
         'cantidad',
     ];

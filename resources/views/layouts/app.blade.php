@@ -55,13 +55,6 @@
                 {{-- <li><a href="/#gallery">Galería</a></li> --}}
                 <li><a href="/#contact">Contáctenos</a></li>
                 <li><a class="nav-link page-scroll" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a></li>
-                <li>
-                    <a href="{{ route('cart.index') }}">Carro <span class="cart-count">
-                    @if (Cart::instance('default')->count() > 0)
-                    <span>{{ Cart::instance('default')->count() }}</span></span>
-                    @endif
-                    </a>
-                </li>
                 @if (Route::has('register'))
                     <li><a class="nav-link page-scroll" href="{{ route('register') }}">{{ __('Registrarse') }}</a></li>
                 @endif
@@ -93,8 +86,14 @@
                             </form>
                         </div>
                     </li>
-                    
             @endguest
+            <li>
+                    <a href="{{ route('cart.index') }}">Carro <span class="cart-count">
+                    @if (Cart::instance('default')->count() > 0)
+                    <span>{{ Cart::instance('default')->count() }}</span></span>
+                    @endif
+                    </a>
+            </li>
             </ul>
         </nav><!-- #nav-menu-container -->
       </div>

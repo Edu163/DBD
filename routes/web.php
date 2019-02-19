@@ -66,7 +66,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 
     /* Otros */
     Route::resources([
-        '/admin/cart'                         => 'OthersControllers\CartController',
+        // '/admin/cart'                         => 'OthersControllers\CartController',
         '/admin/package'                      => 'OthersControllers\PackageController',
         '/admin/sell'                         => 'OthersControllers\SellController',
         // '/admin/users'                        => 'OthersControllers\UserController',
@@ -79,6 +79,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resources([
         /* Profile */
+        'checkout'                     => 'OthersControllers\CheckoutController',
         'profile'                      => 'OthersControllers\ProfileController',                   
         /* Vehículo */
         'vehicle_reservation'          => 'VehicleReservationControllers\VehicleReservationController',
@@ -133,7 +134,6 @@ Route::resources([
     'cart'                         => 'OthersControllers\CartController',
     'package'                      => 'OthersControllers\PackageController',
     'sell'                         => 'OthersControllers\SellController',
-    'checkout'                     => 'OthersControllers\CheckoutController',
     'confirmation'                 => 'OthersControllers\BuyConfirmationController',
     // 'users'                        => 'OthersControllers\UserController',
 ]);
