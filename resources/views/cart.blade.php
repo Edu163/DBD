@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title', 'Shopping Cart')
 
@@ -99,62 +99,6 @@
 
                 <h3>No items in Cart!</h3>
             @endif
-            <h2>2 items Saved For Later</h2>
-
-            <div class="saved-for-later cart-table">
-                <div class="cart-table-row">
-                    <div class="cart-table-row-left">
-                        <a href="#"><img src="/img/macbook-pro.png" alt="item" class="cart-table-img"></a>
-                        <div class="cart-item-details">
-                            <div class="cart-table-item"><a href="#">MacBook Pro</a></div>
-                            <div class="cart-table-description">15 inch, 1TB SSD, 32GB RAM</div>
-                        </div>
-                    </div>
-                    <div class="cart-table-row-right">
-                        <div class="cart-table-actions">
-                            <a href="#">Remove</a> <br>
-                            <a href="#">Save for Later</a>
-                        </div>
-                        {{-- <div>
-                            <select class="quantity">
-                                <option selected="">1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div> --}}
-                        <div>$2499.99</div>
-                    </div>
-                </div> <!-- end cart-table-row -->
-
-                <div class="cart-table-row">
-                    <div class="cart-table-row-left">
-                        <a href="#"><img src="/img/macbook-pro.png" alt="item" class="cart-table-img"></a>
-                        <div class="cart-item-details">
-                            <div class="cart-table-item"><a href="#">MacBook Pro</a></div>
-                            <div class="cart-table-description">15 inch, 1TB SSD, 32GB RAM</div>
-                        </div>
-                    </div>
-                    <div class="cart-table-row-right">
-                        <div class="cart-table-actions">
-                            <a href="#">Remove</a> <br>
-                            <a href="#">Save for Later</a>
-                        </div>
-                        {{-- <div>
-                            <select class="quantity">
-                                <option selected="">1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div> --}}
-                        <div>$2499.99</div>
-                    </div>
-                </div> <!-- end cart-table-row -->
-
-            </div> <!-- end saved-for-later -->
 
         </div>
 

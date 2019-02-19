@@ -65,6 +65,13 @@
                 @if (Route::has('register'))
                     <li><a class="nav-link page-scroll" href="{{ route('register') }}">{{ __('Registrarse') }}</a></li>
                 @endif
+                <li>
+                    <a href="{{ route('cart.index') }}">Carro <span class="cart-count">
+                        @if (Cart::instance('default')->count() > 0)
+                        <span>{{ Cart::instance('default')->count() }}</span></span>
+                        @endif
+                    </a>
+                </li>
                 @else
                     <li class="menu-active"><a href="#intro">Inicio</a></li>
                     <li><a href="#about">Paquetes</a></li>
@@ -93,6 +100,13 @@
                             </form>
                         </div>
                     </li>
+                    <li>
+                        <a href="{{ route('cart.index') }}">Carro <span class="cart-count">
+                            @if (Cart::instance('default')->count() > 0)
+                            <span>{{ Cart::instance('default')->count() }}</span></span>
+                            @endif
+                        </a>
+                     </li>
             @endguest
             </ul>
         </nav><!-- #nav-menu-container -->
