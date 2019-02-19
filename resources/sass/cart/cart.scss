@@ -161,7 +161,7 @@
     color: #d0cfcf;
   }
   
-  header .top-nav ul .cart-count {
+  header .nav-menu li .cart-count {
     display: inline-block;
     background: #FFD94D;
     color: #212121;
@@ -170,13 +170,14 @@
     font-size: 14px;
   }
   
-  header .top-nav ul .cart-count span {
+  header .nav-menu li .cart-count span {
     display: inline-block;
     padding-top: 50%;
     padding-bottom: 50%;
     margin-left: 6px;
     margin-right: 6px;
   }
+  
   .footer-content ul {
     display: -webkit-box;
     display: -ms-flexbox;

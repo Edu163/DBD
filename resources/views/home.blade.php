@@ -101,7 +101,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="{{ route('cart.index') }}">Carro <span class="cart-count">
+                        <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart" style="font-size: 22px;"></i><span class="cart-count">
                             @if (Cart::instance('default')->count() > 0)
                             <span>{{ Cart::instance('default')->count() }}</span></span>
                             @endif

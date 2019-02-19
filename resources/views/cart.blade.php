@@ -100,11 +100,6 @@
 
     @include('partials.might-like')
 
-
-@endsection
-
-@section('extra-js')
-    <script src="{{ asset('/js/app.js') }}"></script>
     <script>
         (function(){
             //clase que contiene el contador
@@ -145,3 +140,4 @@
         })();
     </script>
 @endsection
+

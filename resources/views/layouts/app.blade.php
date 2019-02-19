@@ -76,7 +76,7 @@
                             {{ Auth::user()->name }} <i class="fas fa-caret-down"></i>
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right" style="background: linear-gradient(45deg, #1de099, #1dc8cd) !important;" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('profile.show', Auth::user()->id )}}"  method="post">
                                     {{ __('Perfil') }}
                             </a>
@@ -92,7 +92,7 @@
                     </li>
             @endguest
             <li>
-                    <a href="{{ route('cart.index') }}">Carro <span class="cart-count">
+                    <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart" style="font-size: 22px;"></i><span class="cart-count">
                     @if (Cart::instance('default')->count() > 0)
                     <span>{{ Cart::instance('default')->count() }}</span></span>
                     @endif
