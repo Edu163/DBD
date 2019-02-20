@@ -2,15 +2,6 @@
 
 
 @section('content')
-
-    <div class="breadcrumbs">
-        <div class="container">
-            <a href="#">Home</a>
-            <i class="fa fa-chevron-right breadcrumb-separator"></i>
-            <span>Shopping Cart</span>
-        </div>
-    </div> <!-- end breadcrumbs -->
-
     <div class="cart-section container">
         <div>
             @if (session()->has('success_message'))
@@ -30,7 +21,7 @@
             @endif
             @if (Cart::count() > 0)
 
-            <h2>{{ Cart::count() }} item(s) in Shopping Cart</h2>
+            <h2>{{ Cart::count() }} item(s) en el carrito de compra</h2>
 
             <div class="cart-table">
                 @foreach (Cart::content() as $item)
@@ -40,7 +31,7 @@
                         <a href="#"><img src="https://picsum.photos/180/120?image={{ mt_rand(1, 50) }}" alt="item" class="cart-table-img"></a>
                         <div class="cart-item-details">
                             <div class="cart-table-item"><a href="#">Destino: {{ $item->model->destiny->ciudad }}</a></div>
-                            <div class="cart-table-description">Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                            <div>Fecha salida: {{ $item->model->fecha_despegue }}</div>
                         </div>
                     </div>
                     <div class="cart-table-row-right">
@@ -50,9 +41,9 @@
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
 
-                                <button id = "butonRemove" type="submit" class="btn btn-success">Remove</button>
+                                <button id="butonRemove" type="submit" class="btn btn-danger btn-galaxy" style="font-size: 14px !important; margin: 0% !important">Eliminar</button>
                             </form>
-                            <a href="#">Save for Later</a>
+                            {{-- <a href="#">Guardar para luego</a> --}}
                         </div>
                         <div>
                             <select class="quantity" data-id="{{ $item->rowId }}">
@@ -69,15 +60,15 @@
 
             </div> <!-- end cart-table -->
 
-            <div class="cart-totals">
+            <div class="cart-totals" style="background: transparent !important;">
                 <div class="cart-totals-left">
-                    Shipping is free because we’re awesome like that. Also because that’s additional stuff I don’t feel like figuring out :).
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium nemo deserunt explicabo aut dolores praesentium rem repellendus! Sint corporis aperiam molestias.
                 </div>
 
                 <div class="cart-totals-right">
                     <div>
                         Subtotal <br>
-                        Tax <br>
+                        Impuesto <br>
                         <span class="cart-totals-total">Total</span>
                     </div>
                     <div class="cart-totals-subtotal">
@@ -89,19 +80,32 @@
             </div> <!-- end cart-totals -->
 
             <div class="cart-buttons">
-                <a href="#" class="button">Continue Shopping</a>
-                <a href="{{ route('checkout.index')}}" class="btn btn-success">Proceed to Checkout</a>
+                <a href="#" class="button">Continuar Comprando</a>
+                <a href="{{ route('checkout.index')}}" class="btn btn-success btn-galaxy">Proceder a la Revisión</a>
             </div>
             @else
 
-                <h3>No items in Cart!</h3>
+                <h3>¡No hay items en el carrito!</h3>
             @endif
 
         </div>
 
     </div> <!-- end cart-section -->
 
-    @include('partials.might-like')
+    <div class="might-like-section" style="background: transparent !important;">
+        <div class="container">
+            <h2>También te podría interezar...</h2>
+            <div class="might-like-grid">
+                @foreach ($mightAlsoLike as $product)
+                    <a href=# class="might-like-product" style="background: transparent !important; color:white !important; border-color:white !important;">
+                        <img src="https://picsum.photos/200/150?image={{ mt_rand(1, 50) }}" alt="product">
+                        <div class="might-like-product-name">Viaje a: {{ $product->destiny->ciudad }}</div>
+                    </a>
+                @endforeach
+
+            </div>
+        </div>
+    </div>
 
     <script>
         (function(){

@@ -17,7 +17,7 @@ class CartController extends Controller
     {
         $mightAlsoLike = FlightDetail::inRandomOrder()->take(4)->get();
 
-        return view('cart')->with('mightAlsoLike', $mightAlsoLike);
+        return view('modules.cart.cart')->with('mightAlsoLike', $mightAlsoLike);
     }
 
     /**

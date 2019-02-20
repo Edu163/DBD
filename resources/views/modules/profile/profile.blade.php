@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')             
-<div class="main app form" id="main" style="background:url({{ asset('images/header-bg.jpeg') }}) !important; background-size: cover !important;"><!-- Main Section-->
+<div class="main app form" id="main"><!-- Main Section-->
     <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card profile-card top-profile-card" style="border">
                     <div class="card-body">
-                        <div class="profile-card-body" style="background-image:url(../images/user-cover.jpg) !important;">
+                        <div class="profile-card-body" style="background:url({{ asset('template/img/gallery/gallery-1.jpg') }}) !important; background-size: cover !important;">
                             <h1 class="username font-weight-bold font-italic">{{ $user->name }}</h1>
-                            <img class="rounded-circle user-avatar" src="{{ $user->imgurl }}" alt="User Avatar">
+                            <img class="rounded-circle user-avatar" src="{{ $user->imgurl }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -116,7 +116,7 @@
 
                                 <div class="form-group">
                                     <div class="d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-success">Acutalizar</button>
+                                    <button type="submit" class="btn btn-success btn-galaxy">Acutalizar</button>
                                     </div>
                                 </div>
                             </form>

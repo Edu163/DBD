@@ -60,13 +60,13 @@
                 <li><a href="#more-features">Transporte</a></li>
                 <li><a href="#pricing">Alojamiento</a></li>
                 {{-- <li><a href="#gallery">Galería</a></li> --}}
-                <li><a href="#contact">Contáctenos</a></li>
+                {{-- <li><a href="#contact">Contáctenos</a></li> --}}
                 <li><a class="nav-link page-scroll" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a></li>
                 @if (Route::has('register'))
                     <li><a class="nav-link page-scroll" href="{{ route('register') }}">{{ __('Registrarse') }}</a></li>
                 @endif
                 <li>
-                    <a href="{{ route('cart.index') }}">Carro <span class="cart-count">
+                    <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart" style="font-size: 22px;"></i><span class="cart-count">
                         @if (Cart::instance('default')->count() > 0)
                         <span>{{ Cart::instance('default')->count() }}</span></span>
                         @endif
@@ -80,7 +80,7 @@
                     <li><a href="#more-features">Transporte</a></li>
                     <li><a href="#pricing">Alojamiento</a></li>
                     {{-- <li><a href="#gallery">Galería</a></li> --}}
-                    <li><a href="#contact">Contáctenos</a></li>
+                    {{-- <li><a href="#contact">Contáctenos</a></li> --}}
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <i class="fas fa-caret-down"></i>
