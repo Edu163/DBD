@@ -2,8 +2,10 @@
 
 namespace App\Modules\VehicleReservation;
 
+
 use Illuminate\Database\Eloquent\Model;
 use App\Modules\Others\Sell;
+use App\Modules\VehicleReservation\Vehicle;
 
 class VehicleReservation extends Model
 {
@@ -15,7 +17,6 @@ class VehicleReservation extends Model
 
     protected $fillable = [
         'sell_id',
-        'fecha',
         'monto_total',
     ];
 
@@ -24,7 +25,9 @@ class VehicleReservation extends Model
     public function sell(){
     	return $this->belongsTo(Sell::class);
     }
-
+    public function vehicle(){
+        return $this->hasMani(Vehicle::class);
+    }
     public function vehicleReservationDetail(){
     	return $this->hasMany(VehicleReservationDetail::class);
     }

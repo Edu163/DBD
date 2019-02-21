@@ -11,6 +11,7 @@ use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Cartalyst\Stripe\Exception\CardErrorException;
 use App\Modules\Others\Sell;
 use App\Modules\FlightReservation\FlightSellDetail;
+use App\Modules\VehicleReservation\VehicleReservation;
 use Auth;
 use App\User;
 
@@ -83,6 +84,13 @@ class CheckoutController extends Controller
                         'descuento' => '200',
                         'tipo' => 'Economy',
                         'cantidad' => $item->qty,
+                        'monto_total' => strval($item->total),
+                    ]);
+                }
+                else if(get_class($item->model) == "App\Modules\VehicleReservation\Vehicle")
+                {
+                    VehicleReservation::create([
+                        'sell_id' => $venta->id,
                         'monto_total' => strval($item->total),
                     ]);
                 }

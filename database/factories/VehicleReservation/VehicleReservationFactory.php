@@ -9,7 +9,6 @@ $factory->define(VehicleReservation::class, function (Faker $faker) {
     
     return [
         'sell_id' => $sell_id->random()->id,
-        'fecha' => $faker->date,
         'monto_total' => rand(10000,99999),
     ];
 });
