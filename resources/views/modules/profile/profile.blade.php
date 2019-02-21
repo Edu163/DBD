@@ -5,12 +5,11 @@
     <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card profile-card top-profile-card" style="border">
-                    <div class="card-body">
-                        <div class="profile-card-body" style="background:url({{ asset('template/img/gallery/gallery-1.jpg') }}) !important; background-size: cover !important;">
-                            <h1 class="username font-weight-bold font-italic">{{ $user->name }}</h1>
-                            <img class="rounded-circle user-avatar" src="{{ $user->imgurl }}" alt="">
-                        </div>
+                <div class="card bg-dark text-white">
+                    <img src="{{ asset('template/img/gallery/gallery-1.jpg') }}" style="opacity: 0.35; !important;" class="card-img" alt="">
+                    <div class="card-img-overlay">
+                        <h1 class="username font-weight-bold font-italic">{{ $user->name }}</h1>
+                        <img class="rounded-circle user-avatar" src="../../storage/profileImgs/vicBC36o6ONiV95arheagbms0nrXiLa5bVWTlBkj.jpeg" alt="User Avatar">
                     </div>
                 </div>
             </div>
@@ -103,20 +102,22 @@
                                 <div class="form-group">
                                     <label for="img" class="col-sm-4 col-form-label control-label">Foto de Perfil</label>
                                     <div class="col-md-6">
-                                        <input 
-                                            id="img" 
-                                            name="img" 
-                                            type="file"
-                                            class="form-input"
-                                            autofocus
-                                            required
-                                            >
+                                        <div class="custom-file">
+                                            <input id="img" 
+                                                name="img" 
+                                                type="file"
+                                                class="custom-file-input"
+                                                autofocus
+                                                required
+                                                lang="es">
+                                            <label class="custom-file-label" for="customFileLang">Seleccione un archivo</label>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-success btn-galaxy">Acutalizar</button>
+                                    <div class="d-flex">
+                                        <button type="submit" class="btn btn-success btn-galaxy">Acutalizar</button>
                                     </div>
                                 </div>
                             </form>

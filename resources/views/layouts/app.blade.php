@@ -77,7 +77,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" style="background: linear-gradient(45deg, #1de099, #1dc8cd) !important;" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('profile.show', Auth::user()->id )}}"  method="post">
+                                <a class="dropdown-item" href="{{ route('profile.show',[Crypt::encrypt(Auth::user()->id) ])}}"  method="post">
                                         {{ __('Perfil') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -125,7 +125,7 @@
 
             <div class="col-lg-4 col-md-4">
                 <div class="contact-about">
-                <h3>GP14</h3>
+                <h3>GP14LATAM</h3>
                 <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
                 <div class="social-links">
                     <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
@@ -145,12 +145,12 @@
 
                 <div>
                     <i class="ion-ios-email-outline"></i>
-                    <p>info@example.com</p>
+                    <p>contacto@rollers.cl</p>
                 </div>
 
                 <div>
                     <i class="ion-ios-telephone-outline"></i>
-                    <p>+1 5589 55488 55s</p>
+                    <p>+56 9 4272 3136</p>
                 </div>
 
                 </div>
@@ -179,7 +179,7 @@
                     <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                     <div class="validation"></div>
                     </div>
-                    <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
+                    <div class="text-center"><button type="submit" title="Send Message">Enviar Mensaje</button></div>
                 </form>
                 </div>
             </div>
@@ -197,24 +197,22 @@
         <div class="row">
             <div class="col-lg-6 text-lg-left text-center">
             <div class="copyright">
-                &copy; Copyright <strong>Avilon</strong>. All Rights Reserved
+                &copy; Copyright <strong>GP14LATAM</strong>. Todos los derechos reservados
             </div>
-            <div class="credits">
+            <div class="credits" style="font-size:7px !important;">
                 <!--
                 All the links in the footer should remain intact.
                 You can delete the links only if you purchased the pro version.
                 Licensing information: https://bootstrapmade.com/license/
                 Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Avilon
                 -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Diseñado en primera instancia por <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
             </div>
             <div class="col-lg-6">
             <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-                <a href="#intro" class="scrollto">Home</a>
-                <a href="#about" class="scrollto">About</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
+                <a href="/#intro" class="scrollto">Inicio</a>
+                <a href="/#about" class="scrollto">Paquetes</a>
             </nav>
             </div>
         </div>

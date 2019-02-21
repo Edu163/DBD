@@ -81,10 +81,9 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 
 Route::group(['middleware' => 'auth'], function() {
 
-    /* Reservas */
+    
 
     Route::resources([
-        /* Profile */
         'checkout'                     => 'OthersControllers\CheckoutController',
         'profile'                      => 'OthersControllers\ProfileController',                   
         /* Vehículo */

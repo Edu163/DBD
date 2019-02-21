@@ -35,6 +35,14 @@
                         </div>
                     </div>
                     <div class="cart-table-row-right">
+                        <div style="margin: 4%;">{{ $item->subtotal}}</div>
+                        <div>
+                            <select class="quantity" style="margin:  9px !important;" data-id="{{ $item->rowId }}">
+                                @for ($i = 1; $i < 5 + 1 ; $i++)
+                                    <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                @endfor
+                            </select>
+                        </div>
                         <div class="cart-table-actions">
                             {{--<a href="#">Remove</a> <br>--}}
                             <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
@@ -45,14 +53,6 @@
                             </form>
                             {{-- <a href="#">Guardar para luego</a> --}}
                         </div>
-                        <div>
-                            <select class="quantity" data-id="{{ $item->rowId }}">
-                                @for ($i = 1; $i < 5 + 1 ; $i++)
-                                    <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
-                                @endfor
-                            </select>
-                        </div>
-                        <div>{{ $item->subtotal}}</div>
                     </div>
                 </div> <!-- end cart-table-row -->
                 @endif

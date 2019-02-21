@@ -87,7 +87,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" style="background: linear-gradient(45deg, #1de099, #1dc8cd) !important;" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('profile.show', Auth::user()->id )}}"  method="post">
+                            <a class="dropdown-item" href="{{ route('profile.show',[Crypt::encrypt(Auth::user()->id) ])}}"  method="post">
                                     {{ __('Perfil') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\OthersControllers;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class ProfileController extends Controller
 {
@@ -47,7 +48,8 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $realId = Crypt::decrypt($id);  
+        $user = User::findOrFail($realId);
         return view('modules.profile.profile', compact('user'));
     }
 

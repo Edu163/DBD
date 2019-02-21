@@ -71,7 +71,7 @@
 .user-avatar {
   width: 130px !important;
   height: 122px !important;
-  margin-left: 41% !important;
+  margin-left: 43% !important;
   margin-top: 5% !important;
 }
 
@@ -4748,6 +4748,10 @@ input[type=button].btn-block {
 
 .custom-file-input:lang(en) ~ .custom-file-label::after {
   content: "Browse";
+}
+
+.custom-file-input:lang(es) ~ .custom-file-label::after {
+  content: "Elegir";
 }
 
 .custom-file-input ~ .custom-file-label[data-browse]::after {
