@@ -27,7 +27,7 @@ $factory->define(Vehicle::class, function (Faker $faker) {
         'equipaje_p' => rand(1,5),
         'n_puertas' => 4,
         'n_kilometraje' => rand(10000,99999),
-        'precio_hora' => rand(10000,99999),
+        'precio' => rand(10,2000),
         'aire_acondicionado' => $faker->randomElement(['Sí','No']),
     ];
 });

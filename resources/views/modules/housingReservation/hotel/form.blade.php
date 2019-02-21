@@ -1,42 +1,4 @@
-
 <form action="/hotel" method="get">
-
-
-<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.css" rel="stylesheet"/>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/locales/bootstrap-datepicker.es.min.js"></script>
-
-
-
-
-<script>
-  addEventListener('load',inicio,false);
-
-  function inicio()
-  {
-    document.getElementById('fecha-entrada').addEventListener('change',cambioSalida,false);
-  }
-
-  function cambioSalida()
-  {
-     var fecha = document.getElementById("fecha-entrada").value;
-     var rest = fecha.substr(0,8);
-     var dayInt = parseInt(fecha.substr(8,10))+1;
-     var day = dayInt.toString();
-     if(dayInt < 10)
-     {
-          day = "0"+day;
-     }
-     var salida = rest + day;
-    document.getElementById('fecha-entrada').innerHTML=document.getElementById('fecha-entrada').value;
-    document.getElementById("fecha-salida").setAttribute("min", salida);
-  }
-</script>  
-
 
      <div class="card buy-card flex-fill">
           <div class="card-body buy-card-body">
@@ -164,8 +126,32 @@
                </center>
           </div> 
      </div>
+
 </form>
 
+<script>
+  addEventListener('load',inicio,false);
+
+  function inicio()
+  {
+    document.getElementById('fecha-entrada').addEventListener('change',cambioSalida,false);
+  }
+
+  function cambioSalida()
+  {
+     var fecha = document.getElementById("fecha-entrada").value;
+     var rest = fecha.substr(0,8);
+     var dayInt = parseInt(fecha.substr(8,10))+1;
+     var day = dayInt.toString();
+     if(dayInt < 10)
+     {
+          day = "0"+day;
+     }
+     var salida = rest + day;
+    document.getElementById('fecha-entrada').innerHTML=document.getElementById('fecha-entrada').value;
+    document.getElementById("fecha-salida").setAttribute("min", salida);
+  }
+</script> 
 
 <script>
 var today = new Date();

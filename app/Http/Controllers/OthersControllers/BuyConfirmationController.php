@@ -16,7 +16,7 @@ class BuyConfirmationController extends Controller
         /*if (! session()->has('success_message')) {
             return redirect('/');
         }*/
-        return view('confirmation');
+        return view('modules.cart.confirmation');
     }
 
     /**

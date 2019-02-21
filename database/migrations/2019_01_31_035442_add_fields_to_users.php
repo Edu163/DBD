@@ -15,8 +15,7 @@ class AddFieldsToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('is_admin')->after('name')->default(0);
-            $table->string('imgurl')->after('password')->default('../images/no-avatar.jpg');
-            $table->boolean('profile_visibility')->after('imgurl')->default('1');
+            $table->string('imgurl')->after('password')->default('../img/no-avatar.jpg');
         });
     }
 
@@ -30,7 +29,6 @@ class AddFieldsToUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('is_admin');
             $table->dropColumn('imgurl');
-            $table->dropColumn('profile_visibility');
         });
     }
 }

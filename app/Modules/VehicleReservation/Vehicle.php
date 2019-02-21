@@ -22,7 +22,7 @@ class Vehicle extends Model
     protected $equipaje_p;
     protected $n_puertas;
     protected $n_kilometraje;
-    protected $precio_hora;
+    protected $precio;
     protected $aire_acondicionado;
 
     protected $fillable = [
@@ -40,7 +40,7 @@ class Vehicle extends Model
         'equipaje_p',
         'n_puertas',
         'n_kilometraje',
-        'precio_hora',
+        'precio',
         'aire_acondicionado',
     ];
 

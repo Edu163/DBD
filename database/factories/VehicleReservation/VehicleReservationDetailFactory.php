@@ -13,7 +13,7 @@ $factory->define(VehicleReservationDetail::class, function (Faker $faker) {
         'patente' => $patente->random()->patente,
         'fecha_retiro' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 weeks', $timezone = null),
         'fecha_regreso' => $faker->dateTimeBetween($startDate = '+2 weeks', $endDate = '+4 weeks', $timezone = null),
-        'precio_reserva' => rand(50000,200000),
+        'precio_reserva' => rand(500,2000),
         'descuento' =>  0.2,
         'cantidad' => rand(1,2),
     ];
