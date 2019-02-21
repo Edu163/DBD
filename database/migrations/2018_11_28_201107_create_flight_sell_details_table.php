@@ -15,16 +15,24 @@ class CreateFlightSellDetailsTable extends Migration
     {
         Schema::create('flight_sell_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('sell_id');
+            $table->integer('sell_id')->unsigned()->nullable();
             $table->foreign('sell_id')
                 ->references('id')
                 ->on('sells')
-                ->onDelete('cascade');
+                ->onUpdate('cascade')
+                ->onDelete('set null');
+            $table->integer('flight_details_id')->unsigned()->nullable();
+            $table->foreign('flight_details_id')
+                    ->references('id')
+                    ->on('flight_details')
+                    ->onUpdate('cascade')
+                    ->onDelete('set null');
+            $table->integer('cantidad')->unsigned();
             $table->string('precio');
             $table->string('descuento');
             $table->string('monto_total');
             $table->string('tipo');
-            $table->integer('cantidad');
+            
             $table->timestamps();
         });
     }

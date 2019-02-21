@@ -45,12 +45,6 @@ class CheckoutController extends Controller
      */
     public function store(CheckoutRequest $request)
     {
-        //
-        //dd($request->all());
-        /*$contents = Cart::content()->map(function ($item) {
-            return $item->model->slug.', '.$item->qty;
-        })->values()->toJson();*/
-
         try {
             $charge = Stripe::charges()->create([
                 'amount' => Cart::total(),
@@ -67,27 +61,31 @@ class CheckoutController extends Controller
             ]);
             /** En esta area ingresar los detalles a las demás tablas*/   
             /** Ingresar la venta */
-            $venta = new Sell();
-            //$venta->user_id = $this->Session->read('Auth.User.id');
-            $venta->user_id = Auth::user()->id;
-            $venta->impuesto = Cart::tax();
-            $venta->monto_total  = Cart::total();
-            $venta->tipo_comprobante = 'Factura';
-            $venta->metodo_pago = 'Credito';
-            $venta->descuento = '2000';
-            $venta->save();
+            $venta = Sell::create([
+                'user_id' => Auth::user()->id,
+                'impuesto' => Cart::tax(),
+                'monto_total'  => Cart::total(),
+                'user_email' => $request->email,
+                'user_name' => $request->name,
+                'tipo_comprobante' => 'Factura',
+                'metodo_pago' => 'Credito',
+                'descuento' => '2000'
+            ]);
             /** Ingresar el detalle de la venta iterando el carrito*/
             foreach (Cart::content() as $item)
             {
                 /** faltan los if para cada tipo de item */
-                $dv_vuelo = new FlightSellDetail();
-                $dv_vuelo->sell_id = $venta->id;
-                $dv_vuelo->precio = strval($item->model->precio);
-                $dv_vuelo->descuento = '200';
-                $dv_vuelo->tipo = 'Economy';
-                $dv_vuelo->cantidad = $item->qty;
-                $dv_vuelo->monto_total = strval($item->total);
-                $dv_vuelo->save();
+                if(get_class($item->model) == "App\Modules\FlightReservation\FlightDetail")
+                {
+                    FlightSellDetail::create([
+                        'sell_id' => $venta->id,
+                        'precio' => strval($item->model->precio),
+                        'descuento' => '200',
+                        'tipo' => 'Economy',
+                        'cantidad' => $item->qty,
+                        'monto_total' => strval($item->total),
+                    ]);
+                }
             }
             /** Vaciar el carrito si la compra ha sido exitosa */
             Cart::instance('default')->destroy();

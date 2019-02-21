@@ -24,7 +24,7 @@
                         <li><i class="ion-android-checkmark-circle"></i>Combustible: {{ $vehicle->combustible }}</li> --}}
                     </ul>
                     <center>
-                        <form action="{{ route('cart.storeFlights', $vehicle) }}" method="POST">
+                        <form action="{{ route('cart.storeVehicle', $vehicle) }}" method="POST">
                         @csrf
                             <button style="margin-top: 0.2cm;" type="submit" class="btn btn-success btn-galaxy">Ver detalles</button>
                         </form>
