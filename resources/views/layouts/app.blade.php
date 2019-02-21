@@ -54,8 +54,8 @@
                     <li><a href="/#about">Paquetes</a></li>
                     <li><a href="/#buy-forms">Servicios</a></li>
                     <li><a href="/#features">Vuelos</a></li>
-                    <li><a href="/#more-features">Transporte</a></li>
                     <li><a href="/#pricing">Alojamiento</a></li>
+                    <li><a href="/#more-features">Transporte</a></li>
                     {{-- <li><a href="/#gallery">Galería</a></li> --}}
                     {{-- <li><a href="/#contact">Contáctenos</a></li> --}}
                     <li><a class="nav-link page-scroll" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a></li>
@@ -67,8 +67,8 @@
                         <li><a href="/#about">Paquetes</a></li>
                         <li><a href="/#buy-forms">Servicios</a></li>
                         <li><a href="/#features">Vuelos</a></li>
-                        <li><a href="/#more-features">Transporte</a></li>
                         <li><a href="/#pricing">Alojamiento</a></li>
+                        <li><a href="/#more-features">Transporte</a></li>
                         {{-- <li><a href="/#gallery">Galería</a></li> --}}
                         {{-- <li><a href="/#contact">Contáctenos</a></li> --}}
                         <li class="nav-item dropdown">
@@ -105,10 +105,9 @@
 
     <!-- Main Section-->
     <div class="main" id="main"
-    
         style="
         background-size: cover !important;
-        background: linear-gradient(rgba(29, 200, 205, 0.25),
+        background: linear-gradient(rgba(29, 200, 205, 0),
         rgba(29, 205, 89, 0.2)),
         url('{{ asset('template/img/call-to-action-bg.jpg') }}'),
         fixed center center;">
@@ -194,28 +193,28 @@
     ============================-->
     <footer id="footer">
         <div class="container">
-        <div class="row">
-            <div class="col-lg-6 text-lg-left text-center">
-            <div class="copyright">
-                &copy; Copyright <strong>GP14LATAM</strong>. Todos los derechos reservados
+            <div class="row">
+                <div class="col-lg-6 text-lg-left text-center">
+                <div class="copyright">
+                    &copy; Copyright <strong>GP14LATAM</strong>. Todos los derechos reservados
+                </div>
+                <div class="credits" style="font-size:7px !important;">
+                    <!--
+                    All the links in the footer should remain intact.
+                    You can delete the links only if you purchased the pro version.
+                    Licensing information: https://bootstrapmade.com/license/
+                    Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Avilon
+                    -->
+                    Diseñado en primera instancia por <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+                        <a href="/#intro" class="scrollto">Inicio</a>
+                        <a href="/#about" class="scrollto">Paquetes</a>
+                    </nav>
+                </div>
             </div>
-            <div class="credits" style="font-size:7px !important;">
-                <!--
-                All the links in the footer should remain intact.
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Avilon
-                -->
-                Diseñado en primera instancia por <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-            </div>
-            <div class="col-lg-6">
-            <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-                <a href="/#intro" class="scrollto">Inicio</a>
-                <a href="/#about" class="scrollto">Paquetes</a>
-            </nav>
-            </div>
-        </div>
         </div>
     </footer><!-- #footer -->
 

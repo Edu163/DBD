@@ -57,8 +57,8 @@
                 <li><a href="#about">Paquetes</a></li>
                 <li><a href="#buy-forms">Servicios</a></li>
                 <li><a href="#features">Vuelos</a></li>
-                <li><a href="#more-features">Transporte</a></li>
                 <li><a href="#pricing">Alojamiento</a></li>
+                <li><a href="#more-features">Transporte</a></li>
                 {{-- <li><a href="#gallery">Galería</a></li> --}}
                 {{-- <li><a href="#contact">Contáctenos</a></li> --}}
                 <li><a class="nav-link page-scroll" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a></li>
@@ -77,8 +77,8 @@
                     <li><a href="#about">Paquetes</a></li>
                     <li><a href="#buy-forms">Servicios</a></li>
                     <li><a href="#features">Vuelos</a></li>
-                    <li><a href="#more-features">Transporte</a></li>
                     <li><a href="#pricing">Alojamiento</a></li>
+                    <li><a href="#more-features">Transporte</a></li>
                     {{-- <li><a href="#gallery">Galería</a></li> --}}
                     {{-- <li><a href="#contact">Contáctenos</a></li> --}}
                     <li class="nav-item dropdown">
@@ -369,6 +369,41 @@
         </section><!-- #features -->
 
         <!--==========================
+        Pricing Section
+        ============================-->
+        <section id="pricing" class="section-bg">
+        <div class="container">
+
+            <div class="section-header">
+            <h3 class="section-title">Alojamiento</h3>
+            <span class="section-divider"></span>
+            {{-- <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> --}}
+            </div>
+
+            <div class="row">
+
+                @foreach ($hotelCards as $hotelCard)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="box featured wow fadeInUp">
+                            <h3>{{ $hotelCard->hotel->nombre }}</h3>
+                            <h4><sup>$</sup>{{ $hotelCard->precio }}<span> noche</span></h4>
+                            <ul>
+                                <li><i class="ion-android-checkmark-circle"></i>País: {{ $hotelCard->hotel->pais }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Dirección: {{ $hotelCard->hotel->direccion }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Estrellas: {{ $hotelCard->hotel->estrellas }} <i class="fas fa-star" style="color: yellow !important;"></i></li>
+                                <li><i class="ion-android-checkmark-circle"></i>Valoración: {{ $hotelCard->hotel->estrellas }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Camas: {{ $hotelCard->camas }}</li>
+                            </ul>
+                            <a href="#" class="get-started-btn">Get Started</a>
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
+        </div>
+        </section><!-- #pricing -->
+
+        <!--==========================
         Product Advanced Featuress Section
         ============================-->
         {{-- <section id="advanced-features">
@@ -434,11 +469,11 @@
         <div class="container">
             <div class="row">
             <div class="col-lg-9 text-center text-lg-left">
-                <h3 class="cta-title">Call To Action</h3>
-                <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h3 class="cta-title">¡No te quedes con las ganas!</h3>
+                <p class="cta-text">No te pierdas tus vacaciones soñadas, ve nuestros paquetes y ¡ve por esas vacaciones que te mereces!</p>
             </div>
             <div class="col-lg-3 cta-btn-container text-center">
-                <a class="btn btn-galaxy align-middle" href="#">Call To Action</a>
+                <a class="btn btn-galaxy align-middle" href="#">Ver Paquetes</a>
             </div>
             </div>
 
@@ -461,7 +496,7 @@
                 @foreach ($vehicleCards as $vehicle)
                     <div class="col-lg-4 col-md-6">
                         <div class="box featured wow fadeInUp">
-                        <h3>{{ $vehicle->marca }}</h3>
+                        <h3 style="color:grey;">{{ $vehicle->marca }}</h3>
                         <h4><sup>$</sup>{{ $vehicle->precio }}<span> día</span></h4>
                         <ul>
                             <li><i class="ion-android-checkmark-circle"></i> Tipo: {{ $vehicle->tipo }}</li>
@@ -516,45 +551,9 @@
         </section><!-- #clients -->
 
         <!--==========================
-        Pricing Section
-        ============================-->
-        <section id="pricing" class="section-bg">
-        <div class="container">
-
-            <div class="section-header">
-            <h3 class="section-title">Alojamiento</h3>
-            <span class="section-divider"></span>
-            {{-- <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> --}}
-            </div>
-
-            <div class="row">
-
-                @foreach ($hotelCards as $hotelCard)
-                    <div class="col-lg-4 col-md-6">
-                        <div class="box featured wow fadeInUp">
-                            <h3>{{ $hotelCard->hotel->nombre }}</h3>
-                            <h4><sup>$</sup>{{ $hotelCard->precio }}<span> noche</span></h4>
-                            <ul>
-                                <li><i class="ion-android-checkmark-circle"></i>País: {{ $hotelCard->hotel->pais }}</li>
-                                <li><i class="ion-android-checkmark-circle"></i>Dirección: {{ $hotelCard->hotel->direccion }}</li>
-                                <li><i class="ion-android-checkmark-circle"></i>Estrellas: {{ $hotelCard->hotel->estrellas }}</li>
-                                <li><i class="ion-android-checkmark-circle"></i>Valoración: {{ $hotelCard->hotel->estrellas }}</li>
-                                <li><i class="ion-android-checkmark-circle"></i>Camas: {{ $hotelCard->camas }}</li>
-                            </ul>
-                            <a href="#" class="get-started-btn">Get Started</a>
-                        </div>
-                    </div>
-                @endforeach
-
-            </div>
-        </div>
-        </section><!-- #pricing -->
-
-
-        <!--==========================
         Frequently Asked Questions Section
         ============================-->
-        <section id="faq">
+        <section id="faq" class="bg-light">
         <div class="container">
 
             <div class="section-header">
@@ -824,15 +823,15 @@
         <!-- #team -->
 
         <!--==========================
-        Contact Section
-        ============================-->
-        <section id="contact">
+    Contact Section
+    ============================-->
+    <section id="contact">
         <div class="container">
             <div class="row wow fadeInUp">
 
             <div class="col-lg-4 col-md-4">
                 <div class="contact-about">
-                <h3>GP14</h3>
+                <h3>GP14LATAM</h3>
                 <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
                 <div class="social-links">
                     <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
@@ -852,12 +851,12 @@
 
                 <div>
                     <i class="ion-ios-email-outline"></i>
-                    <p>info@example.com</p>
+                    <p>contacto@rollers.cl</p>
                 </div>
 
                 <div>
                     <i class="ion-ios-telephone-outline"></i>
-                    <p>+1 5589 55488 55s</p>
+                    <p>+56 9 4272 3136</p>
                 </div>
 
                 </div>
@@ -886,7 +885,7 @@
                     <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                     <div class="validation"></div>
                     </div>
-                    <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
+                    <div class="text-center"><button type="submit" title="Send Message">Enviar Mensaje</button></div>
                 </form>
                 </div>
             </div>
@@ -894,7 +893,7 @@
             </div>
 
         </div>
-        </section><!-- #contact -->
+    </section><!-- #contact -->
 
     </main>
 
@@ -903,30 +902,28 @@
     ============================-->
     <footer id="footer">
         <div class="container">
-        <div class="row">
-            <div class="col-lg-6 text-lg-left text-center">
-            <div class="copyright">
-                &copy; Copyright <strong>Avilon</strong>. All Rights Reserved
+            <div class="row">
+                <div class="col-lg-6 text-lg-left text-center">
+                    <div class="copyright">
+                        &copy; Copyright <strong>GP14LATAM</strong>. Todos los derechos reservados
+                    </div>
+                    <div class="credits" style="font-size:7px !important;">
+                        <!--
+                        All the links in the footer should remain intact.
+                        You can delete the links only if you purchased the pro version.
+                        Licensing information: https://bootstrapmade.com/license/
+                        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Avilon
+                        -->
+                        Diseñado en primera instancia por <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+                        <a href="/#intro" class="scrollto">Inicio</a>
+                        <a href="/#about" class="scrollto">Paquetes</a>
+                    </nav>
+                </div>
             </div>
-            <div class="credits">
-                <!--
-                All the links in the footer should remain intact.
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Avilon
-                -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-            </div>
-            <div class="col-lg-6">
-            <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-                <a href="#intro" class="scrollto">Home</a>
-                <a href="#about" class="scrollto">About</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
-            </nav>
-            </div>
-        </div>
         </div>
     </footer><!-- #footer -->
 

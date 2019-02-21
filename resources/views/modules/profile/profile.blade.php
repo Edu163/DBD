@@ -9,7 +9,7 @@
                     <img src="{{ asset('template/img/gallery/gallery-1.jpg') }}" style="opacity: 0.35; !important;" class="card-img" alt="">
                     <div class="card-img-overlay">
                         <h1 class="username font-weight-bold font-italic">{{ $user->name }}</h1>
-                        <img class="rounded-circle user-avatar" src="../../storage/profileImgs/vicBC36o6ONiV95arheagbms0nrXiLa5bVWTlBkj.jpeg" alt="User Avatar">
+                        <img class="rounded-circle user-avatar" src="{{ $user->imgurl }}" alt="User Avatar">
                     </div>
                 </div>
             </div>

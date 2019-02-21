@@ -1,46 +1,38 @@
-<form action="/vehichle_reservation" method="get">
 @extends('layouts.app')
 
 @section('content')
-  <div class="container" style="color:white;">
-    <div class="vehicle-table">
-      <center>
-        <h1 style="font-size:25px !important;">
-          Vehículos Disponibles
-        </h1>
-      
-      </br>
-      <table class="table-hover table-bordered table-sm datatable" style="text-align:center; color:white;">
-      <thead>
-        <tr>
-          <th><h5 class="card-title">Patente</h5></th>
-          <th><h5 class="card-title">Marca</h5></th>
-          <th><h5 class="card-title">Tipo de Vehículo</h5></th>
-          <th><h5 class="card-title">Gamma</h5></th>
-          <th><h5 class="card-title">Transmisión</h5></th>
-          <th><h5 class="card-title">Tipo de Combustible</h5></th>
-          <th><h5 class="card-title"></h5></th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach($vehicles as $vehicle)
-          <tr>
-            <th><h5 class="card-title">{{$vehicle->patente}}</h5></th>
-            <th><h5 class="card-title">{{$vehicle->marca}}</h5></th>
-            <th><h5 class="card-title">{{$vehicle->tipo}}</h5></th>
-            <th><h5 class="card-title">{{$vehicle->gamma}}</h5></th>
-            <th><h5 class="card-title">{{$vehicle->transmision}}</h5></th>
-            <th><h5 class="card-title">{{$vehicle->combustible}}</h5></th>
-            <th>
-            <center>
-              <button type="submit" class="btn btn-primary btn-vehiculo" id="vehiculo_id" name="vehiculo_id" value="{{ $vehicle->id }}" style="vertical-align:middle"><span>Reservar </span> </button>
-            </center>
-            </th>
-        </tr>
-        @endforeach
-      </tbody>
-    </table> 
+<section id="pricing">
+  <div class="container">
+    <center>
+      <h1 class="align-middle" style="font-size:25px !important; margin-bottom: 5%;">
+        Vehículos Disponibles
+      </h1>
     </center>
-  </div>   
-</div>
+    <div class="row">
+        @foreach($vehicles as $vehicle)
+            <div class="col-lg-4 col-md-6">
+                <div class="box featured wow fadeInUp">
+                    <h4><sup>$</sup>{{ $vehicle->precio }}</h4>
+                    <h3 style="color: grey">{{ $vehicle->marca }}</h3>
+                    <img class="img-fluid" src="https://picsum.photos/200/200?image={{ mt_rand(1, 50) }}" style="padding-bottom: 8% !important;">
+                    <ul>
+                        <li><i class="ion-android-checkmark-circle"></i>Patente: {{ $vehicle->patente }}</li>
+                        <li><i class="ion-android-checkmark-circle"></i>Marca: {{ $vehicle->marca }}</li>
+                        <li><i class="ion-android-checkmark-circle"></i>Tipo: {{ $vehicle->tipo }}</li>
+                        {{-- <li><i class="ion-android-checkmark-circle"></i>Gamma: {{ $vehicle->gamma }}</li>
+                        <li><i class="ion-android-checkmark-circle"></i>Transmisión: {{ $vehicle->transmision }}</li>
+                        <li><i class="ion-android-checkmark-circle"></i>Combustible: {{ $vehicle->combustible }}</li> --}}
+                    </ul>
+                    <center>
+                        <form action="{{ route('cart.storeFlights', $vehicle) }}" method="POST">
+                        @csrf
+                            <button style="margin-top: 0.2cm;" type="submit" class="btn btn-success btn-galaxy">Ver detalles</button>
+                        </form>
+                    </center>
+                </div>
+            </div>
+        @endforeach
+    </div>
+  </div>
+</section>
 @endsection
