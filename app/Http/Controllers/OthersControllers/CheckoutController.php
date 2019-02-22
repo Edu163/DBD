@@ -59,55 +59,58 @@ class CheckoutController extends Controller
                     //'quantity' => Cart::instance('default')->count(),
                     //'discount' => collect(session()->get('coupon'))->toJson(),
                 ],
-            ]);
-            /** En esta area ingresar los detalles a las demás tablas*/   
+            ]); 
+            // SUCCESSFUL
             /** Ingresar la venta */
-            $venta = Sell::create([
-                'user_id' => Auth::user()->id,
-                'impuesto' => Cart::tax(),
-                'monto_total'  => Cart::total(),
-                'user_email' => $request->email,
-                'user_name' => $request->name,
-                'tipo_comprobante' => 'Factura',
-                'metodo_pago' => 'Credito',
-                'descuento' => '2000'
-            ]);
-            /** Ingresar el detalle de la venta iterando el carrito*/
-            foreach (Cart::content() as $item)
-            {
-                /** faltan los if para cada tipo de item */
-                if(get_class($item->model) == "App\Modules\FlightReservation\FlightDetail")
-                {
-                    FlightSellDetail::create([
-                        'sell_id' => $venta->id,
-                        'precio' => strval($item->model->precio),
-                        'descuento' => '200',
-                        'tipo' => 'Economy',
-                        'cantidad' => $item->qty,
-                        'monto_total' => strval($item->total),
-                    ]);
-                }
-                else if(get_class($item->model) == "App\Modules\VehicleReservation\Vehicle")
-                {
-                    VehicleReservation::create([
-                        'sell_id' => $venta->id,
-                        'monto_total' => strval($item->total),
-                    ]);
-                }
-            }
+            $this->addSell($request, null);
             /** Vaciar el carrito si la compra ha sido exitosa */
             Cart::instance('default')->destroy();
             return redirect()->route('confirmation.index')->with('success_message', 'Gracias por preferirnos! Su compra ha sido realizada');
-            // SUCCESSFUL
             /* Cart::instance('default')->destroy();
             session()->forget('coupon');*/
 
             //return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your payment has been successfully accepted!');
         } catch (CardErrorException $e) {
+            $this->addSell($request, $e->getMessage());
             return back()->withErrors('Error! ' . $e->getMessage());
         }
     }
 
+    public function addSell($request, $error){
+        $venta = Sell::create([
+            'user_id' => Auth::user()->id,
+            'impuesto' => Cart::tax(),
+            'monto_total'  => Cart::total(),
+            'user_email' => $request->email,
+            'user_name' => $request->name,
+            'tipo_comprobante' => 'Factura',
+            'metodo_pago' => 'Credito',
+            'descuento' => '2000',
+            'error' => $error
+        ]);
+        /** Ingresar el detalle de la venta iterando el carrito*/
+        foreach (Cart::content() as $item)
+        {
+            if(get_class($item->model) == "App\Modules\FlightReservation\FlightDetail")
+            {
+                FlightSellDetail::create([
+                    'sell_id' => $venta->id,
+                    'precio' => strval($item->model->precio),
+                    'descuento' => '200',
+                    'tipo' => 'Economy',
+                    'cantidad' => $item->qty,
+                    'monto_total' => strval($item->total),
+                ]);
+            }
+            else if(get_class($item->model) == "App\Modules\VehicleReservation\Vehicle")
+            {
+                VehicleReservation::create([
+                    'sell_id' => $venta->id,
+                    'monto_total' => strval($item->total),
+                ]);
+            }
+        }
+    }
     /**
      * Display the specified resource.
      *
