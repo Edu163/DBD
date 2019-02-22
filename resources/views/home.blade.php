@@ -32,7 +32,6 @@
 
     <!-- Main Stylesheet File -->
     <link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
-
     <!-- End Template Style Files -->
 
 </head>
@@ -269,7 +268,7 @@
         </section><!-- #about -->
 
         <section id="buy-forms" class="section-bg">
-            <div class="container-fluid py-4">
+            <div class="container-fluid py-4" style="padding-right:10% !important; padding-left:10% !important;"">
                 <div class="row">
                     <div class="col-3">
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">

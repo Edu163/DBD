@@ -50,7 +50,7 @@ class ProfileController extends Controller
     {
         $realId = Crypt::decrypt($id);  
         $user = User::findOrFail($realId);
-        return view('modules.profile.profile', compact('user'));
+        return view('modules.others.profile', compact('user'));
     }
 
     /**

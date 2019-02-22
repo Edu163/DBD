@@ -69,13 +69,18 @@
                                         Fecha de ida
                                    </span>
                               </label>
-                              <input 
+                              <div class="input-group">
+                                   <input 
                                    id="fecha-ida" 
                                    name="fecha-ida" 
                                    type="date"
                                    class="form-control"
                                    style="color:black;"
                                    required>
+                                   <span class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                   </span>
+                              </div>
                          </center>
                     </div>
                     <div class="col">
@@ -86,13 +91,18 @@
                                         Fecha de vuelta
                                    </span>
                               </label>
-                              <input 
+                              <div class="input-group">
+                                   <input 
                                    id="fecha-vuelta"
                                    name="fecha-vuelta"
                                    type="date" 
                                    class="form-control"
                                    style="color:black;"
                                    required>
+                                   <span class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                   </span>
+                              </div>
                          </center>
                     </div>
                </div>
@@ -125,7 +135,7 @@
                          <center>
                               <label for="cabina">
                                    <span> 
-                                        Cabina 
+                                        Tipo de cabina 
                                    </span>
                               </label>
                          </center>

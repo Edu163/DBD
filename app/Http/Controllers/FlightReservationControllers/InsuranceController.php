@@ -17,7 +17,7 @@ class InsuranceController extends Controller
     {
         $insurances = Insurance::all();
         //$hotels = Hotel::all()->where('pais', request('zona_id'));         
-        return view('modules.others.insurance.index', compact('insurances'));
+        return view('modules.flightReservation.insurance.index', compact('insurances'));
     }
 
     /**

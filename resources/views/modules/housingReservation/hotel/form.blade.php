@@ -42,18 +42,17 @@
                                         Entrada
                                    </span>
                               </label>
-
-
-
-
-                         <input type="date" 
-                                class="form-control"
-                                name="fecha" id="fecha-entrada"
-                                placeholder="Introduce una fecha"
-                                min="2019/02/05"
-                                required>
-                         
-
+                              <div class="input-group">
+                                   <input type="date" 
+                                   class="form-control"
+                                   name="fecha" id="fecha-entrada"
+                                   placeholder="Introduce una fecha"
+                                   min="2019/02/05"
+                                   required>
+                                   <span class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                   </span>
+                              </div>
                          </center>
                     </div>
                     <div class="col">
@@ -64,7 +63,8 @@
                                         Salida
                                    </span>
                               </label>
-                              <input 
+                              <div class="input-group">
+                                   <input 
                                    id="fecha-salida"
                                    name="fecha-salida"
                                    type="date" 
@@ -72,8 +72,11 @@
                                    style="color:black;"
                                    min="2019/02/05"
                                    required>
+                                   <span class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                   </span>
+                              </div>
                          </center>
-                        
                     </div>
                </div>
                </br>
@@ -122,7 +125,7 @@
                </div>
                </br>
                <center>
-                    <button type="submit" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Encuentra su alojamiento</button> 
+                    <button type="submit" class="btn btn-galaxy wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Encuentra su alojamiento</button> 
                </center>
           </div> 
      </div>

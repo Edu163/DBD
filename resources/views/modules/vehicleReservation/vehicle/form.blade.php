@@ -42,13 +42,18 @@
                                         Fecha de recogida
                                    </span>
                               </label>
-                              <input 
+                              <div class="input-group">
+                                   <input 
                                    id="fecha-recogida" 
                                    name="fecha-recogida" 
                                    type="date"
                                    class="form-control"
                                    style="color:black;"
                                    required>
+                                   <span class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                   </span>
+                              </div>
                          </center>
                     </div>
                     <div class="col">
@@ -59,13 +64,18 @@
                                         Fecha de devolución
                                    </span>
                               </label>
-                              <input 
+                              <div class="input-group">
+                                   <input 
                                    id="fecha-devolucion"
                                    name="fecha-devolucion"
                                    type="date" 
                                    class="form-control"
                                    style="color:black;"
                                    required>
+                                   <span class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                   </span>
+                              </div>
                          </center>
                     </div>
                </div>

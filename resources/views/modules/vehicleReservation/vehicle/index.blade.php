@@ -24,10 +24,13 @@
                         <li><i class="ion-android-checkmark-circle"></i>Combustible: {{ $vehicle->combustible }}</li> --}}
                     </ul>
                     <center>
-                        <form action="{{ route('cart.storeFlights', $vehicle) }}" method="POST">
-                        @csrf
-                            <button style="margin-top: 0.2cm;" type="submit" class="btn btn-success btn-galaxy">Ver detalles</button>
-                        </form>
+                        {{-- <form action="{{ route('cart.storeFlights', $vehicle) }}" method="POST">
+                        @csrf --}}
+                        <button style="margin-top: 0.2cm;" type="submit" class="btn btn-success btn-galaxy" data-toggle="modal" data-target="#modal-vehicle-reservation-{{ $vehicle->id }}">
+                          Ver detalles
+                        </button>
+                        @include('modules.vehicleReservation.vehicleReservationDetail.index') 
+                        {{-- </form> --}}
                     </center>
                 </div>
             </div>
