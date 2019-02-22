@@ -16,8 +16,7 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        $zones = Zone::all();
-        $vehicles = Vehicle::all()->where('id', request('zone'));
+        $vehicles = Vehicle::all()->where('zone_id', request('zone'));
         return view('modules.vehicleReservation.vehicle.index', compact('vehicles'));
     }
 
