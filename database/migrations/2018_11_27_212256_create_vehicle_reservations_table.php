@@ -20,7 +20,6 @@ class CreateVehicleReservationsTable extends Migration
                   ->references('id')
                   ->on('sells')
                   ->onDelete('cascade');
-            $table->datetime('fecha');
             $table->float('monto_total')->nullable();
             $table->timestamps();
         });

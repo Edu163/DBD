@@ -42,11 +42,10 @@ class DatabaseSeeder extends Seeder
             /* Vuelos */
             AirportsTableSeeder::class,
             CompaniesTableSeeder::class,
-            //AvionesSeeder::class,
             SeatsTableSeeder::class,
-            FlightSellDetailsTableSeeder::class,
             FlightsTableSeeder::class,
             FlightDetailsTableSeeder::class,
+            FlightSellDetailsTableSeeder::class,
             CheckInsTableSeeder::class,
             OriginDestiniesTableSeeder::class,
             FlightReservationsTableSeeder::class,

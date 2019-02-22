@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Modules\Others;
-
+use App\Modules\FlightReservation\FlightDetail;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 
@@ -27,6 +27,10 @@ class Sell extends Model
         'metodo_pago',
         'n_cuotas',
         'descuento',
+        'user_email',
+        'user_name',
+        'pasarela_pago',
+        'error',
     ];
 
      /* Relaciones */
@@ -35,7 +39,9 @@ class Sell extends Model
     {
       return $this->belongsTo(User::class);
     }
-    
+    public function flightDetail(){
+      return $this->belongsToMany(FlightDetail::class)->withPivot('cantidad');
+    }
     public function vehicleReservation()
     {
       return $this->hasMany(VehicleReservation::class);

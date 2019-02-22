@@ -469,10 +469,10 @@
             <div class="row">
             <div class="col-lg-9 text-center text-lg-left">
                 <h3 class="cta-title">¡No te quedes con las ganas!</h3>
-                <p class="cta-text">No te pierdas tus vacaciones soñadas, ve nuestros paquetes y ¡ve por esas vacaciones que te mereces!</p>
+                <p class="cta-text">No te pierdas tus vacaciones soñadas, vea nuestros paquetes y... ¡Ve por esas vacaciones que te mereces!</p>
             </div>
             <div class="col-lg-3 cta-btn-container text-center">
-                <a class="btn btn-galaxy align-middle" href="#">Ver Paquetes</a>
+                <a class="btn btn-galaxy align-middle scrollto" href="#about">Ver Paquetes</a>
             </div>
             </div>
 
