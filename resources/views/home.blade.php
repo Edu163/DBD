@@ -284,6 +284,10 @@
                                 <i class="fas fa-building"></i>
                                 Alojamiento
                             </a>
+                            <a class="nav-link btn-galaxy" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                <i class="fas fa-cubes"></i>
+                                Paquetes
+                            </a>
                             </div>
                         </div>
                         <div class="col-9">
@@ -296,6 +300,9 @@
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                                     @include('modules.housingReservation.hotel.form')
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                    @include('modules.others.package.form')
                                 </div>
                             </div>
                         </div>
@@ -947,6 +954,7 @@
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
     <script src="{{ asset('js/app.js') }}"defer></script>
+    
 
     <!-- JavaScript Libraries -->
     <script src="{{ asset('template/lib/jquery/jquery.min.js') }}"defer></script>

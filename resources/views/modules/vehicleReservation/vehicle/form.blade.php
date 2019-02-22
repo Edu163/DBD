@@ -49,7 +49,8 @@
                                    type="date"
                                    class="form-control"
                                    style="color:black;"
-                                   required>
+                                   {{-- required --}}
+                                   >
                                    <span class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
                                    </span>
@@ -71,7 +72,8 @@
                                    type="date" 
                                    class="form-control"
                                    style="color:black;"
-                                   required>
+                                   {{-- required --}}
+                                   >
                                    <span class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
                                    </span>
@@ -92,15 +94,15 @@
                               </label>
                          </center>
                          <input
-                              class="form-control"
-                              id="pasajeros"
-                              name="pasajeros"
-                              type="number"
-                              min="1"
-                              max="8"
-                              placeholder="Número de pasajeros"
-                              style="width:100%;" 
-                              required>
+                         class="form-control"
+                         id="pasajeros"
+                         name="pasajeros"
+                         type="number"
+                         min="1"
+                         max="8"
+                         placeholder="Número de pasajeros"
+                         style="width:100%;" 
+                         required>
                     </div>
                </div>
                </br>

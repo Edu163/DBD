@@ -16,7 +16,10 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        $vehicles = Vehicle::all()->where('zone_id', request('zone'));
+        $pasajero = request('pasajeros');
+        $vehicles = Vehicle::where('zone_id', request('zone'))
+                    ->where('n_pasajeros', '>=', (int)$pasajero)
+                    ->get();
         return view('modules.vehicleReservation.vehicle.index', compact('vehicles'));
     }
 
