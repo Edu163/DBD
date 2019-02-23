@@ -111,6 +111,10 @@
   color: #000 !important;
 }
 
+.form-control {
+  background-color: white !important;
+}
+
 #modal {
   background-color: rgba(0, 0, 0, 0.9);
   color: #fff;

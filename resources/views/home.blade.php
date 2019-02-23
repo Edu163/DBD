@@ -288,6 +288,10 @@
                                 <i class="fas fa-cubes"></i>
                                 Paquetes
                             </a>
+                            <a class="nav-link btn-galaxy" id="v-pills-insurance-tab" data-toggle="pill" href="#v-pills-insurance" role="tab" aria-controls="v-pills-insurance" aria-selected="false">
+                                <i class="fas fa-cubes"></i>
+                                Seguros de viaje
+                            </a>
                             </div>
                         </div>
                         <div class="col-9">
@@ -303,6 +307,9 @@
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                                     @include('modules.others.package.form')
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-insurance" role="tabpanel" aria-labelledby="v-pills-insurance-tab">
+                                    @include('modules.flightReservation.insurance.form')
                                 </div>
                             </div>
                         </div>

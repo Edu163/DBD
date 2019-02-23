@@ -1,48 +1,33 @@
 <form action="/vehicle" method="get">
-<script src="js/funciones.js"></script>
-     <div class="card buy-card flex-fill">
-          <div class="card-body buy-card-body">
-               <div class="form-group form-row align-items-end">
-                <div class="col-3 form-check form-check-inline">
-                    <input onclick="aparecer()" type="radio" class="form-check-input" name="tipo_vuelo" id="vuelo_ida_vuelta" value="1" checked>
-                    <label for="vuelo_ida_vuelta" class="form-check-label">Ida y vuelta</label>
-                </div>
-
-                <div class="col-3 form-check form-check-inline">
-                    <input type="radio" class="form-check-input" name="tipo_vuelo" id="vuelo_solo_ida" value="0">
-                    <label for="vuelo_solo_ida" class="form-check-label">Solo ida</label>
-                </div>
-            </div>
-
-            <div class="form-group form-row align-items-end fechas-pareadas">
-                <div class="col">
-                    <label for="fecha_ida">Fecha Ida</label>
-                    <div class="input-group">
-                        <input type="text" id="fecha_ida" name="fecha_ida" class="form-control text-center datepicker fecha-inicio" readonly="readonly">
-                        <span class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="col-1 text-center">
-                    <i class="fas fa-arrow-right fa-2x vuelo-vuelta"></i>
-                </div>
-
-                <div class="col">
-                    <label for="fecha_vuelta" class="vuelo-vuelta">Fecha Vuelta</label>
-                    <div class="input-group vuelo-vuelta">
-                        <input type="text" id="fecha_vuelta" name="fecha_vuelta" class="form-control text-center datepicker fecha-termino" readonly="readonly" value="">
-                        <span class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <script> aparecer(); </script>
-          </div> 
+     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item ml-auto mx-auto">
+               <a class="nav-link btn-galaxy active" id="pills-vueloOne-tab" data-toggle="pill" href="#pills-vueloOne" role="tab" aria-controls="pills-vueloOne" aria-selected="true">
+                    Vuelo + Alojamiento
+               </a>
+          </li>
+          <li class="nav-item ml-auto mx-auto">
+               <a class="nav-link btn-galaxy" id="pills-vueloTwo-tab" data-toggle="pill" href="#pills-vueloTwo" role="tab" aria-controls="pills-vueloTwo" aria-selected="false">
+                    Vuelo + Vehículo
+               </a>
+          </li>
+          <li class="nav-item ml-auto mx-auto">
+               <a class="nav-link btn-galaxy" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">
+                    Vuelo + Alojamiento + Vehículo
+               </a>
+          </li>
+     </ul>
+     <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-vueloOne" role="tabpanel" aria-labelledby="pills-vueloOne-tab">
+               @include('modules.others.package.formPackageOne')
+          </div>
+          <div class="tab-pane fade" id="pills-vueloTwo" role="tabpanel" aria-labelledby="pills-vueloTwo-tab">
+               @include('modules.others.package.formPackageTwo')
+          </div>
+          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+               @include('modules.others.package.formPackageThree')
+          </div>
      </div>
+
 
 </form>
 
