@@ -4,7 +4,7 @@
         <div class="col">
                 <center>
                     <!-- Input Origen -->
-                    <label for="origen">
+                    <label for="origen-packageOne">
                         <span> 
                             Origen
                         </span>
@@ -12,8 +12,8 @@
                 </center>
                 <div class="form-group">
                     <select 
-                        id="origen" 
-                        name="origen" 
+                        id="origen-packageOne" 
+                        name="origen-packageOne" 
                         class="form-control selectpicker custom-select" 
                         required>
                         <option selected disabled> 
@@ -31,7 +31,7 @@
         <div class="col">
                 <center>
                     <!-- Input Destino -->
-                    <label for="destino">
+                    <label for="destino-packageOne">
                         <span> 
                             Destino
                         </span>
@@ -39,8 +39,8 @@
                 </center>
                 <div class="form-group">
                     <select 
-                        id="destino" 
-                        name="destino" 
+                        id="destino-packageOne" 
+                        name="destino-packageOne" 
                         class="form-control selectpicker custom-select" 
                         required>
                         <option selected disabled> 
@@ -61,15 +61,15 @@
         <div class="col">
                 <center>
                     <!-- Input Ida -->
-                    <label for="fecha-ida-uno">
+                    <label for="fecha-ida-packageOne">
                         <span> 
                             Fecha de ida
                         </span>
                     </label>
                     <div class="input-group">
                         <input 
-                        id="fecha-ida-uno" 
-                        name="fecha-ida-uno" 
+                        id="fecha-ida-packageOne" 
+                        name="fecha-ida-packageOne" 
                         type="date"
                         class="form-control"
                         style="color:black;"
@@ -83,15 +83,15 @@
         <div class="col">
                 <center>
                     <!-- Input Vuelta -->
-                    <label for="fecha-vuelta-uno">
+                    <label for="fecha-vuelta-packageOne">
                         <span> 
                             Fecha de vuelta
                         </span>
                     </label>
                     <div class="input-group">
                         <input 
-                        id="fecha-vuelta-uno"
-                        name="fecha-vuelta-uno"
+                        id="fecha-vuelta-packageOne"
+                        name="fecha-vuelta-packageOne"
                         type="date" 
                         class="form-control"
                         style="color:black;"
@@ -120,7 +120,7 @@
                     id="pasajeros"
                     name="pasajeros"
                     type="number"
-                    min="0"
+                    min="1"
                     max="8"
                     placeholder="Número de pasajeros"
                     style="width: 100%; color: black !important;" 
@@ -158,25 +158,49 @@
         </div>
     </div>
     </br>
+    <!-- Línea 4 -->
+    <div class="row justify-content-center">
+        <div class="col">
+            <!-- Input Habitaciones -->
+            <center>
+                <label for="habitaciones">
+                    <span> 
+                        Habitaciones 
+                    </span>
+                </label>
+            </center>
+            <input
+            class="form-control"
+            id="habitaciones"
+            name="habitaciones"
+            type="number"
+            min="1"
+            max="3"
+            placeholder="Número de habitaciones"
+            style="width: 100%; color: black !important;" 
+            required>
+        </div>
+    </div>
+    </br>
     <center>
         <button type="submit" class="btn btn-galaxy wow fadeInUp">Encuentra su vuelo</button> 
     </center>
 </form>
 
 <script>
-  addEventListener('load',inicio,false);
+  addEventListener('load',inicioPackageOne,false);
 
-  function inicio()
+  function inicioPackageOne()
   {
-    document.getElementById('fecha-ida-uno').addEventListener('change',cambioVuelta,false);
+    document.getElementById('fecha-ida-packageOne').addEventListener('change',cambioVueltaPackageOne,false);
   }
 
-  function cambioVuelta()
+  function cambioVueltaPackageOne()
   {
-     var fecha = document.getElementById("fecha-ida-uno").value;
+     var fecha = document.getElementById("fecha-ida-packageOne").value;
      
-    document.getElementById('fecha-ida-uno').innerHTML=document.getElementById('fecha-ida-uno').value;
-    document.getElementById("fecha-vuelta-uno").setAttribute("min", fecha);
+    document.getElementById('fecha-ida-packageOne').innerHTML=document.getElementById('fecha-ida-packageOne').value;
+    document.getElementById("fecha-vuelta-packageOne").setAttribute("min", fecha);
   }
 </script>  
 
@@ -193,6 +217,6 @@
      } 
 
      today = yyyy+'-'+mm+'-'+dd;
-     document.getElementById("fecha-ida-uno").setAttribute("min", today);
-     document.getElementById("fecha-vuelta-uno").setAttribute("min", today);
+     document.getElementById("fecha-ida-packageOne").setAttribute("min", today);
+     document.getElementById("fecha-vuelta-packageOne").setAttribute("min", today);
 </script>

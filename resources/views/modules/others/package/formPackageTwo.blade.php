@@ -62,15 +62,15 @@
         <div class="col">
                 <center>
                     <!-- Input Ida -->
-                    <label for="fecha-ida-dos">
+                    <label for="fecha-ida-packageTwo">
                         <span> 
                             Fecha de ida
                         </span>
                     </label>
                     <div class="input-group">
                         <input 
-                        id="fecha-ida-dos" 
-                        name="fecha-ida-dos" 
+                        id="fecha-ida-packageTwo" 
+                        name="fecha-ida-packageTwo" 
                         type="date"
                         class="form-control"
                         style="color:black;"
@@ -84,15 +84,15 @@
         <div class="col">
                 <center>
                     <!-- Input Vuelta -->
-                    <label for="fecha-vuelta-dos">
+                    <label for="fecha-vuelta-packageTwo">
                         <span> 
                             Fecha de vuelta
                         </span>
                     </label>
                     <div class="input-group">
                         <input 
-                        id="fecha-vuelta-dos"
-                        name="fecha-vuelta-dos"
+                        id="fecha-vuelta-packageTwo"
+                        name="fecha-vuelta-packageTwo"
                         type="date" 
                         class="form-control"
                         style="color:black;"
@@ -165,19 +165,19 @@
 </form>
 
 <script>
-  addEventListener('load',inicio,false);
+  addEventListener('load',inicioPackageTwo,false);
 
-  function inicio()
+  function inicioPackageTwo()
   {
-    document.getElementById('fecha-ida-dos').addEventListener('change',cambioVuelta,false);
+    document.getElementById('fecha-ida-packageTwo').addEventListener('change',cambioPackageTwo,false);
   }
 
-  function cambioVuelta()
+  function cambioPackageTwo()
   {
-     var fecha = document.getElementById("fecha-ida-dos").value;
+     var fecha = document.getElementById("fecha-ida-packageTwo").value;
      
-    document.getElementById('fecha-ida-dos').innerHTML=document.getElementById('fecha-ida-dos').value;
-    document.getElementById("fecha-vuelta-dos").setAttribute("min", fecha);
+    document.getElementById('fecha-ida-packageTwo').innerHTML=document.getElementById('fecha-ida-packageTwo').value;
+    document.getElementById("fecha-vuelta-packageTwo").setAttribute("min", fecha);
   }
 </script>  
 
@@ -194,6 +194,6 @@
      } 
 
      today = yyyy+'-'+mm+'-'+dd;
-     document.getElementById("fecha-ida-dos").setAttribute("min", today);
-     document.getElementById("fecha-vuelta-dos").setAttribute("min", today);
+     document.getElementById("fecha-ida-packageTwo").setAttribute("min", today);
+     document.getElementById("fecha-vuelta-packageTwo").setAttribute("min", today);
 </script>

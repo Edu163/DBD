@@ -62,15 +62,15 @@
         <div class="col">
                 <center>
                     <!-- Input Ida -->
-                    <label for="fecha-ida-tres">
+                    <label for="fecha-ida-packageThree">
                         <span> 
                             Fecha de ida
                         </span>
                     </label>
                     <div class="input-group">
                         <input 
-                        id="fecha-ida-tres" 
-                        name="fecha-ida-tres" 
+                        id="fecha-ida-packageThree" 
+                        name="fecha-ida-packageThree" 
                         type="date"
                         class="form-control"
                         style="color:black;"
@@ -84,15 +84,15 @@
         <div class="col">
                 <center>
                     <!-- Input Vuelta -->
-                    <label for="fecha-vuelta-tres">
+                    <label for="fecha-vuelta-packageThree">
                         <span> 
                             Fecha de vuelta
                         </span>
                     </label>
                     <div class="input-group">
                         <input 
-                        id="fecha-vuelta-tres"
-                        name="fecha-vuelta-tres"
+                        id="fecha-vuelta-packageThree"
+                        name="fecha-vuelta-packageThree"
                         type="date" 
                         class="form-control"
                         style="color:black;"
@@ -158,25 +158,48 @@
                 </select>
         </div>
     </div>
+    <!-- Línea 4 -->
+    <div class="row justify-content-center">
+        <div class="col">
+            <!-- Input Habitaciones -->
+            <center>
+                <label for="habitaciones">
+                    <span> 
+                        Habitaciones 
+                    </span>
+                </label>
+            </center>
+            <input
+            class="form-control"
+            id="habitaciones"
+            name="habitaciones"
+            type="number"
+            min="1"
+            max="3"
+            placeholder="Número de habitaciones"
+            style="width: 100%; color: black !important;" 
+            required>
+        </div>
+    </div>
     </br>
     <center>
         <button type="submit" class="btn btn-galaxy wow fadeInUp">Encuentra su vuelo</button> 
     </center>
 </form>
 <script>
-  addEventListener('load',inicio,false);
+  addEventListener('load',inicioPackageThree,false);
 
-  function inicio()
+  function inicioPackageThree()
   {
-    document.getElementById('fecha-ida-tres').addEventListener('change',cambioVuelta,false);
+    document.getElementById('fecha-ida-packageThree').addEventListener('change',cambioPackageThree,false);
   }
 
-  function cambioVuelta()
+  function cambioPackageThree()
   {
-     var fecha = document.getElementById("fecha-ida-tres").value;
+     var fecha = document.getElementById("fecha-ida-packageThree").value;
      
-    document.getElementById('fecha-ida-tres').innerHTML=document.getElementById('fecha-ida-tres').value;
-    document.getElementById("fecha-vuelta-tres").setAttribute("min", fecha);
+    document.getElementById('fecha-ida-packageThree').innerHTML=document.getElementById('fecha-ida-packageThree').value;
+    document.getElementById("fecha-vuelta-packageThree").setAttribute("min", fecha);
   }
 </script>  
 
@@ -193,6 +216,6 @@
      } 
 
      today = yyyy+'-'+mm+'-'+dd;
-     document.getElementById("fecha-ida-tres").setAttribute("min", today);
-     document.getElementById("fecha-vuelta-tres").setAttribute("min", today);
+     document.getElementById("fecha-ida-packageThree").setAttribute("min", today);
+     document.getElementById("fecha-vuelta-packageThree").setAttribute("min", today);
 </script>
