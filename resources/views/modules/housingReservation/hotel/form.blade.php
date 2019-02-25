@@ -37,17 +37,18 @@
                     <div class="col">
                          <center>
                               <!-- Input Entrada -->
-                              <label for="fecha-entrada">
+                              <label for="fecha-entrada-housing">
                                    <span> 
                                         Entrada
                                    </span>
                               </label>
                               <div class="input-group">
-                                   <input type="date" 
+                                   <input 
+                                   type="date" 
+                                   id="fecha-entrada-housing"
+                                   name="fecha-entrada-housing"
                                    class="form-control"
-                                   name="fecha" id="fecha-entrada"
                                    placeholder="Introduce una fecha"
-                                   min="2019/02/05"
                                    required>
                                    <span class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
@@ -58,15 +59,15 @@
                     <div class="col">
                          <center>
                               <!-- Input Salida -->
-                              <label for="fecha-salida">
+                              <label for="fecha-salida-housing">
                                    <span> 
                                         Salida
                                    </span>
                               </label>
                               <div class="input-group">
                                    <input 
-                                   id="fecha-salida"
-                                   name="fecha-salida"
+                                   id="fecha-salida-housing"
+                                   name="fecha-salida-housing"
                                    type="date" 
                                    class="form-control"
                                    style="color:black;"
@@ -133,42 +134,35 @@
 </form>
 
 <script>
-  addEventListener('load',inicio,false);
+  addEventListener('load',inicioHousing,false);
 
-  function inicio()
+  function inicioHousing()
   {
-    document.getElementById('fecha-entrada').addEventListener('change',cambioSalida,false);
+    document.getElementById('fecha-entrada-housing').addEventListener('change',cambioHousing,false);
   }
 
-  function cambioSalida()
+  function cambioHousing()
   {
-     var fecha = document.getElementById("fecha-entrada").value;
-     var rest = fecha.substr(0,8);
-     var dayInt = parseInt(fecha.substr(8,10))+1;
-     var day = dayInt.toString();
-     if(dayInt < 10)
-     {
-          day = "0"+day;
-     }
-     var salida = rest + day;
-    document.getElementById('fecha-entrada').innerHTML=document.getElementById('fecha-entrada').value;
-    document.getElementById("fecha-salida").setAttribute("min", salida);
+     var fecha = document.getElementById("fecha-entrada-housing").value;
+     
+    document.getElementById('fecha-entrada-housing').innerHTML=document.getElementById('fecha-entrada-housing').value;
+    document.getElementById("fecha-salida-housing").setAttribute("min", fecha);
   }
-</script> 
+</script>  
 
 <script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
-if(dd<10){
-     dd='0'+dd
-} 
-if(mm<10){
-     mm='0'+mm
-} 
+     var today = new Date();
+     var dd = today.getDate();
+     var mm = today.getMonth()+1; //January is 0!
+     var yyyy = today.getFullYear();
+     if(dd<10){
+          dd='0'+dd
+     } 
+     if(mm<10){
+          mm='0'+mm
+     } 
 
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("fecha-entrada").setAttribute("min", today);
-document.getElementById("fecha-salida").setAttribute("min", today);
+     today = yyyy+'-'+mm+'-'+dd;
+     document.getElementById("fecha-entrada-housing").setAttribute("min", today);
+     document.getElementById("fecha-salida-housing").setAttribute("min", today);
 </script>

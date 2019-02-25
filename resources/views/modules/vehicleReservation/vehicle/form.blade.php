@@ -20,7 +20,7 @@
                                    class="form-control selectpicker custom-select" 
                                    required>
                                    <option selected disabled>
-                                        Seleccione su zona objetivo
+                                        Seleccione su zona destino
                                    </option>
                                    @foreach ($zones as $zone)
                                    <option value="{{ $zone->id }}">
@@ -115,14 +115,14 @@
 </form>
 
 <script>
-  addEventListener('load',inicio,false);
+  addEventListener('load',inicioVehicle,false);
 
-  function inicio()
+  function inicioVehicle()
   {
-    document.getElementById('fecha-recogida').addEventListener('change',cambioDevolucion,false);
+    document.getElementById('fecha-recogida').addEventListener('change',cambioDevolucionVehicle,false);
   }
 
-  function cambioDevolucion()
+  function cambioDevolucionVehicle()
   {
      var fecha = document.getElementById("fecha-recogida").value;
      
