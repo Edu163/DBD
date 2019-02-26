@@ -2,29 +2,6 @@
 <div class="modal fade" id="modal-vehicle-reservation-{{ $vehicle->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-vehicle-reservation-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      {{-- <div class="modal-header" style="color: grey;">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Vehículo Patente: {{$vehicle->patente}}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body bg-light">
-          <h4><sup>$</sup>{{ $vehicle->precio }}</h4>
-          <h3 style="color: grey">{{ $vehicle->marca }}</h3>
-          <img class="img-fluid" src="https://picsum.photos/200/200?image={{ mt_rand(1, 50) }}" style="padding-bottom: 8% !important;">
-          <ul>
-              <li><i class="ion-android-checkmark-circle"></i>Patente: {{ $vehicle->patente }}</li>
-              <li><i class="ion-android-checkmark-circle"></i>Marca: {{ $vehicle->marca }}</li>
-              <li><i class="ion-android-checkmark-circle"></i>Tipo: {{ $vehicle->tipo }}</li>
-              <li><i class="ion-android-checkmark-circle"></i>Gamma: {{ $vehicle->gamma }}</li>
-              <li><i class="ion-android-checkmark-circle"></i>Transmisión: {{ $vehicle->transmision }}</li>
-              <li><i class="ion-android-checkmark-circle"></i>Combustible: {{ $vehicle->combustible }}</li>
-          </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-success btn-galaxy">Reservar Vehículo</button>
-        <button type="button" class="btn btn-danger btn-galaxy" data-dismiss="modal">Volver</button>
-      </div> --}}
       <div class="modal-header" style="color: black;">
         <h5 class="modal-title" id="exampleModalCenterTitle">Vehículo Patente: {{$vehicle->patente}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">

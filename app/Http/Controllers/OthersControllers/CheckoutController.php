@@ -15,6 +15,13 @@ use App\Modules\VehicleReservation\VehicleReservation;
 use Auth;
 use App\User;
 
+/*
+*   Mail
+*/
+use Mail;
+use Session;
+use App\Modules\Mail\ConfirmationMail;
+
 
 class CheckoutController extends Controller
 {
@@ -65,7 +72,8 @@ class CheckoutController extends Controller
             $this->addSell($request, null);
             /** Vaciar el carrito si la compra ha sido exitosa */
             Cart::instance('default')->destroy();
-            return redirect()->route('confirmation.index')->with('success_message', 'Gracias por preferirnos! Su compra ha sido realizada');
+            return redirect('/');
+            // return redirect()->route('confirmation.index')->with('success_message', 'Gracias por preferirnos! Su compra ha sido realizada');
             /* Cart::instance('default')->destroy();
             session()->forget('coupon');*/
 
@@ -100,7 +108,7 @@ class CheckoutController extends Controller
                     'tipo' => 'Economy',
                     'cantidad' => $item->qty,
                     'monto_total' => strval($item->total),
-                ]);
+                ]);     
             }
             else if(get_class($item->model) == "App\Modules\VehicleReservation\Vehicle")
             {
@@ -110,6 +118,7 @@ class CheckoutController extends Controller
                 ]);
             }
         }
+        Mail::to($request->email)->send( new ConfirmationMail($venta->id) ); 
     }
     /**
      * Display the specified resource.
