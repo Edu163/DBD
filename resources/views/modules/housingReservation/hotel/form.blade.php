@@ -134,21 +134,28 @@
 </form>
 
 <script>
-  addEventListener('load',inicioHousing,false);
+  addEventListener('load',inicio,false);
 
-  function inicioHousing()
+  function inicio()
   {
-    document.getElementById('fecha-entrada-housing').addEventListener('change',cambioHousing,false);
+    document.getElementById('fecha-entrada-housing').addEventListener('change',cambioSalida,false);
   }
 
-  function cambioHousing()
+  function cambioSalida()
   {
      var fecha = document.getElementById("fecha-entrada-housing").value;
-     
+     var rest = fecha.substr(0,8);
+     var dayInt = parseInt(fecha.substr(8,10))+1;
+     var day = dayInt.toString();
+     if(dayInt < 10)
+     {
+          day = "0"+day;
+     }
+     var salida = rest + day;
     document.getElementById('fecha-entrada-housing').innerHTML=document.getElementById('fecha-entrada-housing').value;
-    document.getElementById("fecha-salida-housing").setAttribute("min", fecha);
+    document.getElementById("fecha-salida-housing").setAttribute("min", salida);
   }
-</script>  
+</script>
 
 <script>
      var today = new Date();
