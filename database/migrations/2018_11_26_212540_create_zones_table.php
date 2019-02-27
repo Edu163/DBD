@@ -16,7 +16,11 @@ class CreateZonesTable extends Migration
         Schema::create('zones', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->string('direccion');
+            $table->integer('direccion');
+            $table->foreign('direccion')
+                ->references('id')
+                ->on('cities')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

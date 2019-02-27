@@ -17,7 +17,11 @@ class CreateHotelsTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('pais');
-            $table->string('direccion');
+            $table->integer('direccion');
+            $table->foreign('direccion')
+                ->references('id')
+                ->on('cities')
+                ->onDelete('cascade');
             $table->integer('estrellas');
             $table->integer('valoracion');
             $table->integer('capacidad');
