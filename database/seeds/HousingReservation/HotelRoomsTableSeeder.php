@@ -12,6 +12,6 @@ class HotelRoomsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(HotelRoom::class, 20)->create();
+        factory(HotelRoom::class, 500)->create();
     }
 }

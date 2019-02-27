@@ -7,7 +7,7 @@ $factory->define(Hotel::class, function (Faker $faker) {
     return [
     	'nombre' =>  $faker->company,
     	'pais' => $faker->country,
-    	'direccion' => $faker->address,
+    	'direccion' => $faker->city,
 			'estrellas' => $faker->numberBetween($min = 1, $max = 5),
 			'valoracion'=> $faker->numberBetween($min = 0, $max = 10),
 			'capacidad'=> $faker->numberBetween($min = 0, $max = 9999),

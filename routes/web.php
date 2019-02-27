@@ -109,7 +109,6 @@ Route::resources([
     'vehicle_provider'             => 'VehicleReservationControllers\VehicleProviderController',
     'vehicle_service'              => 'VehicleReservationControllers\VehicleServiceController',
     'zone'                         => 'VehicleReservationControllers\ZoneController',
-    'insurance'                    => 'OthersControllers\InsuranceController',
 ]);
 
 /* Vuelos */
@@ -121,7 +120,8 @@ Route::resources([
     'flight_detail'                => 'FlightReservationControllers\FlightDetailController',
     'origin_destiny'               => 'FlightReservationControllers\OrigenDestinoController',
     'seat'                         => 'FlightReservationControllers\AsientoController',
-    // '/aviones'                       => 'FlightReservationControllers\AvionController',     
+    // '/aviones'                       => 'FlightReservationControllers\AvionController',  
+    'insurance'                    => 'FlightReservationControllers\InsuranceController',   
 ]);    
 
 /* Alojamiento */

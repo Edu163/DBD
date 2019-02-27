@@ -1,4 +1,4 @@
-<form action="/flight_detail" method="get">
+<form action="/insurance" method="get">
     <div class="row justify-content-center">
         <h2>¿Cuándo viajas?</h2>
     </div>

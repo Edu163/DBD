@@ -1,27 +1,28 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="hotel-cards">
-         @foreach($insurances as $insurance)
-    <div class="card borderlight  ">
-    <div class="gp14-card">
-    <center>
-        <img src="{{ asset('/images/insurance.png') }}" alt="insurance" style="width:600px">
-        <div class="container">
-            <h3>{{$insurance->medicalService}}</h3>
-            <h3>{{$insurance->service2}}</h3>
-            <h3>{{$insurance->service3}}</h3>
-            <form action="/cart" method="get"">
-                <button id="hotel_id" name="hotel_id" value="{{ $insurance->id }}" type="submit" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Reservar</button>
-            </form>
+@section('content') 
+<section id="pricing">
+    <div class="container">
+        <div class="row">
+            @foreach($insurances as $insurance)
+                <div class="col-lg-4 col-md-6">
+                    <div class="box featured wow fadeInUp">
+                        <img class="img-fluid" src="{{ asset('/img/insurance.png') }}" alt="insurance" style="padding-bottom: 8% !important;">
+                        <ul>
+                            <li><i class="ion-android-checkmark-circle"></i>{{$insurance->medicalService}}</li>
+                           <li><i class="ion-android-checkmark-circle"></i>{{$insurance->service3}}</li>
+                           <li><i class="ion-android-checkmark-circle"></i>{{$insurance->service3}}</li>
+                        </ul>
+                        <center>
+                            <form action="{{ route('cart.storeFlights', $insurance) }}" method="POST">
+                            @csrf
+                                <button style="margin-top: 0.2cm;" type="submit" class="btn btn-success btn-galaxy">Añadir al carrito</button>
+                            </form>
+                        </center>
+                    </div>
+                </div>
+            @endforeach
         </div>
-    </center>
     </div>
-    </div>
-    @endforeach  
-    </div>
-    
-</div>
-
+</section>
 @endsection
