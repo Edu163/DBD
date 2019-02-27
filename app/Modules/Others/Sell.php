@@ -9,6 +9,7 @@ class Sell extends Model
 {
     protected $table = 'sells';
 
+    protected $code;
     protected $user_id;
     protected $monto_total;
     protected $fecha;
@@ -19,6 +20,7 @@ class Sell extends Model
     protected $descuento;
 
     protected $fillable = [
+        'source',
         'user_id',
         'monto_total',
         'fecha',

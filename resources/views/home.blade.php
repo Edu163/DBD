@@ -536,11 +536,11 @@
                             <li><i class="ion-android-checkmark-circle"></i> Zona: {{ $vehicle->zone->nombre }}</li>
                             <li><i class="ion-android-checkmark-circle"></i> Aire Acondicionado: {{ $vehicle->aire_acondicionado }}</li>
                         </ul>
-                        <a href="#" class="get-started-btn">Ver detalles</a>
+                        <a href="#" class="get-started-btn" data-toggle="modal" data-target="#modal-vehicle-reservation-{{ $vehicle->id }}">Ver detalles</a>
+                        @include('modules.vehicleReservation.vehicleReservationDetail.index')
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
         </section><!-- #more-features -->

@@ -160,7 +160,7 @@
     </div>
     </br>
     <center>
-        <button type="submit" class="btn btn-galaxy wow fadeInUp">Encuentra su vuelo</button> 
+        <button type="submit" class="btn btn-galaxy wow fadeInUp">Encuentre su paquete</button> 
     </center>
 </form>
 

@@ -126,7 +126,7 @@
                </div>
                </br>
                <center>
-                    <button type="submit" class="btn btn-galaxy wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Encuentra su alojamiento</button> 
+                    <button type="submit" class="btn btn-galaxy wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Encuentre su alojamiento</button> 
                </center>
           </div> 
      </div>

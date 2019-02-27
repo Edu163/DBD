@@ -15,6 +15,7 @@ class CreateSellsTable extends Migration
     {
         Schema::create('sells', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('source')->unique();
             $table->integer('user_id');
             $table->foreign('user_id')
                 ->references('id')

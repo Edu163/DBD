@@ -14,6 +14,7 @@ use App\Modules\FlightReservation\FlightSellDetail;
 use App\Modules\VehicleReservation\VehicleReservation;
 use Auth;
 use App\User;
+use Illuminate\Support\Str;
 
 /*
 *   Mail
@@ -43,6 +44,12 @@ class CheckoutController extends Controller
     public function create()
     {
         //
+    }
+
+    public function getPdf($data)
+    {
+        $pdf = PDF::loadView('modules.others.pdf.billing', $data);
+        return $pdf->download('billing.pdf');
     }
 
     /**
@@ -85,7 +92,9 @@ class CheckoutController extends Controller
     }
 
     public function addSell($request, $error){
+
         $venta = Sell::create([
+            'source' => Str::random(32),
             'user_id' => Auth::user()->id,
             'impuesto' => Cart::tax(),
             'monto_total'  => Cart::total(),
@@ -118,6 +127,7 @@ class CheckoutController extends Controller
                 ]);
             }
         }
+        $this->getPdf($request);
         Mail::to($request->email)->send( new ConfirmationMail($venta->id) ); 
     }
     /**
