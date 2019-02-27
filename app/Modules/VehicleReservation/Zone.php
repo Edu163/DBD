@@ -14,7 +14,10 @@ class Zone extends Model
 
     protected $fillable = [
         'nombre',
-        'direccion',
+        'ciudad_id',
+        'pais',
+    	'ciudad',
+    	'direccion',
         'coordenadas',
     ];
 

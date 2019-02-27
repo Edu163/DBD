@@ -26,17 +26,17 @@ $factory->define(Package::class, function (Faker $faker) {
     $id_zone = $vehicle->zone_id;
     $zone = Zone::findOrfail($id_zone);
     /* Dirección vehículo*/
-    $city_vehicle = $zone->direccion;
+    $city_vehicle = $zone->ciudad_id;
 
     $id_destiny = $flight->destiny_id;
     $airport = Airport::findOrfail($id_destiny);
     /** Destino vuelo */
-    $city_airport = $airport->ciudad;
+    $city_airport = $airport->ciudad_id;
     /** Destino hotel $city_hotel */
-    $city_hotel = $hotel->direccion;
+    $city_hotel = $hotel->ciudad_id;
 
     $count = 0;
-    while($count <= 30)
+    while($count <= 5)
     {
         if($city_hotel != $city_airport)
         {
@@ -46,7 +46,7 @@ $factory->define(Package::class, function (Faker $faker) {
             $count = $count + 1;
         }
     }
-    if($count == 30)
+    if($count == 5)
     {
         $id_hotel = null;
     }
@@ -54,7 +54,7 @@ $factory->define(Package::class, function (Faker $faker) {
 
 
     $count = 0;
-    while($count <= 30)
+    while($count <= 5)
     {
         if($city_vehicle != $city_airport)
         {
@@ -65,7 +65,7 @@ $factory->define(Package::class, function (Faker $faker) {
             $count = $count + 1;
         }
     }
-    if($count == 30)
+    if($count == 5)
     {
         $id_hotel = null;
     }
