@@ -40,7 +40,7 @@ class HomeController extends Controller
             'flightDetails',
             'hotelRooms',
             'vehicleCards',
-            'hotelCards',
+            'hotelCards'
         ));
     }
 }
