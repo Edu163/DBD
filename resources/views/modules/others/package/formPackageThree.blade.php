@@ -1,5 +1,5 @@
 {{-- Vuelo + Alojamiento + Vehículo --}}
-<form action="/flight_detail" method="get">
+<form action="/package" method="get">
     <!-- Línea 1 -->
     <div class="row justify-content-center">
         <div class="col">

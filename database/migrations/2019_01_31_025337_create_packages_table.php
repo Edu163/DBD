@@ -15,17 +15,17 @@ class CreatePackagesTable extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('flight_id');
+            $table->integer('flight_id')->nullable();
             $table->foreign('flight_id')
                     ->references('id')
                     ->on('flights')
                     ->onDelete('cascade');
-            $table->integer('hotel_id');
+            $table->integer('hotel_id')->nullable();
             $table->foreign('hotel_id')
                     ->references('id')
                     ->on('hotels')
                     ->onDelete('cascade');
-            $table->integer('vehicle_id');
+            $table->integer('vehicle_id')->nullable();
             $table->foreign('vehicle_id')
                     ->references('id')
                     ->on('vehicles')

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\OthersControllers;
 
 use App\Modules\Others\Package;
+use App\Modules\HousingReservation\Hotel;
+use App\Modules\FlightReservation\FlightDetail;
+use App\Modules\VehicleReservation\Vehicle;
+use App\Modules\VehicleReservation\Zone;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class PackageController extends Controller
@@ -82,5 +87,40 @@ class PackageController extends Controller
     public function destroy(Package $package)
     {
         //
+    }
+
+    public function va()
+    {
+        //$hotels = Hotel::all()->where('pais', request('destino-packageOne'));
+        $params = $this->validate(request(), [
+                'origen' => 'required|integer',
+                'destino' => 'required|integer',
+                'fechaida' => 'required|date',
+            ]);
+        $hotels = Hotel::all();
+        $flights = FlightDetail::all();
+        return view('modules.others.package.indexva', compact('hotels','flights'));
+        
+    }
+
+    public function vv()
+    {
+        $flights = FlightDetail::all();
+        $pasajeros = request('pasajeros');
+        $vehicles = Vehicle::where('zone_id', request('zone'))
+                    ->where('n_pasajeros', '>=', (int)$pasajeros)
+                    ->get();
+        return view('modules.others.package.indexvv', compact('flights','vehicles'));
+    }
+
+    public function vav()
+    {
+        $flights = FlightDetail::all();
+        $pasajeros = request('pasajeros');
+        $vehicles = Vehicle::where('zone_id', request('zone'))
+                    ->where('n_pasajeros', '>=', (int)$pasajeros)
+                    ->get();
+        $hotels = Hotel::all()->where('pais', request('destino-packageThree'));
+        return view('modules.others.package.indexvav', compact('hotels','flights','vehicles'));
     }
 }

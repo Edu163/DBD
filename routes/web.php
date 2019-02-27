@@ -19,6 +19,9 @@ Route::get('/prueba', function () {
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/cart', 'OthersControllers\CartController@index')->name('cart.index');
+Route::get('/packageva', 'OthersControllers\PackageController@va')->name('package.va');
+Route::get('/packagevv', 'OthersControllers\PackageController@vv')->name('package.vv');
+Route::get('/packagevav', 'OthersControllers\PackageController@vav')->name('package.vav');
 Route::get('/flight', 'FlightReservationControllers\FlightController@index')->name('flight.index');
 Route::patch('/cart/{product}', 'OthersControllers\CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'OthersControllers\CartController@destroy')->name('cart.destroy');
