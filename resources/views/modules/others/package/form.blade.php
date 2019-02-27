@@ -60,3 +60,4 @@
      document.getElementById("fecha-recogida").setAttribute("min", today);
      document.getElementById("fecha-devolucion").setAttribute("min", today);
 </script>
+<script src="js/funciones.js"></script>
