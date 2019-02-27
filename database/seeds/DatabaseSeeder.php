@@ -15,7 +15,9 @@ class DatabaseSeeder extends Seeder
             /* General */
             UsersTableSeeder::class,
             SellsTableSeeder::class,
-
+            /* Dirección */
+            CountriesTableSeeder::class,
+            CitiesTableSeeder::class,
             /* Vehiculos */
             VehicleReservationsTableSeeder::class,
             VehicleCalendariesTableSeeder::class,

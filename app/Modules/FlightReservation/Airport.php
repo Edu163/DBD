@@ -2,6 +2,7 @@
 
 namespace App\Modules\FlightReservation;
 
+use App\Modules\Others\City;
 use Illuminate\Database\Eloquent\Model;
 
 class Airport extends Model
@@ -14,6 +15,7 @@ class Airport extends Model
     protected $nombre;
 
     protected $fillable = [
+        'ciudad_id',
         'pais',
         'ciudad',
         'direccion',
@@ -25,4 +27,7 @@ class Airport extends Model
 	public function originDestiny(){
     	return $this->hasMany(OriginDestiny::class);
 	}
+	public function city(){
+	    return $this->belongsTo(City::class);
+    }
 }
