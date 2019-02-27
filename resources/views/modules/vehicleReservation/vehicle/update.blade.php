@@ -6,7 +6,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Editando Vehículo patente: {{$vehicle->patente}}</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">Editando Vehículo Patente: {{$vehicle->patente}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -366,7 +366,7 @@
 
             <div class="col-md-6">
               <select 
-                  id="aire_acondicionado" 
+                  id="aire_acondicionado"
                   name="aire_acondicionado"
                   class="form-control selectpicker custom-select" 
                   required 

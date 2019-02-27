@@ -105,6 +105,16 @@
   background: linear-gradient(45deg, #1de099, #1dc8cd) !important;
 }
 
+.custom-select {
+  background-color: white !important;
+  border: 1px solid white !important;
+  color: #000 !important;
+}
+
+.form-control {
+  background-color: white !important;
+}
+
 #modal {
   background-color: rgba(0, 0, 0, 0.9);
   color: #fff;

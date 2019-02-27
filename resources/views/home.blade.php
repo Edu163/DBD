@@ -32,7 +32,6 @@
 
     <!-- Main Stylesheet File -->
     <link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
-
     <!-- End Template Style Files -->
 
 </head>
@@ -269,7 +268,7 @@
         </section><!-- #about -->
 
         <section id="buy-forms" class="section-bg">
-            <div class="container-fluid py-4">
+            <div class="container-fluid py-4" style="padding-right:10% !important; padding-left:10% !important;"">
                 <div class="row">
                     <div class="col-3">
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -285,6 +284,14 @@
                                 <i class="fas fa-building"></i>
                                 Alojamiento
                             </a>
+                            <a class="nav-link btn-galaxy" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                <i class="fas fa-cubes"></i>
+                                Paquetes
+                            </a>
+                            <a class="nav-link btn-galaxy" id="v-pills-insurance-tab" data-toggle="pill" href="#v-pills-insurance" role="tab" aria-controls="v-pills-insurance" aria-selected="false">
+                                <i class="fas fa-cubes"></i>
+                                Seguros de viaje
+                            </a>
                             </div>
                         </div>
                         <div class="col-9">
@@ -298,6 +305,12 @@
                                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                                     @include('modules.housingReservation.hotel.form')
                                 </div>
+                                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                    @include('modules.others.package.form')
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-insurance" role="tabpanel" aria-labelledby="v-pills-insurance-tab">
+                                    @include('modules.flightReservation.insurance.form')
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -309,7 +322,7 @@
         Product Featuress Section
         ============================-->
         <section id="features">
-        <div class="container">
+        <div class="container" style="background-color: white !important">
 
             <div class="section-header">
             <h3 class="section-title">Vuelos</h3>
@@ -369,6 +382,24 @@
         </section><!-- #features -->
 
         <!--==========================
+        Call To Action Section
+        ============================-->
+        <section id="call-to-action">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 text-center text-lg-left">
+                        <h3 class="cta-title">¿No te queda algo claro?</h3>
+                        <p class="cta-text">Si tienes alguna duda o consulta que te impide ir a por tus vacaciones soñadas, no dudes en contactarnos y te ayudaremos </p>
+                    </div>
+                    <div class="col-lg-3 cta-btn-container text-center">
+                        <a class="btn btn-galaxy align-middle scrollto" href="#contact">Contacto</a>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- #call-to-action -->
+
+        <!--==========================
         Pricing Section
         ============================-->
         <section id="pricing" class="section-bg">
@@ -394,7 +425,7 @@
                                 <li><i class="ion-android-checkmark-circle"></i>Valoración: {{ $hotelCard->hotel->estrellas }}</li>
                                 <li><i class="ion-android-checkmark-circle"></i>Camas: {{ $hotelCard->camas }}</li>
                             </ul>
-                            <a href="#" class="get-started-btn">Get Started</a>
+                            <a href="#" class="get-started-btn">Ver detalles</a>
                         </div>
                     </div>
                 @endforeach
@@ -466,18 +497,18 @@
         Call To Action Section
         ============================-->
         <section id="call-to-action">
-        <div class="container">
-            <div class="row">
-            <div class="col-lg-9 text-center text-lg-left">
-                <h3 class="cta-title">¡No te quedes con las ganas!</h3>
-                <p class="cta-text">No te pierdas tus vacaciones soñadas, vea nuestros paquetes y... ¡Ve por esas vacaciones que te mereces!</p>
-            </div>
-            <div class="col-lg-3 cta-btn-container text-center">
-                <a class="btn btn-galaxy align-middle scrollto" href="#about">Ver Paquetes</a>
-            </div>
-            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 text-center text-lg-left">
+                        <h3 class="cta-title">¡No te quedes con las ganas!</h3>
+                        <p class="cta-text">No te pierdas tus vacaciones soñadas, vea nuestros paquetes y... ¡Ve por esas vacaciones que te mereces!</p>
+                    </div>
+                    <div class="col-lg-3 cta-btn-container text-center">
+                        <a class="btn btn-galaxy align-middle scrollto" href="#about">Ver Paquetes</a>
+                    </div>
+                </div>
 
-        </div>
+            </div>
         </section><!-- #call-to-action -->
 
         <!--==========================
@@ -505,11 +536,11 @@
                             <li><i class="ion-android-checkmark-circle"></i> Zona: {{ $vehicle->zone->nombre }}</li>
                             <li><i class="ion-android-checkmark-circle"></i> Aire Acondicionado: {{ $vehicle->aire_acondicionado }}</li>
                         </ul>
-                        <a href="#" class="get-started-btn">Ver detalles</a>
+                        <a href="#" class="get-started-btn" data-toggle="modal" data-target="#modal-vehicle-reservation-{{ $vehicle->id }}">Ver detalles</a>
+                        @include('modules.vehicleReservation.vehicleReservationDetail.index')
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
         </section><!-- #more-features -->
@@ -930,6 +961,7 @@
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
     <script src="{{ asset('js/app.js') }}"defer></script>
+    
 
     <!-- JavaScript Libraries -->
     <script src="{{ asset('template/lib/jquery/jquery.min.js') }}"defer></script>

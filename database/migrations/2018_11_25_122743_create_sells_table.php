@@ -15,16 +15,22 @@ class CreateSellsTable extends Migration
     {
         Schema::create('sells', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('source')->unique();
             $table->integer('user_id');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
-                ->onDelete('cascade');
+                ->onUpdate('cascade')
+                ->onDelete('set null');
+            $table->string('user_email')->nullable();
+            $table->string('user_name')->nullable();
+            $table->string('impuesto')->nullable();
+            $table->string('descuento')->nullable();
             $table->string('monto_total');
-            $table->string('impuesto');
-            $table->string('tipo_comprobante');
             $table->string('metodo_pago');
-            $table->string('descuento');
+            $table->string('tipo_comprobante');
+            $table->string('pasarela_pago')->default('stripe');
+            $table->string('error')->nullable();
             $table->timestamps();
         });
     }

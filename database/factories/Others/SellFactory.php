@@ -8,6 +8,7 @@ $factory->define(Sell::class, function (Faker $faker) {
     $user_id = DB::table('users')->select('id')->get();
     
     return [
+        'source' => $faker->iban(null),
         'user_id' => $user_id->random()->id,
         'monto_total' => strval(rand(10000,99999)),
         'impuesto' => strval(0.19),

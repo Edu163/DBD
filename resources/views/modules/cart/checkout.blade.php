@@ -25,7 +25,7 @@
         <h1 class="checkout-heading stylish-heading">Revisión</h1>
         <div class="checkout-section">
             <div>
-                <form action="{{ route('checkout.store') }}" method="POST" id="payment-form">
+                <form action="{{ route('checkout.store') }}" method="POST" id="payment-form" onsubmit=" alert('\t\t\t\t\t¡Gracias!\t  \n\n Le informamos que su compra ha sido realizada exitosamente.\t'); return true;">
                     {{ csrf_field() }}
                     <h2>Detalles de Facturación</h2>
 
@@ -99,20 +99,38 @@
 
                 <div class="checkout-table">
                     @foreach (Cart::content() as $item)
-                    <div class="checkout-table-row">
-                        <div class="checkout-table-row-left">
-                            <img src="https://picsum.photos/120/180?image={{ mt_rand(1, 50) }}" alt="" class="checkout-table-img">
-                            <div class="checkout-item-details">
-                                    <div class="cart-table-item"><a href="#">Destino: {{ $item->model->destiny->ciudad }}</a></div>
-                                    <div class="cart-table-description">Fecha salida: {{ $item->model->fecha_despegue }}</div>
-                                <div class="checkout-table-price">Subtotal: {{ $item->model->precio }}</div>
-                            </div>
-                        </div> <!-- end checkout-table -->
-
-                        <div class="checkout-table-row-right">
-                            <div class="checkout-table-quantity">{{ $item->qty }}</div>
-                        </div>
-                    </div> <!-- end checkout-table-row -->
+                        @if(get_class($item->model) == "App\Modules\FlightReservation\FlightDetail")
+                            <div class="checkout-table-row">
+                                <div class="checkout-table-row-left">
+                                    <img src="https://picsum.photos/120/180?image={{ mt_rand(1, 50) }}" alt="" class="checkout-table-img">
+                                    <div class="checkout-item-details">
+                                            <div class="cart-table-item"><a href="#">Destino: {{ $item->model->destiny->ciudad }}</a></div>
+                                            <div class="cart-table-description">Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                                        <div class="checkout-table-price">Subtotal: {{ $item->subtotal }}</div>
+                                    </div>
+                                </div> <!-- end checkout-table -->
+                            
+                                <div class="checkout-table-row-right">
+                                    <div class="checkout-table-quantity">{{ $item->qty }}</div>
+                                </div>
+                            </div> <!-- end checkout-table-row -->
+                        @endif
+                        @if(get_class($item->model) == "App\Modules\VehicleReservation\Vehicle")
+                            <div class="checkout-table-row">
+                                <div class="checkout-table-row-left">
+                                    <img src="https://picsum.photos/120/180?image={{ mt_rand(1, 50) }}" alt="" class="checkout-table-img">
+                                    <div class="checkout-item-details">
+                                            <div class="cart-table-item"><a href="#">Marca: {{ $item->model->marca}}</a></div>
+                                            <div class="cart-table-description">Tipo: {{ $item->model->tipo }}</div>
+                                        <div class="checkout-table-price">Subtotal: {{ $item->subtotal}}</div>
+                                    </div>
+                                </div> <!-- end checkout-table -->
+                            
+                                <div class="checkout-table-row-right">
+                                    <div class="checkout-table-quantity">{{ $item->qty }}</div>
+                                </div>
+                            </div> <!-- end checkout-table-row -->
+                        @endif
                     @endforeach
 
 

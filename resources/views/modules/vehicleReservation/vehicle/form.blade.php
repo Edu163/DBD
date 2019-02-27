@@ -20,7 +20,7 @@
                                    class="form-control selectpicker custom-select" 
                                    required>
                                    <option selected disabled>
-                                        Seleccione su zona objetivo
+                                        Seleccione su zona destino
                                    </option>
                                    @foreach ($zones as $zone)
                                    <option value="{{ $zone->id }}">
@@ -42,13 +42,19 @@
                                         Fecha de recogida
                                    </span>
                               </label>
-                              <input 
+                              <div class="input-group">
+                                   <input 
                                    id="fecha-recogida" 
                                    name="fecha-recogida" 
                                    type="date"
                                    class="form-control"
                                    style="color:black;"
-                                   required>
+                                   {{-- required --}}
+                                   >
+                                   <span class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                   </span>
+                              </div>
                          </center>
                     </div>
                     <div class="col">
@@ -59,13 +65,19 @@
                                         Fecha de devolución
                                    </span>
                               </label>
-                              <input 
+                              <div class="input-group">
+                                   <input 
                                    id="fecha-devolucion"
                                    name="fecha-devolucion"
                                    type="date" 
                                    class="form-control"
                                    style="color:black;"
-                                   required>
+                                   {{-- required --}}
+                                   >
+                                   <span class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                   </span>
+                              </div>
                          </center>
                     </div>
                </div>
@@ -82,15 +94,15 @@
                               </label>
                          </center>
                          <input
-                              class="form-control"
-                              id="pasajeros"
-                              name="pasajeros"
-                              type="number"
-                              min="1"
-                              max="8"
-                              placeholder="Número de pasajeros"
-                              style="width:100%;" 
-                              required>
+                         class="form-control"
+                         id="pasajeros"
+                         name="pasajeros"
+                         type="number"
+                         min="1"
+                         max="8"
+                         placeholder="Número de pasajeros"
+                         style="width:100%;" 
+                         required>
                     </div>
                </div>
                </br>
@@ -103,14 +115,14 @@
 </form>
 
 <script>
-  addEventListener('load',inicio,false);
+  addEventListener('load',inicioVehicle,false);
 
-  function inicio()
+  function inicioVehicle()
   {
-    document.getElementById('fecha-recogida').addEventListener('change',cambioDevolucion,false);
+    document.getElementById('fecha-recogida').addEventListener('change',cambioDevolucionVehicle,false);
   }
 
-  function cambioDevolucion()
+  function cambioDevolucionVehicle()
   {
      var fecha = document.getElementById("fecha-recogida").value;
      

@@ -1,4 +1,3 @@
-<form action="/cart" method="get"">
 @extends('layouts.app')
 
 @section('content')
@@ -13,7 +12,9 @@
             <h3>{{$insurance->medicalService}}</h3>
             <h3>{{$insurance->service2}}</h3>
             <h3>{{$insurance->service3}}</h3>
-            <button id="hotel_id" name="hotel_id" value="{{ $insurance->id }}" type="submit" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Reservar</button>
+            <form action="/cart" method="get"">
+                <button id="hotel_id" name="hotel_id" value="{{ $insurance->id }}" type="submit" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Reservar</button>
+            </form>
         </div>
     </center>
     </div>
@@ -22,5 +23,5 @@
     </div>
     
 </div>
-</form>
+
 @endsection
