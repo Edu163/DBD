@@ -10,7 +10,11 @@
                         <h4><sup>$</sup>{{ $vuelo->precio }}</h4>
                         <img class="img-fluid" src="https://picsum.photos/200/200?image={{ mt_rand(1, 50) }}" style="padding-bottom: 8% !important;">
                         <ul>
-                            <li><i class="ion-android-checkmark-circle"></i>Fecha de despegue: {{ $vuelo->fecha_despegue }}</li>
+                            <li><i class="ion-android-checkmark-circle"></i>Origen: {{ $vuelo->origin->ciudad }}</li>
+                            <li><i class="ion-android-checkmark-circle"></i>Destino: {{ $vuelo->destiny->ciudad }}</li>
+                            <li><i class="ion-android-checkmark-circle"></i>Fecha de despegue: {{ $vuelo->horarioDespegue() }}</li>
+                            <li><i class="ion-android-checkmark-circle"></i>Fecha de aterrizaje: {{ $vuelo->horarioAterrizaje() }}</li>
+                            <li><i class="ion-android-checkmark-circle"></i>Duración: {{ $vuelo->duracion() }}</li>
                             {{-- <li><i class="ion-android-checkmark-circle"></i>Dirección: {{ $hotelCard->hotel->direccion }}</li>
                             <li><i class="ion-android-checkmark-circle"></i>Estrellas: {{ $hotelCard->hotel->estrellas }} <i class="fas fa-star" style="color: yellow !important;"></i></li>
                             <li><i class="ion-android-checkmark-circle"></i>Valoración: {{ $hotelCard->hotel->estrellas }}</li>

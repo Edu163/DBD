@@ -19,6 +19,7 @@ Route::get('/prueba', function () {
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/cart', 'OthersControllers\CartController@index')->name('cart.index');
+Route::get('/flight', 'FlightReservationControllers\FlightController@index')->name('flight.index');
 Route::patch('/cart/{product}', 'OthersControllers\CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'OthersControllers\CartController@destroy')->name('cart.destroy');
 Route::post('/cartflight/{flightDetail}', 'OthersControllers\CartController@storeFlights')->name('cart.storeFlights');
@@ -116,7 +117,7 @@ Route::resources([
     'airport'                      => 'FlightReservationControllers\AirportController',
     'checkin'                      => 'FlightReservationControllers\CheckInController',
     'company'                      => 'FlightReservationControllers\CompanyController',
-    'flight'                       => 'FlightReservationControllers\FlightController',
+    //'flight'                       => 'FlightReservationControllers\FlightController',
     'flight_detail'                => 'FlightReservationControllers\FlightDetailController',
     'origin_destiny'               => 'FlightReservationControllers\OrigenDestinoController',
     'seat'                         => 'FlightReservationControllers\AsientoController',
