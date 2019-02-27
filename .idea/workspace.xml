@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51e44bfa-d8a8-4921-a505-29e69193286e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Modules/Others/City.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Others/Country.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/Others/CityFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DBD.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DBD.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Modules/FlightReservation/Airport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/FlightReservation/Airport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/FlightReservation/AirportFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/FlightReservation/AirportFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/Others/PackageFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/Others/PackageFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2018_11_28_122848_create_airports_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_11_28_122848_create_airports_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/Others/CityFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/Others/CityFactory.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,10 +43,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/factories/FlightReservation/AirportFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
+            <state relative-caret-position="240">
+              <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
               <folding>
-                <element signature="e#7#36#0#PHP" expanded="true" />
+                <element signature="e#7#35#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/factories/Others/CityFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+            <state relative-caret-position="150">
+              <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
               <folding>
                 <element signature="e#7#36#0#PHP" expanded="true" />
               </folding>
@@ -96,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_27_170104_create_cities_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+              <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -173,9 +163,9 @@
         <option value="$PROJECT_DIR$/database/seeds/Others/CitiesTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/Others/CountriesTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/database/factories/Others/CityFactory.php" />
         <option value="$PROJECT_DIR$/app/Modules/Others/City.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_02_27_170104_create_cities_table.php" />
+        <option value="$PROJECT_DIR$/database/factories/Others/CityFactory.php" />
         <option value="$PROJECT_DIR$/database/factories/FlightReservation/AirportFactory.php" />
       </list>
     </option>
@@ -424,12 +414,12 @@
       <updated>1551122499693</updated>
       <workItem from="1551122506432" duration="607000" />
       <workItem from="1551127995979" duration="23398000" />
-      <workItem from="1551273323939" duration="4684000" />
+      <workItem from="1551273323939" duration="5702000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28689000" />
+    <option name="totallyTimeSpent" value="29707000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -800,16 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/Others/CityFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-          <folding>
-            <element signature="e#7#36#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_26_170128_create_countries_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -827,7 +807,7 @@
     <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_27_170104_create_cities_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -851,12 +831,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/FlightReservation/AirportFactory.php">
+    <entry file="file://$PROJECT_DIR$/database/factories/Others/CityFactory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
+        <state relative-caret-position="150">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
           <folding>
             <element signature="e#7#36#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/FlightReservation/AirportFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="e#7#35#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
