@@ -74,7 +74,7 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
 
-        $filePath = $request->file('img')->store('profileImgs');
+        $filePath = $request->file('img')->store('/public/profileImgs');
         $path = '../storage/';
         $finalPath = $path . $filePath;
         

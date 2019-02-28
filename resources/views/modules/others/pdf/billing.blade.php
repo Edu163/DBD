@@ -131,7 +131,7 @@ Status: Paid
     <table width="100%">
         <tr>
             <td align="left" style="width: 50%;">
-                &copy; {{ date('Y') }} {{ config('app.url') }} - All rights reserved.
+                &copy; 
             </td>
             <td align="right" style="width: 50%;">
                 Company Slogan

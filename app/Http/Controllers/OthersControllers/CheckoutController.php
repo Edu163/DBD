@@ -4,6 +4,7 @@ namespace App\Http\Controllers\OthersControllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use App\Http\Requests\CheckoutRequest;
 use App\Http\Controllers\Controller;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -14,6 +15,7 @@ use App\Modules\FlightReservation\FlightSellDetail;
 use App\Modules\VehicleReservation\VehicleReservation;
 use Auth;
 use App\User;
+use PDF;
 use Illuminate\Support\Str;
 
 /*
@@ -46,10 +48,10 @@ class CheckoutController extends Controller
         //
     }
 
-    public function getPdf($data)
+    public function getPdf($venta)
     {
-        $pdf = PDF::loadView('modules.others.pdf.billing', $data);
-        return $pdf->download('billing.pdf');
+        $pdfname = $venta->source . '.pdf';
+        return PDF::loadView('modules.others.pdf.billing')->save(storage_path('app/public/public/pdf/' . $pdfname));
     }
 
     /**
@@ -127,8 +129,9 @@ class CheckoutController extends Controller
                 ]);
             }
         }
-        $this->getPdf($request);
-        Mail::to($request->email)->send( new ConfirmationMail($venta->id) ); 
+        $this->getPdf($venta);
+        $pdfpath = public_path('storage/public/pdf/' . $venta->source . '.pdf');
+        Mail::to($request->email)->send( new ConfirmationMail($venta->id, $pdfpath)); 
     }
     /**
      * Display the specified resource.

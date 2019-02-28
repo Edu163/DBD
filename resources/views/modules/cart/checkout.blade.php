@@ -25,7 +25,7 @@
         <h1 class="checkout-heading stylish-heading">Revisión</h1>
         <div class="checkout-section">
             <div>
-                <form action="{{ route('checkout.store') }}" method="POST" id="payment-form" onsubmit=" alert('\t\t\t\t\t¡Gracias!\t  \n\n Le informamos que su compra ha sido realizada exitosamente.\t'); return true;">
+                <form action="{{ route('checkout.store') }}" method="POST" id="payment-form" onsubmit=" alert('\t\t\t\t\t¡Gracias!\t  \n\n Le informamos que su compra ha sido realizada exitosamente.\t \n\n En breve se le rediccionará a la página principal.\t'); return true;">
                     {{ csrf_field() }}
                     <h2>Detalles de Facturación</h2>
 
