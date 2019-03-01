@@ -11,18 +11,8 @@ class FlightDetail extends Model
 {
     protected $table = 'flight_details';
 
-    // protected $avion_id;
-    /* protected $flight_id;
-    protected $airport_id;
-    protected $origin_id;
-    protected $destiny_id;
-    protected $fecha_despegue;
-    protected $fecha_aterrizaje;
-    protected $precio; */
 
     protected $fillable = [
-        // 'avion_id',
-        'flight_id',
         'airport_id',
         'origin_id',
         'destiny_id',
@@ -41,10 +31,10 @@ class FlightDetail extends Model
         return $this->belongsTo(Airplane::class);
     }
 
-    public function flight()
+    /*public function flight()
     {
         return $this->belongsTo(Flight::class);
-    }
+    }*/
 
     // public function origen_destino()
     // {
@@ -86,10 +76,12 @@ class FlightDetail extends Model
 
         $id_escalas = DB::table('flight_details AS f1')
                             ->join('flight_details AS f2', 'f2.origin_id', '=', 'f1.destiny_id')
+                            ->whereDate('f1.fecha_despegue', '=',$fechaPartida->format('Y-m-d'))
                             ->where('f1.origin_id', '=', $params['origen'])
                             ->where('f2.destiny_id', '=', $params['destino'])
                             ->whereDate(DB::raw('f2.fecha_despegue'), '>=',DB::raw('f1.fecha_aterrizaje'))
-                            ->whereRaw('DATE_PART(\'hour\', f2.fecha_despegue - f1.fecha_aterrizaje) < 2')
+                            ->whereRaw('DATE_PART(\'hour\', f2.fecha_despegue - f1.fecha_aterrizaje) < 3')
+                            ->whereRaw('DATE_PART(\'day\', f2.fecha_despegue - f1.fecha_aterrizaje) = 0')
                             ->select('f1.id AS Vuelo1', 'f2.id AS Vuelo2')->get();
 
 
@@ -129,7 +121,7 @@ class FlightDetail extends Model
         $id_escalas = self::buscarConEscala($params);
         $vuelosTest2 = self::agregarVuelosConEscala($id_escalas, $vuelosTest);
         //dump($vuelosTest2);
-         return $vuelos;
+         return $vuelosTest2;
      }
 
      public static function agregarVuelosConEscala($id_escalas, $vuelos)
@@ -140,4 +132,48 @@ class FlightDetail extends Model
          }
          return $vuelos;
      }
+     /** Metodos para busqueda automática de escalas en el seeder */
+     /** -------------------------------------------------- */
+    private static function buscarConEscalaSeed($origen, $destino)
+    {
+
+        $id_escalas = DB::table('flight_details AS f1')
+            ->join('flight_details AS f2', 'f2.origin_id', '=', 'f1.destiny_id')
+            ->where('f1.origin_id', '=', $origen)
+            ->where('f2.destiny_id', '=', $destino)
+            ->whereDate(DB::raw('f2.fecha_despegue'), '>=',DB::raw('f1.fecha_aterrizaje'))
+            ->whereRaw('DATE_PART(\'hour\', f2.fecha_despegue - f1.fecha_aterrizaje) < 3')
+            ->whereRaw('DATE_PART(\'day\', f2.fecha_despegue - f1.fecha_aterrizaje) = 0')
+            ->select('f1.id AS Vuelo1', 'f2.id AS Vuelo2')->get();
+
+        return $id_escalas;
+    }
+
+    public static function buscarVuelosSeed($origen, $destino)
+    {
+        $tramos = static::where('origin_id', '=', $origen)
+            ->get();
+        $vuelosTest = [];
+
+        foreach ($tramos as $tramo) {
+            if ($tramo->destiny_id == $destino) {
+                $vuelosTest[] = new FlightC([$tramo->id]);
+            }
+            else {
+
+            }
+        }
+        $id_escalas = self::buscarConEscalaSeed($origen, $destino);
+        $vuelosTest2 = self::agregarVuelosConEscalaSeed($id_escalas, $vuelosTest);
+        return $vuelosTest2;
+    }
+
+    public static function agregarVuelosConEscalaSeed($id_escalas, $vuelos)
+    {
+
+        foreach($id_escalas as $id){
+            $vuelos[] = new FlightC([$id->Vuelo1, $id->Vuelo2]);
+        }
+        return $vuelos;
+    }
 }

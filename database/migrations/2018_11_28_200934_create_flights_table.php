@@ -15,8 +15,30 @@ class CreateFlightsTable extends Migration
     {
         Schema::create('flights', function (Blueprint $table) {
             $table->increments('id');
-            $table->float('precio');
-            $table->time('duracion_vuelo');
+            $table->integer('tramo1_id')->nullable();;
+            $table->foreign('tramo1_id')
+                ->references('id')
+                ->on('flight_details')
+                ->onDelete('cascade');
+            $table->integer('tramo2_id')->nullable();;
+            $table->foreign('tramo2_id')
+                ->references('id')
+                ->on('flight_details')
+                ->onDelete('cascade');
+            $table->integer('origin_id');
+            $table->foreign('origin_id')
+                ->references('id')
+                ->on('airports')
+                ->onDelete('cascade');
+            $table->integer('destiny_id');
+            $table->foreign('destiny_id')
+                ->references('id')
+                ->on('airports')
+                ->onDelete('cascade');
+            $table->integer('escalas');
+            $table->integer('precio');
+            $table->datetime('fecha_despegue');
+            $table->datetime('fecha_aterrizaje');
             $table->timestamps();
         });
     }

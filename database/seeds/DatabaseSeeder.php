@@ -45,8 +45,8 @@ class DatabaseSeeder extends Seeder
             AirportsTableSeeder::class,
             CompaniesTableSeeder::class,
             SeatsTableSeeder::class,
-            FlightsTableSeeder::class,
             FlightDetailsTableSeeder::class,
+            FlightsTableSeeder::class,
             FlightSellDetailsTableSeeder::class,
             CheckInsTableSeeder::class,
             OriginDestiniesTableSeeder::class,
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             InsurancesTableSeeder::class,
 
             /* Paquetes */
-            PakagesTableSeeder::class,
+            //PakagesTableSeeder::class,
 
             /* Cart */
             CartsTableSeeder::class,
