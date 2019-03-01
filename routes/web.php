@@ -146,3 +146,7 @@ Route::resources([
     'confirmation'                 => 'OthersControllers\BuyConfirmationController',
     // 'users'                        => 'OthersControllers\UserController',
 ]);
+
+
+/* Test */
+Route::get('/viewtests', 'OthersControllers\MailController@index');

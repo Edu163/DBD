@@ -51,7 +51,7 @@ class CheckoutController extends Controller
     public function getPdf($venta)
     {
         $pdfname = $venta->source . '.pdf';
-        return PDF::loadView('modules.others.pdf.billing')->save(storage_path('app/public/public/pdf/' . $pdfname));
+        return PDF::loadView('modules.others.pdf.billing', compact('venta'))->save(storage_path('app/public/public/pdf/' . $pdfname));
     }
 
     /**
@@ -131,7 +131,19 @@ class CheckoutController extends Controller
         }
         $this->getPdf($venta);
         $pdfpath = public_path('storage/public/pdf/' . $venta->source . '.pdf');
-        Mail::to($request->email)->send( new ConfirmationMail($venta->id, $pdfpath)); 
+        $email = $request->email;
+        $username = $request->name;
+        $data = array('venta'=>$venta);
+        $beautymail = app()->make(\Snowfire\Beautymail\Beautymail::class);
+        $beautymail->send('modules.others.mail.confirmationMail', $data, function($message)
+        use ($email, $username, $pdfpath)
+        {
+            $message
+            
+                ->to($email, $username)
+                ->subject('Confirmación de reserva exitosa')
+                ->attach($pdfpath);
+        }); 
     }
     /**
      * Display the specified resource.
