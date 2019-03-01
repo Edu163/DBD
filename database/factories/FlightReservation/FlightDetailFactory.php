@@ -7,11 +7,11 @@ use App\Modules\FlightReservation\FlightDetail;
 $factory->define(FlightDetail::class, function (Faker $faker) {
     /* Llaves foráneas */
     // $avion_id = DB::table('aviones')->select('id')->get();
-	$flight_id = DB::table('flights')->select('id')->get();
+	//$flight_id = DB::table('flights')->select('id')->get();
     $origin_id = DB::table('airports')->select('id')->get();
     $destiny_id = DB::table('airports')->select('id')->get();
     $airport_id = DB::table('airports')->select('id')->get();
-    $date = Carbon::create(2019, 2, mt_rand(26, 28), mt_rand(0, 24), 0, 0);
+    $date = Carbon::create(2019, 3, mt_rand(1, 3), mt_rand(0, 24), 0, 0);
     $date2 = $date->copy()->addHours(mt_rand(1,10));
     Carbon::parse($date)->format("Y-m-d H:i:s");
     Carbon::parse($date2)->format("Y-m-d H:i:s");
@@ -21,7 +21,7 @@ $factory->define(FlightDetail::class, function (Faker $faker) {
         $destino = $destiny_id->random()->id;
     }
     return [
-        'flight_id' => $flight_id->random()->id,
+        //'flight_id' => $flight_id->random()->id,
         'airport_id' => $airport_id->random()->id,
         'origin_id' => $origen,
         'destiny_id' => $destino,

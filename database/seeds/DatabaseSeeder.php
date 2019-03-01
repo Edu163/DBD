@@ -18,6 +18,19 @@ class DatabaseSeeder extends Seeder
             /* Dirección */
             CountriesTableSeeder::class,
             CitiesTableSeeder::class,
+
+            /* Vuelos */
+            AirportsTableSeeder::class,
+            CompaniesTableSeeder::class,
+            SeatsTableSeeder::class,
+            FlightDetailsTableSeeder::class,
+            FlightsTableSeeder::class,
+            FlightSellDetailsTableSeeder::class,
+            CheckInsTableSeeder::class,
+            OriginDestiniesTableSeeder::class,
+            FlightReservationsTableSeeder::class,
+            InsurancesTableSeeder::class,
+
             /* Vehiculos */
             VehicleReservationsTableSeeder::class,
             VehicleCalendariesTableSeeder::class,
@@ -28,6 +41,7 @@ class DatabaseSeeder extends Seeder
             VehicleServicesTableSeeder::class,
             ServiceAndVehiclesTableSeeder::class,
             ServiceAndProvidersTableSeeder::class,
+
 
             /* Hoteles */
             HotelsTableSeeder::class,
@@ -41,20 +55,10 @@ class DatabaseSeeder extends Seeder
             ServiceAndRoomsTableSeeder::class,
             HotelReservationDetailsTableSeeder::class,
 
-            /* Vuelos */
-            AirportsTableSeeder::class,
-            CompaniesTableSeeder::class,
-            SeatsTableSeeder::class,
-            FlightsTableSeeder::class,
-            FlightDetailsTableSeeder::class,
-            FlightSellDetailsTableSeeder::class,
-            CheckInsTableSeeder::class,
-            OriginDestiniesTableSeeder::class,
-            FlightReservationsTableSeeder::class,
-            InsurancesTableSeeder::class,
+
 
             /* Paquetes */
-            PakagesTableSeeder::class,
+            PackagesTableSeeder::class,
 
             /* Cart */
             CartsTableSeeder::class,

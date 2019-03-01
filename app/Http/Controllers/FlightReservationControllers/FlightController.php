@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 
 class FlightController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //if ( ! session('vuelo_vuelta')) {
@@ -32,7 +27,7 @@ class FlightController extends Controller
             //request()->session()->forget('vuelo_vuelta');
         //}
         //dd("hola");
-        $flight = FlightDetail::buscarVuelos($params);
+        $flight = Flight::buscarVuelos($params);
 
         //request()->session()->put('busqueda.vuelos', $params);
 

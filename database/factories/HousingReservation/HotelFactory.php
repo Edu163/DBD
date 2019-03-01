@@ -7,8 +7,8 @@ use App\Modules\Others\Country;
 
 $factory->define(Hotel::class, function (Faker $faker) {
 	//Llaves foráneas
-	$cities_id = DB::table('cities')->select('id')->get();
-    $city_id = $cities_id->random()->id;
+	$cities_id = DB::table('airports')->select('ciudad_id')->get();
+    $city_id = $cities_id->random()->ciudad_id;
     $city = City::findOrFail($city_id);
     $country_id = $city->pais_id;
     $country = Country::findOrFail($country_id);
