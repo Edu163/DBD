@@ -6,12 +6,12 @@ use App\Modules\FlightReservation\FlightDetail;
 use App\Modules\FlightReservation\Airport;
 use App\Modules\VehicleReservation\Vehicle;
 use App\Modules\VehicleReservation\Zone;
-use Faker\Generator as Faker;
 use App\Modules\Others\Package;
+use Faker\Generator as Faker;
 
 $factory->define(Package::class, function (Faker $faker) {
     /* Llaves Foráneas */
-    $flight_id = DB::table('flights')->select('id')->get();
+    $flight_id = DB::table('flight_details')->select('id')->get();
     $hotel_id = DB::table('hotels')->select('id')->get();
     $vehicle_id = DB::table('vehicles')->select('id')->get();
 
@@ -36,17 +36,17 @@ $factory->define(Package::class, function (Faker $faker) {
     $city_hotel = $hotel->ciudad_id;
 
     $count = 0;
-    while($count <= 5)
+    while($count <= 30)
     {
         if($city_hotel != $city_airport)
         {
             $id_hotel = $hotel_id->random()->id;
             $hotel = Hotel::findOrfail($id_hotel);
-            $city_hotel = $hotel->direccion;
-            $count = $count + 1;
+            $city_hotel = $hotel->ciudad_id;
         }
+        $count = $count + 1;
     }
-    if($count == 5)
+    if($count == 30)
     {
         $id_hotel = null;
     }
@@ -54,18 +54,18 @@ $factory->define(Package::class, function (Faker $faker) {
 
 
     $count = 0;
-    while($count <= 5)
+    while($count <= 30)
     {
         if($city_vehicle != $city_airport)
         {
             $id_vehicle = $vehicle_id->random()->id;
             $id_zone = $vehicle->zone_id;
             $zone = Zone::findOrfail($id_zone);
-            $city_vehicle = $zone->direccion;
-            $count = $count + 1;
+            $city_vehicle = $zone->ciudad_id;
         }
+        $count = $count + 1;
     }
-    if($count == 5)
+    if($count == 30)
     {
         $id_hotel = null;
     }

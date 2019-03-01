@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             InsurancesTableSeeder::class,
 
             /* Paquetes */
-            //PakagesTableSeeder::class,
+            PackagesTableSeeder::class,
 
             /* Cart */
             CartsTableSeeder::class,

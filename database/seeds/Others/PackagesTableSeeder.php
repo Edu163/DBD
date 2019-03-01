@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Modules\Others\Package;
 
-class PakagesTableSeeder extends Seeder
+class PackagesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class PakagesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Package::class, 20)->create();
+        factory(Package::class, 40)->create();
     }
 }
