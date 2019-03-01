@@ -96,7 +96,7 @@ class CheckoutController extends Controller
     public function addSell($request, $error){
 
         $venta = Sell::create([
-            'source' => Str::random(32),
+            'source' => Str::random(16),
             'user_id' => Auth::user()->id,
             'impuesto' => Cart::tax(),
             'monto_total'  => Cart::total(),
