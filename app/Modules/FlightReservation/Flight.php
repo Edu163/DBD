@@ -156,4 +156,16 @@ class Flight extends Model
     {
         return $this->belongsTo(FlightDetail::class, 'tramo2_id');
     }
+    public static function buscarVuelos($params)
+    {
+
+        $fechaPartida = Carbon::createFromFormat('Y-m-d', $params['fechaida']);
+
+        $vuelos = static::where('origin_id', '=', $params['origen'])
+            ->whereDate('fecha_despegue', '=', $fechaPartida->format('Y-m-d'))
+            ->where('destiny_id', '=', $params['destino'])
+            ->get();
+
+        return $vuelos;
+    }
 }

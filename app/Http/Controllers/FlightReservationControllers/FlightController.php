@@ -27,7 +27,7 @@ class FlightController extends Controller
             //request()->session()->forget('vuelo_vuelta');
         //}
         //dd("hola");
-        $flight = FlightDetail::buscarVuelos($params);
+        $flight = Flight::buscarVuelos($params);
 
         //request()->session()->put('busqueda.vuelos', $params);
 

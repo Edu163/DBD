@@ -7,17 +7,17 @@
             @foreach($flight as $vuelo)
                 <div class="col-lg-4 col-md-6">
                     <div class="box featured wow fadeInUp">
-                        <h4><sup>$</sup>{{ $vuelo->getPrecio() }}</h4>
+                        <h4><sup>$</sup>{{ $vuelo->precio }}</h4>
                         <img class="img-fluid" src="https://picsum.photos/200/200?image={{ mt_rand(1, 50) }}" style="padding-bottom: 8% !important;">
                         <ul>
-                            <li><i class="ion-android-checkmark-circle"></i>Origen: {{ $vuelo->getOrigen() }} </li>
+                            {{--<li><i class="ion-android-checkmark-circle"></i>Origen: {{ $vuelo->getOrigen() }} </li>
                             <li><i class="ion-android-checkmark-circle"></i>Destino: {{ $vuelo->getDestino() }} </li>
                             <li><i class="ion-android-checkmark-circle"></i>Salida1: {{ $vuelo->getFechaSalida1() }} </li>
                             <li><i class="ion-android-checkmark-circle"></i>LLegada1: {{ $vuelo->getFechaAterrizaje1() }} </li>
                             <li><i class="ion-android-checkmark-circle"></i>Salida2: {{ $vuelo->getFechaSalida2() }} </li>
                             <li><i class="ion-android-checkmark-circle"></i>LLegada2: {{ $vuelo->getFechaAterrizaje2() }} </li>
                             <li><i class="ion-android-checkmark-circle"></i>Duración: {{ $vuelo->duracion() }} </li>
-                            <li><i class="ion-android-checkmark-circle"></i>Escalas: {{ $vuelo->getNumeroEscalas() }} </li>
+                            <li><i class="ion-android-checkmark-circle"></i>Escalas: {{ $vuelo->getNumeroEscalas() }} </li>--}}
                             {{--<li><i class="ion-android-checkmark-circle"></i>Origen: {{ $vuelo->origin->ciudad }}</li>
                             <li><i class="ion-android-checkmark-circle"></i>Destino: {{ $vuelo->destiny->ciudad }}</li>
                             <li><i class="ion-android-checkmark-circle"></i>Fecha de despegue: {{ $vuelo->horarioDespegue() }}</li>

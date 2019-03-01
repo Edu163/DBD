@@ -47,7 +47,7 @@ $factory->define(Package::class, function (Faker $faker) {
             $id_hotel = $hotel_id->random()->id;
             $hotel = Hotel::findOrfail($id_hotel);
             $city_hotel = $hotel->ciudad_id;
-            echo "$count ID Ciudad Airport: $city_airport", "ID Ciudad Hotel: $city_hotel\n";
+            //echo "$count ID Ciudad Airport: $city_airport", "ID Ciudad Hotel: $city_hotel\n";
         }
         else{
             $iguales1 = 1;
@@ -57,7 +57,7 @@ $factory->define(Package::class, function (Faker $faker) {
     if($count == 31)
     {
         $id_hotel = null;
-        echo "HOTEL NULO\n";
+        //echo "HOTEL NULO\n";
     }
 
 
@@ -71,18 +71,18 @@ $factory->define(Package::class, function (Faker $faker) {
             $id_zone = $vehicle->zone_id;
             $zone = Zone::findOrfail($id_zone);
             $city_vehicle = $zone->ciudad_id;
-            echo "$count ID Ciudad Airport: $city_airport", "ID Ciudad Vehiculo: $city_vehicle\n";
+            //echo "$count ID Ciudad Airport: $city_airport", "ID Ciudad Vehiculo: $city_vehicle\n";
         }
         else{
             $iguales2 = 1;
-            echo "IGUALES :D\n";
+            //echo "IGUALES :D\n";
         }
         $count = $count + 1;
     }
     if($count == 31)
     {
         $id_vehicle = null;
-        echo "VEHICULO NULO\n";
+        //echo "VEHICULO NULO\n";
     }
     return [
         'flight_id' =>$id_flight,
