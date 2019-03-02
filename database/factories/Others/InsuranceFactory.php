@@ -7,6 +7,7 @@ $factory->define(Insurance::class, function (Faker $faker) {
 
     return [
         'flight_id' => null,
+        'insurance_reservation_id' => null,
         'medicalService' => $faker->randomElement(['Normal','Premium','Platino']),
         'service2' => $faker->randomElement(['Localización de equipajes','Reembolso de gastos por vuelo demorado o cancelado','Asistencia en caso de robo o extravío de documentos']),
         'service3' => $faker->randomElement(['Incluye seguro por accidentes','Garantía de cancelación e interrupción de viaje por fuerza mayor','Hasta 365 días consecutivos de viaje']),

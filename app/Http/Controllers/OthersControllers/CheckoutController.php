@@ -13,6 +13,7 @@ use Cartalyst\Stripe\Exception\CardErrorException;
 use App\Modules\Others\Sell;
 use App\Modules\FlightReservation\FlightSellDetail;
 use App\Modules\VehicleReservation\VehicleReservation;
+use App\Modules\Others\InsuranceReservation;
 use Auth;
 use App\User;
 use PDF;
@@ -136,6 +137,7 @@ class CheckoutController extends Controller
                 ]);
             }
         }
+        /* PDF y Email */
         $this->getPdf($venta);
         $pdfpath = public_path('storage/public/pdf/' . $venta->source . '.pdf');
         $email = $request->email;

@@ -15,6 +15,12 @@ class CreateInsuranceReservationsTable extends Migration
     {
         Schema::create('insurance_reservations', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('sell_id')->nullable();
+            $table->foreign('sell_id')
+                  ->references('id')
+                  ->on('sells')
+                  ->onDelete('cascade');
+            $table->float('monto_total')->nullable();
             $table->timestamps();
         });
     }
