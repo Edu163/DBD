@@ -20,6 +20,10 @@ class Insurance extends Model
         'medicalService',
         'service2',
         'service3',
+        'active',
+        'groupsize',
+        'avgage',
+        'price',
     ];
 
     /* Relaciones */

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\FlightReservationControllers;
+namespace App\Http\Controllers\OthersControllers;
 
 use App\Modules\Others\Insurance;
 use App\Http\Controllers\Controller;
@@ -13,10 +13,15 @@ class InsuranceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexo()
     {
-        $insurances = Insurance::all();
-        //$hotels = Hotel::all()->where('pais', request('zona_id'));         
+        $insurances = Insurance::all();         
+        return view('modules.flightReservation.insurance.index', compact('insurances'));
+    }
+
+    public function indext()
+    {
+        $insurances = Insurance::all();         
         return view('modules.flightReservation.insurance.index', compact('insurances'));
     }
 

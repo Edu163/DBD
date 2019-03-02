@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Modules\FlightReservation\FlightDetail;
 use App\Modules\VehicleReservation\Vehicle;
+use App\Modules\Others\Insurance;
 
 class CartController extends Controller
 {
@@ -84,6 +85,14 @@ class CartController extends Controller
         // }
         Cart::add($request->id, 'destino-santiago', 1, $request->precio)
             ->associate('App\Modules\HousingReservation\HotelRoom');
+
+         return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
+    }
+
+    public function storeInsurance(Insurance $insurance)
+    {
+        Cart::add($insurance->id, 'destino-santiago', 1, $insurance->price)
+            ->associate('App\Modules\Others\Insurance');
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
     }

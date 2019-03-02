@@ -87,6 +87,39 @@
                         </div>
                     </div> <!-- end cart-table-row -->
                     @endif
+                    @if(get_class($item->model) == "App\Modules\Others\Insurance")
+                    <div class="cart-table-row">
+                        <div class="cart-table-row-left">
+                            <a href="#"><img src="https://picsum.photos/180/120?image={{ mt_rand(1, 50) }}" alt="item" class="cart-table-img"></a>
+                            <div class="cart-item-details">
+                                <div class="cart-table-item"><a href="#">Seguro {{ $item->model->medicalService }}</a></div>
+                                <div>{{ $item->model->service2}}</div>
+                                </br>
+                                <div>{{ $item->model->service3}}</div>
+                            </div>
+                        </div>
+                        <div class="cart-table-row-right">
+                            <div style="margin: 4%;">{{ $item->subtotal}}</div>
+                            <div>
+                                <select class="quantity" style="margin:  9px !important;" data-id="{{ $item->rowId }}">
+                                    @for ($i = 1; $i < 5 + 1 ; $i++)
+                                        <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                    @endfor
+                                </select>
+                            </div>
+                            <div class="cart-table-actions">
+                                {{--<a href="#">Remove</a> <br>--}}
+                                <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+
+                                    <button id="butonRemove" type="submit" class="btn btn-danger btn-galaxy" style="font-size: 14px !important; margin: 0% !important">Eliminar</button>
+                                </form>
+                                {{-- <a href="#">Guardar para luego</a> --}}
+                            </div>
+                        </div>
+                    </div> <!-- end cart-table-row -->
+                    @endif
                 @endforeach
 
             </div> <!-- end cart-table -->
@@ -111,7 +144,7 @@
             </div> <!-- end cart-totals -->
 
             <div class="cart-buttons">
-                <a href="#" class="button">Continuar Comprando</a>
+                <a href="/" class="button">Continuar Comprando</a>
                 <a href="{{ route('checkout.index')}}" class="btn btn-success btn-galaxy">Proceder a la Revisión</a>
             </div>
             @else

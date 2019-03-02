@@ -1,4 +1,4 @@
-<form action="/insurance" method="get">
+<form action="/insuranceo" method="get">
     <div class="row justify-content-center">
         <h2>¿Cuándo viajas?</h2>
     </div>

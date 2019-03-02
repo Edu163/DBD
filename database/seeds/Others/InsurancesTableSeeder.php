@@ -12,6 +12,6 @@ class InsurancesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Insurance::class, 20)->create();
+        factory(Insurance::class, 500)->create();
     }
 }
