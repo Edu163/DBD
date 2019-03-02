@@ -25,7 +25,7 @@ Route::get('/packagevav', 'OthersControllers\PackageController@vav')->name('pack
 Route::get('/flight', 'FlightReservationControllers\FlightController@index')->name('flight.index');
 Route::patch('/cart/{product}', 'OthersControllers\CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'OthersControllers\CartController@destroy')->name('cart.destroy');
-Route::post('/cartflight/{flightDetail}', 'OthersControllers\CartController@storeFlights')->name('cart.storeFlights');
+Route::post('/cartflight/{flight}', 'OthersControllers\CartController@storeFlights')->name('cart.storeFlights');
 Route::post('/cartvehicle/{vehicle}', 'OthersControllers\CartController@storeVehicle')->name('cart.storeVehicle');
 // Route::post('/cart', 'CartController@storeHousing')->name('cart.storeHousing');
 Route::group(['middleware' => ['auth', 'admin']], function() {

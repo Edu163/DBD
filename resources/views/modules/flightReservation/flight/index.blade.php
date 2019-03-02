@@ -1,9 +1,9 @@
 <!-- Modal -->
-<div class="modal fade" id="modal-vehicle-reservation-{{ $vehicle->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-vehicle-reservation-label" aria-hidden="true">
+<div class="modal fade" id="modal-vehicle-reservation-{{ $vuelo->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-vehicle-reservation-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header" style="color: black;">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Vehículo Patente: {{$vehicle->patente}}</h5>
+        <h5 class="modal-title" id="exampleModalCenterTitle">Destino: {{$vuelo->destiny->ciudad}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -13,34 +13,44 @@
           <div class="row">
               <div class="col-6">
               <p class="modal-text">
-                  <b>Marca</b>
+                  <b>Destino</b>
                   <br>
-                  {{ $vehicle->marca }}
+                  {{ $vuelo->destiny->ciudad }}
               </p>
 
               <p class="modal-text">
-                  <b>Tipo de Vehículo</b>
+                  <b>Fecha salida</b>
                   <br>
-                  {{ $vehicle->tipo }}
+                  {{ $vuelo->fecha_despegue }}
               </p>
 
               <p class="modal-text">
-                  <b>Gamma del Vehículo</b>
+                  <b>Fecha de llegada</b>
                   <br>
-                  {{ $vehicle->gamma }}
+                  {{ $vuelo->fecha_aterrizaje }}
               </p>
 
               <p class="modal-text">
-                  <b>Tipo de Transmisión</b>
+                  <b>Escalas</b>
                   <br>
-                  {{ $vehicle->transmision }}
+                  {{ $vuelo->escalas }}
               </p>
-
-              <p class="modal-text">
-                  <b>Tipo de Combustible</b>
-                  <br>
-                  {{ $vehicle->combustible }}
-              </p>
+                  @if ($vuelo->escalas == 2)
+                      <p class="modal-text">
+                          <b>Primer tramo</b>
+                          <br>
+                          Origen: {{ $vuelo->getTramo1->origin->ciudad}}<br>
+                          Destino: {{ $vuelo->getTramo1->destiny->ciudad}}<br>
+                          Fecha Salida: {{ $vuelo->getTramo1->fecha_despegue}}
+                      </p>
+                      <p class="modal-text">
+                          <b>Segundo tramo</b>
+                          <br>
+                          Origen: {{ $vuelo->getTramo2->origin->ciudad}}<br>
+                          Destino: {{ $vuelo->getTramo2->destiny->ciudad}}<br>
+                          Fecha Salida: {{ $vuelo->getTramo2->fecha_despegue}}
+                      </p>
+                  @endif
 
               </div>
               <div class="col-6">
@@ -75,11 +85,11 @@
       </div>
 
       <div class="modal-footer" style="color: grey; ">
-        <form action="{{ route('cart.storeVehicle', $vehicle) }}" method="POST" onsubmit="return confirm('¿Esta seguro que desea agregar al carro?')">
+        <form action="{{ route('cart.storeFlights', $vuelo) }}" method="POST" onsubmit="return confirm('¿Esta seguro que desea agregar al carro?')">
           @method('POST')
           @csrf
           <button type="submit" class="btn btn-success btn-galaxy">
-              <i class="fas fa-cart-plus" style="margin-right: 3%;"></i>Reservar Vehículo</button>
+              <i class="fas fa-cart-plus" style="margin-right: 3%;"></i>Reservar Vuelo</button>
           <button type="button" class="btn btn-danger btn-galaxy" data-dismiss="modal">Volver</button>
         </form>
       </div>

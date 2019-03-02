@@ -28,11 +28,13 @@ class FlightController extends Controller
         //}
         //dd("hola");
         $flight = Flight::buscarVuelos($params);
-
+        /*foreach ($flight as $f){
+            dump($f);
+        }*/
         //request()->session()->put('busqueda.vuelos', $params);
 
         //return view('modules.flightReservation.flight.flight', compact('vuelos'));
-        return view('modules.flightReservation.flightdetail.flightDetail', compact('flight'));
+        return view('modules.flightReservation.flight.flight', compact('flight'));
     }
 
     /**

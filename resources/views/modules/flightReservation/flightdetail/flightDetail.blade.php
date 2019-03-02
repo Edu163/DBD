@@ -8,12 +8,13 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="box featured wow fadeInUp">
                         <h4><sup>$</sup>{{ $vuelo->precio }}</h4>
-                        <img class="img-fluid" src="https://picsum.photos/200/200?image={{ mt_rand(1, 50) }}" style="padding-bottom: 8% !important;">
+                        <img class="img-fluid" src="https://picsum.photos/300/200?image={{ mt_rand(1035, 1052) }}" style="padding-bottom: 8% !important;">
                         <ul>
-                            {{--<li><i class="ion-android-checkmark-circle"></i>Origen: {{ $vuelo->getOrigen() }} </li>
-                            <li><i class="ion-android-checkmark-circle"></i>Destino: {{ $vuelo->getDestino() }} </li>
-                            <li><i class="ion-android-checkmark-circle"></i>Salida1: {{ $vuelo->getFechaSalida1() }} </li>
-                            <li><i class="ion-android-checkmark-circle"></i>LLegada1: {{ $vuelo->getFechaAterrizaje1() }} </li>
+                            <li><i class="ion-android-checkmark-circle"></i>ID: {{ $vuelo->id }} </li>
+                            <li><i class="ion-android-checkmark-circle"></i>Escalas: {{ $vuelo->escalas }} </li>
+                            <li><i class="ion-android-checkmark-circle"></i>Salida: {{ $vuelo->fecha_despegue }} </li>
+                            <li><i class="ion-android-checkmark-circle"></i>Llegada: {{ $vuelo->fecha_aterrizaje }} </li>
+                            {{--<li><i class="ion-android-checkmark-circle"></i>LLegada1: {{ $vuelo->getFechaAterrizaje1() }} </li>
                             <li><i class="ion-android-checkmark-circle"></i>Salida2: {{ $vuelo->getFechaSalida2() }} </li>
                             <li><i class="ion-android-checkmark-circle"></i>LLegada2: {{ $vuelo->getFechaAterrizaje2() }} </li>
                             <li><i class="ion-android-checkmark-circle"></i>Duración: {{ $vuelo->duracion() }} </li>
@@ -30,7 +31,8 @@
                         </ul>
                         <center>
                             <form action="{{ route('cart.storeFlights', $vuelo) }}" method="POST">
-                            @csrf
+                                @method('POST')
+                                @csrf
                                 <button style="margin-top: 0.2cm;" type="submit" class="btn btn-success btn-galaxy"> Ver detalles </button>
                             </form>
                         </center>
