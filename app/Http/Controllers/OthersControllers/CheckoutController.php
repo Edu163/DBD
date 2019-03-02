@@ -128,6 +128,13 @@ class CheckoutController extends Controller
                     'monto_total' => strval($item->total),
                 ]);
             }
+            else if(get_class($item->model) == "App\Modules\Others\Insurance")
+            {
+                InsuranceReservation::create([
+                    'sell_id' => $venta->id,
+                    'monto_total' => strval($item->total),
+                ]);
+            }
         }
         $this->getPdf($venta);
         $pdfpath = public_path('storage/public/pdf/' . $venta->source . '.pdf');
