@@ -53,9 +53,7 @@
                         role="tabpanel" 
                         aria-labelledby="historial-tab"
                         >
-                            <h3>
-                                Aquí irá el historial
-                            </h3>
+                            @include('modules.others.profile.historial')
                         </div>
 
                         <div 

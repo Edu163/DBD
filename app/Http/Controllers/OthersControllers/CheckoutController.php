@@ -123,9 +123,10 @@ class CheckoutController extends Controller
                 ]);     
             }
             else if(get_class($item->model) == "App\Modules\VehicleReservation\Vehicle")
-            {
+            {                
                 VehicleReservation::create([
                     'sell_id' => $venta->id,
+                    'vehicle_id' => $item->model->id,
                     'monto_total' => strval($item->total),
                 ]);
             }

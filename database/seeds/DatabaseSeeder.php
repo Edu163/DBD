@@ -32,11 +32,11 @@ class DatabaseSeeder extends Seeder
             InsurancesTableSeeder::class,
 
             /* Vehiculos */
-            VehicleReservationsTableSeeder::class,
             VehicleCalendariesTableSeeder::class,
             ZonesTableSeeder::class,
             VehicleProvidersTableSeeder::class,
             VehiclesTableSeeder::class,
+            VehicleReservationsTableSeeder::class,
             VehicleReservationDetailsTableSeeder::class,
             VehicleServicesTableSeeder::class,
             ServiceAndVehiclesTableSeeder::class,

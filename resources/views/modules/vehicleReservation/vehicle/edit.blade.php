@@ -38,7 +38,7 @@
             <td class="align-middle">{{$vehicle->equipaje_p}}</td>
             <td class="align-middle">{{$vehicle->n_puertas}}</td>
             <td class="align-middle">{{$vehicle->n_kilometraje}}</td>
-            <td class="align-middle">{{$vehicle->precio_hora}}</td>
+            <td class="align-middle">{{$vehicle->precio}}</td>
             <td class="align-middle">{{$vehicle->aire_acondicionado}}</td>
             <td class="align-middle">
             <center>

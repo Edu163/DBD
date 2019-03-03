@@ -1307,3 +1307,19 @@ body.mobile-nav-active #mobile-nav-toggle {
 #footer .footer-links a:hover {
   color: #1dc8cd;
 }
+
+/* Perfil */
+
+#mainAccordion .card{
+  border: white !important;
+ 
+}
+
+#mainAccordion .card-header{
+  background: linear-gradient(45deg, #1de099, #1dc8cd) !important;
+}
+
+#mainAccordion .card-body{
+  background: black !important;
+  color: white !important;
+}

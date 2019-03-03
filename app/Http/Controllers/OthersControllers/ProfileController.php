@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\OthersControllers;
 
 use App\User;
+use App\Modules\Others\Sell;
+use App\Modules\VehicleReservation\VehicleReservationDetail;
+use App\Modules\VehicleReservation\VehicleReservation;
+use App\Modules\VehicleReservation\VehicleProvider;
+use App\Modules\VehicleReservation\Vehicle;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -50,7 +55,8 @@ class ProfileController extends Controller
     {
         $realId = Crypt::decrypt($id);  
         $user = User::findOrFail($realId);
-        return view('modules.others.profile.profile', compact('user'));
+        $sells = Sell::where('user_id', $realId)->get();
+        return view('modules.others.profile.profile', compact('user', 'sells'));
     }
 
     /**
