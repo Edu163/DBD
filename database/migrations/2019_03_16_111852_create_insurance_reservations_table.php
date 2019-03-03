@@ -20,6 +20,10 @@ class CreateInsuranceReservationsTable extends Migration
                   ->references('id')
                   ->on('sells')
                   ->onDelete('cascade');
+            $table->integer('insurance_id')->nullable();
+            $table->foreign('insurance_id')
+                ->references('id')
+                ->on('insurances');
             $table->float('monto_total')->nullable();
             $table->timestamps();
         });

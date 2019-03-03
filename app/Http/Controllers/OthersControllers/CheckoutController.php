@@ -134,6 +134,7 @@ class CheckoutController extends Controller
             {
                 InsuranceReservation::create([
                     'sell_id' => $venta->id,
+                    'insurance_id' => $item->model->id,
                     'monto_total' => strval($item->total),
                 ]);
             }

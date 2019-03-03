@@ -20,10 +20,6 @@ class CreateInsurancesTable extends Migration
                     ->references('id')
                     ->on('flights')
                     ->onDelete('cascade');
-            $table->integer('insurance_reservation_id')->nullable();
-            $table->foreign('insurance_reservation_id')
-                ->references('id')
-                ->on('insurance_reservations');
             $table->string('medicalService');
             $table->string('service2');
             $table->string('service3');

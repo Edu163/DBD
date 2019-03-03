@@ -32,7 +32,12 @@ class Insurance extends Model
     ];
 
     /* Relaciones */
+
     public function flight(){
     	return $this->belongsTo(Flight::class);
+    }
+
+    public function insuranceReservation(){
+    	return $this->hasMany(InsuranceReservation::class);
     }
 }

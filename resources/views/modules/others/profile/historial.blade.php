@@ -67,7 +67,9 @@
 
         <div id="insurance" class="collapse" aria-labelledby="insuranceAccordion" data-parent="#mainAccordion">
             <div class="card-body">
-            
+                @foreach ($sells as $sell)
+                    @include('modules.others.profile.insurance')
+                @endforeach
             </div>
         </div>
     </div>
