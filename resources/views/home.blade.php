@@ -277,7 +277,7 @@
                                 Vuelos
                             </a>
                             <a class="nav-link btn-galaxy" id="v-pills-checkin-tab" data-toggle="pill" href="#v-pills-checkin" role="tab" aria-controls="v-pills-checkin" aria-selected="false">
-                                <i class="fas fa-cubes"></i>
+                                <i class="fas fa-laptop"></i>
                                 Check-in
                             </a>
                             <a class="nav-link btn-galaxy" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
@@ -293,7 +293,7 @@
                                 Paquetes
                             </a>
                             <a class="nav-link btn-galaxy" id="v-pills-insurance-tab" data-toggle="pill" href="#v-pills-insurance" role="tab" aria-controls="v-pills-insurance" aria-selected="false">
-                                <i class="fas fa-cubes"></i>
+                                <i class="fas fa-heartbeat"></i>
                                 Seguros de viaje
                             </a>
                             </div>
