@@ -15,7 +15,9 @@ class HotelRoomsTableSeeder extends Seeder
     {
         $hotels = Hotel::all();
         foreach($hotels as $hotel){
-            factory(HotelRoom::class, 30)->create();
+            factory(HotelRoom::class, 9)->create([
+                'hotel_id' => $hotel->id
+                ]);
         }
     }
 }
