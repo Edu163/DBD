@@ -47,9 +47,22 @@ class CartController extends Controller
         // if ($duplicates->isNotEmpty()) {
         //     return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
         // }
-        dump($vuelo);
-        Cart::add($vuelo->id, 'destino-santiago', 1, $vuelo->precio)
-            ->associate('App\Modules\FlightReservation\Flight');
+        $params = request()->session()->get('busqueda.vuelos');
+        if($params['cabina'] == 1)
+        {
+            Cart::add($vuelo->id, 'destino-santiago', 1, $vuelo->precio_premium)
+                ->associate('App\Modules\FlightReservation\Flight');
+        }
+        else if($params['cabina'] == 2)
+        {
+            Cart::add($vuelo->id, 'destino-santiago', 1, $vuelo->precio_bussiness)
+                ->associate('App\Modules\FlightReservation\Flight');
+        }
+        else if($params['cabina'] == 3)
+        {
+            Cart::add($vuelo->id, 'destino-santiago', 1, $vuelo->precio_economy)
+                ->associate('App\Modules\FlightReservation\Flight');
+        }
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
     }

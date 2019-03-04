@@ -21,10 +21,10 @@ class CreateFlightSellDetailsTable extends Migration
                 ->on('sells')
                 ->onUpdate('cascade')
                 ->onDelete('set null');
-            $table->integer('flight_details_id')->unsigned()->nullable();
-            $table->foreign('flight_details_id')
+            $table->integer('flight_id')->unsigned()->nullable();
+            $table->foreign('flight_id')
                     ->references('id')
-                    ->on('flight_details')
+                    ->on('flights')
                     ->onUpdate('cascade')
                     ->onDelete('set null');
             $table->integer('cantidad')->unsigned();

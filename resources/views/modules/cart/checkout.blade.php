@@ -104,8 +104,14 @@
                                 <div class="checkout-table-row-left">
                                     <img src="https://picsum.photos/120/180?image={{ mt_rand(1, 50) }}" alt="" class="checkout-table-img">
                                     <div class="checkout-item-details">
-                                            <div class="cart-table-item"><a href="#">Destino: {{ $item->model->destiny->ciudad }}</a></div>
-                                            <div class="cart-table-description">Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                                        @if($item->model->escalas == 1)
+                                            <div class="cart-table-item"><a href="#">Destino: {{ $item->model->getTramo1->destiny->ciudad }}</a></div>
+                                            <div>Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                                        @endif
+                                        @if($item->model->escalas == 2)
+                                            <div class="cart-table-item"><a href="#">Destino: {{ $item->model->getTramo2->destiny->ciudad }}</a></div>
+                                            <div>Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                                        @endif
                                         <div class="checkout-table-price">Subtotal: {{ $item->subtotal }}</div>
                                     </div>
                                 </div> <!-- end checkout-table -->
@@ -165,7 +171,7 @@
 <script>
     (function(){
         // Create a Stripe client
-        var stripe = Stripe('pk_test_37DdlWVlUWtnqquZgsqdptfW');
+        var stripe = Stripe('pk_test_ncvmzwDJL7zhmSBts4gZbWLl');
 
         // Create an instance of Elements
         var elements = stripe.elements();
@@ -255,4 +261,3 @@
 
 @endsection
 
-    

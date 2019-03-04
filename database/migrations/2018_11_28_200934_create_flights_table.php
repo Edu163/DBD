@@ -36,7 +36,9 @@ class CreateFlightsTable extends Migration
                 ->on('airports')
                 ->onDelete('cascade');
             $table->integer('escalas');
-            $table->integer('precio');
+            $table->integer('precio_economy');
+            $table->integer('precio_bussiness');
+            $table->integer('precio_premium');
             $table->datetime('fecha_despegue');
             $table->datetime('fecha_aterrizaje');
             $table->timestamps();

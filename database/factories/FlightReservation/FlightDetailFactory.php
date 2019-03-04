@@ -11,7 +11,7 @@ $factory->define(FlightDetail::class, function (Faker $faker) {
     $origin_id = DB::table('airports')->select('id')->get();
     $destiny_id = DB::table('airports')->select('id')->get();
     $airport_id = DB::table('airports')->select('id')->get();
-    $date = Carbon::create(2019, 3, mt_rand(1, 3), mt_rand(0, 24), 0, 0);
+    $date = Carbon::create(2019, 3, mt_rand(3, 5), mt_rand(0, 24), 0, 0);
     $date2 = $date->copy()->addHours(mt_rand(1,10));
     Carbon::parse($date)->format("Y-m-d H:i:s");
     Carbon::parse($date2)->format("Y-m-d H:i:s");
@@ -29,7 +29,9 @@ $factory->define(FlightDetail::class, function (Faker $faker) {
         'fecha_aterrizaje' => $date->copy()->addHours(mt_rand(1,10)),
         //'fecha_despegue' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+ 2 days', $timezone = null),
         //'fecha_aterrizaje' =>$faker->dateTimeBetween($startDate = '+ 2 days', $endDate = '+ 3 days', $timezone = null),
-        'precio' => $faker->numberBetween($min = 500, $max = 5000),
+        'precio_economy' => $faker->numberBetween($min = 500, $max = 2000),
+        'precio_bussiness' => $faker->numberBetween($min = 1000, $max = 4000),
+        'precio_premium' => $faker->numberBetween($min = 2000, $max = 6000),
         'asientos_economy' => 30,
         'asientos_bussiness' => 30,
         'asientos_premium' => 30
