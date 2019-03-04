@@ -1,8 +1,8 @@
 <!-- Modal -->
-<form action="/vehicle/{{ $vehicle->id }}" method="post">
+<form action="/admin/vehicle/{{ $vehicle->id }}" method="post">
   @method('PATCH')
   @csrf
-  <div class="modal fade" id="modal-vehicle-update-{{ $vehicle->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-edit-label" aria-hidden="true">
+  <div class="modal text-dark fade" id="modal-vehicle-update-{{ $vehicle->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-edit-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -300,19 +300,6 @@
           </div>
 
           <div class="form-group row">
-            <div class="col-md-6">
-                <input 
-                  id="n_puertas" 
-                  name="n_puertas" 
-                  type="hidden" 
-                  value=4
-                  required 
-                  autofocus
-                >
-            </div>
-          </div>
-
-          <div class="form-group row">
             <label 
             for="n_kilometraje" 
             class="col-sm-4 col-form-label text-md-right"
@@ -336,7 +323,7 @@
 
           <div class="form-group row">
             <label 
-            for="precio_hora" 
+            for="precio" 
             class="col-sm-4 col-form-label text-md-right"
             >
               {{ __('Precio/Hora') }}
@@ -344,12 +331,12 @@
 
             <div class="col-md-6">
               <input 
-                id="precio_hora" 
-                name="precio_hora" 
+                id="precio" 
+                name="precio" 
                 type="number"
                 min="0"
                 class="form-control"  
-                value="{{ $vehicle->precio_hora }}" 
+                value="{{ $vehicle->precio}}" 
                 required 
                 autofocus
               >
@@ -385,10 +372,23 @@
             </div>
           </div>
 
+          <div class="form-group row">
+            <div class="col-md-6">
+                <input 
+                  id="n_puertas" 
+                  name="n_puertas" 
+                  type="hidden" 
+                  value=4
+                  required 
+                  autofocus
+                >
+            </div>
+          </div>
+
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Guardar cambios</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success btn-galaxy">Guardar cambios</button>
+          <button type="button" class="btn btn-danger btn-galaxy" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
     </div>

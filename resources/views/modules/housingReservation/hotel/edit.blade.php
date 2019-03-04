@@ -31,7 +31,7 @@
                 @include('modules.housingReservation.hotel.update') 
               </td>
               <td class="align-middle">
-              <form action="/hotel/{{ $hotel->id }}" method="post">
+              <form action="/admin/hotel/{{ $hotel->id }}" method="post">
                 @method('DELETE')
                 @csrf
               <center>

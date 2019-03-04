@@ -4,17 +4,17 @@ namespace App\Modules\Others;
 
 use Illuminate\Database\Eloquent\Model;
 
-class InsuranceReservation extends Model
+class PackageReservation extends Model
 {
-    protected $table = 'insurance_reservations';
+    protected $table = 'package_reservations';
 
     protected $sell_id;
-    protected $insurance_id;
+    protected $package_id;
     protected $monto_total;
 
     protected $fillable = [
         'sell_id',
-        'insurance_id',
+        'package_id',
         'monto_total',
     ];
 
@@ -24,7 +24,7 @@ class InsuranceReservation extends Model
     	return $this->belongsTo(Sell::class);
     }
 
-    public function insurance(){
-    	return $this->belongsTo(Insurance::class);
+    public function package(){
+    	return $this->belongsTo(Package::class);
     }
 }

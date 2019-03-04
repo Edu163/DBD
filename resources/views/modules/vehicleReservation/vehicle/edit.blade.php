@@ -49,7 +49,7 @@
               @include('modules.vehicleReservation.vehicle.update') 
             </td>
             <td class="align-middle">
-            <form action="/vehicle/{{ $vehicle->id }}" method="post">
+            <form action="/admin/vehicle/{{ $vehicle->id }}" method="post">
               @method('DELETE')
               @csrf
             <center>

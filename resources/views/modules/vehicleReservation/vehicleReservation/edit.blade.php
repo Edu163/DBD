@@ -16,7 +16,7 @@
               <td class="align-middle">{{$vehicleReservation->fecha}}</td>
               <td class="align-middle">{{$vehicleReservation->monto_total}}</td>
               <td class="align-middle">
-              <form action="/vehicleReservation/{{ $vehicleReservation->id }}" method="post">
+              <form action="/admin/vehicleReservation/{{ $vehicleReservation->id }}" method="post">
                 @method('DELETE')
                 @csrf
               <center>
