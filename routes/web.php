@@ -87,12 +87,10 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 
     /* Otros */
     Route::resources([
-        // '/admin/cart'                         => 'OthersControllers\CartController',
         '/admin/package'                      => 'OthersControllers\PackageController',
         '/admin/sell'                         => 'OthersControllers\SellController',
         '/admin/insurance'                    => 'OthersControllers\InsuranceController',
         '/admin/insuranceReservation'         => 'OthersControllers\InsuranceReservationController',
-        // '/admin/users'                        => 'OthersControllers\UserController',
         ]);
     
     Route::patch('/upuser/{id}', 'AdminController@upgradeToAdmin');
