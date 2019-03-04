@@ -81,31 +81,9 @@ class HotelRoom extends Model
 			$array_id[] = $habitacion->id;
 			//dump($habitacion->id);
 		}
-		$rooms = DB::table('hotel_rooms')->whereNotIn('id', $array_id)->get();
-		dd($rooms);
-		// foreach($habitaciones as $habitacion)
-		// {
-		// 	$validador = 0;
-		// 	foreach($hotel_rooms as $room)
-		// 	{
-		// 		//dump($room->id, $habitacion->id);
-		// 		//dump($habitacion->id);
-		// 		if($room->id == $habitacion->id)
-		// 		{
-		// 			$validador = 1;
-		// 		}
-		// 	}
-		// 	if($validador == 0)
-		// 	{
-		// 		dump(":D");
-		// 		$room_final[] = $room;
-		// 	}
-			
-		// }
-		//dd($room_final);
-       	// $habitaciones = static::where('hotel_id', '=', $hotel_id)
-        //                  ->whereDate('fecha_despegue', '=', $fechaPartida->format('Y-m-d'))
-		//                  ->get();
-		return $room_final;
+		$rooms = static::where('hotel_rooms.hotel_id', '=', $hotel_id)
+			->whereNotIn('id', $array_id)->get();
+		//dd($rooms);
+		return $rooms;
 	}
 }

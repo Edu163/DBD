@@ -63,6 +63,7 @@
                             <div class="cart-item-details">
                                 <div class="cart-table-item"><a href="#">Capacidad: {{ $item->model->capacidad }}</a></div>
                                 <div>Camas: {{ $item->model->camas}}</div>
+                                <div>ID: {{ $item->model->id}}</div>
                             </div>
                         </div>
                         <div class="cart-table-row-right">

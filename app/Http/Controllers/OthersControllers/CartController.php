@@ -78,7 +78,12 @@ class CartController extends Controller
 
     public function storeRoom(HotelRoom $hab)
     {
-            Cart::add($hab->id, 'destino-santiago', 1, $hab->precio)
+        $params = request()->session()->get('busqueda.hotels');
+        $id = $hab->id;
+        request()->session()->put('busqueda.room' . $id, $params);
+        //$params2 = request()->session()->get('busqueda.room' . $id);
+        //dd($params2);
+        Cart::add($hab->id, 'destino-santiago', 1, $hab->precio)
             ->associate('App\Modules\HousingReservation\HotelRoom');
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');

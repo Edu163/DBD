@@ -14,6 +14,7 @@
                     <div class="box featured wow fadeInUp">
                         <img class="img-fluid" src="https://source.unsplash.com/600x600/?bedroom={{ mt_rand(500, 50000) }}" style="padding-bottom: 8% !important;">
                         <ul>
+                            <li><i class="ion-android-checkmark-circle"></i>ID: {{ $hab->id }}</li>
                             <li><i class="ion-android-checkmark-circle"></i>Capacidad: {{ $hab->capacidad }}</li>
                            <li><i class="ion-android-checkmark-circle"></i>Camas: {{ $hab->camas }}</li>
                            {{-- <li><i class="ion-android-checkmark-circle"></i>Número: {{ $hab->numero }}</li>

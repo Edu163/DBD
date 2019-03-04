@@ -13,6 +13,7 @@ use Cartalyst\Stripe\Exception\CardErrorException;
 use App\Modules\Others\Sell;
 use App\Modules\FlightReservation\FlightSellDetail;
 use App\Modules\VehicleReservation\VehicleReservation;
+use App\Modules\HousingReservation\HotelReservation;
 use App\Modules\Others\InsuranceReservation;
 use Auth;
 use App\User;
@@ -138,23 +139,38 @@ class CheckoutController extends Controller
                     'monto_total' => strval($item->total),
                 ]);
             }
+            else if(get_class($item->model) == "App\Modules\HousingReservation\HotelRoom")
+            {
+                $params = request()->session()->get('busqueda.room' . $item->model->id);
+                //dd($params);
+                HotelReservation::create([
+                    'sell_id' => $venta->id,
+		            'hotel_room_id' => $item->model->id,
+                    'precio' => strval($item->total),
+                    'fecha_ingreso' => $params['fecha-entrada-housing'],
+                    'fecha_egreso' => $params['fecha-salida-housing'],
+                    'cantidad' => $item->qty,
+                    'monto_total' => strval($item->total),
+                    'descuento' => 100,
+                ]);
+            }
         }
         /* PDF y Email */
-        $this->getPdf($venta);
-        $pdfpath = public_path('storage/public/pdf/' . $venta->source . '.pdf');
-        $email = $request->email;
-        $username = $request->name;
-        $data = array('venta'=>$venta);
-        $beautymail = app()->make(\Snowfire\Beautymail\Beautymail::class);
-        $beautymail->send('modules.others.mail.confirmationMail', $data, function($message)
-        use ($email, $username, $pdfpath)
-        {
-            $message
+        // $this->getPdf($venta);
+        // $pdfpath = public_path('storage/public/pdf/' . $venta->source . '.pdf');
+        // $email = $request->email;
+        // $username = $request->name;
+        // $data = array('venta'=>$venta);
+        // $beautymail = app()->make(\Snowfire\Beautymail\Beautymail::class);
+        // $beautymail->send('modules.others.mail.confirmationMail', $data, function($message)
+        // use ($email, $username, $pdfpath)
+        // {
+        //     $message
             
-                ->to($email, $username)
-                ->subject('Confirmación de reserva exitosa')
-                ->attach($pdfpath);
-        }); 
+        //         ->to($email, $username)
+        //         ->subject('Confirmación de reserva exitosa')
+        //         ->attach($pdfpath);
+        // }); 
     }
     /**
      * Display the specified resource.
