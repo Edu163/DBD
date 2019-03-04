@@ -86,11 +86,12 @@ class VehicleController extends Controller
             'gamma' => 'required',
             'transmision' => 'required',
             'combustible' => 'required',
+            'n_pasajeros' => 'required',
             'equipaje_g' => 'required',
             'equipaje_p' => 'required',
             'n_puertas' => 'required',
             'n_kilometraje' => 'required',
-            'precio_hora' => 'required',
+            'precio' => 'required',
             'aire_acondicionado' => 'required',
         ]))->save();
 

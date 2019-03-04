@@ -87,13 +87,14 @@
 
                         <div class="dropdown-menu dropdown-menu-right" style="background: linear-gradient(45deg, #1de099, #1dc8cd) !important;" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('profile.show',[Crypt::encrypt(Auth::user()->id) ])}}"  method="post">
-                                <i class="fas fa-users"></i>
                                 {{ __('Perfil') }}
+                                <i class="fas fa-user"></i>
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     {{ __('Cerrar sesión') }}
+                                    <i class="fas fa-sign-out-alt"></i>
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
@@ -277,10 +278,12 @@
                                 <i class="fas fa-plane"></i>   
                                 Vuelos
                             </a>
-                            <a class="nav-link btn-galaxy" id="v-pills-checkin-tab" data-toggle="pill" href="#v-pills-checkin" role="tab" aria-controls="v-pills-checkin" aria-selected="false">
-                                <i class="fas fa-laptop"></i>
-                                Check-in
-                            </a>
+                            @if (Auth::check())
+                                <a class="nav-link btn-galaxy" id="v-pills-checkin-tab" data-toggle="pill" href="#v-pills-checkin" role="tab" aria-controls="v-pills-checkin" aria-selected="false">
+                                    <i class="fas fa-laptop"></i>
+                                    Check-in   
+                                </a>
+                            @endif
                             <a class="nav-link btn-galaxy" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                                 <i class="fas fa-car-side"></i>
                                 Transporte
@@ -317,7 +320,7 @@
                                     @include('modules.others.package.form')
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-insurance" role="tabpanel" aria-labelledby="v-pills-insurance-tab">
-                                    @include('modules.flightReservation.insurance.form')
+                                    @include('modules.others.insurance.form')
                                 </div>
                             </div>
                         </div>

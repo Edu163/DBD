@@ -90,8 +90,15 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
         // '/admin/cart'                         => 'OthersControllers\CartController',
         '/admin/package'                      => 'OthersControllers\PackageController',
         '/admin/sell'                         => 'OthersControllers\SellController',
+        '/admin/insurance'                    => 'OthersControllers\InsuranceController',
+        '/admin/insuranceReservation'         => 'OthersControllers\InsuranceReservationController',
         // '/admin/users'                        => 'OthersControllers\UserController',
         ]);
+    
+    Route::patch('/upuser/{id}', 'AdminController@upgradeToAdmin');
+    Route::patch('/downuser/{id}', 'AdminController@downgradeAdmin');
+    Route::delete('/deleteuser/{id}', 'AdminController@destroyUser');
+
 });
 
 /* User Group */
@@ -136,7 +143,7 @@ Route::resources([
     'origin_destiny'               => 'FlightReservationControllers\OrigenDestinoController',
     'seat'                         => 'FlightReservationControllers\AsientoController',
     // '/aviones'                       => 'FlightReservationControllers\AvionController',  
-    'insurance'                    => 'FlightReservationControllers\InsuranceController',   
+    'insurance'                    => 'OthersControllers\InsuranceController',   
 ]);    
 
 /* Alojamiento */

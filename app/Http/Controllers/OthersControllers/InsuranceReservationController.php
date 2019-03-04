@@ -79,8 +79,10 @@ class InsuranceReservationController extends Controller
      * @param  \App\InsuranceReservation  $insuranceReservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(InsuranceReservation $insuranceReservation)
+    public function destroy($id)
     {
-        //
+        $insuranceReservation = InsuranceReservation::find($id);
+        $insuranceReservation->delete();
+        return back();
     }
 }

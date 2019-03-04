@@ -9,7 +9,7 @@
                     <i class="fas fa-fw fa-car"></i>
                     Vehículo
                 </button>
-                <form action="/vehicle/" method="post">
+                <form action="/admin/vehicle/" method="post">
                     @method('POST')
                     @csrf
                     <button type="button" class="btn btn-success btn-galaxy" data-toggle="modal" data-target="#modal-vehicle-store">
@@ -39,23 +39,6 @@
         <div id="vehicleTwo" class="collapse" aria-labelledby="vehicleAccordionTwo" data-parent="#vehicleAccordion">
             <div class="card-body">
                 @include('modules.vehicleReservation.vehicleReservation.edit')
-            </div>
-        </div>
-    </div>
-
-    <!-- Detalles de Reserva de vehículos -->
-    <div class="card">
-        <div class="card-header" id="vehicleAccordionThree">
-            <h5 class="d-flex justify-content-between">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#vehicleThree" aria-expanded="false" aria-controls="vehicleThree">
-                    <i class="fas fa-fw fa-car"></i>
-                    Detalles de Reservas de Vehículos
-                </button>
-            </h5>
-        </div>
-        <div id="vehicleThree" class="collapse" aria-labelledby="vehicleAccordionThree" data-parent="#vehicleAccordion">
-            <div class="card-body">
-                @include('modules.vehicleReservation.vehicleReservationDetail.edit')
             </div>
         </div>
     </div>
