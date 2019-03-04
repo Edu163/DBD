@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use App\Modules\Others\Package;
 
-class PakagesTableSeeder extends Seeder
+use Illuminate\Database\Seeder;
+use App\Modules\Others\Country;
+
+class CountriesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +13,6 @@ class PakagesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Package::class, 20)->create();
+        factory(Country::class, 10)->create();
     }
 }

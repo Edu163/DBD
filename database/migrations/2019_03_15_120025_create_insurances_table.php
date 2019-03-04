@@ -15,14 +15,23 @@ class CreateInsurancesTable extends Migration
     {
         Schema::create('insurances', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('flight_id');
+            $table->integer('flight_id')->nullable();
             $table->foreign('flight_id')
                     ->references('id')
                     ->on('flights')
                     ->onDelete('cascade');
+            $table->integer('zone_id');
+            $table->foreign('zone_id')
+                ->references('id')
+                ->on('zones')
+                ->onDelete('cascade');
             $table->string('medicalService');
             $table->string('service2');
             $table->string('service3');
+            $table->string('active');
+            $table->string('groupsize');
+            $table->integer('avgage');
+            $table->integer('price');
             $table->timestamps();
         });
     }

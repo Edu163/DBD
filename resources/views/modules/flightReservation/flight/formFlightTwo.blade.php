@@ -1,4 +1,4 @@
-<form action="/flight_detail" method="get">
+<form action= "{{ route('flight.index') }}" method="get">
     <div class="row justify-content-center">
         <div class="col">
                 <center>
@@ -60,15 +60,15 @@
         <div class="col">
                 <center>
                     <!-- Input Ida -->
-                    <label for="fecha-ida-cero">
+                    <label for="fechaida">
                         <span> 
                             Fecha de ida
                         </span>
                     </label>
                     <div class="input-group">
                         <input 
-                        id="fecha-ida-cero" 
-                        name="fecha-ida-cero" 
+                        id="fechaida"
+                        name="fechaida"
                         type="date"
                         class="form-control"
                         style="color:black;"
@@ -153,5 +153,5 @@
      } 
 
      today = yyyy+'-'+mm+'-'+dd;
-     document.getElementById("fecha-ida-cero").setAttribute("min", today);
+     document.getElementById("fechaida").setAttribute("min", today);
 </script>

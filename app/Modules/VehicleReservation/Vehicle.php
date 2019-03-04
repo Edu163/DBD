@@ -62,6 +62,10 @@ class Vehicle extends Model
     	return $this->hasMany(ServiceAndVehicle::class);
     }
 
+    public function vehicleReservation(){
+    	return $this->hasMany(VehicleReservation::class);
+    }
+
     public function vehicleReservationDetail(){
     	return $this->hasMany(VehicleReservationDetail::class);
     }

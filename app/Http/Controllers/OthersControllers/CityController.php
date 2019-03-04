@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\FlightReservationControllers;
+namespace App\Http\Controllers\OthersControllers;
 
-use App\Modules\Others\Insurance;
-use App\Http\Controllers\Controller;
+use App\Modules\Others\City;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class InsuranceController extends Controller
+class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,7 @@ class InsuranceController extends Controller
      */
     public function index()
     {
-        $insurances = Insurance::all();
-        //$hotels = Hotel::all()->where('pais', request('zona_id'));         
-        return view('modules.flightReservation.insurance.index', compact('insurances'));
+        //
     }
 
     /**
@@ -44,10 +42,10 @@ class InsuranceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Insurance  $insurance
+     * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function show(Insurance $insurance)
+    public function show(City $city)
     {
         //
     }
@@ -55,10 +53,10 @@ class InsuranceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Insurance  $insurance
+     * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function edit(Insurance $insurance)
+    public function edit(City $city)
     {
         //
     }
@@ -67,10 +65,10 @@ class InsuranceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Insurance  $insurance
+     * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Insurance $insurance)
+    public function update(Request $request, City $city)
     {
         //
     }
@@ -78,10 +76,10 @@ class InsuranceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Insurance  $insurance
+     * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Insurance $insurance)
+    public function destroy(City $city)
     {
         //
     }

@@ -18,12 +18,26 @@ Route::get('/prueba', function () {
 });
 
 Route::get('/', 'HomeController@index')->name('home');
+/* Packages */
+Route::get('/packageva', 'OthersControllers\PackageController@va')->name('package.va');
+Route::get('/packagevv', 'OthersControllers\PackageController@vv')->name('package.vv');
+Route::get('/packagevav', 'OthersControllers\PackageController@vav')->name('package.vav');
+Route::get('/flight', 'FlightReservationControllers\FlightController@index')->name('flight.index');
+
+/* Cart */
 Route::get('/cart', 'OthersControllers\CartController@index')->name('cart.index');
 Route::patch('/cart/{product}', 'OthersControllers\CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'OthersControllers\CartController@destroy')->name('cart.destroy');
 Route::post('/cartflight/{flightDetail}', 'OthersControllers\CartController@storeFlights')->name('cart.storeFlights');
 Route::post('/cartvehicle/{vehicle}', 'OthersControllers\CartController@storeVehicle')->name('cart.storeVehicle');
+Route::post('/cartInsurance/{insurance}', 'OthersControllers\CartController@storeInsurance')->name('cart.storeInsurance');
 // Route::post('/cart', 'CartController@storeHousing')->name('cart.storeHousing');
+
+/* Insurance */
+Route::get('/insuranceo', 'OthersControllers\InsuranceController@indexo');
+Route::get('/insurancet', 'OthersControllers\InsuranceController@indext');
+
+/* Admin Group */
 Route::group(['middleware' => ['auth', 'admin']], function() {
 
     Route::get('/admin', 'AdminController@index')->name('admin');
@@ -79,6 +93,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
         ]);
 });
 
+/* User Group */
 Route::group(['middleware' => 'auth'], function() {
 
     
@@ -108,7 +123,6 @@ Route::resources([
     'vehicle_provider'             => 'VehicleReservationControllers\VehicleProviderController',
     'vehicle_service'              => 'VehicleReservationControllers\VehicleServiceController',
     'zone'                         => 'VehicleReservationControllers\ZoneController',
-    'insurance'                    => 'OthersControllers\InsuranceController',
 ]);
 
 /* Vuelos */
@@ -116,11 +130,12 @@ Route::resources([
     'airport'                      => 'FlightReservationControllers\AirportController',
     'checkin'                      => 'FlightReservationControllers\CheckInController',
     'company'                      => 'FlightReservationControllers\CompanyController',
-    'flight'                       => 'FlightReservationControllers\FlightController',
+    //'flight'                       => 'FlightReservationControllers\FlightController',
     'flight_detail'                => 'FlightReservationControllers\FlightDetailController',
     'origin_destiny'               => 'FlightReservationControllers\OrigenDestinoController',
     'seat'                         => 'FlightReservationControllers\AsientoController',
-    // '/aviones'                       => 'FlightReservationControllers\AvionController',     
+    // '/aviones'                       => 'FlightReservationControllers\AvionController',  
+    'insurance'                    => 'FlightReservationControllers\InsuranceController',   
 ]);    
 
 /* Alojamiento */

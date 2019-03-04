@@ -16,12 +16,32 @@ class FlightDetailController extends Controller
      */
     public function index()
     {
+        //dd(request()->session());
+
         /*$origin = Airport::where('id',request('origen_id'))->pluck('id');
         $destiny = Airport::where('id',request('destino_id'))->pluck('id');
         $flightDetails =  FlightDetail::where('id_origen', $origin)
                                             ->where('id_destino', $destiny)
                                             ->get();*/
         $flight = FlightDetail::all();
+        $var =[
+            'costo' => 0,
+            'capacidad'=> 1,
+            'costo_persona' => 2];
+        request()->session()->put('busqueda.vuelo', $var);
+
+        // dd(request()->session()->get('busqueda.vuelo.capacidad'));
+        // request()->session()->put('busqueda.vuelo', $flight);
+        // $test = request()->session()->get('buesqueda.vuelo');
+        // foreach($test as $t){
+           
+        // }
+
+        // $algo = "este es un mensaje";
+        // request()->session()->put('busqueda', $algo);
+        // $test = request()->session()->get('buesqueda');
+        // dd($test);
+    
         return view('modules.flightReservation.flightdetail.flightDetail', compact('flight'));
     }
 

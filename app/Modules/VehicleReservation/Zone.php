@@ -14,7 +14,10 @@ class Zone extends Model
 
     protected $fillable = [
         'nombre',
-        'direccion',
+        'ciudad_id',
+        'pais',
+    	'ciudad',
+    	'direccion',
         'coordenadas',
     ];
 
@@ -22,5 +25,8 @@ class Zone extends Model
 
     public function vehicleReservation(){
     	return $this->hasMany(VehicleReservation::class);
+    }
+    public function city(){
+    	return $this->belongsTo(City::class);
     }
 }

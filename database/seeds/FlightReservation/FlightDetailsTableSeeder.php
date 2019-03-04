@@ -12,6 +12,6 @@ class FlightDetailsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(FlightDetail::class, 20)->create();
+        factory(FlightDetail::class, 500)->create();
     }
 }

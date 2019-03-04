@@ -2,22 +2,13 @@
 
 namespace App\Modules\Others;
 use App\Modules\FlightReservation\FlightDetail;
+use App\Modules\VehicleReservation\VehicleReservation;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 
 class Sell extends Model
 {
     protected $table = 'sells';
-
-    protected $code;
-    protected $user_id;
-    protected $monto_total;
-    protected $fecha;
-    protected $impuesto;
-    protected $tipo_comprobante;
-    protected $metodo_pago;
-    protected $n_cuotas;
-    protected $descuento;
 
     protected $fillable = [
         'source',
@@ -55,6 +46,10 @@ class Sell extends Model
 
     public function flightReservation(){
     	return $this->hasMany(FlightReservation::class);
+    }
+
+    public function insuranceReservation(){
+    	return $this->hasMany(InsuranceReservation::class);
     }
 
     public function package(){

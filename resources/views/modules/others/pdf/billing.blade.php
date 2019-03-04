@@ -1,144 +1,103 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Invoice - #123</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Invoice</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style type="text/css">
-        @page {
-            margin: 0px;
-        }
-        body {
-            margin: 0px;
-        }
-        * {
-            font-family: Verdana, Arial, sans-serif;
-        }
-        a {
-            color: #fff;
-            text-decoration: none;
-        }
-        table {
-            font-size: x-small;
-        }
-        tfoot tr td {
-            font-weight: bold;
-            font-size: x-small;
-        }
-        .invoice table {
-            margin: 15px;
-        }
-        .invoice h3 {
-            margin-left: 15px;
+        .invoice-card {
+            background: white !important;
+            color: black !important;
         }
         .information {
-            background-color: #60A7A6;
+            background: linear-gradient(45deg, #1de099, #1dc8cd) !important;
             color: #FFF;
-        }
-        .information .logo {
-            margin: 5px;
-        }
-        .information table {
-            padding: 10px;
         }
     </style>
 
 </head>
 <body>
+    <main>
+            <div class="card invoice-card">
+                <div class="card-header invoice-card">
+            </div>
+            <div class="card-body invoice-card">
+            <span class="float-right" style="color:black;"> <strong>Factura:</strong> {{ $venta->source }} </span>
+                <div class="row mb-4">
+                    <div class="col-sm-6">
+                        <div>
+                            <strong>GP14Airland</strong>
+                        </div>
+                        <div>Madalinskiego 8</div>
+                        <div>71-101 Szczecin, Poland</div>
+                        <div>Email: contacto@rollers.cl</div>
+                        <div>Teléfono: +56 944 666 3333</div>
+                    </div>
+                </div>
 
-<div class="information">
-    <table width="100%">
-        <tr>
-            <td align="left" style="width: 40%;">
-                <h3>John Doe</h3>
-                <pre>
-Street 15
-123456 City
-United Kingdom
-<br /><br />
-Date: 2018-01-01
-Identifier: #uniquehash
-Status: Paid
-</pre>
+            <div class="table-responsive-sm">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Descripción</th>
+                            <th class="center">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="left strong">Origin License</td>
+                            <td class="left">Extended License</td>
+                            <td class="right">$999,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-5">
 
+                </div>
 
+            <div class="col-lg-4 col-sm-5 ml-auto">
+            <table class="table table-clear">
+            <tbody>
+            <tr>
+            <td class="left">
+            <strong>Impuesto</strong>
             </td>
-            <td align="center">
-                <img src="/path/to/logo.png" alt="Logo" width="64" class="logo"/>
+        <td class="right">${{ $venta->impuesto }}</td>
+            </tr>
+            <tr>
+            <td class="left">
+            <strong>Total</strong>
             </td>
-            <td align="right" style="width: 40%;">
-
-                <h3>CompanyName</h3>
-                <pre>
-                    https://company.com
-
-                    Street 26
-                    123456 City
-                    United Kingdom
-                </pre>
+            <td class="right">
+            <strong>${{ $venta->monto_total }}</strong>
             </td>
-        </tr>
+            </tr>
+            </tbody>
+            </table>
 
-    </table>
-</div>
+            </div>
 
+            </div>
 
-<br/>
+            </div>
+            </div>
+    </main>
 
-<div class="invoice">
-    <h3>Invoice specification #123</h3>
-    <table width="100%">
-        <thead>
-        <tr>
-            <th>Description</th>
-            <th>Quantity</th>
-            <th>Total</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Item 1</td>
-            <td>1</td>
-            <td align="left">€15,-</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        </tbody>
-
-        <tfoot>
-        <tr>
-            <td colspan="1"></td>
-            <td align="left">Total</td>
-            <td align="left" class="gray">€15,-</td>
-        </tr>
-        </tfoot>
-    </table>
-</div>
-
-<div class="information" style="position: absolute; bottom: 0;">
-    <table width="100%">
-        <tr>
-            <td align="left" style="width: 50%;">
-                &copy; {{ date('Y') }} {{ config('app.url') }} - All rights reserved.
-            </td>
-            <td align="right" style="width: 50%;">
-                Company Slogan
-            </td>
-        </tr>
-
-    </table>
-</div>
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-lg-left text-center">
+                        <div class="copyright ">
+                            &copy; Copyright <strong>GP14LATAM</strong>. Todos los derechos reservados
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer><!-- #footer -->
 </body>
 </html>

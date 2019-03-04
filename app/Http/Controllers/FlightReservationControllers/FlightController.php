@@ -4,18 +4,35 @@ namespace App\Http\Controllers\FlightReservationControllers;
 
 use App\Modules\FlightReservation\Flight;
 use App\Http\Controllers\Controller;
+use App\Modules\FlightReservation\FlightDetail;
 use Illuminate\Http\Request;
 
 class FlightController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return Flight::all();
+        //if ( ! session('vuelo_vuelta')) {
+            $params = $this->validate(request(), [
+                'origen' => 'required|integer',
+                'destino' => 'required|integer',
+                'fechaida' => 'required|date',
+                //'fechavuelta' => 'required',//_if:tipo_vuelo,1|nullable',
+                //'pasajeros_adultos' => 'required|integer',
+                //'pasajeros_ninos' => 'required|integer',
+                //'tipo_pasaje' => 'required|integer|between:1,3'
+                //'cabina' => 'required',
+            ]);
+        //} else {
+            //$params = request()->session()->get('busqueda.vuelos');
+            //request()->session()->forget('vuelo_vuelta');
+        //}
+        //dd("hola");
+        $flight = Flight::buscarVuelos($params);
+
+        //request()->session()->put('busqueda.vuelos', $params);
+
+        //return view('modules.flightReservation.flight.flight', compact('vuelos'));
+        return view('modules.flightReservation.flightdetail.flightDetail', compact('flight'));
     }
 
     /**

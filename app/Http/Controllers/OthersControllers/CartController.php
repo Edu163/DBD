@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\OthersControllers;
 
+use App\Modules\FlightReservation\FlightC;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Modules\FlightReservation\FlightDetail;
 use App\Modules\VehicleReservation\Vehicle;
+use App\Modules\Others\Insurance;
 
 class CartController extends Controller
 {
@@ -39,7 +41,7 @@ class CartController extends Controller
      * @param  App\Modules\FlightReservation\FlightDetail  $flightDetail
      * @return \Illuminate\Http\Response
      */
-    public function storeFlights(FlightDetail $flightDetail)
+    public function storeFlights(FlightC $flight)
     {
         // $duplicates = Cart::search(function ($cartItem, $rowId) use ($flightDetail) {
         //     return $cartItem->id === $flightDetail->id;
@@ -47,8 +49,8 @@ class CartController extends Controller
         // if ($duplicates->isNotEmpty()) {
         //     return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
         // }
-        Cart::add($flightDetail->id, 'destino-santiago', 1, $flightDetail->precio)
-            ->associate('App\Modules\FlightReservation\FlightDetail');
+        Cart::add($flight->id, 'destino-santiago', 1, $flight->getPrecio())
+            ->associate('App\Modules\FlightReservation\FlightC');
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
     }
@@ -83,6 +85,14 @@ class CartController extends Controller
         // }
         Cart::add($request->id, 'destino-santiago', 1, $request->precio)
             ->associate('App\Modules\HousingReservation\HotelRoom');
+
+         return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
+    }
+
+    public function storeInsurance(Insurance $insurance)
+    {
+        Cart::add($insurance->id, 'destino-santiago', 1, $insurance->price)
+            ->associate('App\Modules\Others\Insurance');
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
     }

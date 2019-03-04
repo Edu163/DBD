@@ -4,6 +4,7 @@ namespace App\Http\Controllers\OthersControllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use App\Http\Requests\CheckoutRequest;
 use App\Http\Controllers\Controller;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -12,8 +13,10 @@ use Cartalyst\Stripe\Exception\CardErrorException;
 use App\Modules\Others\Sell;
 use App\Modules\FlightReservation\FlightSellDetail;
 use App\Modules\VehicleReservation\VehicleReservation;
+use App\Modules\Others\InsuranceReservation;
 use Auth;
 use App\User;
+use PDF;
 use Illuminate\Support\Str;
 
 /*
@@ -46,10 +49,10 @@ class CheckoutController extends Controller
         //
     }
 
-    public function getPdf($data)
+    public function getPdf($venta)
     {
-        $pdf = PDF::loadView('modules.others.pdf.billing', $data);
-        return $pdf->download('billing.pdf');
+        $pdfname = $venta->source . '.pdf';
+        return PDF::loadView('modules.others.pdf.billing', compact('venta'))->save(storage_path('app/public/public/pdf/' . $pdfname));
     }
 
     /**
@@ -94,7 +97,7 @@ class CheckoutController extends Controller
     public function addSell($request, $error){
 
         $venta = Sell::create([
-            'source' => Str::random(32),
+            'source' => Str::random(16),
             'user_id' => Auth::user()->id,
             'impuesto' => Cart::tax(),
             'monto_total'  => Cart::total(),
@@ -120,15 +123,38 @@ class CheckoutController extends Controller
                 ]);     
             }
             else if(get_class($item->model) == "App\Modules\VehicleReservation\Vehicle")
-            {
+            {                
                 VehicleReservation::create([
                     'sell_id' => $venta->id,
+                    'vehicle_id' => $item->model->id,
+                    'monto_total' => strval($item->total),
+                ]);
+            }
+            else if(get_class($item->model) == "App\Modules\Others\Insurance")
+            {
+                InsuranceReservation::create([
+                    'sell_id' => $venta->id,
+                    'insurance_id' => $item->model->id,
                     'monto_total' => strval($item->total),
                 ]);
             }
         }
-        $this->getPdf($request);
-        Mail::to($request->email)->send( new ConfirmationMail($venta->id) ); 
+        /* PDF y Email */
+        $this->getPdf($venta);
+        $pdfpath = public_path('storage/public/pdf/' . $venta->source . '.pdf');
+        $email = $request->email;
+        $username = $request->name;
+        $data = array('venta'=>$venta);
+        $beautymail = app()->make(\Snowfire\Beautymail\Beautymail::class);
+        $beautymail->send('modules.others.mail.confirmationMail', $data, function($message)
+        use ($email, $username, $pdfpath)
+        {
+            $message
+            
+                ->to($email, $username)
+                ->subject('Confirmación de reserva exitosa')
+                ->attach($pdfpath);
+        }); 
     }
     /**
      * Display the specified resource.

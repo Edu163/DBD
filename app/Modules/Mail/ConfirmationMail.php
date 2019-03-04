@@ -21,10 +21,12 @@ class ConfirmationMail extends Mailable
      */
 
     public $sell_id;
+    public $pdfpath;
 
-    public function __construct($sell_id)
+    public function __construct($sell_id, $pdfpath)
     {
         $this->sell_id = $sell_id;
+        $this->pdfpath = $pdfpath;
     }
 
     /**
@@ -35,6 +37,7 @@ class ConfirmationMail extends Mailable
     public function build()
     {
         $sell_id = $this->sell_id;
+        $pdfpath = $this->pdfpath;
 
         $flight_sell_details = FlightSellDetail::where('sell_id', $sell_id)->get();
         // $vehicles_sell_details = Vehicle::where('sell_id', $sell_id)->get();
@@ -43,6 +46,6 @@ class ConfirmationMail extends Mailable
                 'sell_id',
                 'flight_sell_details',
                 // 'vehicles_sell_details',
-                ))->subject('Confirmación de reserva exitosa');
+                ))->subject('Confirmación de reserva exitosa')->attach($pdfpath);
     }
 }

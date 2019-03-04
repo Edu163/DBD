@@ -1,4 +1,4 @@
-<form action="/flight_detail" method="get">
+<form action="/flight" method="get">
     <div class="row justify-content-center">
         <div class="col">
             <center>
@@ -60,15 +60,15 @@
         <div class="col">
             <center>
                 <!-- Input Ida -->
-                <label for="fecha-ida">
+                <label for="fechaida">
                     <span> 
                         Fecha de ida
                     </span>
                 </label>
                 <div class="input-group">
                     <input 
-                    id="fecha-ida" 
-                    name="fecha-ida" 
+                    id="fechaida"
+                    name="fechaida"
                     type="date"
                     class="form-control"
                     style="color:black;"
@@ -82,15 +82,15 @@
         <div class="col">
             <center>
                 <!-- Input Vuelta -->
-                <label for="fecha-vuelta">
+                <label for="fechavuelta">
                     <span> 
                         Fecha de vuelta
                     </span>
                 </label>
                 <div class="input-group">
                     <input 
-                    id="fecha-vuelta"
-                    name="fecha-vuelta"
+                    id="fechavuelta"
+                    name="fechavuelta"
                     type="date" 
                     class="form-control"
                     style="color:black;"
@@ -167,15 +167,15 @@
 
   function inicio()
   {
-    document.getElementById('fecha-ida').addEventListener('change',cambioVuelta,false);
+    document.getElementById('fechaida').addEventListener('change',cambioVuelta,false);
   }
 
   function cambioVuelta()
   {
-     var fecha = document.getElementById("fecha-ida").value;
+     var fecha = document.getElementById("fechaida").value;
      
-    document.getElementById('fecha-ida').innerHTML=document.getElementById('fecha-ida').value;
-    document.getElementById("fecha-vuelta").setAttribute("min", fecha);
+    document.getElementById('fechaida').innerHTML=document.getElementById('fechaida').value;
+    document.getElementById("fechavuelta").setAttribute("min", fecha);
   }
 </script>  
 
@@ -192,6 +192,6 @@
      } 
 
      today = yyyy+'-'+mm+'-'+dd;
-     document.getElementById("fecha-ida").setAttribute("min", today);
-     document.getElementById("fecha-vuelta").setAttribute("min", today);
+     document.getElementById("fechaida").setAttribute("min", today);
+     document.getElementById("fechavuelta").setAttribute("min", today);
 </script>

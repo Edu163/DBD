@@ -16,16 +16,32 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             SellsTableSeeder::class,
 
+            /* Dirección */
+            CountriesTableSeeder::class,
+            CitiesTableSeeder::class,
+
+            /* Vuelos */
+            AirportsTableSeeder::class,
+            CompaniesTableSeeder::class,
+            SeatsTableSeeder::class,
+            FlightDetailsTableSeeder::class,
+            FlightsTableSeeder::class,
+            FlightSellDetailsTableSeeder::class,
+            CheckInsTableSeeder::class,
+            OriginDestiniesTableSeeder::class,
+            FlightReservationsTableSeeder::class,
+
             /* Vehiculos */
-            VehicleReservationsTableSeeder::class,
             VehicleCalendariesTableSeeder::class,
             ZonesTableSeeder::class,
             VehicleProvidersTableSeeder::class,
             VehiclesTableSeeder::class,
+            VehicleReservationsTableSeeder::class,
             VehicleReservationDetailsTableSeeder::class,
             VehicleServicesTableSeeder::class,
             ServiceAndVehiclesTableSeeder::class,
             ServiceAndProvidersTableSeeder::class,
+
 
             /* Hoteles */
             HotelsTableSeeder::class,
@@ -39,20 +55,11 @@ class DatabaseSeeder extends Seeder
             ServiceAndRoomsTableSeeder::class,
             HotelReservationDetailsTableSeeder::class,
 
-            /* Vuelos */
-            AirportsTableSeeder::class,
-            CompaniesTableSeeder::class,
-            SeatsTableSeeder::class,
-            FlightsTableSeeder::class,
-            FlightDetailsTableSeeder::class,
-            FlightSellDetailsTableSeeder::class,
-            CheckInsTableSeeder::class,
-            OriginDestiniesTableSeeder::class,
-            FlightReservationsTableSeeder::class,
+            /* Seguros */
             InsurancesTableSeeder::class,
 
             /* Paquetes */
-            PakagesTableSeeder::class,
+            PackagesTableSeeder::class,
 
             /* Cart */
             CartsTableSeeder::class,

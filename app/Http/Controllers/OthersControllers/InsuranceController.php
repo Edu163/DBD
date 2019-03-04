@@ -13,11 +13,18 @@ class InsuranceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexo()
     {
-        $insurances = Insurance::all();
-        //$hotels = Hotel::all()->where('pais', request('zona_id'));         
-        return view('modules.others.insurance.index', compact('insurances'));
+        $insurances = Insurance::where('groupsize', request('tipo'))
+                            ->where('zone_id', request('zone_id'))                    
+                            ->get();
+        return view('modules.flightReservation.insurance.index', compact('insurances'));
+    }
+
+    public function indext()
+    {
+        $insurances = Insurance::all();         
+        return view('modules.flightReservation.insurance.index', compact('insurances'));
     }
 
     /**
