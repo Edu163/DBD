@@ -33,4 +33,8 @@ class Package extends Model
     public function vehicle(){
     	return $this->belongsTo(Vehicle::class);
     }
+
+    public function packageReservation(){
+    	return $this->hasMany(PackageReservation::class);
+    }
 }
