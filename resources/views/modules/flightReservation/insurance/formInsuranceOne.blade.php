@@ -55,15 +55,15 @@
         <div class="col">
             <center>
                 <!-- Input ciudad -->
-                <label for="ciudad">
+                <label for="zone_id">
                     <span> 
                         ¿Dónde viajarás?
                     </span>
                 </label>
                 <div class="form-group">
                     <select 
-                        id="ciudad" 
-                        name="ciudad" 
+                        id="zone_id" 
+                        name="zone_id" 
                         class="form-control selectpicker custom-select text-center" 
                         required>
                         <option selected disabled> 

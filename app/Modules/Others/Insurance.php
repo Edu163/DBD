@@ -22,6 +22,7 @@ class Insurance extends Model
     protected $fillable = [
         'flight_id',
         'insurance_reservation_id',
+        'zone_id',
         'medicalService',
         'service2',
         'service3',

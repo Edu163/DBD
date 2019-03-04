@@ -276,6 +276,10 @@
                                 <i class="fas fa-plane"></i>   
                                 Vuelos
                             </a>
+                            <a class="nav-link btn-galaxy" id="v-pills-checkin-tab" data-toggle="pill" href="#v-pills-checkin" role="tab" aria-controls="v-pills-checkin" aria-selected="false">
+                                <i class="fas fa-cubes"></i>
+                                Check-in
+                            </a>
                             <a class="nav-link btn-galaxy" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                                 <i class="fas fa-car-side"></i>
                                 Transporte
@@ -298,6 +302,9 @@
                             <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                     @include('modules.flightReservation.flight.form')
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-checkin" role="tabpanel" aria-labelledby="v-pills-checkin-tab">
+                                    @include('modules.others.checkin.form')
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                     @include('modules.vehicleReservation.vehicle.form')

@@ -13,6 +13,7 @@
                             <li><i class="ion-android-checkmark-circle"></i>{{$insurance->medicalService}}</li>
                             <li><i class="ion-android-checkmark-circle"></i>{{$insurance->service2}}</li>
                             <li><i class="ion-android-checkmark-circle"></i>{{$insurance->service3}}</li>
+                            <li><i class="ion-android-checkmark-circle"></i>{{$insurance->groupsize}}</li>
                         </ul>
                         <center>
                             <form action="{{ route('cart.storeInsurance', $insurance) }}" method="POST">
