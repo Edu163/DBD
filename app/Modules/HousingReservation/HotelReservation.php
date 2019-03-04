@@ -17,9 +17,11 @@ class HotelReservation extends Model
     protected $descuento;
 
     protected $fillable = [
-    	'sell_id',
+		'sell_id',
+		'hotel_room_id',
     	'precio',
-    	'fecha',
+		'fecha_ingreso',
+		'fecha_egreso',
     	'cantidad',
     	'monto_total',
     	'descuento'

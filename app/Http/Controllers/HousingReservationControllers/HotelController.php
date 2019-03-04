@@ -17,7 +17,18 @@ class HotelController extends Controller
     public function index()
     {
         //$hotels = Hotel::all();
-        $hotels = Hotel::all()->where('pais', request('zona_id'));         
+        $params = $this->validate(request(), [
+                'zona_id' => 'required|integer',
+                'personas' => 'required|integer',
+                'fecha-entrada-housing' => 'required|date',
+                'fecha-salida-housing' => 'required|date'
+            ]);
+
+        //request()->session()->put('busqueda.hotels', $params);
+        //dd($params['zona_id']);
+        $hotels = Hotel::where('ciudad_id','=', $params['zona_id'])->get();
+        //dd($hotels);         
+        request()->session()->put('busqueda.hotels', $params);
         return view('modules.housingReservation.hotel.index', compact('hotels'));
     }
 

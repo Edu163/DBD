@@ -19,7 +19,8 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $packages = Package::all();
+        $hotels = Hotel::all()->where('pais', request('zona_id'));
+        $packages = Package::all()->where('pais', request('zona_id'));
         return view('modules.others.package.index', compact('packages'));
     }
 
@@ -99,7 +100,9 @@ class PackageController extends Controller
             ]);
         $hotels = Hotel::all();
         $flights = FlightDetail::all();
-        return view('modules.others.package.indexva', compact('hotels','flights'));
+        $packages = Package::all();
+        return view('modules.others.package.index', compact('packages'));
+        //return view('modules.others.package.indexva', compact('hotels','flights'));
         
     }
 

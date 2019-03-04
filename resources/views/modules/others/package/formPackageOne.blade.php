@@ -188,21 +188,28 @@
 </form>
 
 <script>
-  addEventListener('load',inicioPackageOne,false);
+  addEventListener('load',inicio,false);
 
-  function inicioPackageOne()
+  function inicio()
   {
-    document.getElementById('fecha-ida-packageOne').addEventListener('change',cambioVueltaPackageOne,false);
+    document.getElementById('fecha-ida-packageOne').addEventListener('change',cambioVueltaOne,false);
   }
 
-  function cambioVueltaPackageOne()
+  function cambioVueltaOne()
   {
      var fecha = document.getElementById("fecha-ida-packageOne").value;
-     
+     var rest = fecha.substr(0,8);
+     var dayInt = parseInt(fecha.substr(8,10))+1;
+     var day = dayInt.toString();
+     if(dayInt < 10)
+     {
+          day = "0"+day;
+     }
+     var salida = rest + day;
     document.getElementById('fecha-ida-packageOne').innerHTML=document.getElementById('fecha-ida-packageOne').value;
-    document.getElementById("fecha-vuelta-packageOne").setAttribute("min", fecha);
+    document.getElementById("fecha-vuelta-packageOne").setAttribute("min", salida);
   }
-</script>  
+</script>
 
 <script>
      var today = new Date();

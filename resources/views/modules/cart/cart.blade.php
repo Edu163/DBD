@@ -56,6 +56,37 @@
                             </div>
                         </div> <!-- end cart-table-row -->
                     @endif
+                    @if(get_class($item->model) == "App\Modules\HousingReservation\HotelRoom")
+                    <div class="cart-table-row">
+                        <div class="cart-table-row-left">
+                            <a href="#"><img src="https://picsum.photos/180/120?image={{ mt_rand(1, 50) }}" alt="item" class="cart-table-img"></a>
+                            <div class="cart-item-details">
+                                <div class="cart-table-item"><a href="#">Capacidad: {{ $item->model->capacidad }}</a></div>
+                                <div>Camas: {{ $item->model->camas}}</div>
+                            </div>
+                        </div>
+                        <div class="cart-table-row-right">
+                            <div style="margin: 4%;">{{ $item->subtotal}}</div>
+                            <div>
+                                <select class="quantity" style="margin:  9px !important;" data-id="{{ $item->rowId }}">
+                                    @for ($i = 1; $i < 5 + 1 ; $i++)
+                                        <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                    @endfor
+                                </select>
+                            </div>
+                            <div class="cart-table-actions">
+                                {{--<a href="#">Remove</a> <br>--}}
+                                <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+
+                                    <button id="butonRemove" type="submit" class="btn btn-danger btn-galaxy" style="font-size: 14px !important; margin: 0% !important">Eliminar</button>
+                                </form>
+                                {{-- <a href="#">Guardar para luego</a> --}}
+                            </div>
+                        </div>
+                    </div> <!-- end cart-table-row -->
+                    @endif
                     @if(get_class($item->model) == "App\Modules\VehicleReservation\Vehicle")
                     <div class="cart-table-row">
                         <div class="cart-table-row-left">

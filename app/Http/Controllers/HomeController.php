@@ -10,6 +10,7 @@ use App\Modules\HousingReservation\Hotel;
 use App\Modules\HousingReservation\HotelRoom;
 use App\Modules\FlightReservation\Airport;
 use App\Modules\FlightReservation\FlightDetail;
+use App\Modules\Others\City;
 
 class HomeController extends Controller
 {
@@ -28,6 +29,7 @@ class HomeController extends Controller
     {
         $vehicleCards = Vehicle::inRandomOrder()->take(3)->get();
         $hotelCards = HotelRoom::inRandomOrder()->take(3)->get();
+        $cities = City::all();
         $zones = Zone::all();
         $hotels = Hotel::all();
         $airports = Airport::all();
@@ -40,7 +42,8 @@ class HomeController extends Controller
             'flightDetails',
             'hotelRooms',
             'vehicleCards',
-            'hotelCards'
+            'hotelCards',
+            'cities'
         ));
     }
 }

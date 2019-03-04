@@ -3,7 +3,7 @@
         <div class="col">
             <center>
                 <!-- Input fecha ida de seguro -->
-                <label for="fecha-ida-insurance">
+                <label for="fecha-ida-Two-insurance">
                     <span> 
                         ¿Cuándo viajas?
                     </span>
@@ -11,8 +11,8 @@
             </center>
             <div class="input-group">
                 <input 
-                id="fecha-ida-insurance"
-                name="fecha-ida-insurance"
+                id="fecha-ida-Two-insurance"
+                name="fecha-ida-Two-insurance"
                 type="date" 
                 class="form-control"
                 style="color:black;"
@@ -124,5 +124,5 @@
      } 
 
      today = yyyy+'-'+mm+'-'+dd;
-     document.getElementById("fecha-ida-insurance").setAttribute("min", today);
+     document.getElementById("fecha-ida-Two-insurance").setAttribute("min", today);
 </script>

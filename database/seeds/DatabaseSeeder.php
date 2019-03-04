@@ -45,15 +45,15 @@ class DatabaseSeeder extends Seeder
 
             /* Hoteles */
             HotelsTableSeeder::class,
-            HotelReservationsTableSeeder::class,
             HousingServicesTableSeeder::class,
             HotelRoomsTableSeeder::class,
+            HotelReservationsTableSeeder::class,
             HousingCalendariesTableSeeder::class,
             PrivateHousingsTableSeeder::class,
             RoomsTableSeeder::class,
             HousingAndServicesTableSeeder::class,
             ServiceAndRoomsTableSeeder::class,
-            HotelReservationDetailsTableSeeder::class,
+            //HotelReservationDetailsTableSeeder::class,
 
 
 

@@ -60,15 +60,15 @@
         <div class="col">
                 <center>
                     <!-- Input Ida -->
-                    <label for="fechaida">
+                    <label for="fechaida-Two">
                         <span> 
                             Fecha de ida
                         </span>
                     </label>
                     <div class="input-group">
                         <input 
-                        id="fechaida"
-                        name="fechaida"
+                        id="fechaida-Two"
+                        name="fechaida-Two"
                         type="date"
                         class="form-control"
                         style="color:black;"
@@ -153,5 +153,5 @@
      } 
 
      today = yyyy+'-'+mm+'-'+dd;
-     document.getElementById("fechaida").setAttribute("min", today);
+     document.getElementById("fechaida-Two").setAttribute("min", today);
 </script>

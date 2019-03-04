@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Modules\FlightReservation\FlightDetail;
 use App\Modules\VehicleReservation\Vehicle;
+use App\Modules\HousingReservation\HotelRoom;
 use App\Modules\Others\Insurance;
 
 class CartController extends Controller
@@ -75,15 +76,9 @@ class CartController extends Controller
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
     }
 
-    public function storeHousing(Request $request)
+    public function storeRoom(HotelRoom $hab)
     {
-        // $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
-        //     return $cartItem->id === $request->id;
-        // });
-        // if ($duplicates->isNotEmpty()) {
-        //     return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
-        // }
-        Cart::add($request->id, 'destino-santiago', 1, $request->precio)
+            Cart::add($hab->id, 'destino-santiago', 1, $hab->precio)
             ->associate('App\Modules\HousingReservation\HotelRoom');
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');

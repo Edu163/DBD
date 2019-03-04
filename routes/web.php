@@ -30,6 +30,7 @@ Route::patch('/cart/{product}', 'OthersControllers\CartController@update')->name
 Route::delete('/cart/{product}', 'OthersControllers\CartController@destroy')->name('cart.destroy');
 Route::post('/cartflight/{flightDetail}', 'OthersControllers\CartController@storeFlights')->name('cart.storeFlights');
 Route::post('/cartvehicle/{vehicle}', 'OthersControllers\CartController@storeVehicle')->name('cart.storeVehicle');
+Route::post('/cartRoom/{hab}', 'OthersControllers\CartController@storeRoom')->name('cart.storeRoom');
 Route::post('/cartInsurance/{insurance}', 'OthersControllers\CartController@storeInsurance')->name('cart.storeInsurance');
 // Route::post('/cart', 'CartController@storeHousing')->name('cart.storeHousing');
 

@@ -16,16 +16,19 @@ class HotelRoomController extends Controller
      */
     public function index()
     {
-        $hab_disp = HotelRoom::all()->where('hotel_id', request('hotel_id'));
-        if(count($hab_disp)>0)
-        {
-            return view('modules.housingReservation.hotelRoom.index', compact('hab_disp'));
-        }
-        else{
-            //return view('modules.housingReservation.hotelRoom.modal');
-            //return view('modules.housingReservation.hotelRoom.index', compact('hab_disp'));
-            return view('modules.housingReservation.hotelRoom.noDisp');
-        }
+        $params = request()->session()->get('busqueda.hotels');
+        $habitaciones = HotelRoom::buscarHabitacion($params, 1);
+        dd($habitaciones);
+        // $hab_disp = HotelRoom::all()->where('hotel_id', request('hotel_id'));
+        // if(count($hab_disp)>0)
+        // {
+        //     return view('modules.housingReservation.hotelRoom.index', compact('hab_disp'));
+        // }
+        // else{
+        //     //return view('modules.housingReservation.hotelRoom.modal');
+        //     //return view('modules.housingReservation.hotelRoom.index', compact('hab_disp'));
+        //     return view('modules.housingReservation.hotelRoom.noDisp');
+        // }
     }
 
     /**
