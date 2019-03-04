@@ -17,14 +17,13 @@ use App\Modules\HousingReservation\HotelReservation;
 use App\Modules\Others\InsuranceReservation;
 use Auth;
 use App\User;
-use PDF;
-use Illuminate\Support\Str;
-
-/*
-*   Mail
-*/
-use Mail;
 use Session;
+/* Random String */
+use Illuminate\Support\Str;
+/* PDF */
+use PDF;
+/* Mail */
+use Mail;
 use App\Modules\Mail\ConfirmationMail;
 
 
@@ -79,7 +78,16 @@ class CheckoutController extends Controller
                 ],
             ]); 
             // SUCCESSFUL
-            /** Ingresar la venta */
+            /* Actualizar datos del usuario */
+            $user = User::find($request->user_id);
+            $user->address = $request->address;
+            $user->city = $request->city;
+            $user->province = $request->province;
+            $user->postalcode = $request->postalcode;
+            $user->phone = $request->phone;
+            $user->name_on_card = $request->name_on_card;
+            $user->save();
+            /* Ingresar la venta */
             $this->addSell($request, null);
             /** Vaciar el carrito si la compra ha sido exitosa */
             Cart::instance('default')->destroy();
