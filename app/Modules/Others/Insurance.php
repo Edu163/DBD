@@ -22,6 +22,7 @@ class Insurance extends Model
     protected $fillable = [
         'flight_id',
         'insurance_reservation_id',
+        'zone_id',
         'medicalService',
         'service2',
         'service3',
@@ -32,7 +33,12 @@ class Insurance extends Model
     ];
 
     /* Relaciones */
+
     public function flight(){
     	return $this->belongsTo(Flight::class);
+    }
+
+    public function insuranceReservation(){
+    	return $this->hasMany(InsuranceReservation::class);
     }
 }

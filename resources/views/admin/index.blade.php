@@ -76,6 +76,23 @@
 
         <div class="accordion" style="color: white !important;" id="mainAccordion">
           
+          <!-- Usuarios -->
+          <div class="card">
+            <div class="card-header" style="background-color: rgba(0, 0, 0, 0.1) !important;" id="userAccordion">
+              <h5 class="d-flex justify-content-between">
+                <button class="btn btn-link collapsed" style="color: white !important;" type="button" data-toggle="collapse" data-target="#user" aria-expanded="false" aria-controls="user">
+                  <i class="fas fa-users"></i>
+                  Usuarios
+                </button>
+              </h5>
+            </div>
+            <div id="user" class="collapse" aria-labelledby="userAccordion" data-parent="#mainAccordion">
+              <div class="card-body">
+                @include('admin.user')
+              </div>
+            </div>
+          </div>
+
           <!-- Aéreo -->
           <div class="card">
             <div class="card-header" style="background-color: rgba(0, 0, 0, 0.1) !important;" id="flightAccordion">
@@ -124,6 +141,25 @@
             <div id="transport" class="collapse" aria-labelledby="transportAccordion" data-parent="#mainAccordion">
               <div class="card-body">
                 @include('admin.transport')
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seguros -->
+          <div class="card">
+            <div class="card-header" id="insuranceAccordion">
+              <h5 class="d-flex justify-content-between">
+                <button class="btn btn-link collapsed" style="color: white !important;" type="button" data-toggle="collapse" data-target="#insurance" aria-expanded="false" aria-controls="insurance">
+                  <i class="fas fa-heartbeat"></i>
+                    Seguros
+                </button>
+              </h5>
+            </div>
+
+            <div id="insurance" class="collapse" aria-labelledby="insuranceAccordion" data-parent="#mainAccordion">
+              <div class="card-body">
+                @include('admin.insurance')
               </div>
             </div>
           </div>

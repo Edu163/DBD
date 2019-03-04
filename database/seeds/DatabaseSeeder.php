@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             /* General */
             UsersTableSeeder::class,
             SellsTableSeeder::class,
+
             /* Dirección */
             CountriesTableSeeder::class,
             CitiesTableSeeder::class,
@@ -29,7 +30,6 @@ class DatabaseSeeder extends Seeder
             CheckInsTableSeeder::class,
             OriginDestiniesTableSeeder::class,
             FlightReservationsTableSeeder::class,
-            InsurancesTableSeeder::class,
 
             /* Vehiculos */
             VehicleCalendariesTableSeeder::class,
@@ -55,7 +55,8 @@ class DatabaseSeeder extends Seeder
             ServiceAndRoomsTableSeeder::class,
             //HotelReservationDetailsTableSeeder::class,
 
-
+            /* Seguros */
+            InsurancesTableSeeder::class,
 
             /* Paquetes */
             PackagesTableSeeder::class,

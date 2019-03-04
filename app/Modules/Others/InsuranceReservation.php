@@ -13,6 +13,7 @@ class InsuranceReservation extends Model
 
     protected $fillable = [
         'sell_id',
+        'insurance_id',
         'monto_total',
     ];
 
@@ -21,7 +22,8 @@ class InsuranceReservation extends Model
     public function sell(){
     	return $this->belongsTo(Sell::class);
     }
+
     public function insurance(){
-        return $this->hasMani(Insurance::class);
+    	return $this->belongsTo(Insurance::class);
     }
 }

@@ -15,7 +15,9 @@ class InsuranceController extends Controller
      */
     public function indexo()
     {
-        $insurances = Insurance::all();         
+        $insurances = Insurance::where('groupsize', request('tipo'))
+                            ->where('zone_id', request('zone_id'))                    
+                            ->get();
         return view('modules.flightReservation.insurance.index', compact('insurances'));
     }
 

@@ -48,6 +48,10 @@ class Sell extends Model
     	return $this->hasMany(FlightReservation::class);
     }
 
+    public function insuranceReservation(){
+    	return $this->hasMany(InsuranceReservation::class);
+    }
+
     public function package(){
     	return $this->hasMany(Package::class);
     }
