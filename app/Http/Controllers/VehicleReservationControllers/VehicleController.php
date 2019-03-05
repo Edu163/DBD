@@ -20,7 +20,13 @@ class VehicleController extends Controller
         $vehicles = Vehicle::where('zone_id', request('zone'))
                     ->where('n_pasajeros', '>=', (int)$pasajeros)
                     ->get();
-        return view('modules.vehicleReservation.vehicle.index', compact('vehicles'));
+         if(count($vehicles)>0)
+        {
+            return view('modules.vehicleReservation.vehicle.index', compact('vehicles'));
+        }
+        else{
+            return view('modules.vehicleReservation.vehicle.noDisp');
+        }
     }
 
     /**

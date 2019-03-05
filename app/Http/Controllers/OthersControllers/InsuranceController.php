@@ -18,7 +18,13 @@ class InsuranceController extends Controller
         $insurances = Insurance::where('groupsize', request('tipo'))
                             ->where('zone_id', request('zone_id'))                    
                             ->get();
-        return view('modules.others.insurance.index', compact('insurances'));
+        if(count($insurances)>0)
+        {
+            return view('modules.others.insurance.index', compact('insurances'));
+        }
+        else{
+            return view('modules.others.insurance.noDisp');
+        }
     }
 
     public function indext()

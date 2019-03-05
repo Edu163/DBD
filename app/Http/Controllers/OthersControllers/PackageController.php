@@ -21,7 +21,13 @@ class PackageController extends Controller
     {
         $hotels = Hotel::all()->where('pais', request('zona_id'));
         $packages = Package::all()->where('pais', request('zona_id'));
-        return view('modules.others.package.index', compact('packages'));
+        if(count($packages)>0)
+        {
+            return view('modules.others.package.index', compact('packages'));
+        }
+        else{
+            return view('modules.others.package.noDisp');
+        }
     }
 
     /**

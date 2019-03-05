@@ -28,8 +28,6 @@ class HotelRoomController extends Controller
             return view('modules.housingReservation.hotelRoom.index', compact('hab_disp'));
         }
         else{
-            //return view('modules.housingReservation.hotelRoom.modal');
-            //return view('modules.housingReservation.hotelRoom.index', compact('hab_disp'));
             return view('modules.housingReservation.hotelRoom.noDisp');
         }
     }
