@@ -77,6 +77,12 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" style="background: linear-gradient(45deg, #1de099, #1dc8cd) !important;" aria-labelledby="navbarDropdown">
+                                @if (Auth::user()->is_admin == 1)
+                                    <a class="dropdown-item" href="/admin"  method="post">
+                                        {{ __('Administración') }}
+                                        <i class="fas fa-user-tie"></i>
+                                    </a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('profile.show',[Crypt::encrypt(Auth::user()->id) ])}}"  method="post">
                                     {{ __('Perfil') }}
                                     <i class="fas fa-user"></i>
