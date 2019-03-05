@@ -430,65 +430,6 @@
         </section><!-- #pricing -->
 
         <!--==========================
-        Product Advanced Featuress Section
-        ============================-->
-        {{-- <section id="advanced-features">
-
-        <div class="features-row section-bg">
-            <div class="container">
-            <div class="row">
-                <div class="col-12">
-                <img class="advanced-feature-img-right wow fadeInRight" src="{{ asset('template/img/advanced-feature-1.jpg') }}" alt="">
-                <div class="wow fadeInLeft">
-                    <h2>Duis aute irure dolor in reprehenderit in voluptate velit esse</h2>
-                    <h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <div class="features-row">
-            <div class="container">
-            <div class="row">
-                <div class="col-12">
-                <img class="advanced-feature-img-left" src="{{ asset('template/img/advanced-feature-2.jpg') }}" alt="">
-                <div class="wow fadeInRight">
-                    <h2>Duis aute irure dolor in reprehenderit in voluptate velit esse</h2>
-                    <i class="ion-ios-paper-outline" class="wow fadeInRight" data-wow-duration="0.5s"></i>
-                    <p class="wow fadeInRight" data-wow-duration="0.5s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <i class="ion-ios-color-filter-outline wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.5s"></i>
-                    <p class="wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.5s">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
-                    <i class="ion-ios-barcode-outline wow fadeInRight" data-wow-delay="0.4" data-wow-duration="0.5s"></i>
-                    <p class="wow fadeInRight" data-wow-delay="0.4s" data-wow-duration="0.5s">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <div class="features-row section-bg">
-            <div class="container">
-            <div class="row">
-                <div class="col-12">
-                <img class="advanced-feature-img-right wow fadeInRight" src="{{ asset('template/img/advanced-feature-3.jpg') }}" alt="">
-                <div class="wow fadeInLeft">
-                    <h2>Duis aute irure dolor in reprehenderit in voluptate velit esse</h2>
-                    <h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                    <i class="ion-ios-albums-outline"></i>
-                    <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        </section> --}}
-        <!-- #advanced-features -->
-
-        <!--==========================
         Call To Action Section
         ============================-->
         <section id="call-to-action">
@@ -579,7 +520,7 @@
         <!--==========================
         Frequently Asked Questions Section
         ============================-->
-        <section id="faq" class="bg-light">
+        <section id="faq" class="bg-light text-dark">
         <div class="container">
 
             <div class="section-header">
@@ -725,130 +666,7 @@
         </div>
         </section><!-- #faq -->
 
-        <!--==========================
-        Gallery Section
-        ============================-->
-        {{-- <section id="gallery">
-        <div class="container-fluid">
-            <div class="section-header">
-            <h3 class="section-title">Galaría</h3>
-            <span class="section-divider"></span>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-            </div>
-
-            <div class="row no-gutters">
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item wow fadeInUp">
-                <a href="{{ asset('template/img/gallery/gallery-1.jpg') }}" class="gallery-popup">
-                    <img src="{{ asset('template/img/gallery/gallery-1.jpg') }}" alt="">
-                </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item wow fadeInUp">
-                <a href="{{ asset('template/img/gallery/gallery-2.jpg') }}" class="gallery-popup">
-                    <img src="{{ asset('template/img/gallery/gallery-2.jpg') }}" alt="">
-                </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item wow fadeInUp">
-                <a href="{{ asset('template/img/gallery/gallery-3.jpg') }}" class="gallery-popup">
-                    <img src="{{ asset('template/img/gallery/gallery-3.jpg') }}" alt="">
-                </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item wow fadeInUp">
-                <a href="{{ asset('template/img/gallery/gallery-4.jpg') }}" class="gallery-popup">
-                    <img src="{{ asset('template/img/gallery/gallery-4.jpg') }}" alt="">
-                </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item wow fadeInUp">
-                <a href="{{ asset('template/img/gallery/gallery-5.jpg') }}" class="gallery-popup">
-                    <img src="{{ asset('template/img/gallery/gallery-5.jpg') }}" alt="">
-                </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item wow fadeInUp">
-                <a href="{{ asset('template/img/gallery/gallery-6.jpg') }}" class="gallery-popup">
-                    <img src="{{ asset('template/img/gallery/gallery-6.jpg') }}" alt="">
-                </a>
-                </div>
-            </div>
-
-            </div>
-
-        </div>
-        </section> --}}
-        <!-- #gallery -->
-
-        <!--==========================
-        Our Team Section, Esto queda sólo si no se sube a la red.
-        ============================-->
-        {{-- <section id="team" class="section-bg">
-        <div class="container">
-            <div class="section-header">
-            <h3 class="section-title">Nuestro Equipo</h3>
-            <span class="section-divider"></span>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-            </div>
-            <div class="row wow fadeInUp">
-            <div class="col-6 col-md-4">
-                <div class="member">
-                <div class="pic"><img src="{{ asset('img/team-1.jpg') }}" alt=""></div>
-                <h4>Guillermo Campos</h4>
-                <span>Chief Executive Officer</span>
-                <div class="social">
-                    <a href=""><i class="fab fa-twitter"></i></a>
-                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                    <a href=""><i class="fab fa-linkedin"></i></a>
-                </div>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-4">
-                <div class="member">
-                <div class="pic"><img src="{{asset('img/team-2.jpg')}}" alt=""></div>
-                <h4>Omar Carrasco</h4>
-                <span>Product Manager</span>
-                <div class="social">
-                    <a href=""><i class="fab fa-twitter"></i></a>
-                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                    <a href=""><i class="fab fa-linkedin"></i></a>
-                </div>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-4">
-                <div class="member">
-                <div class="pic"><img src="{{ asset('img/team-3.jpg') }}" alt=""></div>
-                <h4>Eduardo Pailemilla</h4>
-                <span>CTO</span>
-                <div class="social">
-                    <a href=""><i class="fab fa-twitter"></i></a>
-                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                    <a href=""><i class="fab fa-linkedin"></i></a>
-                </div>
-                </div>
-            </div>
-
-            </div>
-
-        </div>
-        </section> --}}
-        <!-- #team -->
-
-        <!--==========================
+    <!--==========================
     Contact Section
     ============================-->
     <section id="contact">
