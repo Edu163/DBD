@@ -127,14 +127,14 @@ class CheckoutController extends Controller
                 FlightSellDetail::create([
                     'sell_id' => $venta->id,
                     'flight_id' => $item->model->id,
-                    'precio' => strval($item->model->precio),
+                    'precio' => strval($item->subtotal),
                     'descuento' => '200',
                     'tipo' => $cabina,
                     'cantidad' => $item->qty,
                     'monto_total' => strval($item->total),
                 ]);
-                dump($cabina);
-                dump($item->qty);
+                //dump($cabina);
+                //dump($item->qty);
                 $vuelo = Flight::findOrFail($item->model->id);
                 $vuelo->descontarAsientos($cabina, $item->qty);
 
@@ -171,6 +171,26 @@ class CheckoutController extends Controller
                     'monto_total' => strval($item->total),
                     'descuento' => 100,
                 ]);
+            }
+            else if(get_class($item->model) == "App\Modules\FlightReservation\RoundtripFlight")
+            {
+                //dd("hola");
+                $cabina = $item->model->tipoCabina($item->subtotal/$item->qty);
+                FlightSellDetail::create([
+                    'sell_id' => $venta->id,
+                    'flight_id' => $item->model->id,
+                    'precio' => strval($item->subtotal),
+                    'descuento' => '200',
+                    'tipo' => $cabina,
+                    'cantidad' => $item->qty,
+                    'monto_total' => strval($item->total),
+                ]);
+                //dump($cabina);
+                //dump($item->qty);
+                $vueloIda = Flight::findOrFail($item->model->vueloIda->id);
+                $vueloVuelta = Flight::findOrFail($item->model->vueloVuelta->id);
+                $vueloIda->descontarAsientos($cabina, $item->qty);
+                $vueloVuelta->descontarAsientos($cabina, $item->qty);
             }
         }
         /* PDF y Email */

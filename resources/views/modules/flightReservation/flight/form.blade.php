@@ -1,12 +1,12 @@
 <ul class="nav nav-pills" id="pills-tab" role="tablist">
      <li class="nav-item ml-auto mx-auto">
           <a class="nav-link btn-galaxy active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
-               Ida y vuelta
+              Sólo ida
           </a>
      </li>
      <li class="nav-item ml-auto mx-auto">
           <a class="nav-link btn-galaxy" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
-               Sólo ida
+               Ida y vuelta
           </a>
      </li>
 </ul>

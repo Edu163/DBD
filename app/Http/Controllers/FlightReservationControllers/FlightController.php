@@ -30,10 +30,9 @@ class FlightController extends Controller
         request()->session()->put('busqueda.vuelos', $params);
         $cabina = $params['cabina'];
         //return view('modules.flightReservation.flight.flight', compact('vuelos'));
-        return view('modules.flightReservation.flight.flight', compact('flight', 'cabina'));
          if(count($flight)>0)
         {
-            return view('modules.flightReservation.flightdetail.flightDetail', compact('flight'));
+            return view('modules.flightReservation.flight.flight', compact('flight', 'cabina'));
         }
         else{
             return view('modules.flightReservation.flightdetail.noDisp');

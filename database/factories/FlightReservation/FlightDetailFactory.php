@@ -11,7 +11,7 @@ $factory->define(FlightDetail::class, function (Faker $faker) {
     $origin_id = DB::table('airports')->select('id')->get();
     $destiny_id = DB::table('airports')->select('id')->get();
     $airport_id = DB::table('airports')->select('id')->get();
-    $date = Carbon::create(2019, 3, mt_rand(3, 5), mt_rand(0, 24), 0, 0);
+    $date = Carbon::create(2019, 3, mt_rand(5, 7), mt_rand(0, 24), 0, 0);
     $date2 = $date->copy()->addHours(mt_rand(1,10));
     Carbon::parse($date)->format("Y-m-d H:i:s");
     Carbon::parse($date2)->format("Y-m-d H:i:s");

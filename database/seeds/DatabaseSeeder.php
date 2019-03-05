@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             CheckInsTableSeeder::class,
             OriginDestiniesTableSeeder::class,
             FlightReservationsTableSeeder::class,
+            RoundtripsFlightsSeeder::class,
 
             /* Vehiculos */
             VehicleCalendariesTableSeeder::class,

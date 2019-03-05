@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\OthersControllers;
 
 use App\Modules\FlightReservation\Flight;
+use App\Modules\FlightReservation\RoundtripFlight;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -68,7 +69,33 @@ class CartController extends Controller
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
     }
+    public function storeRoundTrip(RoundtripFlight $roundtrip)
+    {
+        // $duplicates = Cart::search(function ($cartItem, $rowId) use ($flightDetail) {
+        //     return $cartItem->id === $flightDetail->id;
+        // });
+        // if ($duplicates->isNotEmpty()) {
+        //     return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
+        // }
+        $params = request()->session()->get('busqueda.roundtrip');
+        if($params['cabina'] == 1)
+        {
+            Cart::add($roundtrip->id, 'destino-santiago', 1, $roundtrip->precio_premium)
+                ->associate('App\Modules\FlightReservation\RoundTripFlight');
+        }
+        else if($params['cabina'] == 2)
+        {
+            Cart::add($roundtrip->id, 'destino-santiago', 1, $roundtrip->precio_bussiness)
+                ->associate('App\Modules\FlightReservation\RoundTripFlight');
+        }
+        else if($params['cabina'] == 3)
+        {
+            Cart::add($roundtrip->id, 'destino-santiago', 1, $roundtrip->precio_economy)
+                ->associate('App\Modules\FlightReservation\RoundTripFlight');
+        }
 
+        return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
+    }
     /**
      * Store a newly created resource in storage.
      *
