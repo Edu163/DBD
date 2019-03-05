@@ -18,7 +18,7 @@ class FlightSellDetail extends Model
 
     protected $fillable = [
         'sell_id',
-        'flight_details_id',
+        'flight_id',
         'precio',
         'descuento',
         'monto_total',

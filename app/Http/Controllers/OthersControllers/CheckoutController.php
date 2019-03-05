@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\OthersControllers;
 
 
+use App\Modules\FlightReservation\Flight;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use App\Http\Requests\CheckoutRequest;
@@ -120,16 +121,25 @@ class CheckoutController extends Controller
         /** Ingresar el detalle de la venta iterando el carrito*/
         foreach (Cart::content() as $item)
         {
-            if(get_class($item->model) == "App\Modules\FlightReservation\FlightDetail")
+            if(get_class($item->model) == "App\Modules\FlightReservation\Flight")
             {
+                $cabina = $item->model->tipoCabina($item->subtotal/$item->qty);
                 FlightSellDetail::create([
                     'sell_id' => $venta->id,
+                    'flight_id' => $item->model->id,
                     'precio' => strval($item->model->precio),
                     'descuento' => '200',
-                    'tipo' => 'Economy',
+                    'tipo' => $cabina,
                     'cantidad' => $item->qty,
                     'monto_total' => strval($item->total),
-                ]);     
+                ]);
+                dump($cabina);
+                dump($item->qty);
+                $vuelo = Flight::findOrFail($item->model->id);
+                $vuelo->descontarAsientos($cabina, $item->qty);
+
+
+
             }
             else if(get_class($item->model) == "App\Modules\VehicleReservation\Vehicle")
             {                

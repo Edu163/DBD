@@ -17,21 +17,20 @@ class FlightController extends Controller
                 'destino' => 'required|integer',
                 'fechaida' => 'required|date',
                 //'fechavuelta' => 'required',//_if:tipo_vuelo,1|nullable',
-                //'pasajeros_adultos' => 'required|integer',
+                'pasajeros' => 'required|integer',
                 //'pasajeros_ninos' => 'required|integer',
-                //'tipo_pasaje' => 'required|integer|between:1,3'
+                'cabina' => 'required|integer|between:1,3',
                 //'cabina' => 'required',
             ]);
         //} else {
             //$params = request()->session()->get('busqueda.vuelos');
             //request()->session()->forget('vuelo_vuelta');
         //}
-        //dd("hola");
         $flight = Flight::buscarVuelos($params);
-
-        //request()->session()->put('busqueda.vuelos', $params);
-
+        request()->session()->put('busqueda.vuelos', $params);
+        $cabina = $params['cabina'];
         //return view('modules.flightReservation.flight.flight', compact('vuelos'));
+        return view('modules.flightReservation.flight.flight', compact('flight', 'cabina'));
          if(count($flight)>0)
         {
             return view('modules.flightReservation.flightdetail.flightDetail', compact('flight'));

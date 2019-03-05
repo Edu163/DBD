@@ -30,7 +30,9 @@ class CreateFlightDetailsTable extends Migration
                 ->references('id')
                 ->on('airports')
                 ->onDelete('cascade');
-            $table->integer('precio');
+            $table->integer('precio_economy');
+            $table->integer('precio_premium');
+            $table->integer('precio_bussiness');
             $table->datetime('fecha_despegue');
             $table->datetime('fecha_aterrizaje');
             $table->integer('asientos_economy');

@@ -123,7 +123,7 @@
                         Seleccione el tipo de cabina
                     </option>
                     <option value="1">
-                        First Class
+                        Premium
                     </option>
                     <option value="2">
                         Bussiness

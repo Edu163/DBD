@@ -25,13 +25,21 @@
 
             <div class="cart-table">
                 @foreach (Cart::content() as $item)
-                    @if(get_class($item->model) == "App\Modules\FlightReservation\FlightDetail")
+                    @if(get_class($item->model) == "App\Modules\FlightReservation\Flight")
                         <div class="cart-table-row">
                             <div class="cart-table-row-left">
-                                <a href="#"><img src="https://picsum.photos/180/120?image={{ mt_rand(1, 50) }}" alt="item" class="cart-table-img"></a>
+                                <a href="#"><img src="https://picsum.photos/180/120?image={{ mt_rand(1043, 1052) }}" alt="item" class="cart-table-img"></a>
                                 <div class="cart-item-details">
-                                    <div class="cart-table-item"><a href="#">Destino: {{ $item->model->destiny->ciudad }}</a></div>
-                                    <div>Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                                    @if($item->model->escalas == 1)
+                                        <div class="cart-table-item"><a href="#">Destino: {{ $item->model->getTramo1->destiny->ciudad }}</a></div>
+                                        <div>Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                                        <div>Cabina: {{ $item->model->tipoCabina($item->subtotal/$item->qty) }}</div>
+                                    @endif
+                                    @if($item->model->escalas == 2)
+                                        <div class="cart-table-item"><a href="#">Destino: {{ $item->model->getTramo2->destiny->ciudad }}</a></div>
+                                        <div>Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                                        <div>Cabina: {{ $item->model->tipoCabina($item->subtotal/$item->qty)}}</div>
+                                    @endif
                                 </div>
                             </div>
                             <div class="cart-table-row-right">

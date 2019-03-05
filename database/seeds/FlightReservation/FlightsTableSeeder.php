@@ -38,7 +38,9 @@ class FlightsTableSeeder extends Seeder
                                 'destiny_id' => $escala->destiny_id,
                                 'tramo1_id' => $escala_id,
                                 'tramo2_id' => null,
-                                'precio' => $vuelo->getPrecio(),
+                                'precio_economy' => $vuelo->getPrecio("economy"),
+                                'precio_bussiness' => $vuelo->getPrecio("bussiness"),
+                                'precio_premium' => $vuelo->getPrecio("premium"),
                                 'fecha_despegue' => $vuelo->getFechaSalida(),
                                 'fecha_aterrizaje' => $vuelo->getFechaAterrizaje(),
                             ]);
@@ -56,7 +58,9 @@ class FlightsTableSeeder extends Seeder
                                 'destiny_id' => $escala2->destiny_id,
                                 'tramo1_id' => $escala_id1,
                                 'tramo2_id' => $escala_id2,
-                                'precio' => $vuelo->getPrecio(),
+                                'precio_economy' => $vuelo->getPrecio("economy"),
+                                'precio_bussiness' => $vuelo->getPrecio("bussiness"),
+                                'precio_premium' => $vuelo->getPrecio("premium"),
                                 'fecha_despegue' => $vuelo->getFechaSalida(),
                                 'fecha_aterrizaje' => $vuelo->getFechaAterrizaje(),
                             ]);

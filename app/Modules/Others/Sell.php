@@ -3,6 +3,9 @@
 namespace App\Modules\Others;
 use App\Modules\FlightReservation\FlightDetail;
 use App\Modules\VehicleReservation\VehicleReservation;
+use App\Modules\FlightReservation\FlightReservation;
+use App\Modules\FlightReservation\FlightSellDetail;
+use App\Modules\VehicleReservation\VehicleReservation;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 

@@ -18,7 +18,9 @@ class FlightDetail extends Model
         'destiny_id',
         'fecha_despegue',
         'fecha_aterrizaje',
-        'precio',
+        'precio_economy',
+        'precio_bussiness',
+        'precio_premium',
         'asientos_economy',
         'asientos_bussiness', 
         'asientos_premium',
@@ -68,6 +70,25 @@ class FlightDetail extends Model
         $fechaLlegada = Carbon::parse($this->fecha_aterrizaje);
 
         return $fechaLlegada->diff($fechaPartida)->format('%Hh %im');
+    }
+    public function getPrecio($cabina)
+    {
+        if($cabina == "economy")
+        {
+            return $this->precio_economy;
+
+        }
+        else if($cabina == "premium")
+        {
+            return $this->precio_premium;
+
+        }
+        else if($cabina == "bussiness")
+        {
+            return $this->precio_bussiness;
+
+        }
+        return 0;
     }
     private static function buscarConEscala($params)
     {

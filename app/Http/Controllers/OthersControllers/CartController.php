@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\OthersControllers;
 
-use App\Modules\FlightReservation\FlightC;
+use App\Modules\FlightReservation\Flight;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -38,11 +38,10 @@ class CartController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  App\Modules\FlightReservation\FlightDetail  $flightDetail
+     * @param Flight $vuelo
      * @return \Illuminate\Http\Response
      */
-    public function storeFlights(FlightC $flight)
+    public function storeFlights(Flight $vuelo)
     {
         // $duplicates = Cart::search(function ($cartItem, $rowId) use ($flightDetail) {
         //     return $cartItem->id === $flightDetail->id;
@@ -50,16 +49,30 @@ class CartController extends Controller
         // if ($duplicates->isNotEmpty()) {
         //     return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
         // }
-        Cart::add($flight->id, 'destino-santiago', 1, $flight->getPrecio())
-            ->associate('App\Modules\FlightReservation\FlightC');
+        $params = request()->session()->get('busqueda.vuelos');
+        if($params['cabina'] == 1)
+        {
+            Cart::add($vuelo->id, 'destino-santiago', 1, $vuelo->precio_premium)
+                ->associate('App\Modules\FlightReservation\Flight');
+        }
+        else if($params['cabina'] == 2)
+        {
+            Cart::add($vuelo->id, 'destino-santiago', 1, $vuelo->precio_bussiness)
+                ->associate('App\Modules\FlightReservation\Flight');
+        }
+        else if($params['cabina'] == 3)
+        {
+            Cart::add($vuelo->id, 'destino-santiago', 1, $vuelo->precio_economy)
+                ->associate('App\Modules\FlightReservation\Flight');
+        }
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
     }
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  App\Modules\VehicleReservation\Vehicle $vehicle
+     * @param Vehicle $vehicle
      * @return \Illuminate\Http\Response
      */
     public function storeVehicle(Vehicle $vehicle)
@@ -70,6 +83,7 @@ class CartController extends Controller
         // if ($duplicates->isNotEmpty()) {
         //     return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
         // }
+        dd($vehicle);
         Cart::add($vehicle->id, 'destino-santiago', 1, $vehicle->precio)
             ->associate('App\Modules\VehicleReservation\Vehicle');
 
