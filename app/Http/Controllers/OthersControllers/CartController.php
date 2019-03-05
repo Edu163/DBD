@@ -70,6 +70,10 @@ class CartController extends Controller
         // if ($duplicates->isNotEmpty()) {
         //     return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
         // }
+        $params = request()->session()->get('busqueda.vehicles');
+        $id = $vehicle->id;
+        request()->session()->put('busqueda.vehicle' . $id, $params);
+
         Cart::add($vehicle->id, 'destino-santiago', 1, $vehicle->precio)
             ->associate('App\Modules\VehicleReservation\Vehicle');
 

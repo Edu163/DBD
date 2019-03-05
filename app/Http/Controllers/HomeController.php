@@ -11,6 +11,7 @@ use App\Modules\HousingReservation\HotelRoom;
 use App\Modules\FlightReservation\Airport;
 use App\Modules\FlightReservation\FlightDetail;
 use App\Modules\Others\City;
+use App\Modules\Others\Package;
 
 class HomeController extends Controller
 {
@@ -29,12 +30,14 @@ class HomeController extends Controller
     {
         $vehicleCards = Vehicle::inRandomOrder()->take(3)->get();
         $hotelCards = HotelRoom::inRandomOrder()->take(3)->get();
+        $packagesCards = Package::inRandomOrder()->take(3)->get();
         $cities = City::all();
         $zones = Zone::all();
         $hotels = Hotel::all();
         $airports = Airport::all();
         $hotelRooms = HotelRoom::all();
         $flightDetails = FlightDetail::all();
+        $packages = Package::all();
         return view('home', compact(
             'zones',
             'hotels',
@@ -43,7 +46,9 @@ class HomeController extends Controller
             'hotelRooms',
             'vehicleCards',
             'hotelCards',
-            'cities'
+            'packagesCards',
+            'cities',
+            'packages'
         ));
     }
 }

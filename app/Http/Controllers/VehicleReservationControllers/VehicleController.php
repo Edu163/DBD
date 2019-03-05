@@ -16,10 +16,34 @@ class VehicleController extends Controller
      */
     public function index()
     {
+        $params = $this->validate(request(), [
+            'patente' => 'required',
+            'vehicle_calendary_id' => 'required|integer',
+            'vehicle_provider_id' => 'required|integer',
+            'zone_id' => 'required|integer',
+            'marca' => 'required',
+            'tipo' => 'required',
+            'gamma' => 'required',
+            'transmision' => 'required',
+            'combustible' => 'required',
+            'n_pasajeros' => 'required|integer',
+            'equipaje_g' => 'required|integer',
+            'equipaje_p' => 'required|integer',
+            'n_puertas' => 'required|integer',
+            'n_kilometraje' => 'required|integer',
+            'precio' => 'required|integer',
+            'aire_acondicionado' => 'required',
+            'fecha-recogida' => 'required|date',
+            'fecha-devolucion' => 'required|date'
+            ]);     
+        request()->session()->put('busqueda.vehicles', $params);
+        dd($params);
         $pasajeros = request('pasajeros');
-        $vehicles = Vehicle::where('zone_id', request('zone'))
-                    ->where('n_pasajeros', '>=', (int)$pasajeros)
-                    ->get();
+        $vehicles = Vehicle::buscarVehiculo($params, $pasajeros);
+
+        // $vehicles = Vehicle::where('zone_id', request('zone'))
+        //             ->where('n_pasajeros', '>=', (int)$pasajeros)
+        //             ->get();
          if(count($vehicles)>0)
         {
             return view('modules.vehicleReservation.vehicle.index', compact('vehicles'));

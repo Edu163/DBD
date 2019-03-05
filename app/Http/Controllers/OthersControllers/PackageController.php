@@ -98,38 +98,67 @@ class PackageController extends Controller
 
     public function va()
     {
-        //$hotels = Hotel::all()->where('pais', request('destino-packageOne'));
-        $params = $this->validate(request(), [
-                'origen' => 'required|integer',
-                'destino' => 'required|integer',
-                'fechaida' => 'required|date',
-            ]);
-        $hotels = Hotel::all();
-        $flights = FlightDetail::all();
-        $packages = Package::all();
-        return view('modules.others.package.index', compact('packages'));
-        //return view('modules.others.package.indexva', compact('hotels','flights'));
-        
+        $hotels = Hotel::all()->where('ciudad', request('destino-packageOne'));
+        $destino = request('destino-packageOne');
+        //dd($destino);
+        $array_id = [];
+		foreach($hotels as $hotel)
+		{
+			$array_id[] = $hotel->id;
+        }
+        //dd($array_id);
+        $packages = Package::all()->where('type', 1)
+                                  ->whereIn('hotel_id', $array_id);
+        if(count($packages)>0)
+        {
+            return view('modules.others.package.index', compact('packages'));
+        }
+        else{
+            return view('modules.others.package.noDisp');
+        }
     }
 
     public function vv()
     {
-        $flights = FlightDetail::all();
-        $pasajeros = request('pasajeros');
-        $vehicles = Vehicle::where('zone_id', request('zone'))
-                    ->where('n_pasajeros', '>=', (int)$pasajeros)
-                    ->get();
-        return view('modules.others.package.indexvv', compact('flights','vehicles'));
+        $vehicles = Vehicle::all()->where('ciudad', request('destino'));
+        $destino = request('destino');
+        //dd($destino);
+        $array_id = [];
+		foreach($vehicles as $vehicle)
+		{
+			$array_id[] = $vehicle->id;
+        }
+        //dd($array_id);
+        $packages = Package::all()->where('type', 2)
+                                  ->whereIn('vehicle_id', $array_id);
+        if(count($packages)>0)
+        {
+            return view('modules.others.package.index', compact('packages'));
+        }
+        else{
+            return view('modules.others.package.noDisp');
+        }
     }
 
     public function vav()
     {
-        $flights = FlightDetail::all();
-        $pasajeros = request('pasajeros');
-        $vehicles = Vehicle::where('zone_id', request('zone'))
-                    ->where('n_pasajeros', '>=', (int)$pasajeros)
-                    ->get();
-        $hotels = Hotel::all()->where('pais', request('destino-packageThree'));
-        return view('modules.others.package.indexvav', compact('hotels','flights','vehicles'));
+        $hotels = Hotel::all()->where('ciudad', request('destino'));
+        $destino = request('destino');
+        //dd($destino);
+        $array_id = [];
+		foreach($hotels as $hotel)
+		{
+			$array_id[] = $hotel->id;
+        }
+        //dd($array_id);
+        $packages = Package::all()->where('type', 3)
+                                  ->whereIn('hotel_id', $array_id);
+        if(count($packages)>0)
+        {
+            return view('modules.others.package.index', compact('packages'));
+        }
+        else{
+            return view('modules.others.package.noDisp');
+        }
     }
 }

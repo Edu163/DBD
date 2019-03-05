@@ -18,6 +18,7 @@ class Package extends Model
         'flight_id',
         'hotel_id',
         'vehicle_id',
+        'type',
         'fecha_inicio',
         'fecha_fin'
     ];

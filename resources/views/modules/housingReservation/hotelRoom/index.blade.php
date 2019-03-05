@@ -12,9 +12,9 @@
             @foreach($hab_disp as $hab)
                 <div class="col-lg-4 col-md-6">
                     <div class="box featured wow fadeInUp">
+                        <h4><sup>$</sup>{{ $hab->precio }}</h4>
                         <img class="img-fluid" src="https://source.unsplash.com/600x600/?bedroom={{ mt_rand(500, 50000) }}" style="padding-bottom: 8% !important;">
                         <ul>
-                            <li><i class="ion-android-checkmark-circle"></i>ID: {{ $hab->id }}</li>
                             <li><i class="ion-android-checkmark-circle"></i>Capacidad: {{ $hab->capacidad }}</li>
                            <li><i class="ion-android-checkmark-circle"></i>Camas: {{ $hab->camas }}</li>
                            {{-- <li><i class="ion-android-checkmark-circle"></i>Número: {{ $hab->numero }}</li>

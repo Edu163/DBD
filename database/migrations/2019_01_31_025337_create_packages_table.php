@@ -30,6 +30,7 @@ class CreatePackagesTable extends Migration
                     ->references('id')
                     ->on('vehicles')
                     ->onDelete('cascade');
+            $table->integer('type');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->timestamps();

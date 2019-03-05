@@ -42,6 +42,9 @@ class Vehicle extends Model
         'n_kilometraje',
         'precio',
         'aire_acondicionado',
+        'ciudad_id',
+        'pais',
+    	'ciudad',
     ];
 
     /* Relaciones */
@@ -69,4 +72,31 @@ class Vehicle extends Model
     public function vehicleReservationDetail(){
     	return $this->hasMany(VehicleReservationDetail::class);
     }
+
+    public static function buscarVehiculos($params, $pasajeros)
+	{
+		$fechaRecogida = Carbon::createFromFormat('Y-m-d', $params['fecha-recogida']);
+		$fechaDevolucion= Carbon::createFromFormat('Y-m-d', $params['fecha-devolucion']);
+		$vehiculos = DB::table('vehicles')
+				->join('vehicle_reservations as reservations', 'vehicles.id', '=', 'reservations.vehicle_id')
+				->whereDate('reservations.fecha_retiro', '<=', $fechaRecogida->format('Y-m-d'))
+				->whereDate('reservations.fecha_regreso', '>=', $fechaRecogida->format('Y-m-d'))
+				->orWhereDate('reservations.fecha_retiro', '<=', $fechaDevolucion->format('Y-m-d'))
+				->whereDate('reservations.fecha_regreso', '>=', $fechaDevolucion->format('Y-m-d'))
+				->select('vehicles.id', 'vehicles.marca')->get();
+		$room_final = [];
+		$array_id = [];		
+		$vehicles = Vehicle::all();
+		foreach($vehiculos as $vehiculo)
+		{
+			$array_id[] = $vehiculo->id;
+		}
+		$autos = static::where('vehicles.patente', '=', $patente)
+			->whereNotIn('id', $array_id)->get();
+        return $autos;
+        
+        // $vehicles = Vehicle::where('zone_id', request('zone'))
+        //             ->where('n_pasajeros', '>=', (int)$pasajeros)
+        //             ->get();
+	}
 }

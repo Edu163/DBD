@@ -43,6 +43,13 @@ class CreateVehiclesTable extends Migration
             $table->integer('n_kilometraje');
             $table->float('precio');
             $table->string('aire_acondicionado');
+            $table->integer('ciudad_id');
+            $table->foreign('ciudad_id')
+                ->references('id')
+                ->on('cities')
+                ->onDelete('cascade');
+        	$table->string('pais');
+    		$table->string('ciudad');
             $table->timestamps();
         });
     }
