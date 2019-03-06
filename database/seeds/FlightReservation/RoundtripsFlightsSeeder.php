@@ -1,9 +1,9 @@
 <?php
 
+use App\Modules\FlightReservation\RoundtripFlight;
 use Illuminate\Database\Seeder;
-use App\Modules\FlightReservation\CheckIn;
 
-class CheckInsTableSeeder extends Seeder
+class RoundtripsFlightsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class CheckInsTableSeeder extends Seeder
      */
     public function run()
     {
-        //factory(CheckIn::class, 20)->create();
+        //factory(RoundtripFlight::class, 100)->create();
     }
 }

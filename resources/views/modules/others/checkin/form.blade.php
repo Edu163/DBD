@@ -5,7 +5,6 @@
     justify-content: center;
 }
 </style>
-
 <div class="card buy-card flex-fill" style="padding-top: 15%;">
     <div class="card-body buy-card-body">
         <!-- Línea 1 -->

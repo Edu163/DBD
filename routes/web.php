@@ -28,7 +28,8 @@ Route::get('/flight', 'FlightReservationControllers\FlightController@index')->na
 Route::get('/cart', 'OthersControllers\CartController@index')->name('cart.index');
 Route::patch('/cart/{product}', 'OthersControllers\CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'OthersControllers\CartController@destroy')->name('cart.destroy');
-Route::post('/cartflight/{flightDetail}', 'OthersControllers\CartController@storeFlights')->name('cart.storeFlights');
+Route::post('/cartflight/{vuelo}', 'OthersControllers\CartController@storeFlights')->name('cart.storeFlights');
+Route::post('/cartroundtrip/{roundtrip}', 'OthersControllers\CartController@storeRoundTrip')->name('cart.storeRoundTrip');
 Route::post('/cartvehicle/{vehicle}', 'OthersControllers\CartController@storeVehicle')->name('cart.storeVehicle');
 Route::post('/cartRoom/{hab}', 'OthersControllers\CartController@storeRoom')->name('cart.storeRoom');
 Route::post('/cartInsurance/{insurance}', 'OthersControllers\CartController@storeInsurance')->name('cart.storeInsurance');
@@ -136,6 +137,7 @@ Route::resources([
     'airport'                      => 'FlightReservationControllers\AirportController',
     'checkin'                      => 'FlightReservationControllers\CheckInController',
     'company'                      => 'FlightReservationControllers\CompanyController',
+    'roundtrip'                      => 'FlightReservationControllers\RoundtripFlightController',
     //'flight'                       => 'FlightReservationControllers\FlightController',
     'flight_detail'                => 'FlightReservationControllers\FlightDetailController',
     'origin_destiny'               => 'FlightReservationControllers\OrigenDestinoController',

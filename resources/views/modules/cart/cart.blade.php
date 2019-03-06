@@ -25,13 +25,60 @@
 
             <div class="cart-table">
                 @foreach (Cart::content() as $item)
-                    @if(get_class($item->model) == "App\Modules\FlightReservation\FlightDetail")
+                    @if(get_class($item->model) == "App\Modules\FlightReservation\Flight")
                         <div class="cart-table-row">
                             <div class="cart-table-row-left">
-                                <a href="#"><img src="https://picsum.photos/180/120?image={{ mt_rand(1, 50) }}" alt="item" class="cart-table-img"></a>
+                                <a href="#"><img src="https://picsum.photos/180/120?image={{ mt_rand(1043, 1052) }}" alt="item" class="cart-table-img"></a>
                                 <div class="cart-item-details">
-                                    <div class="cart-table-item"><a href="#">Destino: {{ $item->model->destiny->ciudad }}</a></div>
-                                    <div>Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                                    @if($item->model->escalas == 1)
+                                        <div class="cart-table-item"><a href="#">Destino: {{ $item->model->getTramo1->destiny->ciudad }}</a></div>
+                                        <div>Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                                        <div>Cabina: {{ $item->model->tipoCabina($item->subtotal/$item->qty) }}</div>
+                                    @endif
+                                    @if($item->model->escalas == 2)
+                                        <div class="cart-table-item"><a href="#">Destino: {{ $item->model->getTramo2->destiny->ciudad }}</a></div>
+                                        <div>Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                                        <div>Cabina: {{ $item->model->tipoCabina($item->subtotal/$item->qty)}}</div>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="cart-table-row-right">
+                                <div style="margin: 4%;">{{ $item->subtotal}}</div>
+                                <div>
+                                    <select class="quantity" style="margin:  9px !important;" data-id="{{ $item->rowId }}">
+                                        @for ($i = 1; $i < 5 + 1 ; $i++)
+                                            <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                                <div class="cart-table-actions">
+                                    {{--<a href="#">Remove</a> <br>--}}
+                                    <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+
+                                        <button id="butonRemove" type="submit" class="btn btn-danger btn-galaxy" style="font-size: 14px !important; margin: 0% !important">Eliminar</button>
+                                    </form>
+                                    {{-- <a href="#">Guardar para luego</a> --}}
+                                </div>
+                            </div>
+                        </div> <!-- end cart-table-row -->
+                    @endif
+                    @if(get_class($item->model) == "App\Modules\FlightReservation\RoundtripFlight")
+                        <div class="cart-table-row">
+                            <div class="cart-table-row-left">
+                                <a href="#"><img src="https://picsum.photos/180/120?image={{ mt_rand(1043, 1052) }}" alt="item" class="cart-table-img"></a>
+                                <div class="cart-item-details">
+                                    @if($item->model->vueloIda->escalas == 1)
+                                        <div class="cart-table-item"><a href="#">Destino: {{ $item->model->vueloIda->getTramo1->destiny->ciudad }}</a></div>
+                                        <div>Fecha salida: {{ $item->model->vueloIda->fecha_despegue }}</div>
+                                        <div>Cabina: {{ $item->model->tipoCabina($item->subtotal/$item->qty) }}</div>
+                                    @endif
+                                    @if($item->model->vueloIda->escalas == 2)
+                                        <div class="cart-table-item"><a href="#">Destino: {{ $item->model->vueloIda->getTramo2->destiny->ciudad }}</a></div>
+                                        <div>Fecha salida: {{ $item->model->vueloIda->fecha_despegue }}</div>
+                                        <div>Cabina: {{ $item->model->tipoCabina($item->subtotal/$item->qty)}}</div>
+                                    @endif
                                 </div>
                             </div>
                             <div class="cart-table-row-right">

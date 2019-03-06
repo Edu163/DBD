@@ -88,10 +88,25 @@ class FlightC
         }
         return null;
     }
-    public function getPrecio(){
+    public function getPrecio($cabina){
         $precio = 0;
-        foreach($this->escala as $escala){
-            $precio = $precio + $escala->precio;
+        if($cabina == "economy")
+        {
+            foreach($this->escala as $escala){
+                $precio = $precio + $escala->precio_economy;
+            }
+        }
+        else if($cabina == "bussiness")
+        {
+            foreach($this->escala as $escala){
+                $precio = $precio + $escala->precio_bussiness;
+            }
+        }
+        else if($cabina == "premium")
+        {
+            foreach($this->escala as $escala){
+                $precio = $precio + $escala->precio_premium;
+            }
         }
         return $precio;
     }

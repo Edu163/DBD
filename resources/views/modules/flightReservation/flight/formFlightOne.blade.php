@@ -79,28 +79,6 @@
                 </div>
             </center>
         </div>
-        <div class="col">
-            <center>
-                <!-- Input Vuelta -->
-                <label for="fechavuelta">
-                    <span> 
-                        Fecha de vuelta
-                    </span>
-                </label>
-                <div class="input-group">
-                    <input 
-                    id="fechavuelta"
-                    name="fechavuelta"
-                    type="date" 
-                    class="form-control"
-                    style="color:black;"
-                    required>
-                    <span class="input-group-append">
-                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                    </span>
-                </div>
-            </center>
-        </div>
     </div>
     </br>
     <!-- Línea 3 -->
@@ -145,7 +123,7 @@
                     Seleccione el tipo de cabina
                 </option>
                 <option value="1">
-                    First Class
+                    Premium
                 </option>
                 <option value="2">
                     Bussiness
@@ -163,35 +141,17 @@
 </form>
 
 <script>
-  addEventListener('load',inicio,false);
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    }
+    if(mm<10){
+        mm='0'+mm
+    }
 
-  function inicio()
-  {
-    document.getElementById('fechaida').addEventListener('change',cambioVuelta,false);
-  }
-
-  function cambioVuelta()
-  {
-     var fecha = document.getElementById("fechaida").value;
-     
-    document.getElementById('fechaida').innerHTML=document.getElementById('fechaida').value;
-    document.getElementById("fechavuelta").setAttribute("min", fecha);
-  }
-</script>  
-
-<script>
-     var today = new Date();
-     var dd = today.getDate();
-     var mm = today.getMonth()+1; //January is 0!
-     var yyyy = today.getFullYear();
-     if(dd<10){
-          dd='0'+dd
-     } 
-     if(mm<10){
-          mm='0'+mm
-     } 
-
-     today = yyyy+'-'+mm+'-'+dd;
-     document.getElementById("fechaida").setAttribute("min", today);
-     document.getElementById("fechavuelta").setAttribute("min", today);
+    today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("fechaida").setAttribute("min", today);
 </script>
