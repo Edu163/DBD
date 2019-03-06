@@ -4,6 +4,8 @@ namespace App\Modules\FlightReservation;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use App\Modules\Others\Package;
+
 
 class RoundtripFlight extends Model
 {
@@ -16,6 +18,10 @@ class RoundtripFlight extends Model
         'precio_bussiness',
         'precio_premium',
     ];
+
+    public function package(){
+    	return $this->hasMany(Package::class);
+    }
 
     public function vueloIda()
     {

@@ -20,7 +20,7 @@
                             Seleccione el origen de su vuelo 
                         </option>
                         @foreach ($cities as $city)
-                        <option value="{{ $city->nombre }}">
+                        <option value="{{ $city->id }}">
                             {{ $city->nombre }}
                         @endforeach
                     </select>
@@ -46,7 +46,7 @@
                             Seleccione el destino de su vuelo 
                         </option>
                         @foreach ($cities as $city)
-                        <option value="{{ $city->nombre }}">
+                        <option value="{{ $city->id }}">
                             {{ $city->nombre }}
                         </option>
                         @endforeach
@@ -154,30 +154,6 @@
                         Economy
                     </option>
                 </select>
-        </div>
-    </div>
-    </br>
-    <!-- Línea 4 -->
-    <div class="row justify-content-center">
-        <div class="col">
-            <!-- Input Habitaciones -->
-            <center>
-                <label for="habitaciones">
-                    <span> 
-                        Habitaciones 
-                    </span>
-                </label>
-            </center>
-            <input
-            class="form-control"
-            id="habitaciones"
-            name="habitaciones"
-            type="number"
-            min="1"
-            max="3"
-            placeholder="Número de habitaciones"
-            style="width: 100%; color: black !important;" 
-            required>
         </div>
     </div>
     </br>

@@ -5,16 +5,12 @@ namespace App\Modules\HousingReservation;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Modules\Others\Package;
 
 class HotelRoom extends Model
 {
     protected $table = 'hotel_rooms';
 	
-	protected $hotel_id;
-    protected $capacidad;
-    protected $camas;
-	protected $numero;
-	protected $precio;
 
     protected $fillable = [
     	'hotel_id',
@@ -32,6 +28,10 @@ class HotelRoom extends Model
 
 	public function housingCalendary(){
     	return $this->hasMany(HousingCalendary::class);
+	}
+	
+	public function package(){
+    	return $this->hasMany(Package::class);
     }
 
 	public function serviceAndRoom(){
@@ -39,7 +39,7 @@ class HotelRoom extends Model
 	}
 	
 	public function hotel(){
-    	return $this->belongsTo(Hotel::class);
+    	return $this->belongsTo(Hotel::class, 'hotel_id');
 	}
 	
 	public static function buscarHabitacion($params, $hotel_id)

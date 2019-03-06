@@ -15,15 +15,15 @@ class CreatePackagesTable extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('flight_id')->nullable();
-            $table->foreign('flight_id')
+            $table->integer('roundtrip_id')->nullable();
+            $table->foreign('roundtrip_id')
                     ->references('id')
-                    ->on('flights')
+                    ->on('roundtrip_flights')
                     ->onDelete('cascade');
-            $table->integer('hotel_id')->nullable();
-            $table->foreign('hotel_id')
+            $table->integer('hotel_room_id')->nullable();
+            $table->foreign('hotel_room_id')
                     ->references('id')
-                    ->on('hotels')
+                    ->on('hotel_rooms')
                     ->onDelete('cascade');
             $table->integer('vehicle_id')->nullable();
             $table->foreign('vehicle_id')
@@ -33,6 +33,7 @@ class CreatePackagesTable extends Migration
             $table->integer('type');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
+            $table->integer('precio');
             $table->timestamps();
         });
     }

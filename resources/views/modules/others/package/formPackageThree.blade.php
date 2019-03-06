@@ -21,7 +21,7 @@
                             Seleccione el origen de su vuelo 
                         </option>
                        @foreach ($cities as $city)
-                        <option value="{{ $city->nombre }}">
+                        <option value="{{ $city->id }}">
                             {{ $city->nombre }}
                         </option>
                         @endforeach
@@ -48,7 +48,7 @@
                             Seleccione el destino de su vuelo 
                         </option>
                        @foreach ($cities as $city)
-                        <option value="{{ $city->nombre }}">
+                        <option value="{{ $city->id}}">
                             {{ $city->nombre }}
                         </option>
                         @endforeach

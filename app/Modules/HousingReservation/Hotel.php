@@ -8,12 +8,6 @@ class Hotel extends Model
 {
     protected $table = 'hotels';
 	
-	protected $nombre;
-    protected $pais;
-    protected $direccion;
-    protected $estrellas;
-    protected $valoracion;
-    protected $capacidad;
 
     protected $fillable = [
     	'nombre',

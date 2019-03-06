@@ -25,6 +25,7 @@ class RoundtripFlightController extends Controller
             'cabina' => 'required|integer|between:1,3',
             //'cabina' => 'required',
         ]);
+        
         $roundtrips = RoundtripFlight::buscarVuelosIdaVuelta($params);
         //dump($flight);
         request()->session()->put('busqueda.roundtrip', $params);
