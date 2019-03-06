@@ -32,8 +32,8 @@ $factory->define(FlightDetail::class, function (Faker $faker) {
         'precio_economy' => $faker->numberBetween($min = 500, $max = 2000),
         'precio_bussiness' => $faker->numberBetween($min = 1000, $max = 4000),
         'precio_premium' => $faker->numberBetween($min = 2000, $max = 6000),
-        'asientos_economy' => 30,
-        'asientos_bussiness' => 30,
-        'asientos_premium' => 30
+        'asientos_economy' => 10,
+        'asientos_bussiness' => 10,
+        'asientos_premium' => 10
     ];
 });

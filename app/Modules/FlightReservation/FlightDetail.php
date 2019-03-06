@@ -197,4 +197,12 @@ class FlightDetail extends Model
         }
         return $vuelos;
     }
+    public function getAsientos($tipo)
+    {
+
+        $asientos = Seat::where('flight_detail_id', '=', $this->id)
+            ->where('tipo', '=', $tipo)->get();
+
+        return $asientos;
+    }
 }

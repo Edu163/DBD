@@ -27,6 +27,12 @@ class CreateFlightSellDetailsTable extends Migration
                     ->on('flights')
                     ->onUpdate('cascade')
                     ->onDelete('set null');
+            $table->integer('roundtrip_id')->unsigned()->nullable();
+            $table->foreign('roundtrip_id')
+                ->references('id')
+                ->on('roundtrip_flights')
+                ->onUpdate('cascade')
+                ->onDelete('set null');
             $table->integer('cantidad')->unsigned();
             $table->string('precio');
             $table->string('descuento');

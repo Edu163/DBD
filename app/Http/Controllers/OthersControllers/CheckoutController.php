@@ -127,6 +127,7 @@ class CheckoutController extends Controller
                 FlightSellDetail::create([
                     'sell_id' => $venta->id,
                     'flight_id' => $item->model->id,
+                    'roundtrip_id' => null,
                     'precio' => strval($item->subtotal),
                     'descuento' => '200',
                     'tipo' => $cabina,
@@ -178,7 +179,8 @@ class CheckoutController extends Controller
                 $cabina = $item->model->tipoCabina($item->subtotal/$item->qty);
                 FlightSellDetail::create([
                     'sell_id' => $venta->id,
-                    'flight_id' => $item->model->id,
+                    'flight_id' => null,
+                    'roundtrip_id' => $item->model->id,
                     'precio' => strval($item->subtotal),
                     'descuento' => '200',
                     'tipo' => $cabina,

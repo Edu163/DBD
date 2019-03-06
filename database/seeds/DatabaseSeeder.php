@@ -23,14 +23,15 @@ class DatabaseSeeder extends Seeder
             /* Vuelos */
             AirportsTableSeeder::class,
             CompaniesTableSeeder::class,
-            SeatsTableSeeder::class,
             FlightDetailsTableSeeder::class,
             FlightsTableSeeder::class,
             FlightSellDetailsTableSeeder::class,
-            CheckInsTableSeeder::class,
+            SeatsTableSeeder::class,
+            //CheckInsTableSeeder::class,
             OriginDestiniesTableSeeder::class,
             FlightReservationsTableSeeder::class,
             RoundtripsFlightsSeeder::class,
+            //SeatsTableSeeder::class,
 
             /* Vehiculos */
             VehicleCalendariesTableSeeder::class,

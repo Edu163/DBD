@@ -16,8 +16,7 @@ class CheckIn extends Model
     protected $fillable = [
         'seat_id',
         'user_id',
-        'fecha',
-        'estado'
+        'source',
     ];
 
     /* Relaciones */

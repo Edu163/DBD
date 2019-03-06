@@ -19,6 +19,7 @@ class FlightSellDetail extends Model
     protected $fillable = [
         'sell_id',
         'flight_id',
+        'roundtrip_id',
         'precio',
         'descuento',
         'monto_total',
@@ -30,9 +31,12 @@ class FlightSellDetail extends Model
 
     public function flight()
     {
-        return $this->hasMany(Flight::class);
+        return $this->belongsTo(Flight::class);
     }
-
+    public function roundtrip()
+    {
+        return $this->hasMany(RoundtripFlight::class);
+    }
     public function sell()
     {
         return $this->belongsTo(Sell::class);

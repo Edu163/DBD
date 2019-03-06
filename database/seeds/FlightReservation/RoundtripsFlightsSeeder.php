@@ -12,6 +12,6 @@ class RoundtripsFlightsSeeder extends Seeder
      */
     public function run()
     {
-        factory(RoundtripFlight::class, 100)->create();
+        //factory(RoundtripFlight::class, 100)->create();
     }
 }
