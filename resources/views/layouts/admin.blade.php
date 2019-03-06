@@ -33,7 +33,7 @@
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
           <div class="sidenav-header-inner text-center">
-            <h5>Administración</h5><span>GP14</span>
+            <h5>Administración</h5><span>GP14Airland</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
           <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>G</strong><strong class="text-primary">P</strong><strong>14</strong></a></div>

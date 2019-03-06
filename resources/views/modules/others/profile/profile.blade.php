@@ -53,7 +53,7 @@
                         role="tabpanel" 
                         aria-labelledby="historial-tab"
                         >
-                            @include('modules.others.profile.buyRecord')
+                            @include('modules.others.profile.buyrecord')
                         </div>
 
                         <div 

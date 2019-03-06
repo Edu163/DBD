@@ -61,7 +61,6 @@
         @endforeach
       </tbody>
     </table> 
-    </center>
   </div>
 </div>
 
