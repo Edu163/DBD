@@ -42,6 +42,13 @@
             </td>
             @endif
             <td class="align-middle">
+                <form action="{{ route('history.show',[Crypt::encrypt($user->id) ])}}" method="get">
+                    <center>
+                        <button type="submit" class="btn btn-info btn-galaxy" id="user_id" name="user_id"><span>Ver Historial</span> </button>
+                    </center>
+                </form>
+            </td>
+            <td class="align-middle">
                 <form action="/deleteuser/{{ $user->id }}" method="post">
                 @method('DELETE')
                 @csrf

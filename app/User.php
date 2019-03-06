@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Modules\Others\Sell;
+use App\Modules\Others\History;
 
 class User extends Authenticatable
 {
@@ -37,7 +38,12 @@ class User extends Authenticatable
     public function isAdmin(){
         return $this->is_admin;
     }
+
     public function sell(){
         return $this->hasMany(Sell::class);
+    }
+
+    public function history(){
+        return $this->hasMany(History::class);
     }
 }

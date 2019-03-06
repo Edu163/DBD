@@ -92,6 +92,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
         '/admin/sell'                         => 'OthersControllers\SellController',
         '/admin/insurance'                    => 'OthersControllers\InsuranceController',
         '/admin/insuranceReservation'         => 'OthersControllers\InsuranceReservationController',
+        '/admin/history'                      => 'OthersControllers\HistoryController',
         ]);
     
     Route::patch('/upuser/{id}', 'AdminController@upgradeToAdmin');

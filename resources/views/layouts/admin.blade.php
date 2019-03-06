@@ -87,6 +87,12 @@
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <li class="nav-item">
                   <li>
+                    <a href="/admin" class="nav-link logout" style="font-size: 14px;" target="_blank" rel="noopener noreferrer">
+                      Inicio
+                      <i class="fas fa-home"></i>
+                    </a>
+                  </li>
+                  <li>
                     <a href="/" class="nav-link logout" style="font-size: 14px;" target="_blank" rel="noopener noreferrer">
                       Ver su página
                       <i class="fas fa-eye"></i>

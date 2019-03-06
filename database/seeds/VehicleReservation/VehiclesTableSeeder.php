@@ -14,7 +14,7 @@ class VehiclesTableSeeder extends Seeder
      */
     public function run()
     {
-         $cities = City::all();
+        $cities = City::all();
         foreach ($cities as $city) {
             $country = Country::findOrFail($city->pais_id);
             factory(Vehicle::class, 10)->create([
