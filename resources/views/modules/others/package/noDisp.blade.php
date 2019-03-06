@@ -4,7 +4,7 @@
     <div class="card-body buy-card-body">
         <center>
             <img src="img/sad.png" alt="Sorry" style="width:200px">
-            <h1>Upps, No quedan habitaciones disponibles</h1>
+            <h1>Upps, No quedan paquetes disponibles</h1>
             <button type="submit" class="btn btn-galaxy wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
             <a href="/">Inicio</a>
             </button>

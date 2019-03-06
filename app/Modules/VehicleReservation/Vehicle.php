@@ -3,7 +3,8 @@
 namespace App\Modules\VehicleReservation;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 class Vehicle extends Model
 {
     protected $table = 'vehicles';
@@ -73,17 +74,17 @@ class Vehicle extends Model
     	return $this->hasMany(VehicleReservationDetail::class);
     }
 
-    public static function buscarVehiculos($params, $pasajeros)
+    public static function buscarVehiculos($params)
 	{
 		$fechaRecogida = Carbon::createFromFormat('Y-m-d', $params['fecha-recogida']);
 		$fechaDevolucion= Carbon::createFromFormat('Y-m-d', $params['fecha-devolucion']);
 		$vehiculos = DB::table('vehicles')
-				->join('vehicle_reservations as reservations', 'vehicles.id', '=', 'reservations.vehicle_id')
+                ->join('vehicle_reservations as reservations', 'vehicles.id', '=', 'reservations.vehicle_id')
 				->whereDate('reservations.fecha_retiro', '<=', $fechaRecogida->format('Y-m-d'))
 				->whereDate('reservations.fecha_regreso', '>=', $fechaRecogida->format('Y-m-d'))
 				->orWhereDate('reservations.fecha_retiro', '<=', $fechaDevolucion->format('Y-m-d'))
 				->whereDate('reservations.fecha_regreso', '>=', $fechaDevolucion->format('Y-m-d'))
-				->select('vehicles.id', 'vehicles.marca')->get();
+                ->select('vehicles.id', 'vehicles.marca')->get();
 		$room_final = [];
 		$array_id = [];		
 		$vehicles = Vehicle::all();
@@ -91,12 +92,34 @@ class Vehicle extends Model
 		{
 			$array_id[] = $vehiculo->id;
 		}
-		$autos = static::where('vehicles.patente', '=', $patente)
-			->whereNotIn('id', $array_id)->get();
+        $autos = static::where('n_pasajeros', '>=', $params['pasajeros'])
+            ->where('vehicles.ciudad_id', '=', $params['zone'])
+            ->whereNotIn('id', $array_id)->get();
         return $autos;
         
         // $vehicles = Vehicle::where('zone_id', request('zone'))
         //             ->where('n_pasajeros', '>=', (int)$pasajeros)
-        //             ->get();
+        //       
+        
+        
+        // $fechaEntrada = Carbon::createFromFormat('Y-m-d', $params['fecha-entrada-housing']);
+		// $fechaSalida= Carbon::createFromFormat('Y-m-d', $params['fecha-salida-housing']);
+		// $habitaciones = DB::table('hotel_rooms as rooms')
+		// 		->join('hotel_reservations as reservations', 'rooms.id', '=', 'reservations.hotel_room_id')
+		// 		->whereDate('reservations.fecha_ingreso', '<=', $fechaEntrada->format('Y-m-d'))
+		// 		->whereDate('reservations.fecha_egreso', '>=', $fechaEntrada->format('Y-m-d'))
+		// 		->orWhereDate('reservations.fecha_ingreso', '<=', $fechaSalida->format('Y-m-d'))
+		// 		->whereDate('reservations.fecha_egreso', '>=', $fechaSalida->format('Y-m-d'))
+		// 		->select('rooms.id', 'rooms.capacidad')->get();
+		// $room_final = [];
+		// $array_id = [];		
+		// $hotel_rooms = HotelRoom::all();
+		// foreach($habitaciones as $habitacion)
+		// {
+		// 	$array_id[] = $habitacion->id;
+		// }
+		// $rooms = static::where('hotel_rooms.hotel_id', '=', $hotel_id)
+		// 	->whereNotIn('id', $array_id)->get();
+		// return $rooms;->get();
 	}
 }

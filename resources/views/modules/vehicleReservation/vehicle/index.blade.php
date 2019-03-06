@@ -16,6 +16,7 @@
                     <h3 style="color: grey">{{ $vehicle->marca }}</h3>
                     <img class="img-fluid" src="https://picsum.photos/200/200?image={{ mt_rand(1, 50) }}" style="padding-bottom: 8% !important;">
                     <ul>
+                        <li><i class="ion-android-checkmark-circle"></i>Patente: {{ $vehicle->id }}</li>
                         <li><i class="ion-android-checkmark-circle"></i>Patente: {{ $vehicle->patente }}</li>
                         <li><i class="ion-android-checkmark-circle"></i>Marca: {{ $vehicle->marca }}</li>
                         <li><i class="ion-android-checkmark-circle"></i>Tipo: {{ $vehicle->tipo }}</li>

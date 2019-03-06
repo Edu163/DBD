@@ -132,10 +132,13 @@ class CheckoutController extends Controller
                 ]);     
             }
             else if(get_class($item->model) == "App\Modules\VehicleReservation\Vehicle")
-            {                
+            {   
+                $params = request()->session()->get('busqueda.vehicle' . $item->model->id);             
                 VehicleReservation::create([
                     'sell_id' => $venta->id,
                     'vehicle_id' => $item->model->id,
+                    'fecha_retiro' => $params['fecha-recogida'],
+                    'fecha_regreso' => $params['fecha-devolucion'],
                     'monto_total' => strval($item->total),
                 ]);
             }

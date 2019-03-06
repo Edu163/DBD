@@ -37,10 +37,10 @@ class DatabaseSeeder extends Seeder
             VehicleProvidersTableSeeder::class,
             VehiclesTableSeeder::class,
             VehicleReservationsTableSeeder::class,
-            VehicleReservationDetailsTableSeeder::class,
-            VehicleServicesTableSeeder::class,
-            ServiceAndVehiclesTableSeeder::class,
-            ServiceAndProvidersTableSeeder::class,
+            //VehicleReservationDetailsTableSeeder::class,
+            //VehicleServicesTableSeeder::class,
+            //ServiceAndVehiclesTableSeeder::class,
+            //ServiceAndProvidersTableSeeder::class,
 
 
             /* Hoteles */

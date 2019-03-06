@@ -16,34 +16,28 @@ class VehicleController extends Controller
      */
     public function index()
     {
+        //dd(":D");
         $params = $this->validate(request(), [
-            'patente' => 'required',
-            'vehicle_calendary_id' => 'required|integer',
-            'vehicle_provider_id' => 'required|integer',
-            'zone_id' => 'required|integer',
-            'marca' => 'required',
-            'tipo' => 'required',
-            'gamma' => 'required',
-            'transmision' => 'required',
-            'combustible' => 'required',
-            'n_pasajeros' => 'required|integer',
-            'equipaje_g' => 'required|integer',
-            'equipaje_p' => 'required|integer',
-            'n_puertas' => 'required|integer',
-            'n_kilometraje' => 'required|integer',
-            'precio' => 'required|integer',
-            'aire_acondicionado' => 'required',
-            'fecha-recogida' => 'required|date',
-            'fecha-devolucion' => 'required|date'
-            ]);     
+                'pasajeros'=> 'required|integer',
+                'zone' => 'required|integer',
+                'fecha-recogida' => 'required|date',
+                'fecha-devolucion' => 'required|date'
+                //'fechavuelta' => 'required',//_if:tipo_vuelo,1|nullable',
+                //'pasajeros_adultos' => 'required|integer',
+                //'pasajeros_ninos' => 'required|integer',
+                //'tipo_pasaje' => 'required|integer|between:1,3'
+                //'cabina' => 'required',
+            ]);
+        //dd($params);
         request()->session()->put('busqueda.vehicles', $params);
-        dd($params);
-        $pasajeros = request('pasajeros');
-        $vehicles = Vehicle::buscarVehiculo($params, $pasajeros);
+        // //dd($params);
+        //$pasajeros = request('pasajeros');
+        $vehicles = Vehicle::buscarVehiculos($params);
+        //dd($vehicles);
 
-        // $vehicles = Vehicle::where('zone_id', request('zone'))
-        //             ->where('n_pasajeros', '>=', (int)$pasajeros)
-        //             ->get();
+        // // $vehicles = Vehicle::where('zone_id', request('zone'))
+        // //             ->where('n_pasajeros', '>=', (int)$pasajeros)
+        // //             ->get();
          if(count($vehicles)>0)
         {
             return view('modules.vehicleReservation.vehicle.index', compact('vehicles'));

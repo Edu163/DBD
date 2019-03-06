@@ -322,7 +322,6 @@
             <div class="section-header">
             <h3 class="section-title">Vuelos</h3>
             <span class="section-divider"></span>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
             </div>
 
             <div class="row">
@@ -408,19 +407,22 @@
 
             <div class="row">
 
-                @foreach ($hotelCards as $hotelCard)
+                @foreach ($hotelCards as $hab)
                     <div class="col-lg-4 col-md-6">
                         <div class="box featured wow fadeInUp">
-                            <h3>{{ $hotelCard->hotel->nombre }}</h3>
-                            <h4><sup>$</sup>{{ $hotelCard->precio }}<span> noche</span></h4>
+                            <h3>{{ $hab->hotel->nombre }}</h3>
+                            <h4><sup>$</sup>{{ $hab->precio }}<span> noche</span></h4>
                             <ul>
-                                <li><i class="ion-android-checkmark-circle"></i>País: {{ $hotelCard->hotel->pais }}</li>
-                                <li><i class="ion-android-checkmark-circle"></i>Dirección: {{ $hotelCard->hotel->direccion }}</li>
-                                <li><i class="ion-android-checkmark-circle"></i>Estrellas: {{ $hotelCard->hotel->estrellas }} <i class="fas fa-star" style="color: yellow !important;"></i></li>
-                                <li><i class="ion-android-checkmark-circle"></i>Valoración: {{ $hotelCard->hotel->estrellas }}</li>
-                                <li><i class="ion-android-checkmark-circle"></i>Camas: {{ $hotelCard->camas }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>País: {{ $hab->hotel->pais }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Dirección: {{ $hab->hotel->direccion }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Estrellas: {{ $hab->hotel->estrellas }} <i class="fas fa-star" style="color: yellow !important;"></i></li>
+                                <li><i class="ion-android-checkmark-circle"></i>Valoración: {{ $hab->hotel->estrellas }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Camas: {{ $hab->camas }}</li>
                             </ul>
-                            <a href="#" class="get-started-btn">Ver detalles</a>
+                            <center>  
+                            <button style="margin-top: 0.2cm;" type="submit" class="btn btn-success btn-galaxy" data-toggle="modal" data-target="#modal-housing-reservation-{{ $hab->id }}">Ver detalles</button>
+                            @include('modules.housingReservation.hotelReservationDetail.index') 
+                            </center>
                         </div>
                     </div>
                 @endforeach
