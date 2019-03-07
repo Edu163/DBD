@@ -69,7 +69,7 @@ class AdminController extends Controller
             'hotelReservationDetails',
             'insurances',
             'insuranceReservations',
-            'users',
+            'users'
         ));
     }
 
