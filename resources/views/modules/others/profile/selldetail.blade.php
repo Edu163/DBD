@@ -63,27 +63,19 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="align-middle">Zona</th>
-                            <th class="align-middle">Patente</th>
-                            <th class="align-middle">Marca</th>
-                            <th class="align-middle">Tipo</th>
-                            <th class="align-middle">Transmisión</th>
-                            <th class="align-middle">Combustible</th>
-                            <th class="align-middle">A/Acondicionado</th>
-                            <th class="align-middle">Precio/día</th>
+                            <th class="align-middle">Fecha de ingreso</th>
+                            <th class="align-middle">Fecha de salida</th>
+                            <th class="align-middle">Cantidad</th>
+                            <th class="align-middle">Descuento</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($sell->hotelReservation as $hotelReservation)
                         <tr>
-                            <td class="align-middle">{{ $hotelReservation->vehicle->zone->nombre }}</td>
-                            <td class="align-middle">{{ $hotelReservation->vehicle->patente }}</td>
-                            <td class="align-middle">{{ $hotelReservation->vehicle->marca }}</td>
-                            <td class="align-middle">{{ $hotelReservation->vehicle->tipo }}</td>
-                            <td class="align-middle">{{ $hotelReservation->vehicle->transmision }}</td>
-                            <td class="align-middle">{{ $hotelReservation->vehicle->combustible }}</td>
-                            <td class="align-middle">{{ $hotelReservation->vehicle->aire_acondicionado }}</td>
-                            <td class="align-middle">{{ $hotelReservation->vehicle->precio }}</td>
+                            <td class="align-middle">{{ $hotelReservation->fecha_ingreso }}</td>
+                            <td class="align-middle">{{ $hotelReservation->fecha_egreso }}</td>
+                            <td class="align-middle">{{ $hotelReservation->cantidad }}</td>
+                            <td class="align-middle">{{ $hotelReservation->descuento }}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -164,17 +156,23 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="align-middle">Zona</th>
+                            <th class="align-middle">Hotel</th>
+                            <th class="align-middle">Destino</th>
+                            <th class="align-middle">Duración</th>
+                            <th class="align-middle">Patente</th>
+                            <th class="align-middle">Marca</th>
                             <th class="align-middle">Tipo</th>
-                            <th class="align-middle">Precio</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($sell->packageReservation as $packageReservation)
                         <tr>
-                            <td class="align-middle">{{ $packageReservation->package->zone->nombre }}</td>
-                            <td class="align-middle">{{ $packageReservation->package->groupsize }}</td>
-                            <td class="align-middle">{{ $packageReservation->package->price }}</td>
+                            <td class="align-middle">{{ $packageReservation->package->hotelroom->hotel->nombre }}</td>
+                            <td class="align-middle">{{ $packageReservation->package->hotelroom->hotel->ciudad }}</td>
+                            <td class="align-middle">{{ $packageReservation->package->getDias() }}</td>
+                            <td class="align-middle">{{ $packageReservation->package->vehicle->patente }}</td>
+                            <td class="align-middle">{{ $packageReservation->package->vehicle->marca }}</td>
+                            <td class="align-middle">{{ $packageReservation->package->vehicle->tipo }}</td>
                         </tr>
                         @endforeach
                     </tbody>

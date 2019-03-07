@@ -297,21 +297,21 @@ class CheckoutController extends Controller
             }
         }
         /* PDF y Email */
-        // $this->getPdf($venta);
-        // $pdfpath = public_path('storage/public/pdf/' . $venta->source . '.pdf');
-        // $email = $request->email;
-        // $username = $request->name;
-        // $data = array('venta'=>$venta);
-        // $beautymail = app()->make(\Snowfire\Beautymail\Beautymail::class);
-        // $beautymail->send('modules.others.mail.confirmationMail', $data, function($message)
-        // use ($email, $username, $pdfpath)
-        // {
-        //     $message
+        $this->getPdf($venta);
+        $pdfpath = public_path('storage/public/pdf/' . $venta->source . '.pdf');
+        $email = $request->email;
+        $username = $request->name;
+        $data = array('venta'=>$venta);
+        $beautymail = app()->make(\Snowfire\Beautymail\Beautymail::class);
+        $beautymail->send('modules.others.mail.confirmationMail', $data, function($message)
+        use ($email, $username, $pdfpath)
+        {
+            $message
             
-        //         ->to($email, $username)
-        //         ->subject('Confirmación de reserva exitosa')
-        //         ->attach($pdfpath);
-        // }); 
+                ->to($email, $username)
+                ->subject('Confirmación de reserva exitosa')
+                ->attach($pdfpath);
+        }); 
     }
     /**
      * Display the specified resource.

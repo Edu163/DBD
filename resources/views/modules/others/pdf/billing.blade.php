@@ -30,12 +30,87 @@
                         <div>
                             <strong>GP14Airland</strong>
                         </div>
-                        <div>Madalinskiego 8</div>
-                        <div>71-101 Szczecin, Poland</div>
+                        <div>Alguna Calle</div>
+                        <div>En algún lado, En algún país</div>
                         <div>Email: contacto@rollers.cl</div>
                         <div>Teléfono: +56 944 666 3333</div>
                     </div>
                 </div>
+            @if (count($venta->flightSellDetail) != 0)
+                <div class="table-responsive-sm">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Vuelos</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="align-middle">Tipo de Vuelo</th>
+                                <th class="align-middle">Pasajeros</th>
+                                <th class="align-middle">Origen</th>
+                                <th class="align-middle">Destino</th>
+                                <th class="align-middle">Número de Escalas</th>
+                                <th class="align-middle">Cabina</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($venta->flightSellDetail as $flightSellDetail)
+                            <tr>
+                                @if ($flightSellDetail->flight_id == null)
+                                    <td class="align-middle">Ida y Vuelta</td> 
+                                    <td class="align-middle">{{ $flightSellDetail->cantidad}}</td>
+                                    <td class="align-middle">{{ $flightSellDetail->roundtrip->vueloIda->origin->nombre }}</td>
+                                    <td class="align-middle">{{ $flightSellDetail->roundtrip->vueloIda->destiny->nombre  }}</td>
+                                    <td class="align-middle">Ida:{{ $flightSellDetail->roundtrip->vueloIda->escalas }} Vuelta:{{ $flightSellDetail->roundtrip->vueloVuelta->escalas }}</td>
+                                    <td class="align-middle">{{ $flightSellDetail->tipo }}</td>
+                                @else
+                                    <td class="align-middle">Sólo ida</td>
+                                    <td class="align-middle">{{ $flightSellDetail->cantidad }}</td>
+                                    <td class="align-middle">{{ $flightSellDetail->flight->origin->nombre }}</td>
+                                    <td class="align-middle">{{ $flightSellDetail->flight->destiny->nombre }}</td>
+                                    <td class="align-middle">{{ $flightSellDetail->flight->escalas }}</td>
+                                    <td class="align-middle">{{ $flightSellDetail->tipo }}</td>
+                                @endif
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @endif
+            @if (count($venta->hotelReservation) != 0)
+                <div class="table-responsive-sm">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Hoteles</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="align-middle">Fecha de ingreso</th>
+                                <th class="align-middle">Fecha de salida</th>
+                                <th class="align-middle">Cantidad</th>
+                                <th class="align-middle">Descuento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($venta->hotelReservation as $hotelReservation)
+                            <tr>
+                                <td class="align-middle">{{ $hotelReservation->fecha_ingreso }}</td>
+                                <td class="align-middle">{{ $hotelReservation->fecha_egreso }}</td>
+                                <td class="align-middle">{{ $hotelReservation->cantidad }}</td>
+                                <td class="align-middle">{{ $hotelReservation->descuento }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @endif
             @if (count($venta->vehicleReservation) != 0)
                 <div class="table-responsive-sm">
                     <table class="table table-striped">
@@ -100,6 +175,41 @@
                                 <td class="align-middle">{{ $insuranceReservation->insurance->price }}</td>
                             </tr>
                             @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @endif
+            @if (count($venta->insuranceReservation) != 0)
+                <div class="table-responsive-sm">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Paquetes</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="align-middle">Hotel</th>
+                                <th class="align-middle">Destino</th>
+                                <th class="align-middle">Duración</th>
+                                <th class="align-middle">Patente</th>
+                                <th class="align-middle">Marca</th>
+                                <th class="align-middle">Tipo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($venta->packageReservation as $packageReservation)
+                        <tr>
+                            <td class="align-middle">{{ $packageReservation->package->hotelroom->hotel->nombre }}</td>
+                            <td class="align-middle">{{ $packageReservation->package->hotelroom->hotel->ciudad }}</td>
+                            <td class="align-middle">{{ $packageReservation->package->getDias() }}</td>
+                            <td class="align-middle">{{ $packageReservation->package->vehicle->patente }}</td>
+                            <td class="align-middle">{{ $packageReservation->package->vehicle->marca }}</td>
+                            <td class="align-middle">{{ $packageReservation->package->vehicle->tipo }}</td>
+                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

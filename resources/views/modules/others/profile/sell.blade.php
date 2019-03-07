@@ -1,4 +1,4 @@
-{{-- <div class="form">
+<div class="form">
     <div class="table-responsive">
         <table class="table table-bordered table-striped table-sm" id="dataTable" width="100%" cellspacing="0">
             <thead class="thead-dark text-center">
@@ -24,4 +24,4 @@
         </table>
     </div>
 </div>
- --}}
+
