@@ -142,10 +142,10 @@ class CheckoutController extends Controller
             $this->addSell($request, null);
             /** Vaciar el carrito si la compra ha sido exitosa */
             Cart::instance('default')->destroy();
-            return redirect('/');
             // return redirect()->route('confirmation.index')->with('success_message', 'Gracias por preferirnos! Su compra ha sido realizada');
             /* Cart::instance('default')->destroy();
             session()->forget('coupon');*/
+            return view('modules.cart.confirmation');
 
             //return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your payment has been successfully accepted!');
         } catch (CardErrorException $e) {

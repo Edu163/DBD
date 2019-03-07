@@ -39,20 +39,20 @@ class Seat extends Model
 	}
 	public static function ocupar($asientos, $cantidad, $user_id, $source)
     {
-        dump(":D");
+        //dump(":D");
         $validador = 0;
         $contador = 0;
         foreach ($asientos as $asiento)
         {
-            dump($asiento->disponible);
+            //dump($asiento->disponible);
             if($asiento->disponible == true)
             {
                 $contador = $contador + 1;
             }
 
         }
-        dump($cantidad);
-        dump($contador);
+        //dump($cantidad);
+        //dump($contador);
         if($contador >= $cantidad)
         {
             foreach ($asientos as $asiento)
