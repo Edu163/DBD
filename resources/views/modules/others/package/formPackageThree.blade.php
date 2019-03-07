@@ -91,7 +91,7 @@
                     </label>
                     <div class="input-group">
                         <input 
-                        id="fecha-vuelta-packageThree"
+                        id="fecha-ida-packageThree"
                         name="fecha-vuelta-packageThree"
                         type="date" 
                         class="form-control"
@@ -159,28 +159,7 @@
         </div>
     </div>
     <!-- Línea 4 -->
-    <div class="row justify-content-center">
-        <div class="col">
-            <!-- Input Habitaciones -->
-            <center>
-                <label for="habitaciones">
-                    <span> 
-                        Habitaciones 
-                    </span>
-                </label>
-            </center>
-            <input
-            class="form-control"
-            id="habitaciones"
-            name="habitaciones"
-            type="number"
-            min="1"
-            max="3"
-            placeholder="Número de habitaciones"
-            style="width: 100%; color: black !important;" 
-            required>
-        </div>
-    </div>
+
     </br>
     <center>
         <button type="submit" class="btn btn-galaxy wow fadeInUp">Encuentre su paquete</button> 

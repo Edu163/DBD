@@ -154,6 +154,11 @@ class CartController extends Controller
             $id = $package->id;
             request()->session()->put('busqueda.packagevv' . $id, $params);
         }
+        else if($package->type == 3) {
+            $params = request()->session()->get('busqueda.packagevav');
+            $id = $package->id;
+            request()->session()->put('busqueda.packagevav' . $id, $params);
+        }
         Cart::add($package->id, 'destino-santiago', $params['pasajeros'], $package->precio)
             ->associate('App\Modules\Others\Package');
 
