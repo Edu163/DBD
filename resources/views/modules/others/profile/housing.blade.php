@@ -7,6 +7,10 @@
               <th class="align-middle">Código de la compra</th>
               <th class="align-middle">Fecha de compra</th>
               <th class="align-middle">Monto pagado</th>
+              <th class="align-middle">Fecha de ingreso</th>
+              <th class="align-middle">Fecha de salida</th>
+              <th class="align-middle">Cantidad</th>
+               <th class="align-middle">Descuento</th>
               {{-- <th class="align-middle">Zona</th>
               <th class="align-middle">Proveedor</th>
               <th class="align-middle">Patente del Vehículo</th> --}}
@@ -19,6 +23,10 @@
               <td class="align-middle">{{ $sell->source }}</td>
               <td class="align-middle">{{ $hotelReservation->created_at }}</td>
               <td class="align-middle">{{ $hotelReservation->monto_total }}</td>
+              <td class="align-middle">{{ $hotelReservation->fecha_ingreso }}</td>
+              <td class="align-middle">{{ $hotelReservation->fecha_egreso }}</td>
+              <td class="align-middle">{{ $hotelReservation->cantidad }}</td>
+              <td class="align-middle">{{ $hotelReservation->descuento }}</td>
               {{-- <td class="align-middle">{{ $hotelReservation->vehicle->zone->nombre }}</td>
               <td class="align-middle">{{ $hotelReservation->vehicle->vehicleProvider->politica_combustible }}</td>
               <td class="align-middle">{{ $hotelReservation->vehicle->patente }}</td>

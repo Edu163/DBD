@@ -7,8 +7,6 @@
               <th class="align-middle">Código de la compra</th>
               <th class="align-middle">Fecha de compra</th>
               <th class="align-middle">Monto pagado</th>
-              <th class="align-middle">Zona</th>
-              <th class="align-middle">Proveedor</th>
           </tr>
         </thead>
         <tbody class="text-center align-middle text-light">   
