@@ -20,6 +20,7 @@ use App\Modules\HousingReservation\HotelReservation;
 use App\Modules\Others\InsuranceReservation;
 use Auth;
 use App\User;
+use App\Modules\Others\History;
 use Session;
 /* Random String */
 use Illuminate\Support\Str;
@@ -82,14 +83,61 @@ class CheckoutController extends Controller
             ]); 
             // SUCCESSFUL
             /* Actualizar datos del usuario */
+            /* Como buena práctica esto debería ser en una función aparte
+            * y probablemente mejor pensado, pero por falta de tiempo
+            * se dejará de esta manera 
+            */
             $user = User::find($request->user_id);
-            $user->address = $request->address;
-            $user->city = $request->city;
-            $user->province = $request->province;
-            $user->postalcode = $request->postalcode;
-            $user->phone = $request->phone;
-            $user->name_on_card = $request->name_on_card;
+            if ($user->address != $request->address) {
+                /* Guardar en el historial */
+                History::create([
+                    'user_id' => $user->id,
+                    'action' => 'Has cambiado tu dirección de '.$user->address.' a '.$request->address,
+                ]);
+                $user->address = $request->address;
+            }
+            if ($user->city != $request->city) {
+                /* Guardar en el historial */
+                History::create([
+                    'user_id' => $user->id,
+                    'action' => 'Has cambiado tu ciudad de '.$user->city.' a '.$request->city,
+                ]);
+                $user->city = $request->city;
+            }
+            if ($user->province != $request->province) {
+                /* Guardar en el historial */
+                History::create([
+                    'user_id' => $user->id,
+                    'action' => 'Has cambiado tu comuna de '.$user->province.' a '.$request->province,
+                ]);
+                $user->province = $request->province;
+            }
+            if ($user->postalcode != $request->postalcode) {
+                /* Guardar en el historial */
+                History::create([
+                    'user_id' => $user->id,
+                    'action' => 'Has cambiado tu código postal de '.$user->postalcode.' a '.$request->postalcode,
+                ]);
+                $user->postalcode = $request->postalcode;
+            }
+            if ($user->phone != $request->phone) {
+                /* Guardar en el historial */
+                History::create([
+                    'user_id' => $user->id,
+                    'action' => 'Has cambiado tu teléfono de '.$user->phone.' a '.$request->phone,
+                ]);
+                $user->phone = $request->phone;
+            }
+            if ($user->name_on_card != $request->name_on_card) {
+                /* Guardar en el historial */
+                History::create([
+                    'user_id' => $user->id,
+                    'action' => 'Has cambiado el nombre de tu tarjeta de '.$user->name_on_card.' a '.$request->name_on_card,
+                ]);
+                $user->name_on_card = $request->name_on_card;
+            }
             $user->save();
+            
             /* Ingresar la venta */
             $this->addSell($request, null);
             /** Vaciar el carrito si la compra ha sido exitosa */

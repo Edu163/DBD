@@ -28,7 +28,18 @@
                             aria-controls="historial" 
                             aria-selected="true"
                             >
-                                Historial
+                                Historial de Ventas
+                            </a>
+                            <a 
+                            class="nav-item nav-link"
+                            id="historialCambios-tab"
+                            data-toggle="tab"
+                            href="#historialCambios" 
+                            role="tab" 
+                            aria-controls="historialCambios" 
+                            aria-selected="true"
+                            >
+                                Historial de Cambios
                             </a>
                             <a 
                             class="nav-item nav-link"
@@ -54,6 +65,15 @@
                         aria-labelledby="historial-tab"
                         >
                             @include('modules.others.profile.buyrecord')
+                        </div>
+
+                        <div 
+                        class="tab-pane fade"
+                        id="historialCambios"
+                        role="tabpanel" 
+                        aria-labelledby="historialCambios-tab"
+                        >
+                            @include('modules.others.profile.changeRecord')
                         </div>
 
                         <div 
