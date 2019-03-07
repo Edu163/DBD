@@ -151,6 +151,7 @@ class PackageController extends Controller
             $parametrosHabitacion = [
                 'fecha-entrada-housing' => $fechaEntrada2,
                 'fecha-salida-housing' => $params['fecha-vuelta-packageOne'],
+                'personas' => $params['pasajeros'],
                 //anañadir por persona
             ];
             foreach($hotels as $hotel)
@@ -250,28 +251,28 @@ class PackageController extends Controller
         }
     }
 
-    /*public function vav()
+    public function vav()
     {
         $params = $this->validate(request(), [
-            'origen-packageOne' => 'required|integer',
-            'destino-packageOne' => 'required|integer',
-            'fecha-ida-packageOne' => 'required|date',
-            'fecha-vuelta-packageOne' => 'required|date',
+            'origen' => 'required|integer',
+            'destino' => 'required|integer',
+            'fecha-ida-packageThree' => 'required|date',
+            'fecha-vuelta-packageThree' => 'required|date',
             'pasajeros' => 'required|integer',
             'cabina' => 'required|integer|between:1,3',
         ]);
         request()->session()->put('busqueda.packagevav', $params);
         $parametrosVuelo = [
-            'origen' => $params['origen-packageOne'],
-            'destino' => $params['destino-packageOne'],
-            'fechaida2' => $params['fecha-ida-packageOne'],
-            'fechavuelta' => $params['fecha-vuelta-packageOne'],
+            'origen' => $params['origen'],
+            'destino' => $params['destino'],
+            'fechaida2' => $params['fecha-ida-packageThree'],
+            'fechavuelta' => $params['fecha-vuelta-packageThree'],
             'pasajeros' => $params['pasajeros'],
             'cabina' => $params['cabina'],
         ];
 
         $packages = [];
-        $hotels = Hotel::where('ciudad_id','=', $params['destino-packageOne'])->get();
+        $hotels = Hotel::where('ciudad_id','=', $params['destino'])->get();
         //dump($hotels);
         $roundtrips = RoundtripFlight::buscarVuelosIdaVuelta($parametrosVuelo);
         $habitaciones = [];
@@ -285,14 +286,15 @@ class PackageController extends Controller
             $parametrosVehiculo = [
                 'zone' => $params['destino'],
                 'fecha-recogida' => $fechaEntrada2,
-                'fecha-devolucion' => $params['fecha-vuelta-packageTwo'],
+                'fecha-devolucion' => $params['fecha-vuelta-packageThree'],
                 'pasajeros' => $params['pasajeros']
             ];
             $vehiculos = Vehicle::buscarVehiculos($parametrosVehiculo);
             //dump($fechaEntrada2);
             $parametrosHabitacion = [
                 'fecha-entrada-housing' => $fechaEntrada2,
-                'fecha-salida-housing' => $params['fecha-vuelta-packageOne'],
+                'fecha-salida-housing' => $params['fecha-vuelta-packageThree'],
+                'personas' => $params['pasajeros'],
                 //anañadir por persona
             ];
             foreach($hotels as $hotel)
@@ -301,13 +303,14 @@ class PackageController extends Controller
                 foreach($rooms as $room)
                 {
                     $habitaciones[] = $room;
+                    $indice = rand(0,count($vehiculos));
                     $packages[] = Package::create([
                         'roundtrip_id' => $roundtrip->id,
                         'hotel_room_id'=> $room->id,
                         'vehicle_id' => $vehiculos[0]->id,
-                        'type' => 1,
-                        'fecha_inicio' => $params['fecha-ida-packageOne'],
-                        'fecha_fin' => $params['fecha-vuelta-packageOne'],
+                        'type' => 3,
+                        'fecha_inicio' => $params['fecha-ida-packageThree'],
+                        'fecha_fin' => $params['fecha-vuelta-packageThree'],
                         'precio' => (int)(($room->precio + $roundtrip->precio_economy) * 0.8),
 
                     ]);
@@ -326,5 +329,5 @@ class PackageController extends Controller
         else{
             return view('modules.others.package.noDisp');
         }
-    }*/
+    }
 }

@@ -342,10 +342,65 @@ class CheckoutController extends Controller
                         'monto_total' => strval($item->total),
                     ]);
                 }
+                else if($item->model->type == 3) {
+                    $params = request()->session()->get('busqueda.packagevav' . $item->model->id);
+                    //dump($params);
+                    PackageReservation::create([
+                        'sell_id' => $venta->id,
+                        'package_id' => $item->model->id,
+                        'monto_total' => strval($item->total),
+                    ]);
+                    //dd($item->model->roundtrip);
+                    $cabina = "";
+                    if ($params['cabina'] == "1") {
+                        //dump(":D1");
+                        $cabina = "premium";
+                    } else if ($params['cabina'] == "2") {
+                        //dump(":D2");
+                        $cabina = "bussiness";
+                    } else if ($params['cabina'] == "3") {
+                        //dump(":D3");
+                        $cabina = "economy";
+                    }
+                    $vueloIda = Flight::findOrFail($item->model->flight->vueloIda->id);
+                    $vueloVuelta = Flight::findOrFail($item->model->flight->vueloVuelta->id);
+                    $vueloIda->descontarAsientos($cabina, $params['pasajeros']);
+                    $vueloVuelta->descontarAsientos($cabina, $params['pasajeros']);
+
+                    $fechaEntrada1 = $item->model->flight->vueloIda->fecha_aterrizaje;
+                    $fechaEntrada2 = Carbon::createFromFormat('Y-m-d H:i:s', $fechaEntrada1)->format('Y-m-d');
+                    HotelReservation::create([
+                        'sell_id' => $venta->id,
+                        'hotel_room_id' => $item->model->hotelroom->id,
+                        'precio' => strval($item->total),
+                        'fecha_ingreso' => $params['fecha-ida-packageThree'],
+                        'fecha_egreso' => $params['fecha-vuelta-packageThree'],
+                        'cantidad' => $params['pasajeros'],
+                        'monto_total' => strval($item->total),
+                        'descuento' => 0,
+                    ]);
+                    VehicleReservation::create([
+                        'sell_id' => $venta->id,
+                        'vehicle_id' => $item->model->vehicle->id,
+                        'fecha_retiro' => $fechaEntrada2,
+                        'fecha_regreso' => $params['fecha-vuelta-packageThree'],
+                        'monto_total' => strval($item->total),
+                    ]);
+                    FlightSellDetail::create([
+                        'sell_id' => $venta->id,
+                        'flight_id' => null,
+                        'roundtrip_id' => $item->model->flight->id,
+                        'precio' => strval($item->model->flight->precio_economy),
+                        'descuento' => '0',
+                        'tipo' => $cabina,
+                        'cantidad' => $params['pasajeros'],
+                        'monto_total' => strval($item->total),
+                    ]);
+                }
             }
         }
         /* PDF y Email */
-        $this->getPdf($venta);
+        /*$this->getPdf($venta);
         $pdfpath = public_path('storage/public/pdf/' . $venta->source . '.pdf');
         $email = $request->email;
         $username = $request->name;
@@ -359,7 +414,7 @@ class CheckoutController extends Controller
                 ->to($email, $username)
                 ->subject('Confirmación de reserva exitosa')
                 ->attach($pdfpath);
-        }); 
+        }); */
     }
     /**
      * Display the specified resource.
