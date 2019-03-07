@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Modules\HousingReservation\HotelRoom;
 use App\Modules\VehicleReservation\Vehicle;
 use App\Modules\FlightReservation\RoundtripFlight;
+use App\Modules\Others\PackageReservation;
 use Carbon\Carbon;
 
 class Package extends Model

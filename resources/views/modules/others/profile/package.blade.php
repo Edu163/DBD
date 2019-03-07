@@ -21,12 +21,12 @@
               <td class="align-middle">{{ $sell->source }}</td>
               <td class="align-middle">{{ $packageReservation->created_at }}</td>
               <td class="align-middle">{{ $packageReservation->monto_total }}</td>
-              <td class="align-middle">{{ $packageReservation->$package->hotelroom->hotel->nombre }}</td>
-              <td class="align-middle">{{ $packageReservation->$package->hotelroom->hotel->ciudad }}</td>
-              <td class="align-middle">{{ $packageReservation->$package->getDias() }}</td>
-              <td class="align-middle">{{ $packageReservation->$package->vehicle->patente }}</td>
-              <td class="align-middle">{{ $packageReservation->$package->vehicle->marca }}</td>
-              <td class="align-middle">{{ $packageReservation->$package->vehicle->tipo }}</td>
+              <td class="align-middle">{{ $packageReservation->package->hotelroom->hotel->nombre }}</td>
+              <td class="align-middle">{{ $packageReservation->package->hotelroom->hotel->ciudad }}</td>
+              <td class="align-middle">{{ $packageReservation->package->getDias() }}</td>
+              <td class="align-middle">{{ $packageReservation->package->vehicle->patente }}</td>
+              <td class="align-middle">{{ $packageReservation->package->vehicle->marca }}</td>
+              <td class="align-middle">{{ $packageReservation->package->vehicle->tipo }}</td>
               {{-- <td class="align-middle">{{ $packageReservation->vehicle->zone->nombre }}</td>
               <td class="align-middle">{{ $packageReservation->vehicle->vehicleProvider->politica_combustible }}</td> --}}
             </tr>

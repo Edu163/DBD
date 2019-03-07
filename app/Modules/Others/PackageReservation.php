@@ -3,14 +3,11 @@
 namespace App\Modules\Others;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Modules\Others\Package;
 
 class PackageReservation extends Model
 {
     protected $table = 'package_reservations';
-
-    protected $sell_id;
-    protected $package_id;
-    protected $monto_total;
 
     protected $fillable = [
         'sell_id',

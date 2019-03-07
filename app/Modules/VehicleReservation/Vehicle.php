@@ -5,6 +5,7 @@ namespace App\Modules\VehicleReservation;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Modules\Others\Package;
 class Vehicle extends Model
 {
     protected $table = 'vehicles';
@@ -33,6 +34,10 @@ class Vehicle extends Model
     ];
 
     /* Relaciones */
+
+    public function package(){
+    	return $this->hasMany(Package::class);
+    }
 
     public function vehicleCalendary(){
     	return $this->belongsTo(VehicleCalendary::class);
