@@ -59,6 +59,12 @@ class ProfileController extends Controller
         return view('modules.others.profile.profile', compact('user', 'sells'));
     }
 
+    public function showSellDetail($id)
+    {
+        $sells = Sell::where('id', $id)->get();
+        return view('modules.others.profile.selldetail', compact('sells'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

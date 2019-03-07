@@ -9,18 +9,19 @@
                     <th class="align-middle"></th>
                 </tr>
             </thead>
+            @foreach($sells as $sell)
             <tbody class="text-center text-light align-middle">
-                @foreach($sells as $sell)
-                    <tr>
-                        <td class="align-middle">{{ $sell->source }}</td>
-                        <td class="align-middle">{{ $sell->monto_total }}</td>
-                        <td class="align-middle">{{ $sell->created_at }}</td>
-                        <td class="align-middle"><button type="submit" class="btn btn-success btn-galaxy" data-toggle="modal" data-target="#modal-sell-{{ $sell->id }}">Ver Detalles</button></td>
-                    </tr>
-                @endforeach
+                <tr>
+                    <td class="align-middle">{{ $sell->source }}</td>
+                    <td class="align-middle">{{ $sell->monto_total }}</td>
+                    <td class="align-middle">{{ $sell->created_at }}</td>
+                    <form action="/selldetail/{{ $sell->id }}" target="_blank" method="get">
+                        <td class="align-middle"><button class="btn btn-success btn-galaxy" value="{{ $sell->id }}" >Ver Detalles</button></td>
+                    </form>
+                </tr>
             </tbody>
+            @endforeach
         </table>
-        @include('modules.others.profile.selldetail') 
     </div>
 </div>
  --}}

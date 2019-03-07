@@ -40,6 +40,9 @@ Route::post('/cartInsurance/{insurance}', 'OthersControllers\CartController@stor
 Route::get('/insuranceo', 'OthersControllers\InsuranceController@indexo');
 Route::get('/insurancet', 'OthersControllers\InsuranceController@indext');
 
+/* Sell Detail */
+Route::get('/selldetail/{sell}', 'OthersControllers\ProfileController@showSellDetail')->name('profile.showSellDetail');
+
 /* Admin Group */
 Route::group(['middleware' => ['auth', 'admin']], function() {
 
@@ -96,9 +99,9 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
         '/admin/history'                      => 'OthersControllers\HistoryController',
         ]);
     
-    Route::patch('/upuser/{id}', 'AdminController@upgradeToAdmin');
-    Route::patch('/downuser/{id}', 'AdminController@downgradeAdmin');
-    Route::delete('/deleteuser/{id}', 'AdminController@destroyUser');
+    Route::patch('/upuser/{id}', 'AdminController@upgradeToAdmin')->name('admin.upuser');
+    Route::patch('/downuser/{id}', 'AdminController@downgradeAdmin')->name('admin.downuser');
+    Route::delete('/deleteuser/{id}', 'AdminController@destroyUser')->name('admin.deleteuser');
 
 });
 
@@ -139,7 +142,7 @@ Route::resources([
     'airport'                      => 'FlightReservationControllers\AirportController',
     'checkin'                      => 'FlightReservationControllers\CheckInController',
     'company'                      => 'FlightReservationControllers\CompanyController',
-    'roundtrip'                      => 'FlightReservationControllers\RoundtripFlightController',
+    'roundtrip'                    => 'FlightReservationControllers\RoundtripFlightController',
     //'flight'                       => 'FlightReservationControllers\FlightController',
     'flight_detail'                => 'FlightReservationControllers\FlightDetailController',
     'origin_destiny'               => 'FlightReservationControllers\OrigenDestinoController',

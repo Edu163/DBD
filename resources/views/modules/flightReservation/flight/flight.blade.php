@@ -23,14 +23,9 @@
                         <img class="img-fluid" src="https://picsum.photos/300/200?image={{ mt_rand(1043, 1052) }}" style="padding-bottom: 8% !important;">
                         <ul>
                             <li><i class="ion-android-checkmark-circle"></i>Escalas: {{ $vuelo->escalas}}</li>
-                            <li><i class="ion-android-checkmark-circle"></i>Destino: {{ $vuelo->destiny->ciudad}}</li>
-                            <li><i class="ion-android-checkmark-circle"></i>Salida: {{ $vuelo->fecha_despegue }} </li>
-                            <li><i class="ion-android-checkmark-circle"></i>Llegada: {{ $vuelo->fecha_aterrizaje }} </li>
-                           {{--<li><i class="ion-android-checkmark-circle"></i>Duración: {{ $vuelo->duracion() }}</li> --}}
-                           {{-- <li><i class="ion-android-checkmark-circle"></i>Dirección: {{ $hotelCard->hotel->direccion }}</li>
-                           <li><i class="ion-android-checkmark-circle"></i>Estrellas: {{ $hotelCard->hotel->estrellas }} <i class="fas fa-star" style="color: yellow !important;"></i></li>
-                           <li><i class="ion-android-checkmark-circle"></i>Valoración: {{ $hotelCard->hotel->estrellas }}</li>
-                           <li><i class="ion-android-checkmark-circle"></i>Camas: {{ $hotelCard->camas }}</li> --}}
+                            <li><i class="ion-android-checkmark-circle"></i>Destino: {{ $vuelo->destiny->ciudad }}</li>
+                            <li><i class="ion-android-checkmark-circle"></i>Salida: {{ $vuelo->fecha_despegue }}</li>
+                            <li><i class="ion-android-checkmark-circle"></i>Llegada: {{ $vuelo->fecha_aterrizaje }}</li>
                         </ul>
                         <center>
                             <center>

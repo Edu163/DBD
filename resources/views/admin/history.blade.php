@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody class="text-center align-middle">
-                @if ($histories != 0)
+                @if (count($histories) != 0)
                     @foreach ($histories as $history)
                         <tr>
                             <td class="align-middle">{{ $user->name }}</td>

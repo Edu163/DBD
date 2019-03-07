@@ -3,6 +3,7 @@
 namespace App\Modules\FlightReservation;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Modules\Others\Sell;
 
 class FlightSellDetail extends Model
 {

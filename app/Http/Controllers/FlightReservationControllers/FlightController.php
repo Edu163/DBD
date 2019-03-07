@@ -94,9 +94,9 @@ class FlightController extends Controller
     {
         $flight = Flight::find($id);
         $flight->fill($this->validate($request, [
-            'detalle_venta_vuelo_id' => 'required',
-            'precio' => 'required',
-            'duracion_vuelo' => 'required'
+            'precio_economy' => 'required',
+            'precio_bussiness' => 'required',
+            'precio_premium' => 'required',
           ]))->save();
       
           return back();
