@@ -48,6 +48,7 @@ class CheckInController extends Controller
         $venta = Sell::where('source', '=', $request['source'])->first();
         $checkin = CheckIn::where('source', '=', $request['source'])->first();
         //dd($venta);
+        $validor = false;
         if($venta == null or $checkin != null or $venta->user_id != Auth::user()->id)
         {
             /** poner algo bonito */
@@ -61,6 +62,7 @@ class CheckInController extends Controller
             {
                 //dump($detalle);
                 if($detalle->flight_id != null) {
+                    $validador = true;
                     $tipo = $detalle->tipo;
                     $vuelo = Flight::findOrFail($detalle->flight_id);
                     if ($vuelo->escalas == 1) {
@@ -81,6 +83,7 @@ class CheckInController extends Controller
                     }
                 }
                 else if($detalle->roundtrip_id != null){
+                    $validador = true;
                     $tipo = $detalle->tipo;
                     $vuelo = RoundtripFlight::findOrFail($detalle->roundtrip_id);
                     if ($vuelo->vueloIda->escalas == 1) {
@@ -117,9 +120,14 @@ class CheckInController extends Controller
                     }
                 }
             }
+            
             //FINAL FOREACH
 
             //dd($id_vuelo);
+        }
+        if($validador == true)
+        {
+            //retornar vista hermosa
         }
         //return CheckIn::create($request->all());
     }

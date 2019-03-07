@@ -164,7 +164,7 @@ class CheckoutController extends Controller
             else if(get_class($item->model) == "App\Modules\HousingReservation\HotelRoom")
             {
                 $params = request()->session()->get('busqueda.room' . $item->model->id);
-                //dd($params);
+
                 HotelReservation::create([
                     'sell_id' => $venta->id,
 		            'hotel_room_id' => $item->model->id,

@@ -12,7 +12,9 @@
         </div>
         <div id="flight" class="collapse" aria-labelledby="flightAccordion" data-parent="#mainAccordion">
             <div class="card-body">
-                @include('modules.others.profile.flight')
+                @foreach ($sells as $sell)
+                    @include('modules.others.profile.flight')
+                @endforeach
             </div>
         </div>
     </div>
@@ -29,7 +31,9 @@
         </div>
         <div id="housing" class="collapse" aria-labelledby="housingAccordion" data-parent="#mainAccordion">
             <div class="card-body">
-                @include('modules.others.profile.housing')
+                @foreach ($sells as $sell)
+                    @include('modules.others.profile.housing')
+                @endforeach
             </div>
         </div>
     </div>
@@ -87,7 +91,9 @@
 
         <div id="package" class="collapse" aria-labelledby="packageAccordion" data-parent="#mainAccordion">
             <div class="card-body">
-                @include('modules.others.profile.package')
+                @foreach ($sells as $sell)
+                    @include('modules.others.profile.package')
+                @endforeach
             </div>
         </div>
     </div>
