@@ -1,4 +1,4 @@
-<form action="/flight_detail" method="get">
+<form action="/flight" method="get">
     <div class="row justify-content-center">
         <div class="col">
             <center>
@@ -60,38 +60,16 @@
         <div class="col">
             <center>
                 <!-- Input Ida -->
-                <label for="fecha-ida">
+                <label for="fechaida">
                     <span> 
                         Fecha de ida
                     </span>
                 </label>
                 <div class="input-group">
                     <input 
-                    id="fecha-ida" 
-                    name="fecha-ida" 
+                    id="fechaida"
+                    name="fechaida"
                     type="date"
-                    class="form-control"
-                    style="color:black;"
-                    required>
-                    <span class="input-group-append">
-                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                    </span>
-                </div>
-            </center>
-        </div>
-        <div class="col">
-            <center>
-                <!-- Input Vuelta -->
-                <label for="fecha-vuelta">
-                    <span> 
-                        Fecha de vuelta
-                    </span>
-                </label>
-                <div class="input-group">
-                    <input 
-                    id="fecha-vuelta"
-                    name="fecha-vuelta"
-                    type="date" 
                     class="form-control"
                     style="color:black;"
                     required>
@@ -145,7 +123,7 @@
                     Seleccione el tipo de cabina
                 </option>
                 <option value="1">
-                    First Class
+                    Premium
                 </option>
                 <option value="2">
                     Bussiness
@@ -163,35 +141,17 @@
 </form>
 
 <script>
-  addEventListener('load',inicio,false);
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    }
+    if(mm<10){
+        mm='0'+mm
+    }
 
-  function inicio()
-  {
-    document.getElementById('fecha-ida').addEventListener('change',cambioVuelta,false);
-  }
-
-  function cambioVuelta()
-  {
-     var fecha = document.getElementById("fecha-ida").value;
-     
-    document.getElementById('fecha-ida').innerHTML=document.getElementById('fecha-ida').value;
-    document.getElementById("fecha-vuelta").setAttribute("min", fecha);
-  }
-</script>  
-
-<script>
-     var today = new Date();
-     var dd = today.getDate();
-     var mm = today.getMonth()+1; //January is 0!
-     var yyyy = today.getFullYear();
-     if(dd<10){
-          dd='0'+dd
-     } 
-     if(mm<10){
-          mm='0'+mm
-     } 
-
-     today = yyyy+'-'+mm+'-'+dd;
-     document.getElementById("fecha-ida").setAttribute("min", today);
-     document.getElementById("fecha-vuelta").setAttribute("min", today);
+    today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("fechaida").setAttribute("min", today);
 </script>

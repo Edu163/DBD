@@ -1,8 +1,8 @@
 <!-- Modal -->
-<form action="/vehicle" method="post">
+<form action="/admin/vehicle" method="post">
   @method('POST')
   @csrf
-  <div class="modal fade" id="modal-vehicle-store" tabindex="-1" role="dialog" aria-labelledby="modal-vehicle-store-label" aria-hidden="true">
+  <div class="modal text-dark fade" id="modal-vehicle-store" tabindex="-1" role="dialog" aria-labelledby="modal-vehicle-store-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -324,6 +324,45 @@
           </div>
 
           <div class="form-group row">
+             <div class="col-md-6">
+                <input 
+                  id="ciudad_id" 
+                  name="ciudad_id" 
+                  type="hidden" 
+                  class="form-control"
+                  value=49
+                  autofocus
+                >
+            </div>
+          </div>
+
+          <div class="form-group row">
+             <div class="col-md-6">
+                <input 
+                  id="ciudad" 
+                  name="ciudad" 
+                  type="hidden" 
+                  class="form-control"
+                  value='New Juniuschester'
+                  autofocus
+                >
+            </div>
+          </div>
+
+          <div class="form-group row">
+             <div class="col-md-6">
+                <input 
+                  id="pais" 
+                  name="pais" 
+                  type="hidden" 
+                  class="form-control"
+                  value='Equatorial Guinea'
+                  autofocus
+                >
+            </div>
+          </div>
+
+          <div class="form-group row">
             <label 
             for="n_kilometraje" 
             class="col-sm-4 col-form-label text-md-right"
@@ -346,7 +385,7 @@
 
           <div class="form-group row">
             <label 
-            for="precio_hora" 
+            for="precio" 
             class="col-sm-4 col-form-label text-md-right"
             >
               {{ __('Precio/Hora') }}
@@ -354,8 +393,8 @@
 
             <div class="col-md-6">
               <input 
-                id="precio_hora" 
-                name="precio_hora" 
+                id="precio" 
+                name="precio" 
                 type="number"
                 min="0"
                 class="form-control"
@@ -396,8 +435,8 @@
 
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Agregar Vehículo</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success btn-galaxy">Agregar Vehículo</button>
+          <button type="button" class="btn btn-danger btn-galaxy" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
     </div>

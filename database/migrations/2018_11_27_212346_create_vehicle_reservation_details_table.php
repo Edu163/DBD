@@ -19,9 +19,9 @@ class CreateVehicleReservationDetailsTable extends Migration
             $table->foreign('vehicle_reservation_id')
                 ->references('id')
                 ->on('vehicle_reservations');
-            $table->string('patente');
-            $table->foreign('patente')
-                ->references('patente')
+            $table->integer('vehicle_id');
+            $table->foreign('vehicle_id')
+                ->references('id')
                 ->on('vehicles')
                 ->onDelete('cascade');
             $table->datetime('fecha_retiro');

@@ -9,7 +9,7 @@ class VehicleReservationDetail extends Model
     protected $table = 'vehicle_reservation_details';
 
     protected $vehicle_reservation_id;
-    protected $patente;
+    protected $vehicle_id;
     protected $fecha_retiro;
     protected $fecha_regreso;
     protected $precio_reserva;
@@ -18,7 +18,7 @@ class VehicleReservationDetail extends Model
 
     protected $fillable = [
         'vehicle_reservation_id',
-        'patente',
+        'vehicle_id',
         'fecha_retiro',
         'fecha_regreso',
         'precio_reserva',

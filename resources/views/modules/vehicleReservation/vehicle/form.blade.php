@@ -22,9 +22,9 @@
                                    <option selected disabled>
                                         Seleccione su zona destino
                                    </option>
-                                   @foreach ($zones as $zone)
-                                   <option value="{{ $zone->id }}">
-                                            {{ $zone->nombre }}
+                                   @foreach ($cities as $city)
+                                   <option value="{{ $city->id }}">
+                                            {{ $city->nombre }}
                                    </option>
                                    @endforeach
                               </select>

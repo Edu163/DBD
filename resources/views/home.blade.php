@@ -86,13 +86,21 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" style="background: linear-gradient(45deg, #1de099, #1dc8cd) !important;" aria-labelledby="navbarDropdown">
+                            @if (Auth::user()->is_admin == 1)
+                                <a class="dropdown-item" href="/admin"  method="post">
+                                    {{ __('Administración') }}
+                                    <i class="fas fa-user-tie"></i>
+                                </a>
+                            @endif
                             <a class="dropdown-item" href="{{ route('profile.show',[Crypt::encrypt(Auth::user()->id) ])}}"  method="post">
-                                    {{ __('Perfil') }}
+                                {{ __('Perfil') }}
+                                <i class="fas fa-user"></i>
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     {{ __('Cerrar sesión') }}
+                                    <i class="fas fa-sign-out-alt"></i>
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
@@ -218,53 +226,31 @@
                     {{-- <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> --}}
                 </div>
 
-                <div class="row">
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="box wow fadeInLeft">
-                    <h3>Free</h3>
-                    <h4><sup>$</sup>0<span> month</span></h4>
-                    <ul>
-                        <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
-                        <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
-                        <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
-                        <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
-                        <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
-                    </ul>
-                    <a href="#" class="get-started-btn">Get Started</a>
-                    </div>
-                </div>
+                 <div class="row">
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="box featured wow fadeInUp">
-                    <h3>Business</h3>
-                    <h4><sup>$</sup>29<span> month</span></h4>
-                    <ul>
-                        <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
-                        <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
-                        <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
-                        <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
-                        <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
-                    </ul>
-                    <a href="#" class="get-started-btn">Get Started</a>
+                @foreach ($packagesCards as $pCard)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="box featured wow fadeInUp">
+                            <h3>{{ $pCard->id }}</h3>
+                            <h4><sup>$</sup>{{ $pCard->id }}<span> Precio</span></h4>
+                            <ul>
+                                <li><i class="ion-android-checkmark-circle"></i>Flight: {{ $pCard->flight_id}}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Hotel: {{ $pCard->hotel_id}}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Vehicle: {{ $pCard->vehicle_id}}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Inicio: {{ $pCard->fecha_inicio}}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Fin: {{ $pCard->fecha_fin}}</li>
+                            </ul>
+                            <a href="#" class="get-started-btn">Ver detalles</a>
+                        </div>
                     </div>
-                </div>
+                @endforeach
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="box wow fadeInRight">
-                    <h3>Developer</h3>
-                    <h4><sup>$</sup>49<span> month</span></h4>
-                    <ul>
-                        <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
-                        <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
-                        <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
-                        <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
-                        <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
-                    </ul>
-                    <a href="#" class="get-started-btn">Get Started</a>
-                    </div>
-                </div>
             </div>
+            </div>
+                
+
+               
         </section><!-- #about -->
 
         <section id="buy-forms" class="section-bg">
@@ -276,6 +262,12 @@
                                 <i class="fas fa-plane"></i>   
                                 Vuelos
                             </a>
+                            @if (Auth::check())
+                                <a class="nav-link btn-galaxy" id="v-pills-checkin-tab" data-toggle="pill" href="#v-pills-checkin" role="tab" aria-controls="v-pills-checkin" aria-selected="false">
+                                    <i class="fas fa-laptop"></i>
+                                    Check-in   
+                                </a>
+                            @endif
                             <a class="nav-link btn-galaxy" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                                 <i class="fas fa-car-side"></i>
                                 Transporte
@@ -289,7 +281,7 @@
                                 Paquetes
                             </a>
                             <a class="nav-link btn-galaxy" id="v-pills-insurance-tab" data-toggle="pill" href="#v-pills-insurance" role="tab" aria-controls="v-pills-insurance" aria-selected="false">
-                                <i class="fas fa-cubes"></i>
+                                <i class="fas fa-heartbeat"></i>
                                 Seguros de viaje
                             </a>
                             </div>
@@ -298,6 +290,9 @@
                             <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                     @include('modules.flightReservation.flight.form')
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-checkin" role="tabpanel" aria-labelledby="v-pills-checkin-tab">
+                                    @include('modules.others.checkin.form')
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                     @include('modules.vehicleReservation.vehicle.form')
@@ -309,7 +304,7 @@
                                     @include('modules.others.package.form')
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-insurance" role="tabpanel" aria-labelledby="v-pills-insurance-tab">
-                                    @include('modules.flightReservation.insurance.form')
+                                    @include('modules.others.insurance.form')
                                 </div>
                             </div>
                         </div>
@@ -327,7 +322,6 @@
             <div class="section-header">
             <h3 class="section-title">Vuelos</h3>
             <span class="section-divider"></span>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
             </div>
 
             <div class="row">
@@ -413,19 +407,22 @@
 
             <div class="row">
 
-                @foreach ($hotelCards as $hotelCard)
+                @foreach ($hotelCards as $hab)
                     <div class="col-lg-4 col-md-6">
                         <div class="box featured wow fadeInUp">
-                            <h3>{{ $hotelCard->hotel->nombre }}</h3>
-                            <h4><sup>$</sup>{{ $hotelCard->precio }}<span> noche</span></h4>
+                            <h3>{{ $hab->hotel->nombre }}</h3>
+                            <h4><sup>$</sup>{{ $hab->precio }}<span> noche</span></h4>
                             <ul>
-                                <li><i class="ion-android-checkmark-circle"></i>País: {{ $hotelCard->hotel->pais }}</li>
-                                <li><i class="ion-android-checkmark-circle"></i>Dirección: {{ $hotelCard->hotel->direccion }}</li>
-                                <li><i class="ion-android-checkmark-circle"></i>Estrellas: {{ $hotelCard->hotel->estrellas }} <i class="fas fa-star" style="color: yellow !important;"></i></li>
-                                <li><i class="ion-android-checkmark-circle"></i>Valoración: {{ $hotelCard->hotel->estrellas }}</li>
-                                <li><i class="ion-android-checkmark-circle"></i>Camas: {{ $hotelCard->camas }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>País: {{ $hab->hotel->pais }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Dirección: {{ $hab->hotel->direccion }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Estrellas: {{ $hab->hotel->estrellas }} <i class="fas fa-star" style="color: yellow !important;"></i></li>
+                                <li><i class="ion-android-checkmark-circle"></i>Valoración: {{ $hab->hotel->estrellas }}</li>
+                                <li><i class="ion-android-checkmark-circle"></i>Camas: {{ $hab->camas }}</li>
                             </ul>
-                            <a href="#" class="get-started-btn">Ver detalles</a>
+                            <center>  
+                            <button style="margin-top: 0.2cm;" type="submit" class="btn btn-success btn-galaxy" data-toggle="modal" data-target="#modal-housing-reservation-{{ $hab->id }}">Ver detalles</button>
+                            @include('modules.housingReservation.hotelReservationDetail.index') 
+                            </center>
                         </div>
                     </div>
                 @endforeach
@@ -433,65 +430,6 @@
             </div>
         </div>
         </section><!-- #pricing -->
-
-        <!--==========================
-        Product Advanced Featuress Section
-        ============================-->
-        {{-- <section id="advanced-features">
-
-        <div class="features-row section-bg">
-            <div class="container">
-            <div class="row">
-                <div class="col-12">
-                <img class="advanced-feature-img-right wow fadeInRight" src="{{ asset('template/img/advanced-feature-1.jpg') }}" alt="">
-                <div class="wow fadeInLeft">
-                    <h2>Duis aute irure dolor in reprehenderit in voluptate velit esse</h2>
-                    <h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <div class="features-row">
-            <div class="container">
-            <div class="row">
-                <div class="col-12">
-                <img class="advanced-feature-img-left" src="{{ asset('template/img/advanced-feature-2.jpg') }}" alt="">
-                <div class="wow fadeInRight">
-                    <h2>Duis aute irure dolor in reprehenderit in voluptate velit esse</h2>
-                    <i class="ion-ios-paper-outline" class="wow fadeInRight" data-wow-duration="0.5s"></i>
-                    <p class="wow fadeInRight" data-wow-duration="0.5s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <i class="ion-ios-color-filter-outline wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.5s"></i>
-                    <p class="wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.5s">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
-                    <i class="ion-ios-barcode-outline wow fadeInRight" data-wow-delay="0.4" data-wow-duration="0.5s"></i>
-                    <p class="wow fadeInRight" data-wow-delay="0.4s" data-wow-duration="0.5s">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <div class="features-row section-bg">
-            <div class="container">
-            <div class="row">
-                <div class="col-12">
-                <img class="advanced-feature-img-right wow fadeInRight" src="{{ asset('template/img/advanced-feature-3.jpg') }}" alt="">
-                <div class="wow fadeInLeft">
-                    <h2>Duis aute irure dolor in reprehenderit in voluptate velit esse</h2>
-                    <h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                    <i class="ion-ios-albums-outline"></i>
-                    <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        </section> --}}
-        <!-- #advanced-features -->
 
         <!--==========================
         Call To Action Section
@@ -584,7 +522,7 @@
         <!--==========================
         Frequently Asked Questions Section
         ============================-->
-        <section id="faq" class="bg-light">
+        <section id="faq" class="bg-light text-dark">
         <div class="container">
 
             <div class="section-header">
@@ -730,130 +668,7 @@
         </div>
         </section><!-- #faq -->
 
-        <!--==========================
-        Gallery Section
-        ============================-->
-        {{-- <section id="gallery">
-        <div class="container-fluid">
-            <div class="section-header">
-            <h3 class="section-title">Galaría</h3>
-            <span class="section-divider"></span>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-            </div>
-
-            <div class="row no-gutters">
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item wow fadeInUp">
-                <a href="{{ asset('template/img/gallery/gallery-1.jpg') }}" class="gallery-popup">
-                    <img src="{{ asset('template/img/gallery/gallery-1.jpg') }}" alt="">
-                </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item wow fadeInUp">
-                <a href="{{ asset('template/img/gallery/gallery-2.jpg') }}" class="gallery-popup">
-                    <img src="{{ asset('template/img/gallery/gallery-2.jpg') }}" alt="">
-                </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item wow fadeInUp">
-                <a href="{{ asset('template/img/gallery/gallery-3.jpg') }}" class="gallery-popup">
-                    <img src="{{ asset('template/img/gallery/gallery-3.jpg') }}" alt="">
-                </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item wow fadeInUp">
-                <a href="{{ asset('template/img/gallery/gallery-4.jpg') }}" class="gallery-popup">
-                    <img src="{{ asset('template/img/gallery/gallery-4.jpg') }}" alt="">
-                </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item wow fadeInUp">
-                <a href="{{ asset('template/img/gallery/gallery-5.jpg') }}" class="gallery-popup">
-                    <img src="{{ asset('template/img/gallery/gallery-5.jpg') }}" alt="">
-                </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item wow fadeInUp">
-                <a href="{{ asset('template/img/gallery/gallery-6.jpg') }}" class="gallery-popup">
-                    <img src="{{ asset('template/img/gallery/gallery-6.jpg') }}" alt="">
-                </a>
-                </div>
-            </div>
-
-            </div>
-
-        </div>
-        </section> --}}
-        <!-- #gallery -->
-
-        <!--==========================
-        Our Team Section, Esto queda sólo si no se sube a la red.
-        ============================-->
-        {{-- <section id="team" class="section-bg">
-        <div class="container">
-            <div class="section-header">
-            <h3 class="section-title">Nuestro Equipo</h3>
-            <span class="section-divider"></span>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-            </div>
-            <div class="row wow fadeInUp">
-            <div class="col-6 col-md-4">
-                <div class="member">
-                <div class="pic"><img src="{{ asset('img/team-1.jpg') }}" alt=""></div>
-                <h4>Guillermo Campos</h4>
-                <span>Chief Executive Officer</span>
-                <div class="social">
-                    <a href=""><i class="fab fa-twitter"></i></a>
-                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                    <a href=""><i class="fab fa-linkedin"></i></a>
-                </div>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-4">
-                <div class="member">
-                <div class="pic"><img src="{{asset('img/team-2.jpg')}}" alt=""></div>
-                <h4>Omar Carrasco</h4>
-                <span>Product Manager</span>
-                <div class="social">
-                    <a href=""><i class="fab fa-twitter"></i></a>
-                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                    <a href=""><i class="fab fa-linkedin"></i></a>
-                </div>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-4">
-                <div class="member">
-                <div class="pic"><img src="{{ asset('img/team-3.jpg') }}" alt=""></div>
-                <h4>Eduardo Pailemilla</h4>
-                <span>CTO</span>
-                <div class="social">
-                    <a href=""><i class="fab fa-twitter"></i></a>
-                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                    <a href=""><i class="fab fa-linkedin"></i></a>
-                </div>
-                </div>
-            </div>
-
-            </div>
-
-        </div>
-        </section> --}}
-        <!-- #team -->
-
-        <!--==========================
+    <!--==========================
     Contact Section
     ============================-->
     <section id="contact">

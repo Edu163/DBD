@@ -1,9 +1,5 @@
 @extends('layouts.app')
-<!DOCTYPE html>
-<html>
-
-
-<body>
+@section('content')
     <div class="highlight-blue">
         <div class="container">
             <div class="intro">
@@ -13,8 +9,4 @@
             <div class="buttons"><a class="btn btn-primary" role="button" href="/">OK</a></div>
         </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+@endsection

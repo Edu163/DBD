@@ -42,7 +42,7 @@
         <div class="container">
 
             <div id="logo" class="pull-left">
-                <h1><a href="#intro" class="scrollto">GP14</a></h1>
+                <h1><a href="#intro" class="scrollto">GP14Airland</a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="#intro"><img src="img/logo.png" alt="" title=""></a> -->
             </div>
@@ -77,13 +77,21 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" style="background: linear-gradient(45deg, #1de099, #1dc8cd) !important;" aria-labelledby="navbarDropdown">
+                                @if (Auth::user()->is_admin == 1)
+                                    <a class="dropdown-item" href="/admin"  method="post">
+                                        {{ __('Administración') }}
+                                        <i class="fas fa-user-tie"></i>
+                                    </a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('profile.show',[Crypt::encrypt(Auth::user()->id) ])}}"  method="post">
-                                        {{ __('Perfil') }}
+                                    {{ __('Perfil') }}
+                                    <i class="fas fa-user"></i>
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                         {{ __('Cerrar sesión') }}
+                                        <i class="fas fa-sign-out-alt"></i>
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf

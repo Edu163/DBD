@@ -2,22 +2,16 @@
 
 namespace App\Modules\Others;
 use App\Modules\FlightReservation\FlightDetail;
+use App\Modules\VehicleReservation\VehicleReservation;
+use App\Modules\FlightReservation\FlightReservation;
+use App\Modules\HousingReservation\HotelReservation;
+use App\Modules\FlightReservation\FlightSellDetail;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 
 class Sell extends Model
 {
     protected $table = 'sells';
-
-    protected $code;
-    protected $user_id;
-    protected $monto_total;
-    protected $fecha;
-    protected $impuesto;
-    protected $tipo_comprobante;
-    protected $metodo_pago;
-    protected $n_cuotas;
-    protected $descuento;
 
     protected $fillable = [
         'source',
@@ -57,7 +51,15 @@ class Sell extends Model
     	return $this->hasMany(FlightReservation::class);
     }
 
-    public function package(){
-    	return $this->hasMany(Package::class);
+    public function hotelReservation(){
+    	return $this->hasMany(HotelReservation::class);
+    }
+
+    public function insuranceReservation(){
+    	return $this->hasMany(InsuranceReservation::class);
+    }
+
+    public function packageReservation(){
+    	return $this->hasMany(PackageReservation::class);
     }
 }

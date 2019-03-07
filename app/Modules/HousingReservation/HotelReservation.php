@@ -8,21 +8,17 @@ use App\Modules\Others\Sell;
 class HotelReservation extends Model
 {
     protected $table = 'hotel_reservations';
-	
-	protected $sell_id;
-    protected $precio;
-    protected $fecha;
-    protected $cantidad;
-    protected $monto_total;
-    protected $descuento;
+
 
     protected $fillable = [
-    	'sell_id',
-    	'precio',
-    	'fecha',
-    	'cantidad',
-    	'monto_total',
-    	'descuento'
+				'sell_id',
+				'hotel_room_id',
+				'precio',
+				'fecha_ingreso',
+				'fecha_egreso',
+				'cantidad',
+				'monto_total',
+				'descuento'
 	];
 	
 	/* Relaciones */
@@ -31,8 +27,11 @@ class HotelReservation extends Model
     	return $this->hasMany(HotelReservationDetail::class);
 	}
 	
-	public function sell()
-    {
-      return $this->belongsTo(Sell::class);
-    }
+	public function hotelRoom(){
+    	return $this->belongsTo(HotelRoom::class, 'hotel_room_id');
+	}
+
+	public function sell(){
+			return $this->belongsTo(Sell::class, 'sell_id');
+	}
 }

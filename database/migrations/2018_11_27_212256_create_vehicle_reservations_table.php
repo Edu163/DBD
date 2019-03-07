@@ -20,7 +20,14 @@ class CreateVehicleReservationsTable extends Migration
                   ->references('id')
                   ->on('sells')
                   ->onDelete('cascade');
+            $table->integer('vehicle_id');
+            $table->foreign('vehicle_id')
+                ->references('id')
+                ->on('vehicles')
+                ->onDelete('cascade');
             $table->float('monto_total')->nullable();
+            $table->date('fecha_retiro')->nullable();
+            $table->date('fecha_regreso')->nullable();
             $table->timestamps();
         });
     }

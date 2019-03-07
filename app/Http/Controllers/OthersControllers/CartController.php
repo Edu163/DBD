@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\OthersControllers;
 
+use App\Modules\FlightReservation\Flight;
+use App\Modules\FlightReservation\RoundtripFlight;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Modules\FlightReservation\FlightDetail;
 use App\Modules\VehicleReservation\Vehicle;
+use App\Modules\HousingReservation\HotelRoom;
+use App\Modules\Others\Insurance;
+use App\Modules\Others\Package;
 
 class CartController extends Controller
 {
@@ -35,11 +40,10 @@ class CartController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  App\Modules\FlightReservation\FlightDetail  $flightDetail
+     * @param Flight $vuelo
      * @return \Illuminate\Http\Response
      */
-    public function storeFlights(FlightDetail $flightDetail)
+    public function storeFlights(Flight $vuelo)
     {
         // $duplicates = Cart::search(function ($cartItem, $rowId) use ($flightDetail) {
         //     return $cartItem->id === $flightDetail->id;
@@ -47,16 +51,56 @@ class CartController extends Controller
         // if ($duplicates->isNotEmpty()) {
         //     return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
         // }
-        Cart::add($flightDetail->id, 'destino-santiago', 1, $flightDetail->precio)
-            ->associate('App\Modules\FlightReservation\FlightDetail');
+        $params = request()->session()->get('busqueda.vuelos');
+        if($params['cabina'] == 1)
+        {
+            Cart::add($vuelo->id, 'destino-santiago', $params['pasajeros'], $vuelo->precio_premium)
+                ->associate('App\Modules\FlightReservation\Flight');
+        }
+        else if($params['cabina'] == 2)
+        {
+            Cart::add($vuelo->id, 'destino-santiago', $params['pasajeros'], $vuelo->precio_bussiness)
+                ->associate('App\Modules\FlightReservation\Flight');
+        }
+        else if($params['cabina'] == 3)
+        {
+            Cart::add($vuelo->id, 'destino-santiago', $params['pasajeros'], $vuelo->precio_economy)
+                ->associate('App\Modules\FlightReservation\Flight');
+        }
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
+    }
+    public function storeRoundTrip(RoundtripFlight $roundtrip)
+    {
+        // $duplicates = Cart::search(function ($cartItem, $rowId) use ($flightDetail) {
+        //     return $cartItem->id === $flightDetail->id;
+        // });
+        // if ($duplicates->isNotEmpty()) {
+        //     return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
+        // }
+        $params = request()->session()->get('busqueda.roundtrip');
+        if($params['cabina'] == 1)
+        {
+            Cart::add($roundtrip->id, 'destino-santiago', $params['pasajeros'], $roundtrip->precio_premium)
+                ->associate('App\Modules\FlightReservation\RoundTripFlight');
+        }
+        else if($params['cabina'] == 2)
+        {
+            Cart::add($roundtrip->id, 'destino-santiago', $params['pasajeros'], $roundtrip->precio_bussiness)
+                ->associate('App\Modules\FlightReservation\RoundTripFlight');
+        }
+        else if($params['cabina'] == 3)
+        {
+            Cart::add($roundtrip->id, 'destino-santiago', $params['pasajeros'], $roundtrip->precio_economy)
+                ->associate('App\Modules\FlightReservation\RoundTripFlight');
+        }
+
+        return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
     }
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  App\Modules\VehicleReservation\Vehicle $vehicle
+     * @param Vehicle $vehicle
      * @return \Illuminate\Http\Response
      */
     public function storeVehicle(Vehicle $vehicle)
@@ -67,24 +111,53 @@ class CartController extends Controller
         // if ($duplicates->isNotEmpty()) {
         //     return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
         // }
-        Cart::add($vehicle->id, 'destino-santiago', 1, $vehicle->precio)
+        $params = request()->session()->get('busqueda.vehicles');
+        $id = $vehicle->id;
+        request()->session()->put('busqueda.vehicle' . $id, $params);
+
+        Cart::add($vehicle->id, 'destino-santiago', $params['pasajeros'], $vehicle->precio)
             ->associate('App\Modules\VehicleReservation\Vehicle');
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
     }
 
-    public function storeHousing(Request $request)
+    public function storeRoom(HotelRoom $hab)
     {
-        // $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
-        //     return $cartItem->id === $request->id;
-        // });
-        // if ($duplicates->isNotEmpty()) {
-        //     return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
-        // }
-        Cart::add($request->id, 'destino-santiago', 1, $request->precio)
+        $params = request()->session()->get('busqueda.hotels');
+        $id = $hab->id;
+        request()->session()->put('busqueda.room' . $id, $params);
+        //$params2 = request()->session()->get('busqueda.room' . $id);
+        //dd($params2);
+        Cart::add($hab->id, 'destino-santiago', $params['personas'], $hab->precio)
             ->associate('App\Modules\HousingReservation\HotelRoom');
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
+    }
+
+    public function storeInsurance(Insurance $insurance)
+    {
+        Cart::add($insurance->id, 'destino-santiago', 1, $insurance->price)
+            ->associate('App\Modules\Others\Insurance');
+
+         return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
+    }
+    public function storePackage(Package $package)
+    {
+        //dd(":D");
+        if($package->type == 1) {
+            $params = request()->session()->get('busqueda.packageva');
+            $id = $package->id;
+            request()->session()->put('busqueda.packageva' . $id, $params);
+        }
+        else if($package->type == 2) {
+            $params = request()->session()->get('busqueda.packagevv');
+            $id = $package->id;
+            request()->session()->put('busqueda.packagevv' . $id, $params);
+        }
+        Cart::add($package->id, 'destino-santiago', $params['pasajeros'], $package->precio)
+            ->associate('App\Modules\Others\Package');
+
+        return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
     }
 
     /**

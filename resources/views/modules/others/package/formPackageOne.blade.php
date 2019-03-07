@@ -1,5 +1,5 @@
 {{-- Vuelo + Alojamiento --}}
-<form action="/flight_detail" method="get">
+<form action="/packageva" method="get">
     <div class="row justify-content-center">
         <div class="col">
                 <center>
@@ -19,10 +19,9 @@
                         <option selected disabled> 
                             Seleccione el origen de su vuelo 
                         </option>
-                        @foreach ($airports as $airport)
-                        <option value="{{ $airport->id }}">
-                            {{ $airport->ciudad }}
-                        </option>
+                        @foreach ($cities as $city)
+                        <option value="{{ $city->id }}">
+                            {{ $city->nombre }}
                         @endforeach
                     </select>
                 </div>
@@ -46,9 +45,9 @@
                         <option selected disabled> 
                             Seleccione el destino de su vuelo 
                         </option>
-                        @foreach ($airports as $airport)
-                        <option value="{{ $airport->id }}">
-                            {{ $airport->ciudad }}
+                        @foreach ($cities as $city)
+                        <option value="{{ $city->id }}">
+                            {{ $city->nombre }}
                         </option>
                         @endforeach
                     </select>
@@ -158,51 +157,34 @@
         </div>
     </div>
     </br>
-    <!-- Línea 4 -->
-    <div class="row justify-content-center">
-        <div class="col">
-            <!-- Input Habitaciones -->
-            <center>
-                <label for="habitaciones">
-                    <span> 
-                        Habitaciones 
-                    </span>
-                </label>
-            </center>
-            <input
-            class="form-control"
-            id="habitaciones"
-            name="habitaciones"
-            type="number"
-            min="1"
-            max="3"
-            placeholder="Número de habitaciones"
-            style="width: 100%; color: black !important;" 
-            required>
-        </div>
-    </div>
-    </br>
     <center>
         <button type="submit" class="btn btn-galaxy wow fadeInUp">Encuentre su paquete</button> 
     </center>
 </form>
 
 <script>
-  addEventListener('load',inicioPackageOne,false);
+  addEventListener('load',inicio,false);
 
-  function inicioPackageOne()
+  function inicio()
   {
-    document.getElementById('fecha-ida-packageOne').addEventListener('change',cambioVueltaPackageOne,false);
+    document.getElementById('fecha-ida-packageOne').addEventListener('change',cambioVueltaOne,false);
   }
 
-  function cambioVueltaPackageOne()
+  function cambioVueltaOne()
   {
      var fecha = document.getElementById("fecha-ida-packageOne").value;
-     
+     var rest = fecha.substr(0,8);
+     var dayInt = parseInt(fecha.substr(8,10))+1;
+     var day = dayInt.toString();
+     if(dayInt < 10)
+     {
+          day = "0"+day;
+     }
+     var salida = rest + day;
     document.getElementById('fecha-ida-packageOne').innerHTML=document.getElementById('fecha-ida-packageOne').value;
-    document.getElementById("fecha-vuelta-packageOne").setAttribute("min", fecha);
+    document.getElementById("fecha-vuelta-packageOne").setAttribute("min", salida);
   }
-</script>  
+</script>
 
 <script>
      var today = new Date();

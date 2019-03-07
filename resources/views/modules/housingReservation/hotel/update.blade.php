@@ -1,8 +1,8 @@
 <!-- Modal -->
-<form action="/hotel/{{ $hotel->id }}" method="post">
+<form action="/admin/hotel/{{ $hotel->id }}" method="post">
   @method('PATCH')
   @csrf
-  <div class="modal fade" id="modal-hotel-update-{{ $hotel->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-hotel-edit-label" aria-hidden="true">
+  <div class="modal text-dark fade" id="modal-hotel-update-{{ $hotel->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-hotel-edit-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -164,6 +164,9 @@
                 >
             </div>
           </div>
+
+          <input type="hidden" name="actual_user_id" id="actual_user_id" value="{{ Crypt::encrypt(Auth::user()->id) }}">
+
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-success btn-galaxy">Guardar cambios</button>

@@ -25,8 +25,7 @@ class CreateCheckInsTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->date('fecha');
-            $table->string('estado');
+            $table->string('source');
             $table->timestamps();
         });
     }

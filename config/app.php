@@ -184,6 +184,11 @@ return [
          * PDF Generator...
          */
         Barryvdh\DomPDF\ServiceProvider::class,
+
+        /*
+         * Email...
+         */
+        Snowfire\Beautymail\BeautymailServiceProvider::class,
     ],
 
     /*

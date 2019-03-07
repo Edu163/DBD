@@ -1,22 +1,33 @@
-<form action="/calendario" method="get" style="background: #2e2e30;">
 @extends('layouts.app')
-@section('content')
-<div class="container">
-    @foreach($hab_disp as $hab)
-    <div class="card borderlight  ">
-    <div class="gp14-card">
+
+@section('content') 
+<section id="pricing">
+    <div class="container">
     <center>
-        <img src="https://source.unsplash.com/600x600/?bedroom={{ mt_rand(500, 50000) }}" alt="habitacion" style="width:600px">
-        <div class="container">
-            <br>
-            <h5 class="card-title">Camas: {{$hab->camas}}</h5>
-            <h5 class="card-title">Capacidad: {{$hab->capacidad}}</h5>
-            <button id="hotel_id" name="hotel_id" value="{{ $hab->id }}" type="submit" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Reservar</button>
-        </div>
+      <h1 class="align-middle" style="font-size:25px !important; margin-bottom: 5%;">
+        Habitaciones Disponibles
+      </h1>
     </center>
+        <div class="row">
+            @foreach($hab_disp as $hab)
+                <div class="col-lg-4 col-md-6">
+                    <div class="box featured wow fadeInUp">
+                        <h4><sup>$</sup>{{ $hab->precio }}</h4>
+                        <img class="img-fluid" src="https://source.unsplash.com/600x600/?bedroom={{ mt_rand(500, 50000) }}" style="padding-bottom: 8% !important;">
+                        <ul>
+                            <li><i class="ion-android-checkmark-circle"></i>Capacidad: {{ $hab->capacidad }}</li>
+                           <li><i class="ion-android-checkmark-circle"></i>Camas: {{ $hab->camas }}</li>
+                           {{-- <li><i class="ion-android-checkmark-circle"></i>Número: {{ $hab->numero }}</li>
+                           <li><i class="ion-android-checkmark-circle"></i>Precio: {{ $hab->precio }}</li>--}}
+                        </ul>
+                       <center>  
+                      <button style="margin-top: 0.2cm;" type="submit" class="btn btn-success btn-galaxy" data-toggle="modal" data-target="#modal-housing-reservation-{{ $hab->id }}">Ver detalles</button>
+                      @include('modules.housingReservation.hotelReservationDetail.index') 
+                    </center>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
-    </div>
-    @endforeach   
-</div>
-</form>
+</section>
 @endsection

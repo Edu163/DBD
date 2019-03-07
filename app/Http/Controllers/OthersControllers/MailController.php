@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\OthersControllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Mail;
 use Session;
 use App\Modules\Mail\ContactMail;
 
 class MailController extends Controller
 {
+    public function index() {
+        return view('modules.others.pdf.billing');
+    }
 
     public function contactMail(Request $request)
     {

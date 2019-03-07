@@ -25,44 +25,48 @@
         <h1 class="checkout-heading stylish-heading">Revisión</h1>
         <div class="checkout-section">
             <div>
-                <form action="{{ route('checkout.store') }}" method="POST" id="payment-form" onsubmit=" alert('\t\t\t\t\t¡Gracias!\t  \n\n Le informamos que su compra ha sido realizada exitosamente.\t'); return true;">
+                <form action="{{ route('checkout.store') }}" method="POST" id="payment-form" onsubmit=" alert('\t\t\t\t\t¡Gracias!\t  \n\n Le informamos que su compra ha sido realizada exitosamente.\t \n\n En breve se le rediccionará a la página principal.\t'); return true;">
                     {{ csrf_field() }}
                     <h2>Detalles de Facturación</h2>
 
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="email" name="email" value="{{ auth()->user()->email }}" >
-                    </div>
                     <div class="form-group">
                         <label for="name">Nombre</label>
                         <input type="text" class="form-control" id="name" name="name" value="{{ auth()->user()->name }}">
                     </div>
                     <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" name="email" value="{{ auth()->user()->email }}">
+                    </div>
+                    <div class="form-group">
                         <label for="address">Dirección</label>
-                        <input type="text" class="form-control" id="address" name="address" value="{{ old('address') }}">
+                        <input type="text" class="form-control" id="address" name="address" value="{{ auth()->user()->address }}">
                     </div>
 
                     <div class="half-form">
                         <div class="form-group">
                             <label for="city">Ciudad</label>
-                            <input type="text" class="form-control" id="city" name="city" value="{{ old('city') }}">
+                            <input type="text" class="form-control" id="city" name="city" value="{{ auth()->user()->city }}">
                         </div>
                         <div class="form-group">
                             <label for="province">Comuna</label>
-                            <input type="text" class="form-control" id="province" name="province" value="{{ old('province') }}" >
+                            <input type="text" class="form-control" id="province" name="province" value="{{ auth()->user()->province }}">
                         </div>
                     </div> <!-- end half-form -->
 
                     <div class="half-form">
                         <div class="form-group">
                             <label for="postalcode">Código Postal</label>
-                            <input type="text" class="form-control" id="postalcode" name="postalcode" value="{{ old('postalcode') }}" >
+                            <input type="text" class="form-control" id="postalcode" name="postalcode" value="{{ auth()->user()->postalcode }}">
                         </div>
                         <div class="form-group">
                             <label for="phone">Teléfono</label>
-                            <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}" >
+                            <input type="text" class="form-control" id="phone" name="phone" value="{{ auth()->user()->phone }}">
                         </div>
                     </div> <!-- end half-form -->
+
+                    <div class="form-group">
+                        <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
+                    </div>
 
                     <div class="spacer"></div>
 
@@ -70,7 +74,7 @@
 
                     <div class="form-group">
                         <label for="name_on_card">Nombre en la Tarjeta</label>
-                        <input type="text" class="form-control" id="name_on_card" name="name_on_card" value="">
+                        <input type="text" class="form-control" id="name_on_card" name="name_on_card" value="{{ auth()->user()->name_on_card }}">
                     </div>
 
                     <div class="form-group">
@@ -104,8 +108,14 @@
                                 <div class="checkout-table-row-left">
                                     <img src="https://picsum.photos/120/180?image={{ mt_rand(1, 50) }}" alt="" class="checkout-table-img">
                                     <div class="checkout-item-details">
-                                            <div class="cart-table-item"><a href="#">Destino: {{ $item->model->destiny->ciudad }}</a></div>
-                                            <div class="cart-table-description">Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                                        @if($item->model->escalas == 1)
+                                            <div class="cart-table-item"><a href="#">Destino: {{ $item->model->getTramo1->destiny->ciudad }}</a></div>
+                                            <div>Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                                        @endif
+                                        @if($item->model->escalas == 2)
+                                            <div class="cart-table-item"><a href="#">Destino: {{ $item->model->getTramo2->destiny->ciudad }}</a></div>
+                                            <div>Fecha salida: {{ $item->model->fecha_despegue }}</div>
+                                        @endif
                                         <div class="checkout-table-price">Subtotal: {{ $item->subtotal }}</div>
                                     </div>
                                 </div> <!-- end checkout-table -->
@@ -255,4 +265,3 @@
 
 @endsection
 
-    
