@@ -19,6 +19,8 @@ use App\Modules\FlightReservation\FlightSellDetail;
 use App\Modules\FlightReservation\Airport;
 use App\Modules\Others\Insurance;
 use App\Modules\Others\InsuranceReservation;
+use App\Modules\Others\Package;
+use App\Modules\Others\PackageReservation;
 use Illuminate\Support\Facades\Crypt;
 use App\Modules\Others\History;
 use App\User;
@@ -56,6 +58,10 @@ class AdminController extends Controller
 
         $insurances = Insurance::all();
         $insuranceReservations = InsuranceReservation::all();
+
+        $packages = Package::all();
+        $packageReservations = PackageReservation::all();
+
         $users = User::all();
 
         return view('admin.index', compact(
@@ -72,6 +78,8 @@ class AdminController extends Controller
             'hotelRooms',
             'hotelReservations',
             'hotelReservationDetails',
+            'packages',
+            'packageReservations',
             'insurances',
             'insuranceReservations',
             'users'

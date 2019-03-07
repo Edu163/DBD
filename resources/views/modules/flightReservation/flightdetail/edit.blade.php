@@ -27,9 +27,10 @@
                     <td class="align-middle">Ida:{{ $flightSellDetail->roundtrip->vueloIda->escalas }} Vuelta:{{ $flightSellDetail->roundtrip->vueloVuelta->escalas }}</td>
                     <td class="align-middle">{{ $flightSellDetail->tipo }}</td>
                     <td class="align-middle">
-                        <form action="/admin/flightReservation/{{ $flightSellDetail->id }}" method="post">
+                        <form action="/admin/flightSellDetail/{{ $flightSellDetail->id }}" method="post">
                         @method('DELETE')
                         @csrf
+                        <input type="hidden" name="actual_user_id" id="actual_user_id" value="{{ Crypt::encrypt(Auth::user()->id) }}">
                         <center>
                         <button type="submit" class="btn btn-danger btn-galaxy" id="vehiculo_id" name="vehiculo_id"><span>Eliminar</span> </button>
                         </center>
@@ -45,9 +46,10 @@
                     <td class="align-middle">{{ $flightSellDetail->flight->escalas }}</td>
                     <td class="align-middle">{{ $flightSellDetail->tipo }}</td>
                     <td class="align-middle">
-                        <form action="/admin/flightReservation/{{ $flightSellDetail->id }}" method="post">
+                        <form action="/admin/flightSellDetail/{{ $flightSellDetail->id }}" method="post">
                         @method('DELETE')
                         @csrf
+                        <input type="hidden" name="actual_user_id" id="actual_user_id" value="{{ Crypt::encrypt(Auth::user()->id) }}">
                         <center>
                         <button type="submit" class="btn btn-danger btn-galaxy" id="vehiculo_id" name="vehiculo_id"><span>Eliminar</span> </button>
                         </center>

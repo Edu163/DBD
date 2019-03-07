@@ -29,6 +29,7 @@
               <form action="/admin/hotelReservation/{{ $hotelReservation->id }}" method="post">
                 @method('DELETE')
                 @csrf
+                <input type="hidden" name="actual_user_id" id="actual_user_id" value="{{ Crypt::encrypt(Auth::user()->id) }}">
                 <center>
                   <button type="submit" class="btn btn-danger" id="hotelReservation" name="hotelReservation"><span>Eliminar</span> </button>
                 </center>

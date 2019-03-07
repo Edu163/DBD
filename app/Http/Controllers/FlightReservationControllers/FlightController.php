@@ -6,6 +6,9 @@ use App\Modules\FlightReservation\Flight;
 use App\Http\Controllers\Controller;
 use App\Modules\FlightReservation\FlightDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use App\Modules\Others\History;
+use App\User;
 
 class FlightController extends Controller
 {
@@ -57,7 +60,16 @@ class FlightController extends Controller
      */
     public function store(Request $request)
     {   
-        Flight::create($request->all());
+        $flight = Flight::create($request->all());
+
+        /* Guardar en el historial */
+        $user_id = Crypt::decrypt($request->actual_user_id); 
+        $actual_user = User::findOrFail($user_id);
+        History::create([
+            'user_id' => $actual_user->id,
+            'action' => 'El usuario '.$actual_user->name.' ha agregado el vuelo ID: '.$flight->id,
+        ]);
+
         return back();
     }
 
@@ -98,6 +110,14 @@ class FlightController extends Controller
             'precio_bussiness' => 'required',
             'precio_premium' => 'required',
           ]))->save();
+
+        /* Guardar en el historial */
+        $user_id = Crypt::decrypt($request->actual_user_id); 
+        $actual_user = User::findOrFail($user_id);
+        History::create([
+            'user_id' => $actual_user->id,
+            'action' => 'El usuario '.$actual_user->name.' ha actualizado el vuelo ID: '.$flight->id,
+        ]);
       
           return back();
     }
@@ -108,9 +128,18 @@ class FlightController extends Controller
      * @param  \App\Flight  $flight
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $flight = Flight::findOrFail($id);
+
+        /* Guardar en el historial */
+        $user_id = Crypt::decrypt($request->actual_user_id); 
+        $actual_user = User::findOrFail($user_id);
+        History::create([
+            'user_id' => $actual_user->id,
+            'action' => 'El usuario '.$actual_user->name.' ha eliminado el vuelo ID: '.$flight->id,
+        ]);
+
         $flight->delete();
         return back();
     }

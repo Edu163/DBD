@@ -34,6 +34,7 @@
               <form action="/admin/flight/{{ $flight->id }}" method="post">
                 @method('DELETE')
                 @csrf
+                <input type="hidden" name="actual_user_id" id="actual_user_id" value="{{ Crypt::encrypt(Auth::user()->id) }}">
               <center>
                 <button type="submit" class="btn btn-danger btn-galaxy" id="flight" name="flight"><span>Eliminar</span> </button>
               </center>

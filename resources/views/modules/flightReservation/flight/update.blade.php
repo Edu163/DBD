@@ -100,6 +100,9 @@
                 >
             </div>
           </div>
+
+          <input type="hidden" name="actual_user_id" id="actual_user_id" value="{{ Crypt::encrypt(Auth::user()->id) }}">
+          
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-success">Guardar cambios</button>

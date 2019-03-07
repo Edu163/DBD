@@ -6,6 +6,9 @@ use App\Modules\HousingReservation\Hotel;
 use App\Modules\HousingReservation\Room;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use App\Modules\Others\History;
+use App\User;
 
 class HotelController extends Controller
 {
@@ -51,6 +54,15 @@ class HotelController extends Controller
     public function store(Request $request)
     {   
         Hotel::create($request->all());
+
+        /* Guardar en el historial */
+        $user_id = Crypt::decrypt($request->actual_user_id); 
+        $actual_user = User::findOrFail($user_id);
+        History::create([
+            'user_id' => $actual_user->id,
+            'action' => 'El usuario '.$actual_user->name.' ha agregado el hotel ID: '.$vehicle->id.' Nombre: '.$hotel->nombre,
+        ]);
+
         return back();
     }
 
@@ -99,6 +111,14 @@ class HotelController extends Controller
             'valoracion' => 'required',
             'capacidad' => 'required',
         ]))->save();
+
+        /* Guardar en el historial */
+        $user_id = Crypt::decrypt($request->actual_user_id); 
+        $actual_user = User::findOrFail($user_id);
+        History::create([
+            'user_id' => $actual_user->id,
+            'action' => 'El usuario '.$actual_user->name.' ha actualizado el hotel ID: '.$vehicle->id.' Nombre: '.$hotel->nombre,
+        ]);
         
             return back();
     }
@@ -109,9 +129,18 @@ class HotelController extends Controller
      * @param  \App\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $hotel = Hotel::findOrFail($id);
+
+        /* Guardar en el historial */
+        $user_id = Crypt::decrypt($request->actual_user_id); 
+        $actual_user = User::findOrFail($user_id);
+        History::create([
+            'user_id' => $actual_user->id,
+            'action' => 'El usuario '.$actual_user->name.' ha eliminado el hotel ID: '.$vehicle->id.' Nombre: '.$hotel->nombre,
+        ]);
+
         $hotel->delete();
         return back();
     }

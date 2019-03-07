@@ -56,8 +56,8 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
         '/admin/vehicle_calendary'            => 'VehicleReservationControllers\VehicleCalendaryController',
         '/admin/vehicle'                      => 'VehicleReservationControllers\VehicleController',
         '/admin/vehicle_provider'             => 'VehicleReservationControllers\VehicleProviderController',
-        '/admin/vehicle_reservation'          => 'VehicleReservationControllers\VehicleReservationController',
-        '/admin/vehicle_reservation_detail'   => 'VehicleReservationControllers\VehicleReservationDetailController',
+        '/admin/vehicleReservation'          => 'VehicleReservationControllers\VehicleReservationController',
+        '/admin/vehicleReservationDetail'   => 'VehicleReservationControllers\VehicleReservationDetailController',
         '/admin/vehicle_service'              => 'VehicleReservationControllers\VehicleServiceController',
         '/admin/zone'                         => 'VehicleReservationControllers\ZoneController',
     ]);
@@ -68,9 +68,9 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
         '/admin/checkin'                      => 'FlightReservationControllers\CheckInController',
         '/admin/company'                      => 'FlightReservationControllers\CompanyController',
         '/admin/flight'                       => 'FlightReservationControllers\FlightController',
-        '/admin/flight_detail'                => 'FlightReservationControllers\FlightDetailController',
-        '/admin/flight_reservation'           => 'FlightReservationControllers\FlightReservationController',
-        '/admin/flight_sell_detail'           => 'FlightReservationControllers\FlightSellDetailController',
+        '/admin/flightDetail'                => 'FlightReservationControllers\FlightDetailController',
+        '/admin/flightReservation'           => 'FlightReservationControllers\FlightReservationController',
+        '/admin/flightSellDetail'           => 'FlightReservationControllers\FlightSellDetailController',
         '/admin/origin_destiny'               => 'FlightReservationControllers\OrigenDestinoController',
         '/admin/seat'                         => 'FlightReservationControllers\AsientoController',
         // '/admin/aviones'                       => 'FlightReservationControllers\AvionController',     
@@ -79,9 +79,9 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     /* Alojamiento */
     Route::resources([
         '/admin/hotel'                        => 'HousingReservationControllers\HotelController',
-        '/admin/hotel_reservation'            => 'HousingReservationControllers\HotelReservationController',
-        '/admin/hotel_reservation_detail'     => 'HousingReservationControllers\HotelReservationDetailController',
-        '/admin/hotel_room'                   => 'HousingReservationControllers\HotelRoomController',
+        '/admin/hotelReservation'            => 'HousingReservationControllers\HotelReservationController',
+        '/admin/hotelReservationDetail'     => 'HousingReservationControllers\HotelReservationDetailController',
+        '/admin/hotelRoom'                   => 'HousingReservationControllers\HotelRoomController',
         '/admin/housing_and_service'          => 'HousingReservationControllers\HousingAndServiceController',
         '/admin/housing_calendary'            => 'HousingReservationControllers\HousingCalendaryController',
         '/admin/housing_service'              => 'HousingReservationControllers\HousingServiceController',
@@ -93,6 +93,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     /* Otros */
     Route::resources([
         '/admin/package'                      => 'OthersControllers\PackageController',
+        '/admin/packageReservation'                      => 'OthersControllers\PackageController',
         '/admin/sell'                         => 'OthersControllers\SellController',
         '/admin/insurance'                    => 'OthersControllers\InsuranceController',
         '/admin/insuranceReservation'         => 'OthersControllers\InsuranceReservationController',
