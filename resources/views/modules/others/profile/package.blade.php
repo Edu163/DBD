@@ -21,14 +21,23 @@
               <td class="align-middle">{{ $sell->source }}</td>
               <td class="align-middle">{{ $packageReservation->created_at }}</td>
               <td class="align-middle">{{ $packageReservation->monto_total }}</td>
-              <td class="align-middle">{{ $packageReservation->package->hotelroom->hotel->nombre }}</td>
-              <td class="align-middle">{{ $packageReservation->package->hotelroom->hotel->ciudad }}</td>
+              @if ($packageReservation->package->hotel != null)
+              <td class="align-middle">{{ $packageReservation->package->hotel->nombre }}</td>
+              <td class="align-middle">{{ $packageReservation->package->hotel->ciudad }}</td>
+              @else
+                  <td class="align-middle">No aplica</td>
+                  <td class="align-middle">No aplica</td>
+              @endif
               <td class="align-middle">{{ $packageReservation->package->getDias() }}</td>
+              @if ($packageReservation->package->vehicle != null)
               <td class="align-middle">{{ $packageReservation->package->vehicle->patente }}</td>
               <td class="align-middle">{{ $packageReservation->package->vehicle->marca }}</td>
               <td class="align-middle">{{ $packageReservation->package->vehicle->tipo }}</td>
-              {{-- <td class="align-middle">{{ $packageReservation->vehicle->zone->nombre }}</td>
-              <td class="align-middle">{{ $packageReservation->vehicle->vehicleProvider->politica_combustible }}</td> --}}
+              @else 
+                <td class="align-middle">No aplica</td>
+                <td class="align-middle">No aplica</td>
+                <td class="align-middle">No aplica</td>
+              @endif
             </tr>
           @endforeach
         </tbody>

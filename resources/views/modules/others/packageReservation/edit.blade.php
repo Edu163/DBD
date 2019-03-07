@@ -18,10 +18,10 @@
       <tbody class="text-center align-middle">
         @foreach($packageReservations as $packageReservation)
           <tr>
-                <td class="align-middle">{{ $sell->source }}</td>
+                <td class="align-middle">{{ $packageReservation->sell->source }}</td>
                 <td class="align-middle">{{ $packageReservation->created_at }}</td>
                 <td class="align-middle">{{ $packageReservation->monto_total }}</td>
-                @if ($package->hotel != null)
+                @if ($packageReservation->package->hotel != null)
                     <td class="align-middle">{{ $packageReservation->package->hotel->nombre }}</td>
                     <td class="align-middle">{{ $packageReservation->package->hotel->ciudad }}</td>
                 @else
@@ -29,7 +29,7 @@
                     <td class="align-middle">No aplica</td>
                 @endif
                 <td class="align-middle">{{ $packageReservation->package->getDias() }}</td>
-                @if ($package->vehicle != null)
+                @if ($packageReservation->package->vehicle != null)
                     <td class="align-middle">{{ $packageReservation->package->vehicle->patente }}</td>
                     <td class="align-middle">{{ $packageReservation->package->vehicle->marca }}</td>
                     <td class="align-middle">{{ $packageReservation->package->vehicle->tipo }}</td> 
@@ -39,7 +39,7 @@
                     <td class="align-middle">No aplica</td>
                 @endif
             <td class="align-middle">
-            <form action="/admin/packageReservation/{{ $package->id }}" method="post">
+            <form action="/admin/packageReservation/{{ $packageReservation->id }}" method="post">
               @method('DELETE')
               @csrf
             <center>
