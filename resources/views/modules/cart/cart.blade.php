@@ -46,7 +46,7 @@
                                 <div style="margin: 4%;">{{ $item->subtotal}}</div>
                                 <div>
                                     <select class="quantity" style="margin:  9px !important;" data-id="{{ $item->rowId }}">
-                                        @for ($i = 1; $i < 5 + 1 ; $i++)
+                                        @for ($i = 1; $i < $item->qty + 1 ; $i++)
                                             <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
                                         @endfor
                                     </select>
@@ -85,7 +85,7 @@
                                 <div style="margin: 4%;">{{ $item->subtotal}}</div>
                                 <div>
                                     <select class="quantity" style="margin:  9px !important;" data-id="{{ $item->rowId }}">
-                                        @for ($i = 1; $i < 5 + 1 ; $i++)
+                                        @for ($i = 1; $i < $item->qty + 1 ; $i++)
                                             <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
                                         @endfor
                                     </select>
@@ -117,7 +117,7 @@
                             <div style="margin: 4%;">{{ $item->subtotal}}</div>
                             <div>
                                 <select class="quantity" style="margin:  9px !important;" data-id="{{ $item->rowId }}">
-                                    @for ($i = 1; $i < 5 + 1 ; $i++)
+                                    @for ($i = 1; $i < $item->qty + 1 ; $i++)
                                         <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
                                     @endfor
                                 </select>
@@ -148,7 +148,7 @@
                             <div style="margin: 4%;">{{ $item->subtotal}}</div>
                             <div>
                                 <select class="quantity" style="margin:  9px !important;" data-id="{{ $item->rowId }}">
-                                    @for ($i = 1; $i < 5 + 1 ; $i++)
+                                    @for ($i = 1; $i < $item->qty + 1 ; $i++)
                                         <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
                                     @endfor
                                 </select>
@@ -181,7 +181,7 @@
                             <div style="margin: 4%;">{{ $item->subtotal}}</div>
                             <div>
                                 <select class="quantity" style="margin:  9px !important;" data-id="{{ $item->rowId }}">
-                                    @for ($i = 1; $i < 5 + 1 ; $i++)
+                                    @for ($i = 1; $i < $item->qty + 1 ; $i++)
                                         <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
                                     @endfor
                                 </select>
@@ -214,7 +214,7 @@
                                 <div style="margin: 4%;">{{ $item->subtotal}}</div>
                                 <div>
                                     <select class="quantity" style="margin:  9px !important;" data-id="{{ $item->rowId }}">
-                                        @for ($i = 1; $i < 5 + 1 ; $i++)
+                                        @for ($i = 1; $i < $item->qty + 1 ; $i++)
                                             <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
                                         @endfor
                                     </select>

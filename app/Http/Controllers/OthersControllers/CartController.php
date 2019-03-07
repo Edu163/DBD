@@ -54,17 +54,17 @@ class CartController extends Controller
         $params = request()->session()->get('busqueda.vuelos');
         if($params['cabina'] == 1)
         {
-            Cart::add($vuelo->id, 'destino-santiago', 1, $vuelo->precio_premium)
+            Cart::add($vuelo->id, 'destino-santiago', $params['pasajeros'], $vuelo->precio_premium)
                 ->associate('App\Modules\FlightReservation\Flight');
         }
         else if($params['cabina'] == 2)
         {
-            Cart::add($vuelo->id, 'destino-santiago', 1, $vuelo->precio_bussiness)
+            Cart::add($vuelo->id, 'destino-santiago', $params['pasajeros'], $vuelo->precio_bussiness)
                 ->associate('App\Modules\FlightReservation\Flight');
         }
         else if($params['cabina'] == 3)
         {
-            Cart::add($vuelo->id, 'destino-santiago', 1, $vuelo->precio_economy)
+            Cart::add($vuelo->id, 'destino-santiago', $params['pasajeros'], $vuelo->precio_economy)
                 ->associate('App\Modules\FlightReservation\Flight');
         }
 
@@ -81,17 +81,17 @@ class CartController extends Controller
         $params = request()->session()->get('busqueda.roundtrip');
         if($params['cabina'] == 1)
         {
-            Cart::add($roundtrip->id, 'destino-santiago', 1, $roundtrip->precio_premium)
+            Cart::add($roundtrip->id, 'destino-santiago', $params['pasajeros'], $roundtrip->precio_premium)
                 ->associate('App\Modules\FlightReservation\RoundTripFlight');
         }
         else if($params['cabina'] == 2)
         {
-            Cart::add($roundtrip->id, 'destino-santiago', 1, $roundtrip->precio_bussiness)
+            Cart::add($roundtrip->id, 'destino-santiago', $params['pasajeros'], $roundtrip->precio_bussiness)
                 ->associate('App\Modules\FlightReservation\RoundTripFlight');
         }
         else if($params['cabina'] == 3)
         {
-            Cart::add($roundtrip->id, 'destino-santiago', 1, $roundtrip->precio_economy)
+            Cart::add($roundtrip->id, 'destino-santiago', $params['pasajeros'], $roundtrip->precio_economy)
                 ->associate('App\Modules\FlightReservation\RoundTripFlight');
         }
 
@@ -115,7 +115,7 @@ class CartController extends Controller
         $id = $vehicle->id;
         request()->session()->put('busqueda.vehicle' . $id, $params);
 
-        Cart::add($vehicle->id, 'destino-santiago', 1, $vehicle->precio)
+        Cart::add($vehicle->id, 'destino-santiago', $params['pasajeros'], $vehicle->precio)
             ->associate('App\Modules\VehicleReservation\Vehicle');
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
@@ -128,7 +128,7 @@ class CartController extends Controller
         request()->session()->put('busqueda.room' . $id, $params);
         //$params2 = request()->session()->get('busqueda.room' . $id);
         //dd($params2);
-        Cart::add($hab->id, 'destino-santiago', 1, $hab->precio)
+        Cart::add($hab->id, 'destino-santiago', $params['personas'], $hab->precio)
             ->associate('App\Modules\HousingReservation\HotelRoom');
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
@@ -154,7 +154,7 @@ class CartController extends Controller
             $id = $package->id;
             request()->session()->put('busqueda.packagevv' . $id, $params);
         }
-        Cart::add($package->id, 'destino-santiago', 1, $package->precio)
+        Cart::add($package->id, 'destino-santiago', $params['pasajeros'], $package->precio)
             ->associate('App\Modules\Others\Package');
 
         return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
