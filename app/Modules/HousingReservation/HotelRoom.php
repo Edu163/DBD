@@ -61,6 +61,7 @@ class HotelRoom extends Model
 			$array_id[] = $habitacion->id;
 		}
 		$rooms = static::where('hotel_rooms.hotel_id', '=', $hotel_id)
+            ->where('capacidad', '>=', $params['personas'])
 			->whereNotIn('id', $array_id)->get();
 		return $rooms;
 	}

@@ -83,6 +83,7 @@ class Vehicle extends Model
 		}
         $autos = static::where('n_pasajeros', '>=', $params['pasajeros'])
             ->where('vehicles.ciudad_id', '=', $params['zone'])
+            ->where('n_pasajeros', '>=', $params['pasajeros'])
             ->whereNotIn('id', $array_id)->get();
         return $autos;
         
