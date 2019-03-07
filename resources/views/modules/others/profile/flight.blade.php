@@ -17,7 +17,7 @@
             <tr>
                 @if ($flightSellDetail->flight_id == null)
                     <td class="align-middle">Ida y Vuelta</td> 
-                        <td class="align-middle">{{ $flightSellDetail->cantidad}}</td>
+                    <td class="align-middle">{{ $flightSellDetail->cantidad}}</td>
                     <td class="align-middle">{{ $flightSellDetail->roundtrip->vueloIda->origin->nombre }}</td>
                     <td class="align-middle">{{ $flightSellDetail->roundtrip->vueloIda->destiny->nombre  }}</td>
                     <td class="align-middle">Ida:{{ $flightSellDetail->roundtrip->vueloIda->escalas }} Vuelta:{{ $flightSellDetail->roundtrip->vueloVuelta->escalas }}</td>
@@ -34,7 +34,6 @@
             @endforeach
         </tbody>
       </table> 
-      </center>
     </div>
   @endif
 </div>

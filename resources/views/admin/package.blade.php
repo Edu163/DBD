@@ -6,8 +6,8 @@
         <div class="card-header" id="packageAccordionOne">
             <h5 class="d-flex justify-content-between">
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#packageOne" aria-expanded="false" aria-controls="packageOne">
-                    <i class="fas fa-heartbeat"></i>
-                    Seguros
+                    <i class="fas fa-cubes"></i>
+                    Paquetes
                 </button>
                 <form action="/admin/package/" method="post">
                     @method('POST')
@@ -19,7 +19,7 @@
                 </form> 
             </h5>
         </div>
-        <div id="packageOne" class="collapse" aria-labelledby="packageAccordionOne" data-parent="#insuranceAccordion">
+        <div id="packageOne" class="collapse" aria-labelledby="packageAccordionOne" data-parent="#packageAccordion">
             <div class="card-body">
                 @include('modules.others.package.edit')
             </div>
@@ -30,13 +30,13 @@
     <div class="card">
         <div class="card-header" id="packageAccordionTwo">
             <h5 class="d-flex justify-content-between">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#insuranceTwo" aria-expanded="false" aria-controls="insuranceTwo">
-                    <i class="fas fa-heartbeat"></i>
-                    Reservas de Seguros
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#packageTwo" aria-expanded="false" aria-controls="packageTwo">
+                    <i class="fas fa-cubes"></i>
+                    Reservas de Paquetes
                 </button>
             </h5>
         </div>
-        <div id="packageTwo" class="collapse" aria-labelledby="packageAccordionTwo" data-parent="#insuranceAccordion">
+        <div id="packageTwo" class="collapse" aria-labelledby="packageAccordionTwo" data-parent="#packageAccordion">
             <div class="card-body">
                 @include('modules.others.packageReservation.edit')
             </div>

@@ -12,6 +12,7 @@
                 <form action="/admin/vehicle/" method="post">
                     @method('POST')
                     @csrf
+                    <input type="hidden" name="actual_user_id" id="actual_user_id" value="{{ Crypt::encrypt(Auth::user()->id) }}">
                     <button type="button" class="btn btn-success btn-galaxy" data-toggle="modal" data-target="#modal-vehicle-store">
                         Agregar
                     </button>

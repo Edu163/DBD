@@ -3,6 +3,7 @@
 namespace App\Modules\Others;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Modules\HousingReservation\Hotel;
 use App\Modules\HousingReservation\HotelRoom;
 use App\Modules\VehicleReservation\Vehicle;
 use App\Modules\FlightReservation\RoundtripFlight;
@@ -29,6 +30,10 @@ class Package extends Model
 
     public function hotelroom(){
     	return $this->belongsTo(HotelRoom::class,'hotel_room_id');
+    }
+
+    public function hotel(){
+    	return $this->belongsTo(Hotel::class,'hotel_id');
     }
 
     public function vehicle(){

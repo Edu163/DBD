@@ -52,7 +52,8 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Package::create($request->all());
+        return back();
     }
 
     /**
@@ -84,9 +85,22 @@ class PackageController extends Controller
      * @param  \App\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Package $package)
+    public function update(Request $request, $id)
     {
-        //
+        $package = Package::find($id);
+        $outcome = $package->fill($this->validate($request, [
+            'hotel_id' => 'required',
+            'vehicle_id' => 'required',
+            'type' => 'required',
+            'fecha_inicio' => 'required',
+            'fecha_fin' => 'required',
+        ]))->save();
+
+        if ($outcome) {
+            return back()->with('success_message','Actualizado con éxito!');
+        } else {
+            return back()->with('success_message','Ha ocurrido un error en la Base de Datos al actualizar!');
+        }
     }
 
     /**

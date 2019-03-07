@@ -52,9 +52,10 @@ class HistoryController extends Controller
         $realId = Crypt::decrypt($id);  
         $user = User::findOrFail($realId);
         if (count($user->history) != 0) {
+            $histories = $user->history;
         }
         else
-        $histories = 0;
+        $histories = array();
 
         return view('admin.history', compact('user', 'histories'));
     }

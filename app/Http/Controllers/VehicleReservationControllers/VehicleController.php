@@ -6,6 +6,9 @@ use App\Modules\VehicleReservation\Vehicle;
 use App\Modules\VehicleReservation\Zone;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use App\Modules\Others\History;
+use App\User;
 
 class VehicleController extends Controller
 {
@@ -65,7 +68,16 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {   
-        Vehicle::create($request->all());
+        $vehicle = Vehicle::create($request->all());
+
+        /* Guardar en el historial */
+        $user_id = Crypt::decrypt($request->actual_user_id); 
+        $actual_user = User::findOrFail($user_id);
+        History::create([
+            'user_id' => $actual_user->id,
+            'action' => 'El usuario '.$actual_user->name.' ha agregado el vehículo ID: '.$vehicle->id.' Patente: '.$vehicle->patente,
+        ]);
+
         return back();
     }
 
@@ -119,6 +131,14 @@ class VehicleController extends Controller
             'aire_acondicionado' => 'required',
         ]))->save();
 
+        /* Guardar en el historial */
+        $user_id = Crypt::decrypt($request->actual_user_id); 
+        $actual_user = User::findOrFail($user_id);
+        History::create([
+            'user_id' => $actual_user->id,
+            'action' => 'El usuario '.$actual_user->name.' ha actualizado el vehículo ID: '.$id,
+        ]);
+
         if ($outcome) {
             return back()->with('success_message','Actualizado con éxito!');
         } else {
@@ -132,10 +152,22 @@ class VehicleController extends Controller
      * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $vehicle = Vehicle::find($id);
+
+        /* Guardar en el historial */
+        $user_id = Crypt::decrypt($request->actual_user_id); 
+        $actual_user = User::findOrFail($user_id);
+        History::create([
+            'user_id' => $actual_user->id,
+            'action' => 'El usuario '.$actual_user->name.' ha eliminado el vehículo ID: '.$id.'Patente: '.$vehicle->patente,
+        ]);
+
         $vehicle->delete();
+
+        
+
         return back();
     }
 }

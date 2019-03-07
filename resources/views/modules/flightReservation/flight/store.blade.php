@@ -1,12 +1,12 @@
 <!-- Modal -->
-<form action="/vehicle" method="post">
+<form action="/admin/flight" method="post">
   @method('POST')
   @csrf
-  <div class="modal fade" id="modal-vehicle-store" tabindex="-1" role="dialog" aria-labelledby="modal-vehicle-store-label" aria-hidden="true">
+  <div class="modal fade text-dark" id="modal-flight-store" tabindex="-1" role="dialog" aria-labelledby="modal-flight-store-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Agregar Nuevo Vehículo</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">Agregar Nuevo Vuelo</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -14,390 +14,211 @@
         <div class="modal-body">
 
           <div class="form-group row">
-             <div class="col-md-6">
-                <input 
-                  id="vehicle_calendary_id" 
-                  name="vehicle_calendary_id" 
-                  type="hidden" 
-                  class="form-control"
-                  value=1
-                  autofocus
-                >
-            </div>
-          </div>
-
-          <div class="form-group row">
             <label 
-            for="zone_id" 
+            for="tramo1_id" 
             class="col-sm-4 col-form-label text-md-right"
             >
-              {{ __('Zona') }}
+              {{ __('Tramo 1 - ID') }}
             </label>
 
             <div class="col-md-6">
-                <select 
-                  id="zone_id" 
-                  name="zone_id" 
-                  class="form-control selectpicker custom-select" 
-                  required
-                  >
-                    <option selected disabled>
-                      Seleccione una zona
-                    </option>
-                    @foreach ($zones as $zone)
-                    <option value="{{ $zone->id }}">
-                            {{ $zone->nombre }}
-                    </option>
-                    @endforeach
-                </select>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label 
-            for="vehicle_provider_id" 
-            class="col-sm-4 col-form-label text-md-right"
-            >
-              {{ __('Proveedor') }}
-            </label>
-
-            <div class="col-md-6">
-                <select 
-                  id="vehicle_provider_id" 
-                  name="vehicle_provider_id" 
-                  class="form-control selectpicker custom-select" 
-                  required
-                  >
-                    <option selected disabled>
-                      Seleccione el proveedor
-                    </option>
-                    @foreach ($vehicleProviders as $vehicleProvider)
-                    <option value="{{ $vehicleProvider->id }}">
-                            {{ $vehicleProvider->politica_combustible }}
-                    </option>
-                    @endforeach
-                </select>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label 
-            for="patente" 
-            class="col-sm-4 col-form-label text-md-right"
-            >
-              {{ __('Patente') }}
-            </label>
-
-            <div class="col-md-6">
-                <input 
-                  id="patente" 
-                  name="patente" 
-                  type="text" 
-                  class="form-control"
-                  placeholder="Patente"
-                  required 
-                  autofocus
-                >
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label 
-            for="marca" 
-            class="col-sm-4 col-form-label text-md-right"
-            >
-              {{ __('Marca') }}
-            </label>
-
-            <div class="col-md-6">
-                <input 
-                  id="marca"
-                  name="marca"
-                  type="text" 
-                  class="form-control" 
-                  placeholder="Marca"
-                  required 
-                  autofocus
+                  <input 
+                    id="tramo1_id" 
+                    name="tramo1_id" 
+                    type="number" 
+                    class="form-control"
+                    autofocus
                   >
             </div>
           </div>
 
           <div class="form-group row">
             <label 
-            for="tipo" 
+            for="tramo2_id" 
             class="col-sm-4 col-form-label text-md-right"
             >
-              {{ __('Tipo de Vehículo') }}
+              {{ __('Tramo 2 - ID') }}
             </label>
-
-            <div class="col-md-6">
-                <select 
-                  id="tipo" 
-                  name="tipo"
-                  class="form-control selectpicker custom-select" 
-                  required
-                  autofocus
-                  >
-                    <option selected disabled>
-                      Seleccione el tipo de Vehículo
-                    </option>
-                    <option value="Automovil">
-                            Automóvil
-                    </option>
-                    <option value="Camioneta">
-                            Camioneta
-                    </option>
-                    <option value="Minivan">
-                            Minivan
-                    </option>
-                </select>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label 
-            for="gamma" 
-            class="col-sm-4 col-form-label text-md-right"
-            >
-              {{ __('Gamma') }}
-            </label>
-
-            <div class="col-md-6">
-                <select 
-                  id="gamma" 
-                  name="gamma"
-                  class="form-control selectpicker custom-select" 
-                  required 
-                  autofocus
-                  >
-                    <option selected disabled>
-                      Seleccione la gamma
-                    </option>
-                    <option value="Baja">
-                      Baja
-                    </option>
-                    <option value="Media">
-                      Media
-                    </option>
-                    <option value="Alta">
-                      Alta
-                    </option>
-                </select>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label 
-            for="transmision" 
-            class="col-sm-4 col-form-label text-md-right"
-            >
-              {{ __('Transmisión') }}
-            </label>
-
-            <div class="col-md-6">
-              <select 
-                  id="transmision" 
-                  name="transmision"
-                  class="form-control selectpicker custom-select" 
-                  required 
-                  autofocus
-                  >
-                  <option selected disabled>
-                      Seleccione la transmisión
-                  </option>
-                  <option value="Manual">
-                    Manual
-                  </option>
-                  <option value="Automática">
-                    Automática
-                  </option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label 
-            for="combustible" 
-            class="col-sm-4 col-form-label text-md-right"
-            >
-              {{ __('Tipo de Combustible') }}
-            </label>
-
-            <div class="col-md-6">
-              <select 
-                  id="combustible" 
-                  name="combustible"
-                  class="form-control selectpicker custom-select" 
-                  required 
-                  autofocus
-                  >
-                  <option selected disabled>
-                      Seleccione el tipo de combustible
-                  </option>
-                  <option value="Bencina">
-                    Bencina
-                  </option>
-                  <option value="Petróleo">
-                    Petróleo
-                  </option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group row">
-              <label 
-              for="n_pasajeros" 
-              class="col-sm-4 col-form-label text-md-right"
-              >
-                {{ __('Nº de Pasajeros') }}
-              </label>
 
               <div class="col-md-6">
                   <input 
-                    id="n_pasajeros" 
-                    name="n_pasajeros" 
+                    id="tramo2_id" 
+                    name="tramo2_id" 
                     type="number" 
                     class="form-control"
-                    min="1"
-                    max="8"
-                    required 
                     autofocus
                   >
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label 
+            for="origen_id" 
+            class="col-sm-4 col-form-label text-md-right"
+            >
+              {{ __('Origen - ID') }}
+            </label>
+
+              <div class="col-md-6">
+                  <input 
+                    id="origen_id" 
+                    name="origen_id" 
+                    type="number" 
+                    class="form-control"
+                    autofocus
+                  >
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label 
+            for="destiny_id" 
+            class="col-sm-4 col-form-label text-md-right"
+            >
+              {{ __('Destino - ID') }}
+            </label>
+
+              <div class="col-md-6">
+                  <input 
+                    id="destiny_id" 
+                    name="destiny_id" 
+                    type="number" 
+                    class="form-control"
+                    autofocus
+                  >
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label 
+            for="escalas" 
+            class="col-sm-4 col-form-label text-md-right"
+            >
+              {{ __('Escalas') }}
+            </label>
+
+              <div class="col-md-6">
+                  <input 
+                    id="escalas" 
+                    name="escalas" 
+                    type="number" 
+                    class="form-control"
+                    autofocus
+                  >
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label 
+            for="precio_economy" 
+            class="col-sm-4 col-form-label text-md-right"
+            >
+              {{ __('Precio - Economy') }}
+            </label>
+
+              <div class="col-md-6">
+                  <input 
+                    id="precio_economy" 
+                    name="precio_economy" 
+                    type="number" 
+                    class="form-control"
+                    autofocus
+                  >
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label 
+            for="precio_bussiness" 
+            class="col-sm-4 col-form-label text-md-right"
+            >
+              {{ __('Precio - Business') }}
+            </label>
+
+              <div class="col-md-6">
+                  <input 
+                    id="precio_bussiness" 
+                    name="precio_bussiness" 
+                    type="number" 
+                    class="form-control"
+                    autofocus
+                  >
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label 
+            for="precio_premium" 
+            class="col-sm-4 col-form-label text-md-right"
+            >
+              {{ __('Precio - Premium') }}
+            </label>
+
+              <div class="col-md-6">
+                  <input 
+                    id="precio_premium" 
+                    name="precio_premium" 
+                    type="number" 
+                    class="form-control"
+                    autofocus
+                  >
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label 
+            for="fecha_despegue" 
+            class="col-sm-4 col-form-label text-md-right"
+            >
+              {{ __('Fecha de Despegue') }}
+            </label>
+
+            <div class="col-md-6">
+              <div class="input-group">
+                  <input 
+                  id="fecha_despegue"
+                  name="fecha_despegue"
+                  type="date"
+                  class="form-control"
+                  style="color:black;"
+                  required>
+                  <span class="input-group-append">
+                      <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                  </span>
               </div>
             </div>
-
-          <div class="form-group row">
-            <label 
-            for="equipaje_g" 
-            class="col-sm-4 col-form-label text-md-right"
-            >
-              {{ __('Equipaje Grande') }}
-            </label>
-
-            <div class="col-md-6">
-                <input 
-                  id="equipaje_g" 
-                  name="equipaje_g" 
-                  type="number"
-                  min="1"
-                  max="5"
-                  class="form-control"  
-                  required 
-                  autofocus
-                >
-            </div>
           </div>
 
           <div class="form-group row">
             <label 
-            for="equipaje_p" 
+            for="fecha_aterrizaje" 
             class="col-sm-4 col-form-label text-md-right"
             >
-              {{ __('Equipaje pequeño') }}
+              {{ __('Fecha de Aterrizaje') }}
             </label>
 
             <div class="col-md-6">
-                <input 
-                  id="equipaje_p" 
-                  name="equipaje_p" 
-                  type="number" 
-                  class="form-control"  
-                  min="1"
-                  max="5"
-                  required 
-                  autofocus
-                >
-            </div>
-          </div>
-
-          <div class="form-group row">
-             <div class="col-md-6">
-                <input 
-                  id="n_puertas" 
-                  name="n_puertas" 
-                  type="hidden" 
+              <div class="input-group">
+                  <input 
+                  id="fecha_aterrizaje"
+                  name="fecha_aterrizaje"
+                  type="date"
                   class="form-control"
-                  value=4
-                  autofocus
-                >
+                  style="color:black;"
+                  required>
+                  <span class="input-group-append">
+                      <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                  </span>
+              </div>
             </div>
           </div>
 
-          <div class="form-group row">
-            <label 
-            for="n_kilometraje" 
-            class="col-sm-4 col-form-label text-md-right"
-            >
-              {{ __('Kilometraje') }}
-            </label>
-
-            <div class="col-md-6">
-                <input 
-                  id="n_kilometraje" 
-                  name="n_kilometraje" 
-                  type="number"
-                  min="0"
-                  class="form-control"  
-                  required 
-                  autofocus
-                >
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label 
-            for="precio_hora" 
-            class="col-sm-4 col-form-label text-md-right"
-            >
-              {{ __('Precio/Hora') }}
-            </label>
-
-            <div class="col-md-6">
-              <input 
-                id="precio_hora" 
-                name="precio_hora" 
-                type="number"
-                min="0"
-                class="form-control"
-                required 
-                autofocus
-              >
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label 
-            for="aire_acondicionado" 
-            class="col-sm-4 col-form-label text-md-right"
-            >
-              {{ __('Aire Acondicionado') }}
-            </label>
-
-            <div class="col-md-6">
-              <select 
-                  id="aire_acondicionado" 
-                  name="aire_acondicionado"
-                  class="form-control selectpicker custom-select" 
-                  required 
-                  autofocus
-                  >
-                  <option selected disabled>
-                      ¿Posee Aire Acondicionado?
-                    </option>
-                  <option value="Sí">
-                    Sí
-                  </option>
-                  <option value="No">
-                    No
-                  </option>
-              </select>
-            </div>
-          </div>
+          <input type="hidden" name="actual_user_id" id="actual_user_id" value="{{ Crypt::encrypt(Auth::user()->id) }}">
 
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Agregar Vehículo</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success btn-galaxy">Agregar Vehículo</button>
+          <button type="button" class="btn btn-danger btn-galaxy" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
     </div>

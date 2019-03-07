@@ -1,12 +1,12 @@
 <!-- Modal -->
-<form action="/admin/package" method="post">
-  @method('POST')
+<form action="/admin/package/{{ $package->id }}" method="post">
+  @method('PATCH')
   @csrf
-  <div class="modal text-dark fade" id="modal-package-store" tabindex="-1" role="dialog" aria-labelledby="modal-edit-label" aria-hidden="true">
+  <div class="modal text-dark fade" id="modal-package-update-{{ $package->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-edit-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Agregar Nuevo Paquete</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">Editando Paquete ID: {{$package->id}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -25,7 +25,13 @@
                   id="hotel_id" 
                   name="hotel_id" 
                   class="form-control selectpicker custom-select"
-                  >        
+                  >
+                    @if ($package->hotel != null)
+                        <option value="{{ $package->hotel->id }}" selected>
+                      {{ $package->hotel->nombre }}
+                    </option>  
+                    @endif
+        
                     @foreach ($hotels as $hotel)
                     <option value="{{ $hotel->id }}">
                       {{ $hotel->nombre }}
@@ -49,6 +55,11 @@
                   name="vehicle_id" 
                   class="form-control selectpicker custom-select"
                   >
+                    @if ($package->vehicle != null)
+                        <option value="{{ $package->vehicle->id }}" selected>
+                        {{ $package->vehicle->patente }}
+                        </option>
+                    @endif
                     @foreach ($vehicles as $vehicle)
                     <option value="{{ $vehicle->id }}">
                       {{ $vehicle->patente }}
@@ -72,6 +83,7 @@
                     name="type" 
                     type="number" 
                     class="form-control"  
+                    value="{{ $package->type }}"
                     min="1"
                     max="2"
                     required 
