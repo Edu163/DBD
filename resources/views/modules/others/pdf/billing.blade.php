@@ -36,25 +36,74 @@
                         <div>Teléfono: +56 944 666 3333</div>
                     </div>
                 </div>
-
-            <div class="table-responsive-sm">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Item</th>
-                            <th>Descripción</th>
-                            <th class="center">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="left strong">Origin License</td>
-                            <td class="left">Extended License</td>
-                            <td class="right">$999,00</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            @if (count($venta->vehicleReservation) != 0)
+                <div class="table-responsive-sm">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Vehículos</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="align-middle">Zona</th>
+                                <th class="align-middle">Patente</th>
+                                <th class="align-middle">Marca</th>
+                                <th class="align-middle">Tipo</th>
+                                <th class="align-middle">Transmisión</th>
+                                <th class="align-middle">Combustible</th>
+                                <th class="align-middle">A/Acondicionado</th>
+                                <th class="align-middle">Precio/día</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($venta->vehicleReservation as $vehicleReservation)
+                            <tr>
+                                <td class="align-middle">{{ $vehicleReservation->vehicle->zone->nombre }}</td>
+                                <td class="align-middle">{{ $vehicleReservation->vehicle->patente }}</td>
+                                <td class="align-middle">{{ $vehicleReservation->vehicle->marca }}</td>
+                                <td class="align-middle">{{ $vehicleReservation->vehicle->tipo }}</td>
+                                <td class="align-middle">{{ $vehicleReservation->vehicle->transmision }}</td>
+                                <td class="align-middle">{{ $vehicleReservation->vehicle->combustible }}</td>
+                                <td class="align-middle">{{ $vehicleReservation->vehicle->aire_acondicionado }}</td>
+                                <td class="align-middle">{{ $vehicleReservation->vehicle->precio }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @endif
+            @if (count($venta->insuranceReservation) != 0)
+                <div class="table-responsive-sm">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Seguros</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="align-middle">Zona</th>
+                                <th class="align-middle">Tipo</th>
+                                <th class="align-middle">Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($venta->insuranceReservation as $insuranceReservation)
+                            <tr>
+                                <td class="align-middle">{{ $insuranceReservation->insurance->zone->nombre }}</td>
+                                <td class="align-middle">{{ $insuranceReservation->insurance->groupsize }}</td>
+                                <td class="align-middle">{{ $insuranceReservation->insurance->price }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-lg-4 col-sm-5">
 

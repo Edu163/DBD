@@ -23,43 +23,45 @@ class DatabaseSeeder extends Seeder
             /* Vuelos */
             AirportsTableSeeder::class,
             CompaniesTableSeeder::class,
-            SeatsTableSeeder::class,
             FlightDetailsTableSeeder::class,
             FlightsTableSeeder::class,
             FlightSellDetailsTableSeeder::class,
-            CheckInsTableSeeder::class,
+            SeatsTableSeeder::class,
+            //CheckInsTableSeeder::class,
             OriginDestiniesTableSeeder::class,
             FlightReservationsTableSeeder::class,
+            RoundtripsFlightsSeeder::class,
+            //SeatsTableSeeder::class,
 
             /* Vehiculos */
             VehicleCalendariesTableSeeder::class,
             ZonesTableSeeder::class,
             VehicleProvidersTableSeeder::class,
             VehiclesTableSeeder::class,
-            VehicleReservationsTableSeeder::class,
-            VehicleReservationDetailsTableSeeder::class,
-            VehicleServicesTableSeeder::class,
-            ServiceAndVehiclesTableSeeder::class,
-            ServiceAndProvidersTableSeeder::class,
+            //VehicleReservationsTableSeeder::class,
+            //VehicleReservationDetailsTableSeeder::class,
+            //VehicleServicesTableSeeder::class,
+            //ServiceAndVehiclesTableSeeder::class,
+            //ServiceAndProvidersTableSeeder::class,
 
 
             /* Hoteles */
             HotelsTableSeeder::class,
-            HotelReservationsTableSeeder::class,
             HousingServicesTableSeeder::class,
             HotelRoomsTableSeeder::class,
+            HotelReservationsTableSeeder::class,
             HousingCalendariesTableSeeder::class,
             PrivateHousingsTableSeeder::class,
             RoomsTableSeeder::class,
             HousingAndServicesTableSeeder::class,
             ServiceAndRoomsTableSeeder::class,
-            HotelReservationDetailsTableSeeder::class,
+            //HotelReservationDetailsTableSeeder::class,
 
             /* Seguros */
             InsurancesTableSeeder::class,
 
             /* Paquetes */
-            PackagesTableSeeder::class,
+            //PackagesTableSeeder::class,
 
             /* Cart */
             CartsTableSeeder::class,

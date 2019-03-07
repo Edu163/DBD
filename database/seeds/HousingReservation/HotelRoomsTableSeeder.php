@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Modules\HousingReservation\HotelRoom;
+use App\Modules\HousingReservation\Hotel;
 
 class HotelRoomsTableSeeder extends Seeder
 {
@@ -12,6 +13,11 @@ class HotelRoomsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(HotelRoom::class, 500)->create();
+        $hotels = Hotel::all();
+        foreach($hotels as $hotel){
+            factory(HotelRoom::class, 9)->create([
+                'hotel_id' => $hotel->id
+                ]);
+        }
     }
 }

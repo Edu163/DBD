@@ -9,6 +9,7 @@ class InsuranceReservation extends Model
     protected $table = 'insurance_reservations';
 
     protected $sell_id;
+    protected $insurance_id;
     protected $monto_total;
 
     protected $fillable = [

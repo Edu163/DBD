@@ -26,6 +26,15 @@ class Zone extends Model
     public function vehicleReservation(){
     	return $this->hasMany(VehicleReservation::class);
     }
+
+    public function vehicle(){
+    	return $this->hasMany(Vehicle::class);
+    }
+
+    public function insurance(){
+    	return $this->hasMany(Insurance::class);
+    }
+
     public function city(){
     	return $this->belongsTo(City::class);
     }

@@ -1,5 +1,5 @@
 {{-- Vuelo + Vehículo --}}
-<form action="/package" method="get">
+<form action="/packagevv" method="get">
     <!-- Línea 1 -->
     <div class="row justify-content-center">
         <div class="col">
@@ -20,9 +20,9 @@
                         <option selected disabled> 
                             Seleccione el origen de su vuelo 
                         </option>
-                        @foreach ($airports as $airport)
-                        <option value="{{ $airport->id }}">
-                            {{ $airport->ciudad }}
+                       @foreach ($cities as $city)
+                        <option value="{{ $city->id}}">
+                            {{ $city->nombre }}
                         </option>
                         @endforeach
                     </select>
@@ -47,9 +47,9 @@
                         <option selected disabled> 
                             Seleccione el destino de su vuelo 
                         </option>
-                        @foreach ($airports as $airport)
-                        <option value="{{ $airport->id }}">
-                            {{ $airport->ciudad }}
+                        @foreach ($cities as $city)
+                        <option value="{{ $city->id }}">
+                            {{ $city->nombre }}
                         </option>
                         @endforeach
                     </select>

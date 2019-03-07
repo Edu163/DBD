@@ -28,14 +28,20 @@ Route::get('/flight', 'FlightReservationControllers\FlightController@index')->na
 Route::get('/cart', 'OthersControllers\CartController@index')->name('cart.index');
 Route::patch('/cart/{product}', 'OthersControllers\CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'OthersControllers\CartController@destroy')->name('cart.destroy');
-Route::post('/cartflight/{flightDetail}', 'OthersControllers\CartController@storeFlights')->name('cart.storeFlights');
+Route::post('/cartflight/{vuelo}', 'OthersControllers\CartController@storeFlights')->name('cart.storeFlights');
+Route::post('/cartpackage/{package}', 'OthersControllers\CartController@storePackage')->name('cart.storePackage');
+Route::post('/cartroundtrip/{roundtrip}', 'OthersControllers\CartController@storeRoundTrip')->name('cart.storeRoundTrip');
 Route::post('/cartvehicle/{vehicle}', 'OthersControllers\CartController@storeVehicle')->name('cart.storeVehicle');
+Route::post('/cartRoom/{hab}', 'OthersControllers\CartController@storeRoom')->name('cart.storeRoom');
 Route::post('/cartInsurance/{insurance}', 'OthersControllers\CartController@storeInsurance')->name('cart.storeInsurance');
 // Route::post('/cart', 'CartController@storeHousing')->name('cart.storeHousing');
 
 /* Insurance */
 Route::get('/insuranceo', 'OthersControllers\InsuranceController@indexo');
 Route::get('/insurancet', 'OthersControllers\InsuranceController@indext');
+
+/* Sell Detail */
+Route::get('/selldetail/{sell}', 'OthersControllers\ProfileController@showSellDetail')->name('profile.showSellDetail');
 
 /* Admin Group */
 Route::group(['middleware' => ['auth', 'admin']], function() {
@@ -50,8 +56,8 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
         '/admin/vehicle_calendary'            => 'VehicleReservationControllers\VehicleCalendaryController',
         '/admin/vehicle'                      => 'VehicleReservationControllers\VehicleController',
         '/admin/vehicle_provider'             => 'VehicleReservationControllers\VehicleProviderController',
-        '/admin/vehicle_reservation'          => 'VehicleReservationControllers\VehicleReservationController',
-        '/admin/vehicle_reservation_detail'   => 'VehicleReservationControllers\VehicleReservationDetailController',
+        '/admin/vehicleReservation'          => 'VehicleReservationControllers\VehicleReservationController',
+        '/admin/vehicleReservationDetail'   => 'VehicleReservationControllers\VehicleReservationDetailController',
         '/admin/vehicle_service'              => 'VehicleReservationControllers\VehicleServiceController',
         '/admin/zone'                         => 'VehicleReservationControllers\ZoneController',
     ]);
@@ -62,9 +68,9 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
         '/admin/checkin'                      => 'FlightReservationControllers\CheckInController',
         '/admin/company'                      => 'FlightReservationControllers\CompanyController',
         '/admin/flight'                       => 'FlightReservationControllers\FlightController',
-        '/admin/flight_detail'                => 'FlightReservationControllers\FlightDetailController',
-        '/admin/flight_reservation'           => 'FlightReservationControllers\FlightReservationController',
-        '/admin/flight_sell_detail'           => 'FlightReservationControllers\FlightSellDetailController',
+        '/admin/flightDetail'                => 'FlightReservationControllers\FlightDetailController',
+        '/admin/flightReservation'           => 'FlightReservationControllers\FlightReservationController',
+        '/admin/flightSellDetail'           => 'FlightReservationControllers\FlightSellDetailController',
         '/admin/origin_destiny'               => 'FlightReservationControllers\OrigenDestinoController',
         '/admin/seat'                         => 'FlightReservationControllers\AsientoController',
         // '/admin/aviones'                       => 'FlightReservationControllers\AvionController',     
@@ -73,9 +79,9 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     /* Alojamiento */
     Route::resources([
         '/admin/hotel'                        => 'HousingReservationControllers\HotelController',
-        '/admin/hotel_reservation'            => 'HousingReservationControllers\HotelReservationController',
-        '/admin/hotel_reservation_detail'     => 'HousingReservationControllers\HotelReservationDetailController',
-        '/admin/hotel_room'                   => 'HousingReservationControllers\HotelRoomController',
+        '/admin/hotelReservation'            => 'HousingReservationControllers\HotelReservationController',
+        '/admin/hotelReservationDetail'     => 'HousingReservationControllers\HotelReservationDetailController',
+        '/admin/hotelRoom'                   => 'HousingReservationControllers\HotelRoomController',
         '/admin/housing_and_service'          => 'HousingReservationControllers\HousingAndServiceController',
         '/admin/housing_calendary'            => 'HousingReservationControllers\HousingCalendaryController',
         '/admin/housing_service'              => 'HousingReservationControllers\HousingServiceController',
@@ -86,11 +92,18 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 
     /* Otros */
     Route::resources([
-        // '/admin/cart'                         => 'OthersControllers\CartController',
         '/admin/package'                      => 'OthersControllers\PackageController',
+        '/admin/packageReservation'                      => 'OthersControllers\PackageController',
         '/admin/sell'                         => 'OthersControllers\SellController',
-        // '/admin/users'                        => 'OthersControllers\UserController',
+        '/admin/insurance'                    => 'OthersControllers\InsuranceController',
+        '/admin/insuranceReservation'         => 'OthersControllers\InsuranceReservationController',
+        '/admin/history'                      => 'OthersControllers\HistoryController',
         ]);
+    
+    Route::patch('/upuser/{id}', 'AdminController@upgradeToAdmin')->name('admin.upuser');
+    Route::patch('/downuser/{id}', 'AdminController@downgradeAdmin')->name('admin.downuser');
+    Route::delete('/deleteuser/{id}', 'AdminController@destroyUser')->name('admin.deleteuser');
+
 });
 
 /* User Group */
@@ -130,12 +143,13 @@ Route::resources([
     'airport'                      => 'FlightReservationControllers\AirportController',
     'checkin'                      => 'FlightReservationControllers\CheckInController',
     'company'                      => 'FlightReservationControllers\CompanyController',
+    'roundtrip'                    => 'FlightReservationControllers\RoundtripFlightController',
     //'flight'                       => 'FlightReservationControllers\FlightController',
     'flight_detail'                => 'FlightReservationControllers\FlightDetailController',
     'origin_destiny'               => 'FlightReservationControllers\OrigenDestinoController',
     'seat'                         => 'FlightReservationControllers\AsientoController',
     // '/aviones'                       => 'FlightReservationControllers\AvionController',  
-    'insurance'                    => 'FlightReservationControllers\InsuranceController',   
+    'insurance'                    => 'OthersControllers\InsuranceController',   
 ]);    
 
 /* Alojamiento */

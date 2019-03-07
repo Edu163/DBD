@@ -41,8 +41,13 @@ class FlightDetailController extends Controller
         // request()->session()->put('busqueda', $algo);
         // $test = request()->session()->get('buesqueda');
         // dd($test);
-    
-        return view('modules.flightReservation.flightdetail.flightDetail', compact('flight'));
+         if(count($flight)>0)
+        {
+            return view('modules.flightReservation.flightdetail.flightDetail', compact('flight'));
+        }
+        else{
+            return view('modules.flightReservation.flightdetail.noDisp');
+        }
     }
 
     /**

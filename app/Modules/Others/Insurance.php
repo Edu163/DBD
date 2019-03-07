@@ -4,6 +4,7 @@ namespace App\Modules\Others;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Modules\flightReservation\Flight;
+use App\Modules\vehicleReservation\Zone;
 
 class Insurance extends Model
 {
@@ -11,6 +12,7 @@ class Insurance extends Model
 
     protected $flight_id;
     protected $insurance_reservation_id;
+    protected $zone_id;
     protected $medicalService;
     protected $service2;
     protected $service3;
@@ -36,6 +38,10 @@ class Insurance extends Model
 
     public function flight(){
     	return $this->belongsTo(Flight::class);
+    }
+
+    public function zone(){
+    	return $this->belongsTo(Zone::class);
     }
 
     public function insuranceReservation(){

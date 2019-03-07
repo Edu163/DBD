@@ -22,9 +22,9 @@
                                    <option selected disabled>
                                         Seleccione su destino
                                    </option>
-                                   @foreach ($hotels as $hotel)
-                                   <option value="{{ $hotel->pais }}">
-                                        {{ $hotel->pais }}
+                                   @foreach ($cities as $city)
+                                   <option value="{{ $city->id }}">
+                                        {{ $city->nombre }}
                                    </option>
                                    @endforeach
                               </select>

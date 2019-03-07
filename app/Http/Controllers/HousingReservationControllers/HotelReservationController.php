@@ -6,6 +6,9 @@ use App\Modules\HousingReservation\HotelReservation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Crypt;
+use App\Modules\Others\History;
+use App\User;
 
 class HotelReservationController extends Controller
 {
@@ -115,9 +118,18 @@ class HotelReservationController extends Controller
      * @param  \App\HotelReservation  $hotelReservation
      * @return \Illuminate\Http\Response
      */
-      public function destroy($id)
+      public function destroy(Request $request, $id)
     {
         $hotelReservation = HotelReservation::findOrFail($id);
+
+        /* Guardar en el historial */
+        $user_id = Crypt::decrypt($request->actual_user_id); 
+        $actual_user = User::findOrFail($user_id);
+        History::create([
+            'user_id' => $actual_user->id,
+            'action' => 'El usuario '.$actual_user->name.' ha eliminado la reserva de hotel de Código: '.$hotelReservation->sell->source .' ID: '.$id.' Nombre: '.$hotelReservation->hotel->nombre,
+        ]);
+
         $hotelReservation->delete();
         return "eliminado";
     }

@@ -12,9 +12,9 @@
 </ul>
 <div class="tab-content" id="pills-tabContent">
      <div class="tab-pane fade show active" id="pills-insuranceOne" role="tabpanel" aria-labelledby="pills-insuranceOne-tab">
-          @include('modules.flightReservation.Insurance.formInsuranceOne')
+          @include('modules.others.insurance.formInsuranceOne')
      </div>
      <div class="tab-pane fade" id="pills-insuranceTwo" role="tabpanel" aria-labelledby="pills-insuranceTwo-tab">
-          @include('modules.flightReservation.Insurance.formInsuranceTwo')
+          @include('modules.others.insurance.formInsuranceTwo')
      </div>
 </div>

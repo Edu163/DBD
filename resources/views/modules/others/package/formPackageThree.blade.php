@@ -1,5 +1,5 @@
 {{-- Vuelo + Alojamiento + Vehículo --}}
-<form action="/package" method="get">
+<form action="/packagevav" method="get">
     <!-- Línea 1 -->
     <div class="row justify-content-center">
         <div class="col">
@@ -20,9 +20,9 @@
                         <option selected disabled> 
                             Seleccione el origen de su vuelo 
                         </option>
-                        @foreach ($airports as $airport)
-                        <option value="{{ $airport->id }}">
-                            {{ $airport->ciudad }}
+                       @foreach ($cities as $city)
+                        <option value="{{ $city->id }}">
+                            {{ $city->nombre }}
                         </option>
                         @endforeach
                     </select>
@@ -47,9 +47,9 @@
                         <option selected disabled> 
                             Seleccione el destino de su vuelo 
                         </option>
-                        @foreach ($airports as $airport)
-                        <option value="{{ $airport->id }}">
-                            {{ $airport->ciudad }}
+                       @foreach ($cities as $city)
+                        <option value="{{ $city->id}}">
+                            {{ $city->nombre }}
                         </option>
                         @endforeach
                     </select>
@@ -187,21 +187,28 @@
     </center>
 </form>
 <script>
-  addEventListener('load',inicioPackageThree,false);
+  addEventListener('load',inicio,false);
 
-  function inicioPackageThree()
+  function inicio()
   {
-    document.getElementById('fecha-ida-packageThree').addEventListener('change',cambioPackageThree,false);
+    document.getElementById('fecha-ida-packageThree').addEventListener('change',cambioVueltaThree,false);
   }
 
-  function cambioPackageThree()
+  function cambioVueltaThree()
   {
      var fecha = document.getElementById("fecha-ida-packageThree").value;
-     
+     var rest = fecha.substr(0,8);
+     var dayInt = parseInt(fecha.substr(8,10))+1;
+     var day = dayInt.toString();
+     if(dayInt < 10)
+     {
+          day = "0"+day;
+     }
+     var salida = rest + day;
     document.getElementById('fecha-ida-packageThree').innerHTML=document.getElementById('fecha-ida-packageThree').value;
-    document.getElementById("fecha-vuelta-packageThree").setAttribute("min", fecha);
+    document.getElementById("fecha-vuelta-packageThree").setAttribute("min", salida);
   }
-</script>  
+</script>
 
 <script>
      var today = new Date();

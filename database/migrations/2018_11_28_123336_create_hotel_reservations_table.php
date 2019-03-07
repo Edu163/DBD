@@ -20,8 +20,14 @@ class CreateHotelReservationsTable extends Migration
                 ->references('id')
                 ->on('sells')
                 ->onDelete('cascade');
+            $table->integer('hotel_room_id')->nullable();
+            $table->foreign('hotel_room_id')
+                ->references('id')
+                ->on('hotel_rooms')
+                ->onDelete('cascade');
             $table->float('precio');
-            $table->date('fecha');
+            $table->date('fecha_ingreso');
+            $table->date('fecha_egreso');
             $table->integer('cantidad');
             $table->float('monto_total');
             $table->float('descuento');

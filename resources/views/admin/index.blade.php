@@ -6,79 +6,12 @@
               {{ session()->get('success_message')}}
           </div>
         @endif
-        <!-- Icon Cards-->
-        <!-- <div class="row">
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-comments"></i>
-                </div>
-                <div class="mr-5">26 New Messages!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-warning o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-list"></i>
-                </div>
-                <div class="mr-5">11 New Tasks!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-success o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">123 New Orders!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-danger o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-life-ring"></i>
-                </div>
-                <div class="mr-5">13 New Tickets!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div> -->
 
         <div class="accordion" style="color: white !important;" id="mainAccordion">
           
           <!-- Usuarios -->
           <div class="card">
-            <div class="card-header" style="background-color: rgba(0, 0, 0, 0.1) !important;" id="userAccordion">
+            <div class="card-header" id="userAccordion">
               <h5 class="d-flex justify-content-between">
                 <button class="btn btn-link collapsed" style="color: white !important;" type="button" data-toggle="collapse" data-target="#user" aria-expanded="false" aria-controls="user">
                   <i class="fas fa-users"></i>
@@ -95,7 +28,7 @@
 
           <!-- Aéreo -->
           <div class="card">
-            <div class="card-header" style="background-color: rgba(0, 0, 0, 0.1) !important;" id="flightAccordion">
+            <div class="card-header" id="flightAccordion">
               <h5 class="d-flex justify-content-between">
                 <button class="btn btn-link collapsed" style="color: white !important;" type="button" data-toggle="collapse" data-target="#flight" aria-expanded="false" aria-controls="flight">
                   <i class="fas fa-fw fa-plane"></i>
@@ -144,7 +77,6 @@
               </div>
             </div>
           </div>
-        </div>
 
         <!-- Seguros -->
           <div class="card">
@@ -163,5 +95,24 @@
               </div>
             </div>
           </div>
+
+        <!-- Paquetes -->
+          <div class="card">
+            <div class="card-header" id="packageAccordion">
+              <h5 class="d-flex justify-content-between">
+                <button class="btn btn-link collapsed" style="color: white !important;" type="button" data-toggle="collapse" data-target="#package" aria-expanded="false" aria-controls="package">
+                  <i class="fas fa-cubes"></i>
+                    Paquetes
+                </button>
+              </h5>
+            </div>
+
+            <div id="package" class="collapse" aria-labelledby="packageAccordion" data-parent="#mainAccordion">
+              <div class="card-body">
+                @include('admin.package')
+              </div>
+            </div>
+          </div>
+          
         </div>
 @endsection

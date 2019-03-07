@@ -31,9 +31,10 @@
                 @include('modules.housingReservation.hotel.update') 
               </td>
               <td class="align-middle">
-              <form action="/hotel/{{ $hotel->id }}" method="post">
+              <form action="/admin/hotel/{{ $hotel->id }}" method="post">
                 @method('DELETE')
                 @csrf
+                <input type="hidden" name="actual_user_id" id="actual_user_id" value="{{ Crypt::encrypt(Auth::user()->id) }}">
               <center>
                 <button type="submit" class="btn btn-danger btn-galaxy" id="hotel" name="hotel"><span>Eliminar</span> </button>
               </center>

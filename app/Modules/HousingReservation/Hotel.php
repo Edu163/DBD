@@ -3,17 +3,12 @@
 namespace App\Modules\HousingReservation;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Modules\Others\Package;
 
 class Hotel extends Model
 {
     protected $table = 'hotels';
 	
-	protected $nombre;
-    protected $pais;
-    protected $direccion;
-    protected $estrellas;
-    protected $valoracion;
-    protected $capacidad;
 
     protected $fillable = [
     	'nombre',
@@ -30,6 +25,10 @@ class Hotel extends Model
 
 	public function hotelRoom(){
     	return $this->hasMany(HotelRoom::class);
+	}
+
+	public function package(){
+    	return $this->hasMany(Package::class);
 	}
 
 	public function city(){

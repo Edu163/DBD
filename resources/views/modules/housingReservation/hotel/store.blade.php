@@ -1,8 +1,8 @@
 <!-- Modal -->
-<form action="/hotel" method="post">
+<form action="/admin/hotel" method="post">
   @method('POST')
   @csrf
-  <div class="modal fade" id="modal-hotel-store" tabindex="-1" role="dialog" aria-labelledby="modal-hotel-store-label" aria-hidden="true">
+  <div class="modal text-dark fade" id="modal-hotel-store" tabindex="-1" role="dialog" aria-labelledby="modal-hotel-store-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -145,6 +145,8 @@
             </div>
           </div>
           
+          <input type="hidden" name="actual_user_id" id="actual_user_id" value="{{ Crypt::encrypt(Auth::user()->id) }}">
+
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-success">Agregar Hotel</button>

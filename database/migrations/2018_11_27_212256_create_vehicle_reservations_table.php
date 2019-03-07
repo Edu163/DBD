@@ -26,8 +26,8 @@ class CreateVehicleReservationsTable extends Migration
                 ->on('vehicles')
                 ->onDelete('cascade');
             $table->float('monto_total')->nullable();
-            $table->datetime('fecha_retiro')->nullable();
-            $table->datetime('fecha_regreso')->nullable();
+            $table->date('fecha_retiro')->nullable();
+            $table->date('fecha_regreso')->nullable();
             $table->timestamps();
         });
     }

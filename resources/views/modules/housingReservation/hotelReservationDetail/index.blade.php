@@ -1,9 +1,9 @@
 <!-- Modal -->
-<div class="modal fade" id="modal-vehicle-reservation-{{ $vehicle->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-vehicle-reservation-label" aria-hidden="true">
+<div class="modal fade" id="modal-housing-reservation-{{ $hab->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-housing-reservation-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header" style="color: black;">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Vehículo Patente: {{$vehicle->patente}}</h5>
+        <h5 class="modal-title" id="exampleModalCenterTitle">PRECIO: $ {{$hab->precio}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -13,33 +13,27 @@
           <div class="row">
               <div class="col-6">
               <p class="modal-text">
-                  <b>Marca</b>
+                  <b>Capacidad</b>
                   <br>
-                  {{ $vehicle->marca }}
+                  {{ $hab->capacidad }}
               </p>
 
               <p class="modal-text">
-                  <b>Tipo de Vehículo</b>
+                  <b>Camas</b>
                   <br>
-                  {{ $vehicle->tipo }}
+                  {{ $hab->camas }}
               </p>
 
               <p class="modal-text">
-                  <b>Gamma del Vehículo</b>
+                  <b>Número</b>
                   <br>
-                  {{ $vehicle->gamma }}
+                  {{ $hab->numero }}
               </p>
 
               <p class="modal-text">
-                  <b>Tipo de Transmisión</b>
+                  <b>Precio</b>
                   <br>
-                  {{ $vehicle->transmision }}
-              </p>
-
-              <p class="modal-text">
-                  <b>Tipo de Combustible</b>
-                  <br>
-                  {{ $vehicle->combustible }}
+                  $ {{ $hab->precio }}
               </p>
 
               </div>
@@ -75,11 +69,11 @@
       </div>
 
       <div class="modal-footer" style="color: grey; ">
-        <form action="{{ route('cart.storeVehicle', $vehicle) }}" method="POST" onsubmit="return confirm('¿Esta seguro que desea agregar al carro?')">
+        <form action="{{ route('cart.storeRoom', $hab) }}" method="POST" onsubmit="return confirm('¿Esta seguro que desea agregar al carro?')">
           @method('POST')
           @csrf
           <button type="submit" class="btn btn-success btn-galaxy">
-              <i class="fas fa-cart-plus" style="margin-right: 3%;"></i>Reservar Vehículo</button>
+              <i class="fas fa-cart-plus" style="margin-right: 3%;"></i>Reservar Habitación</button>
           <button type="button" class="btn btn-danger btn-galaxy" data-dismiss="modal">Volver</button>
         </form>
       </div>

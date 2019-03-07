@@ -9,9 +9,7 @@ class Flight extends Model
 {
 
     protected $table = 'flights';
-    public $escala = [];
-    protected $tramo1_id;
-    protected $tramo2_id;
+
 
     protected $fillable = [
         'origin_id',
@@ -19,135 +17,22 @@ class Flight extends Model
         'tramo1_id',
         'tramo2_id',
         'escalas',
-        'precio',
+        'fecha_despegue',
+        'fecha_aterrizaje',
+        'precio_economy',
+        'precio_bussiness',
+        'precio_premium',
     ];
 
-    /*public function __construct($escalaId = [])
-    {
-        foreach ($escalaId as $id) {
-            $this->escala[] = FlightDetail::find($id);
-        }
-    }*/
-    public function getEscala1()
-    {
-        if(count($this->escala) > 0)
-        {
-            return $this->escala[0];
-        }
-        return null;
-    }
-    public function getEscala2()
-    {
-        if(count($this->escala) > 0)
-        {
-            if(count($this->escala) == 2)
-            {
-                return $this->escala[1];
-            }
-        }
-        return null;
-    }
-    /** TEST */
-    public function getFechaSalida1(){
-        if(count($this->escala) > 0){
-            $tramo1 = $this->escala[0];
-            $fechaPartida = Carbon::parse($tramo1->fecha_despegue);
-            return $fechaPartida;
-        }
-        return null;
-    }
-    public function getFechaAterrizaje1(){
-        if(count($this->escala) > 0){
-            $tramo1 = $this->escala[0];
-            $fechaPartida = Carbon::parse($tramo1->fecha_aterrizaje);
-            return $fechaPartida;
-        }
-        return null;
-    }
-    public function getFechaSalida2(){
-        $largo = count($this->escala);
-        if($largo > 0){
-            $tramo1 = $this->escala[$largo - 1];
-            $fechaDespegue = Carbon::parse($tramo1->fecha_despegue);
-            return $fechaDespegue;
-        }
-        return null;
-    }
-    public function getFechaAterrizaje2(){
-        $largo = count($this->escala);
-        if($largo > 0){
-            $tramo1 = $this->escala[$largo - 1];
-            $fechaAterrizaje = Carbon::parse($tramo1->fecha_aterrizaje);
-            return $fechaAterrizaje;
-        }
-        return null;
-    }
 
-    /** ----- */
-    public function getOrigen(){
-        if(count($this->escala) > 0){
-            $tramo1 = $this->escala[0];
-            return $tramo1->origin->ciudad;
-        }
-        return null;
-    }
-    public function getDestino(){
-        $largo = count($this->escala);
-        if($largo > 0)
-        {
-            $tramo2 = $this->escala[$largo-1];
-            return $tramo2->destiny->ciudad;
-        }
-        return null;
-    }
-    public function getPrecio(){
-        $precio = 0;
-        foreach($this->escala as $escala){
-            $precio = $precio + $escala->precio;
-        }
-        return $precio;
-    }
-    public function getFechaSalida(){
-        if(count($this->escala) > 0){
-            $tramo1 = $this->escala[0];
-            $fechaPartida = Carbon::parse($tramo1->fecha_despegue);
-            return $fechaPartida;
-        }
-        return null;
-    }
-    public function getFechaAterrizaje(){
-        $largo = count($this->escala);
-        if($largo > 0){
-            $tramo1 = $this->escala[$largo - 1];
-            $fechaAterrizaje = Carbon::parse($tramo1->fecha_aterrizaje);
-            return $fechaAterrizaje;
-        }
-        return null;
-    }
-    public function duracion()
+    public function origin()
     {
-        $cantidadEscalas = count($this->escala);
-        $tramo1 = $this->escala[0];
-        if($cantidadEscalas == 1){
-            $fechaPartida = Carbon::parse($tramo1->fecha_despegue);
-            $fechaLlegada = Carbon::parse($tramo1->fecha_aterrizaje);
-            return $fechaLlegada->diff($fechaPartida)->format('%Hh %im');
-        }
-        else
-        {
-            $tramo2 = $this->escala[$cantidadEscalas-1];
-            $fechaPartida = Carbon::parse($tramo1->fecha_despegue);
-            $fechaLlegada = Carbon::parse($tramo2->fecha_aterrizaje);
-            return $fechaLlegada->diff($fechaPartida)->format('%Hh %im');
-        }
-
+        return $this->belongsTo(Airport::class, 'origin_id');
     }
-    public function getNumeroEscalas()
+    public function destiny()
     {
-        return count($this->escala);
+        return $this->belongsTo(Airport::class, 'destiny_id');
     }
-
-
     public function getTramo1()
     {
         return $this->belongsTo(FlightDetail::class, 'tramo1_id');
@@ -156,16 +41,172 @@ class Flight extends Model
     {
         return $this->belongsTo(FlightDetail::class, 'tramo2_id');
     }
+    public function tipoCabina($precio)
+    {
+        if($this->precio_economy == $precio)
+        {
+            return "economy";
+        }
+        else if($this->precio_bussiness == $precio)
+        {
+            return "bussiness";
+        }
+        else if($this->precio_premium == $precio)
+        {
+            return "premium";
+        }
+        return null;
+    }
+
+    public function descontarAsientos($cabina, $cantidad)
+    {
+        if($cabina == "economy")
+        {
+            if($this->escalas == 1)
+            {
+                $tramo1 = $this->getTramo1;
+                $tramo1->asientos_economy = $tramo1->asientos_economy - $cantidad;
+                $tramo1->save();
+                //dd($tramo1->asientos_economy);
+            }
+            else if ($this->escalas == 2)
+            {
+                $tramo1 = $this->getTramo1;
+                $tramo2 = $this->getTramo2;
+                $tramo1->asientos_economy = $tramo1->asientos_economy - $cantidad;
+                $tramo2->asientos_economy = $tramo2->asientos_economy - $cantidad;
+                $tramo1->save();
+                $tramo2->save();
+            }
+        }
+        else if($cabina == "bussiness")
+        {
+            if($this->escalas == 1)
+            {
+                $tramo1 = $this->getTramo1;
+                $tramo1->asientos_bussiness = $tramo1->asientos_bussiness- $cantidad;
+                $tramo1->save();
+            }
+            else if ($this->escalas == 2)
+            {
+                $tramo1 = $this->getTramo1;
+                $tramo2 = $this->getTramo2;
+                $tramo1->asientos_bussiness = $tramo1->asientos_bussiness- $cantidad;
+                $tramo2->asientos_bussiness = $tramo2->asientos_bussiness- $cantidad;
+                $tramo1->save();
+                $tramo2->save();
+            }
+        }
+        else if($cabina == "premium")
+        {
+            if($this->escalas == 1)
+            {
+                $tramo1 = $this->getTramo1;
+                $tramo1->asientos_premium = $tramo1->asientos_premium - $cantidad;
+                $tramo1->save();
+            }
+            else if ($this->escalas == 2)
+            {
+                $tramo1 = $this->getTramo1;
+                $tramo2 = $this->getTramo2;
+                $tramo1->asientos_premium = $tramo1->asientos_premium - $cantidad;
+                $tramo2->asientos_premium = $tramo2->asientos_premium - $cantidad;
+                $tramo1->save();
+                $tramo2->save();
+            }
+        }
+
+    }
     public static function buscarVuelos($params)
     {
-
+        $vuelosFiltrados = [];
         $fechaPartida = Carbon::createFromFormat('Y-m-d', $params['fechaida']);
-
-        $vuelos = static::where('origin_id', '=', $params['origen'])
-            ->whereDate('fecha_despegue', '=', $fechaPartida->format('Y-m-d'))
-            ->where('destiny_id', '=', $params['destino'])
-            ->get();
-
-        return $vuelos;
+        /** Premium */
+        if($params['cabina'] == 1) {
+            //dump("aqui1");
+            $vuelos = static::where('origin_id', '=', $params['origen'])
+                ->whereDate('fecha_despegue', '=', $fechaPartida->format('Y-m-d'))
+                ->where('destiny_id', '=', $params['destino'])
+                ->get();
+            foreach ($vuelos as $vuelo)
+            {
+                //dump($vuelo->escalas);
+                if($vuelo->escalas == 1)
+                {
+                    //dump("aqui1.1");
+                    if($vuelo->getTramo1->asientos_premium >= $params['pasajeros'])
+                    {
+                        $vuelosFiltrados[] = $vuelo;
+                    }
+                }
+                else if ($vuelo->escalas == 2)
+                {
+                    if($vuelo->getTramo1->asientos_premium >= $params['pasajeros'])
+                    {
+                        if($vuelo->getTramo2->asientos_premium >= $params['pasajeros'])
+                        {
+                            $vuelosFiltrados[] = $vuelo;
+                        }
+                    }
+                }
+            }
+        }
+        /** Bussiness */
+        else if($params['cabina'] == 2) {
+            //dump("aqui2");
+            $vuelos = static::where('origin_id', '=', $params['origen'])
+                ->whereDate('fecha_despegue', '=', $fechaPartida->format('Y-m-d'))
+                ->where('destiny_id', '=', $params['destino'])
+                ->get();
+            foreach ($vuelos as $vuelo)
+            {
+                if($vuelo->escalas == 1)
+                {
+                    if($vuelo->getTramo1->asientos_bussiness >= $params['pasajeros'])
+                    {
+                        $vuelosFiltrados[] = $vuelo;
+                    }
+                }
+                else if ($vuelo->escalas == 2)
+                {
+                    if($vuelo->getTramo1->asientos_bussiness >= $params['pasajeros'])
+                    {
+                        if($vuelo->getTramo2->asientos_bussiness >= $params['pasajeros'])
+                        {
+                            $vuelosFiltrados[] = $vuelo;
+                        }
+                    }
+                }
+            }
+        }
+        /** Economy */
+        else {
+            //dump("aqui3");
+            $vuelos = static::where('origin_id', '=', $params['origen'])
+                ->whereDate('fecha_despegue', '=', $fechaPartida->format('Y-m-d'))
+                ->where('destiny_id', '=', $params['destino'])
+                ->get();
+            foreach ($vuelos as $vuelo)
+            {
+                if($vuelo->escalas == 1)
+                {
+                    if($vuelo->getTramo1->asientos_economy >= $params['pasajeros'])
+                    {
+                        $vuelosFiltrados[] = $vuelo;
+                    }
+                }
+                else if ($vuelo->escalas == 2)
+                {
+                    if($vuelo->getTramo1->asientos_economy >= $params['pasajeros'])
+                    {
+                        if($vuelo->getTramo2->asientos_economy >= $params['pasajeros'])
+                        {
+                            $vuelosFiltrados[] = $vuelo;
+                        }
+                    }
+                }
+            }
+        }
+        return $vuelosFiltrados;
     }
 }

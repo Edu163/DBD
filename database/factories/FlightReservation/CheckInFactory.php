@@ -9,9 +9,9 @@ $factory->define(CheckIn::class, function (Faker $faker) {
     $user_id = DB::table('users')->select('id')->get();
 
     return [
-        'seat_id' => $seat_id->random()->id,
+        /*'seat_id' => $seat_id->random()->id,
         'user_id' => $user_id->random()->id,
         'fecha' => $faker->date,
-        'estado' => $faker->randomElement($array = array ('Confirmado','Pendiente')),
+        'estado' => $faker->randomElement($array = array ('Confirmado','Pendiente')),*/
     ];
 });
