@@ -13,19 +13,23 @@
           <div class="row">
               <div class="col-6">
               <p class="modal-text">
-                  <b>Hotel</b>
+                  <b>Vehículo</b>
                   <br>
-                  {{ $package->hotelroom->hotel->nombre }}
+                  {{ $package->vehicle->marca }}
               </p>
 
               <p class="modal-text">
-                  <b>Ubicación</b>
+                  <b>Tipo de vehículo</b>
                   <br>
-                  {{ $package->hotelroom->hotel->ciudad }}
+                  {{ $package->vehicle->tipo}}
               </p>
-
               <p class="modal-text">
-                  <b>Precio</b>
+                  <b>Tipo de combustible</b>
+                  <br>
+                  {{ $package->vehicle->combustible}}
+              </p>
+              <p class="modal-text">
+                  <b>Precio paquete</b>
                   <br>
                   $ {{ $package->precio }}
               </p>

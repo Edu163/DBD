@@ -24,7 +24,7 @@ class CreatePackageReservationsTable extends Migration
             $table->foreign('package_id')
                 ->references('id')
                 ->on('packages');
-            $table->float('monto_total')->nullable();
+            $table->string('monto_total')->nullable();
             $table->timestamps();
         });
     }

@@ -11,6 +11,7 @@ use App\Modules\FlightReservation\FlightDetail;
 use App\Modules\VehicleReservation\Vehicle;
 use App\Modules\HousingReservation\HotelRoom;
 use App\Modules\Others\Insurance;
+use App\Modules\Others\Package;
 
 class CartController extends Controller
 {
@@ -139,6 +140,24 @@ class CartController extends Controller
             ->associate('App\Modules\Others\Insurance');
 
          return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
+    }
+    public function storePackage(Package $package)
+    {
+        //dd(":D");
+        if($package->type == 1) {
+            $params = request()->session()->get('busqueda.packageva');
+            $id = $package->id;
+            request()->session()->put('busqueda.packageva' . $id, $params);
+        }
+        else if($package->type == 2) {
+            $params = request()->session()->get('busqueda.packagevv');
+            $id = $package->id;
+            request()->session()->put('busqueda.packagevv' . $id, $params);
+        }
+        Cart::add($package->id, 'destino-santiago', 1, $package->precio)
+            ->associate('App\Modules\Others\Package');
+
+        return redirect()->route('cart.index')->with('success_message', 'Se ha añadido a tu carrito!');
     }
 
     /**

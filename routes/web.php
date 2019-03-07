@@ -29,6 +29,7 @@ Route::get('/cart', 'OthersControllers\CartController@index')->name('cart.index'
 Route::patch('/cart/{product}', 'OthersControllers\CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'OthersControllers\CartController@destroy')->name('cart.destroy');
 Route::post('/cartflight/{vuelo}', 'OthersControllers\CartController@storeFlights')->name('cart.storeFlights');
+Route::post('/cartpackage/{package}', 'OthersControllers\CartController@storePackage')->name('cart.storePackage');
 Route::post('/cartroundtrip/{roundtrip}', 'OthersControllers\CartController@storeRoundTrip')->name('cart.storeRoundTrip');
 Route::post('/cartvehicle/{vehicle}', 'OthersControllers\CartController@storeVehicle')->name('cart.storeVehicle');
 Route::post('/cartRoom/{hab}', 'OthersControllers\CartController@storeRoom')->name('cart.storeRoom');

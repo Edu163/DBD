@@ -10,14 +10,6 @@ class Flight extends Model
 
     protected $table = 'flights';
 
-    /*protected $origin_id;
-    protected $destiny_id;
-    protected $tramo1_id;
-    protected $tramo2_id;
-    protected $escalas;
-    protected $fecha_despegue;
-    protected $fecha_aterrizaje;
-    protected $precio;*/
 
     protected $fillable = [
         'origin_id',

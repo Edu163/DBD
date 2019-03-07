@@ -111,7 +111,7 @@ class PackageController extends Controller
                 'pasajeros' => 'required|integer',
                 'cabina' => 'required|integer|between:1,3',
             ]);
-        //dd($params);
+        request()->session()->put('busqueda.packageva', $params);
         $parametrosVuelo = [
             'origen' => $params['origen-packageOne'],
             'destino' => $params['destino-packageOne'],
@@ -137,6 +137,7 @@ class PackageController extends Controller
             $parametrosHabitacion = [
                 'fecha-entrada-housing' => $fechaEntrada2,
                 'fecha-salida-housing' => $params['fecha-vuelta-packageOne'],
+                //anañadir por persona
             ];
             foreach($hotels as $hotel)
             {
@@ -162,20 +163,6 @@ class PackageController extends Controller
             $packages = array_slice($packages, 0, 9);
             //$packages = $packages->inRandomOrder()->take(9)->get();
         }
-        //dump($packages);
-        //dump($packages);
-        //dump($habitaciones);
-        // $hotels = Hotel::all()->where('ciudad', request('destino-packageOne'));
-        // $destino = request('destino-packageOne');
-        // //dd($destino);
-        // $array_id = [];
-		// foreach($hotels as $hotel)
-		// {
-		// 	$array_id[] = $hotel->id;
-        // }
-        // //dd($array_id);
-        // $packages = Package::all()->where('type', 1)
-        //                           ->whereIn('hotel_id', $array_id);
         if(count($packages)>0)
         {
             return view('modules.others.package.indexva', compact('packages'));
@@ -187,20 +174,62 @@ class PackageController extends Controller
 
     public function vv()
     {
-        $vehicles = Vehicle::all()->where('ciudad', request('destino'));
-        $destino = request('destino');
-        //dd($destino);
-        $array_id = [];
-		foreach($vehicles as $vehicle)
-		{
-			$array_id[] = $vehicle->id;
+        $params = $this->validate(request(), [
+            'origen' => 'required|integer',
+            'destino' => 'required|integer',
+            'fecha-ida-packageTwo' => 'required|date',
+            'fecha-vuelta-packageTwo' => 'required|date',
+            'pasajeros' => 'required|integer',
+            'cabina' => 'required|integer|between:1,3',
+        ]);
+        request()->session()->put('busqueda.packagevv', $params);
+        $parametrosVuelo = [
+            'origen' => $params['origen'],
+            'destino' => $params['destino'],
+            'fechaida2' => $params['fecha-ida-packageTwo'],
+            'fechavuelta' => $params['fecha-vuelta-packageTwo'],
+            'pasajeros' => $params['pasajeros'],
+            'cabina' => $params['cabina'],
+        ];
+
+        $packages = [];
+
+        $roundtrips = RoundtripFlight::buscarVuelosIdaVuelta($parametrosVuelo);
+        //dump($roundtrips);
+        foreach($roundtrips as $roundtrip)
+        {
+            $fechaEntrada1 = $roundtrip->vueloIda->fecha_aterrizaje;
+            $fechaEntrada2 = Carbon::createFromFormat('Y-m-d H:i:s', $fechaEntrada1)->format('Y-m-d');
+
+            $parametrosVehiculo = [
+                'zone' => $params['destino'],
+                'fecha-recogida' => $fechaEntrada2,
+                'fecha-devolucion' => $params['fecha-vuelta-packageTwo'],
+                'pasajeros' => $params['pasajeros']
+            ];
+            $vehiculos = Vehicle::buscarVehiculos($parametrosVehiculo);
+            foreach ($vehiculos as $vehiculo)
+            {
+                $packages[] = Package::create([
+                    'roundtrip_id' => $roundtrip->id,
+                    'hotel_room_id'=> null,
+                    'vehicle_id' => $vehiculo->id,
+                    'type' => 2,
+                    'fecha_inicio' => $params['fecha-ida-packageTwo'],
+                    'fecha_fin' => $params['fecha-vuelta-packageTwo'],
+                    'precio' => (int)(($vehiculo->precio + $roundtrip->precio_economy) * 0.8),
+
+                ]);
+            }
+
         }
-        //dd($array_id);
-        $packages = Package::all()->where('type', 2)
-                                  ->whereIn('vehicle_id', $array_id);
+        if(count($packages) > 9)
+        {
+            $packages = array_slice($packages, 0, 9);
+        }
         if(count($packages)>0)
         {
-            return view('modules.others.package.index', compact('packages'));
+            return view('modules.others.package.indexvv', compact('packages'));
         }
         else{
             return view('modules.others.package.noDisp');

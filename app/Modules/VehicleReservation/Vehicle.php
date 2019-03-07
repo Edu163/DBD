@@ -9,22 +9,6 @@ class Vehicle extends Model
 {
     protected $table = 'vehicles';
 
-    protected $patente;
-    protected $vehicle_calendary_id;
-    protected $vehicle_provider_id;
-    protected $zone_id;
-    protected $marca;
-    protected $tipo;
-    protected $gamma;
-    protected $transmision;
-    protected $combustible;
-    protected $n_pasajeros;
-    protected $equipaje_g;
-    protected $equipaje_p;
-    protected $n_puertas;
-    protected $n_kilometraje;
-    protected $precio;
-    protected $aire_acondicionado;
 
     protected $fillable = [
         'patente',

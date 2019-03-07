@@ -4,6 +4,8 @@ namespace App\Http\Controllers\OthersControllers;
 
 
 use App\Modules\FlightReservation\Flight;
+use App\Modules\Others\PackageReservation;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use App\Http\Requests\CheckoutRequest;
@@ -129,7 +131,7 @@ class CheckoutController extends Controller
                     'flight_id' => $item->model->id,
                     'roundtrip_id' => null,
                     'precio' => strval($item->subtotal),
-                    'descuento' => '200',
+                    'descuento' => '0',
                     'tipo' => $cabina,
                     'cantidad' => $item->qty,
                     'monto_total' => strval($item->total),
@@ -173,7 +175,7 @@ class CheckoutController extends Controller
                     'fecha_egreso' => $params['fecha-salida-housing'],
                     'cantidad' => $item->qty,
                     'monto_total' => strval($item->total),
-                    'descuento' => 100,
+                    'descuento' => 0,
                 ]);
             }
             else if(get_class($item->model) == "App\Modules\FlightReservation\RoundtripFlight")
@@ -185,7 +187,7 @@ class CheckoutController extends Controller
                     'flight_id' => null,
                     'roundtrip_id' => $item->model->id,
                     'precio' => strval($item->subtotal),
-                    'descuento' => '200',
+                    'descuento' => '0',
                     'tipo' => $cabina,
                     'cantidad' => $item->qty,
                     'monto_total' => strval($item->total),
@@ -196,6 +198,102 @@ class CheckoutController extends Controller
                 $vueloVuelta = Flight::findOrFail($item->model->vueloVuelta->id);
                 $vueloIda->descontarAsientos($cabina, $item->qty);
                 $vueloVuelta->descontarAsientos($cabina, $item->qty);
+            }
+            else if(get_class($item->model) == "App\Modules\Others\Package")
+            {
+                //dd("hola");
+                if($item->model->type == 1) {
+                    $params = request()->session()->get('busqueda.packageva' . $item->model->id);
+                    //dump($params);
+                    PackageReservation::create([
+                        'sell_id' => $venta->id,
+                        'package_id' => $item->model->id,
+                        'monto_total' => strval($item->total),
+                    ]);
+                    //dd($item->model->roundtrip);
+                    $cabina = "";
+                    if ($params['cabina'] == "1") {
+                        //dump(":D1");
+                        $cabina = "premium";
+                    } else if ($params['cabina'] == "2") {
+                        //dump(":D2");
+                        $cabina = "bussiness";
+                    } else if ($params['cabina'] == "3") {
+                        //dump(":D3");
+                        $cabina = "economy";
+                    }
+                    $vueloIda = Flight::findOrFail($item->model->flight->vueloIda->id);
+                    $vueloVuelta = Flight::findOrFail($item->model->flight->vueloVuelta->id);
+                    $vueloIda->descontarAsientos($cabina, $params['pasajeros']);
+                    $vueloVuelta->descontarAsientos($cabina, $params['pasajeros']);
+
+                    HotelReservation::create([
+                        'sell_id' => $venta->id,
+                        'hotel_room_id' => $item->model->hotelroom->id,
+                        'precio' => strval($item->total),
+                        'fecha_ingreso' => $params['fecha-ida-packageOne'],
+                        'fecha_egreso' => $params['fecha-vuelta-packageOne'],
+                        'cantidad' => $params['pasajeros'],
+                        'monto_total' => strval($item->total),
+                        'descuento' => 0,
+                    ]);
+                    FlightSellDetail::create([
+                        'sell_id' => $venta->id,
+                        'flight_id' => null,
+                        'roundtrip_id' => $item->model->flight->id,
+                        'precio' => strval($item->model->flight->precio),
+                        'descuento' => '0',
+                        'tipo' => $cabina,
+                        'cantidad' => $params['pasajeros'],
+                        'monto_total' => strval($item->total),
+                    ]);
+                }
+                else if($item->model->type == 2) {
+                    $params = request()->session()->get('busqueda.packagevv' . $item->model->id);
+                    //dump($params);
+                    PackageReservation::create([
+                        'sell_id' => $venta->id,
+                        'package_id' => $item->model->id,
+                        'monto_total' => strval($item->total),
+                    ]);
+                    //dd($item->model->roundtrip);
+                    $cabina = "";
+                    if ($params['cabina'] == "1") {
+                        //dump(":D1");
+                        $cabina = "premium";
+                    } else if ($params['cabina'] == "2") {
+                        //dump(":D2");
+                        $cabina = "bussiness";
+                    } else if ($params['cabina'] == "3") {
+                        //dump(":D3");
+                        $cabina = "economy";
+                    }
+                    $vueloIda = Flight::findOrFail($item->model->flight->vueloIda->id);
+                    $vueloVuelta = Flight::findOrFail($item->model->flight->vueloVuelta->id);
+                    $vueloIda->descontarAsientos($cabina, $params['pasajeros']);
+                    $vueloVuelta->descontarAsientos($cabina, $params['pasajeros']);
+
+                    $fechaEntrada1 = $item->model->flight->vueloIda->fecha_aterrizaje;
+                    $fechaEntrada2 = Carbon::createFromFormat('Y-m-d H:i:s', $fechaEntrada1)->format('Y-m-d');
+
+                    VehicleReservation::create([
+                        'sell_id' => $venta->id,
+                        'vehicle_id' => $item->model->vehicle->id,
+                        'fecha_retiro' => $fechaEntrada2,
+                        'fecha_regreso' => $params['fecha-vuelta-packageTwo'],
+                        'monto_total' => strval($item->total),
+                    ]);
+                    FlightSellDetail::create([
+                        'sell_id' => $venta->id,
+                        'flight_id' => null,
+                        'roundtrip_id' => $item->model->flight->id,
+                        'precio' => strval($item->model->flight->precio),
+                        'descuento' => '0',
+                        'tipo' => $cabina,
+                        'cantidad' => $params['pasajeros'],
+                        'monto_total' => strval($item->total),
+                    ]);
+                }
             }
         }
         /* PDF y Email */
