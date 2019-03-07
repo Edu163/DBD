@@ -48,12 +48,11 @@ class CheckInController extends Controller
         $venta = Sell::where('source', '=', $request['source'])->first();
         $checkin = CheckIn::where('source', '=', $request['source'])->first();
         //dd($venta);
-        $validor = false;
+        $validador = false;
         if($venta == null or $checkin != null or $venta->user_id != Auth::user()->id)
         {
             /** poner algo bonito */
-            dd("Lo sentimos, no hay una venta asociada a este código o el checkin ya se ha realizado");
-            dd("Favor iniciar sesión con la cuenta que adquirió el vuelo");
+            return view('modules.others.checkin.noDisp');
         }
         else{
             $detalles_venta = FlightSellDetail::where('sell_id', '=', $venta->id)->get();
@@ -127,7 +126,7 @@ class CheckInController extends Controller
         }
         if($validador == true)
         {
-            //retornar vista hermosa
+            return view('modules.others.checkin.confirmation');
         }
         //return CheckIn::create($request->all());
     }

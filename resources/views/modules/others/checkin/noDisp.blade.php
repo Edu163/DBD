@@ -3,11 +3,10 @@
  <div class="card buy-card flex-fill">
     <div class="card-body buy-card-body">
         <center>
-            <img src="img/happy.png" alt="Sorry" style="width:200px">
-            <h2 class="text-center">Gracias!!</h2>
-            <p class="text-center">Le informamos que su compra ha sido realizada exitosamente. Si desea seguir viendo nuestros productos presione "Ok".</p>
+            <img src="img/sad.png" alt="Sorry" style="width:200px">
+            <h1>Upps, Su código no existe o su check-in ya fue realizado</h1>
             <button type="submit" class="btn btn-galaxy wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-            <a href="/">Ok</a>
+            <a href="/">Inicio</a>
             </button>
         </center>  
     </div>
