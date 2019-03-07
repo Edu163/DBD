@@ -400,7 +400,7 @@ class CheckoutController extends Controller
             }
         }
         /* PDF y Email */
-        /*$this->getPdf($venta);
+        $this->getPdf($venta);
         $pdfpath = public_path('storage/public/pdf/' . $venta->source . '.pdf');
         $email = $request->email;
         $username = $request->name;
@@ -414,7 +414,7 @@ class CheckoutController extends Controller
                 ->to($email, $username)
                 ->subject('Confirmación de reserva exitosa')
                 ->attach($pdfpath);
-        }); */
+        });
     }
     /**
      * Display the specified resource.
