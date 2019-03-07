@@ -42,7 +42,7 @@
         <div class="container">
 
             <div id="logo" class="pull-left">
-                <h1><a href="#intro" class="scrollto">GP14</a></h1>
+                <h1><a href="#intro" class="scrollto">GP14Airland</a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="#intro"><img src="img/logo.png" alt="" title=""></a> -->
             </div>
