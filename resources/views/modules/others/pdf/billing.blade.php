@@ -202,12 +202,25 @@
                         <tbody>
                             @foreach ($venta->packageReservation as $packageReservation)
                         <tr>
-                            <td class="align-middle">{{ $packageReservation->package->hotelroom->hotel->nombre }}</td>
-                            <td class="align-middle">{{ $packageReservation->package->hotelroom->hotel->ciudad }}</td>
+                            @if ($packageReservation->package->hotel != null)
+                                <td class="align-middle">{{ $packageReservation->package->hotel->nombre }}</td>
+                            <td class="align-middle">{{ $packageReservation->package->hotel->ciudad }}</td>  
+                            @else 
+                            <td class="align-middle">No Aplica</td>
+                            <td class="align-middle">No Aplica</td> 
+                            @endif
+                             
                             <td class="align-middle">{{ $packageReservation->package->getDias() }}</td>
-                            <td class="align-middle">{{ $packageReservation->package->vehicle->patente }}</td>
+                            @if ($packageReservation->package->vehicle != null)
+                                 <td class="align-middle">{{ $packageReservation->package->vehicle->patente }}</td>
                             <td class="align-middle">{{ $packageReservation->package->vehicle->marca }}</td>
                             <td class="align-middle">{{ $packageReservation->package->vehicle->tipo }}</td>
+                            @else 
+                            <td class="align-middle">No Aplica</td>
+                            <td class="align-middle">No Aplica</td> 
+                            <td class="align-middle">No Aplica</td> 
+                             @endif
+                            
                         </tr>
                         @endforeach
                         </tbody>

@@ -12,6 +12,9 @@ use App\Modules\VehicleReservation\Zone;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Crypt;
+use App\Modules\Others\History;
+use App\User;
 
 class PackageController extends Controller
 {
@@ -52,7 +55,14 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        Package::create($request->all());
+        $package = Package::create($request->all());
+        /* Guardar en el historial */
+        $user_id = Crypt::decrypt($request->actual_user_id); 
+        $actual_user = User::findOrFail($user_id);
+        History::create([
+            'user_id' => $actual_user->id,
+            'action' => 'El usuario '.$actual_user->name.' ha agregado el paquete ID: '.$package->id,
+        ]);
         return back();
     }
 
@@ -109,9 +119,18 @@ class PackageController extends Controller
      * @param  \App\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Package $package)
+    public function destroy(Request $request, $id)
     {
-        //
+        $package = Package::find($id);
+        /* Guardar en el historial */
+        $user_id = Crypt::decrypt($request->actual_user_id); 
+        $actual_user = User::findOrFail($user_id);
+        History::create([
+            'user_id' => $actual_user->id,
+            'action' => 'El usuario '.$actual_user->name.' ha eliminado el paquete ID: '.$package->id,
+        ]);
+        $package->delete();
+        return back();
     }
 
     public function va()

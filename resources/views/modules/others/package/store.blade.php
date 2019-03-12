@@ -14,7 +14,7 @@
         <div class="modal-body">
           <div class="form-group row">
             <label 
-            for="hotel_id" 
+            for="hotel_room_id" 
             class="col-sm-4 col-form-label text-md-right"
             >
               {{ __('Hotel') }}
@@ -22,11 +22,13 @@
 
             <div class="col-md-6">
                 <select 
-                  id="hotel_id" 
-                  name="hotel_id" 
+                  id="hotel_room_id" 
+                  name="hotel_room_id" 
                   class="form-control selectpicker custom-select"
                   >        
                     @foreach ($hotels as $hotel)
+                    <option value="">
+                    </option>
                     <option value="{{ $hotel->id }}">
                       {{ $hotel->nombre }}
                     </option>
@@ -50,7 +52,9 @@
                   class="form-control selectpicker custom-select"
                   >
                     @foreach ($vehicles as $vehicle)
-                    <option value="{{ $vehicle->id }}">
+                    <option value=null>
+                    </option>
+                    <option value={{ $vehicle->id }}>
                       {{ $vehicle->patente }}
                     </option>
                     @endforeach
@@ -73,7 +77,7 @@
                     type="number" 
                     class="form-control"  
                     min="1"
-                    max="2"
+                    max="3"
                     required 
                     autofocus
                   >
@@ -128,6 +132,37 @@
             </div>
           </div>
 
+          <div class="form-group row">
+              <label 
+              for="precio" 
+              class="col-sm-4 col-form-label text-md-right"
+              >
+                {{ __('Precio') }}
+              </label>
+
+              <div class="col-md-6">
+                  <input 
+                    id="precio" 
+                    name="precio" 
+                    type="number" 
+                    class="form-control"  
+                    required 
+                    autofocus
+                  >
+              </div>
+            </div>
+
+            <div class="col-md-6">
+                <input 
+                  id="precio" 
+                  name="precio" 
+                  type="hidden" 
+                  class="form-control" 
+                  value=1
+                >
+            </div>
+
+          <input type="hidden" name="actual_user_id" id="actual_user_id" value="{{ Crypt::encrypt(Auth::user()->id) }}">
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-success btn-galaxy">Guardar cambios</button>
